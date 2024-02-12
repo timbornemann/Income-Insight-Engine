@@ -1,0 +1,98 @@
+{
+  "categories": [
+    "Lebensmittel",
+    "Einkommen",
+    "Miete",
+    "Unterhaltung",
+    "Transport",
+    "Gesundheit",
+    "Versicherung",
+    "Sparen",
+    "Kleidung",
+    "Bildung"
+  ],
+  "descriptions": [
+    "Wochenendeinkauf",
+    "Gehalt",
+    "Monatsmiete",
+    "Kinoabend",
+    "Bahnticket",
+    "Arztbesuch",
+    "Haftpflichtversicherung",
+    "Sparbeitrag",
+    "Schuhe kaufen",
+    "Bücher für das Studium"
+  ],
+  "payment_methods": [
+    "Bargeld",
+    "Debitkarte",
+    "Kreditkarte",
+    "Überweisung",
+    "PayPal",
+    "Gutschein"
+  ],
+  "frequencies": [
+    "einmalig",
+    "täglich",
+    "wöchentlich",
+    "monatlich",
+    "jährlich"
+  ],
+  "priorities": [
+    "notwendig",
+    "optional",
+    "luxuriös"
+  ],
+  "currencies": [
+    "EUR",
+    "USD",
+    "GBP",
+    "JPY",
+    "CHF"
+  ],
+  "projects": [
+    "Hausrenovierung",
+    "Urlaub",
+    "Weiterbildung",
+    "Familienfeier",
+    "Geschenke"
+  ],
+  "budget_categories": [
+    "Alltag",
+    "Einkommen",
+    "Feste Ausgaben",
+    "Freizeit",
+    "Sparen und Investieren"
+  ],
+  "locations": [
+    "Berlin, Deutschland",
+    "München, Deutschland",
+    "Hamburg, Deutschland",
+    "Köln, Deutschland",
+    "Frankfurt, Deutschland"
+  ],
+  "tags": [
+    "Wochenende",
+    "Arbeit",
+    "Wohnung",
+    "Freizeit",
+    "Reise",
+    "Gesundheit",
+    "Bildung",
+    "Geschenke"
+  ],
+  "partners": [
+    "Supermarkt XY",
+    "Arbeitgeber GmbH",
+    "Vermieter XY",
+    "Kino XYZ",
+    "Fitnessstudio ABC"
+  ],
+  "notes": [
+    "Sonderangebote genutzt",
+    "Zahlung mit Gutschein",
+    "Inklusive Nebenkosten",
+    "Mit Freunden",
+    "Online-Kauf"
+  ]
+}
