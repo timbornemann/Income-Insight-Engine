@@ -47,6 +47,7 @@ x64/
 *.sln
 *.config
 *.csproj
+.manifest
 
 # Visual C++ cache files
 ipch/
