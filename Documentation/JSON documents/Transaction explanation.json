@@ -1,0 +1,37 @@
+{
+  "transactions": [
+    {
+      "id": 1, // Unique identifier for the transaction
+      "date": "2024-02-10", // Date of the transaction in YYYY-MM-DD format
+      "description": "Weekend groceries", // Brief description of the transaction
+
+      // Financial details
+      "amount": -50.75, // Amount of the transaction; negative values indicate expenses, positive values indicate income
+      "currency": "EUR", // Currency of the transaction, e.g., "EUR", "USD", "GBP"
+      "payment_method": "Debit Card", // Payment method used: "Cash", "Debit Card", "Credit Card", "Transfer"
+      "tax_deductible": false, // Tax relevance of the transaction: true or false
+      "reimbursable": false, // Whether the transaction is reimbursable: true or false
+
+      // Categorization
+      "category": "Groceries", // Category of the transaction, e.g., "Groceries", "Rent", "Salary"
+      "budget_category": "Daily Life", // Budget category, e.g., "Daily Life", "Entertainment", "Savings"
+      "tags": ["Weekend", "Food"], // Tags or keywords related to the transaction
+      "classification": "Manual", // Classification of the transaction: "Manual" or "Automatic"
+
+      // Relationship
+      "account": "Checking Account", // Associated account, e.g., "Checking Account", "Savings Account", "Credit Card Account"
+      "partner": "Supermarket XY", // Business partner or entity involved in the transaction
+      "project": "Family Budget", // Link to a project if applicable
+
+      // Administrative
+      "status": "Completed", // Status of the transaction: "Completed", "Pending"
+      "priority": "Essential", // Priority of the expense: "Essential", "Optional", "Luxury"
+      "frequency": "One-Time", // Frequency of the transaction: "One-Time", "Daily", "Weekly", "Monthly", "Yearly"
+      "location": "Berlin, Germany", // Location of the transaction
+
+      // Additional Information
+      "receipt": "path/to/receipt1.jpg", // Path to the receipt or document of the transaction
+      "notes": "Took advantage of special offers" // Additional notes regarding the transaction
+    }
+  ]
+}
