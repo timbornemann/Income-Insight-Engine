@@ -9,11 +9,19 @@ namespace IncomeInsightEngine.src.dataStructure.management
 {
     public class JsonTransaction
     {
+
+        private static bool onlyOneInstance = false;
         private string _filePath;
 
         // Constructor without parameters that sets a default file path
         public JsonTransaction()
-        {           
+        {
+
+            if (onlyOneInstance)
+            {
+                return;
+            }
+
             string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string filePath = Path.Combine(appDataPath, "IncomeInsightEngine", "transactions.json");
 
@@ -24,6 +32,9 @@ namespace IncomeInsightEngine.src.dataStructure.management
                 Directory.CreateDirectory(directoryPath);
             }
             _filePath = filePath;
+
+            onlyOneInstance = true;
+        
         }
 
         // Method to create JSON file if it doesn't exist
@@ -74,10 +85,5 @@ namespace IncomeInsightEngine.src.dataStructure.management
             return transactions;
         }
 
-        // Method to read a single transaction from a JsonElement
-        public Transaction ReadSingleTransaction(JToken jsonElement)
-        {
-            return jsonElement.ToObject<Transaction>();
-        }
     }
 }
