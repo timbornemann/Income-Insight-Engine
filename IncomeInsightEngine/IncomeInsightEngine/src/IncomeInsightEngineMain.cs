@@ -12,21 +12,12 @@ namespace src
         public static void Main(string[] args)
         {
 
-            TransactionManager manager = new TransactionManager();
-
-
-            Console.WriteLine("Id");
+            TransactionManager manager = new TransactionManager();         
             manager.DisplayAllTransactionsShortInComandline();
 
-            manager.SortTransactionsByAmountAscending();
+            manager.Close();
+            
 
-            Console.WriteLine("Amount Ascending");
-            manager.DisplayAllTransactionsShortInComandline();
-
-            manager.SortTransactionsByDateAscending();
-
-            Console.WriteLine("Date Ascending");
-            manager.DisplayAllTransactionsShortInComandline();
 
         }
     }
