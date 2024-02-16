@@ -50,5 +50,11 @@ namespace dataStructure
         {
             Console.WriteLine($"ID: {Id}, Date: {Date.ToShortDateString()}, Amount: {Amount}, Category: {Category}, Description: {Description}, Payment Method: {PaymentMethod}, Frequency: {Frequency}, Location: {Location}, Account: {Account}, Tags: {string.Join(", ", Tags)}, Partner: {Partner}, Priority: {Priority}, Status: {Status}, Project: {Project}, Tax Deductible: {TaxDeductible}, Currency: {Currency}, Reimbursable: {Reimbursable}, Receipt: {Receipt}, Budget Category: {BudgetCategory}, Notes: {Notes}, Classification: {Classification}");
         }
+
+        public void DisplayShortTransactionDetails()
+        {
+            Console.WriteLine($"ID: {Id}, Date: {Date.ToShortDateString()}, Amount: {Amount}, Partner: {Partner}, Priority: {Priority}, Status: {Status}, Currency: {Currency}");
+        }
+
     }
 }
