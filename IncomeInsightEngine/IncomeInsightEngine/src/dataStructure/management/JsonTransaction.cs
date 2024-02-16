@@ -12,6 +12,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
 
         private static bool onlyOneInstance = false;
         private string _filePath;
+        private FileEncryptor _encryptor;
 
         // Constructor without parameters that sets a default file path
         public JsonTransaction()
@@ -34,7 +35,8 @@ namespace IncomeInsightEngine.src.dataStructure.management
             _filePath = filePath;
 
             onlyOneInstance = true;
-        
+
+            _encryptor = new FileEncryptor();
         }
 
         // Method to create JSON file if it doesn't exist
@@ -50,6 +52,27 @@ namespace IncomeInsightEngine.src.dataStructure.management
             Console.WriteLine("Datei existiert schon: " + _filePath);
             return false;
         }
+
+        public bool OpenTransactionFile()
+        {
+
+            CreateFile();
+            string decryptedData = _encryptor.DecryptFile(_filePath);
+            File.WriteAllText(_filePath, decryptedData);
+
+            return false;
+        }
+
+        public bool CloseTransactionFile()
+        {
+           string decryptedData = File.ReadAllText(_filePath);
+
+            _encryptor.EncryptFile(_filePath, decryptedData);
+          
+            return false;
+        }
+
+
 
         // Method to add a new transaction to the JSON file
         public bool AddTransaction(Transaction transaction)
