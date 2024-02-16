@@ -15,6 +15,8 @@ namespace IncomeInsightEngine.src.dataStructure.management
             jsonTransaction = new JsonTransaction();
             transactions = new List<Transaction>();
 
+
+            Open();
             LoadTransactions();
         }
 
@@ -188,6 +190,16 @@ namespace IncomeInsightEngine.src.dataStructure.management
             transactions = transactions.OrderBy(t => priorityMap[t.Priority]).ToList();
         }
 
+
+        public void Open()
+        {
+            jsonTransaction.OpenTransactionFile();
+        }
+
+        public void Close()
+        {
+            jsonTransaction.CloseTransactionFile();
+        }
 
     }
 }
