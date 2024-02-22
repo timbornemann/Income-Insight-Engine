@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using dataStructure;
+using System.Threading;
 
 namespace IncomeInsightEngine.src.dataStructure.management
 {
@@ -13,6 +14,8 @@ namespace IncomeInsightEngine.src.dataStructure.management
         private static bool onlyOneInstance = false;
         private string _filePath;
         private FileEncryptor _encryptor;
+
+
 
         // Constructor without parameters that sets a default file path
         public JsonTransaction()
@@ -37,6 +40,8 @@ namespace IncomeInsightEngine.src.dataStructure.management
             onlyOneInstance = true;
 
             _encryptor = new FileEncryptor();
+
+            CreateFile();
         }
 
         // Method to create JSON file if it doesn't exist
@@ -46,29 +51,21 @@ namespace IncomeInsightEngine.src.dataStructure.management
             {
                 // Create a new JSON file with an empty transactions array
                 File.WriteAllText(_filePath, JsonConvert.SerializeObject(new { transactions = new List<Transaction>() }));
-                Console.WriteLine("Datei erstellt: " + _filePath);
+                CloseTransactionFile();                           
                 return true;
-            }
-            Console.WriteLine("Datei existiert schon: " + _filePath);
+            }           
             return false;
         }
 
         public bool OpenTransactionFile()
-        {
-
-            CreateFile();
-            string decryptedData = _encryptor.DecryptFile(_filePath);
-            File.WriteAllText(_filePath, decryptedData);
-
+        {            
+             _encryptor.DecryptFile(_filePath);          
             return false;
         }
 
         public bool CloseTransactionFile()
-        {
-           string decryptedData = File.ReadAllText(_filePath);
-
-            _encryptor.EncryptFile(_filePath, decryptedData);
-          
+        {       
+            _encryptor.EncryptFile(_filePath);      
             return false;
         }
 
@@ -77,6 +74,8 @@ namespace IncomeInsightEngine.src.dataStructure.management
         // Method to add a new transaction to the JSON file
         public bool AddTransaction(Transaction transaction)
         {
+            OpenTransactionFile();
+
             // Read the existing file
             var jsonData = File.ReadAllText(_filePath);
             var jsonObj = JsonConvert.DeserializeObject<dynamic>(jsonData);
@@ -88,23 +87,29 @@ namespace IncomeInsightEngine.src.dataStructure.management
 
             // Write the updated json back to the file
             File.WriteAllText(_filePath, JsonConvert.SerializeObject(jsonObj, Formatting.Indented));
+
+            CloseTransactionFile();
             return true;
         }
 
         // Method to save data to the JSON file
         public bool SaveData(List<Transaction> transactions)
         {
+            OpenTransactionFile();
             var jsonData = JsonConvert.SerializeObject(new { transactions = transactions }, Formatting.Indented);
             File.WriteAllText(_filePath, jsonData);
+            CloseTransactionFile();
             return true;
         }
 
         // Method to read all data from the JSON file
         public List<Transaction> ReadData()
         {
+            OpenTransactionFile();
             var jsonData = File.ReadAllText(_filePath);
             var jsonObj = JsonConvert.DeserializeObject<dynamic>(jsonData);
             var transactions = JsonConvert.DeserializeObject<List<Transaction>>(jsonObj.transactions.ToString());
+            CloseTransactionFile();
             return transactions;
         }
 
