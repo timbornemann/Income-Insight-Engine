@@ -7,6 +7,8 @@ namespace IncomeInsightEngine.src.dataStructure.management
 {
     public class TransactionManager
     {
+      
+
         private List<Transaction> transactions;
         private JsonTransaction jsonTransaction;
 
@@ -16,17 +18,15 @@ namespace IncomeInsightEngine.src.dataStructure.management
             transactions = new List<Transaction>();
 
 
-            Open();
+            
             LoadTransactions();
         }
 
         private void LoadTransactions()
         {
-            if (jsonTransaction.CreateFile()){}
-            else
-            {              
+                        
                 transactions = jsonTransaction.ReadData();
-            }
+            
         }
 
         public bool AddTransaction(Transaction transaction)
@@ -35,7 +35,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
             {
                 throw new ArgumentNullException(nameof(transaction));
             }
-        
+
+            if (TransactionAlreadyExists(transaction))
+            {
+                return false;
+            }
+
             var existingTransaction = GetTransactionById(transaction.Id);
             if (existingTransaction != null)
             {             
@@ -46,6 +51,55 @@ namespace IncomeInsightEngine.src.dataStructure.management
             jsonTransaction.AddTransaction(transaction);
             return true;
         }
+
+        public bool AddTransaction(List<Transaction> data)
+        {
+            if(data == null)
+            {
+                return false;
+            }
+
+
+            foreach (var transaction in data)
+            {
+
+                if (transaction == null)
+                {
+                    throw new ArgumentNullException(nameof(transaction));
+                }
+
+                if (TransactionAlreadyExists(transaction))
+                {                
+                    continue;
+                }
+
+                var existingTransaction = GetTransactionById(transaction.Id);
+                if (existingTransaction == null)
+                {
+                    transactions.Add(transaction);
+                    jsonTransaction.AddTransaction(transaction);
+                }
+
+            
+            }
+            return true;
+        }
+
+        private bool TransactionAlreadyExists(Transaction transaction)
+        {
+
+            foreach(Transaction transaction1 in transactions)
+            {
+                if (transaction.Equals(transaction1))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+
 
 
         public IEnumerable<Transaction> GetAllTransactions()
@@ -73,7 +127,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
             transaction.PaymentMethod = updatedTransaction.PaymentMethod;
             transaction.Frequency = updatedTransaction.Frequency;
             transaction.Location = updatedTransaction.Location;
-            transaction.Account = updatedTransaction.Account;
+            transaction.PartnerIBAN = updatedTransaction.PartnerIBAN;
             transaction.Tags = new List<string>(updatedTransaction.Tags); 
             transaction.Partner = updatedTransaction.Partner;
             transaction.Priority = updatedTransaction.Priority;
@@ -178,25 +232,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
             transactions = transactions.OrderByDescending(t => t.Location).ToList();
         }
 
-        public void SortTransactionsByPriority()
-        {
-            var priorityMap = new Dictionary<string, int>
-        {
-            {"notwendig", 1},
-            {"optional", 2},
-            {"luxuriös", 3}
-        };
-
-            transactions = transactions.OrderBy(t => priorityMap[t.Priority]).ToList();
-        }
-
-
-        public void Open()
+        public void OpenFileManually()
         {
             jsonTransaction.OpenTransactionFile();
         }
 
-        public void Close()
+        public void CloseFileManually()
         {
             jsonTransaction.CloseTransactionFile();
         }
