@@ -19,7 +19,7 @@
       "classification": "Manual", // Classification of the transaction: "Manual" or "Automatic"
 
       // Relationship
-      "account": "Checking Account", // Associated account, e.g., "Checking Account", "Savings Account", "Credit Card Account"
+      "PartnerIBAN": "DE19124564811030981280", // Associated IBAN, e.g., "DE19124564811030981280"
       "partner": "Supermarket XY", // Business partner or entity involved in the transaction
       "project": "Family Budget", // Link to a project if applicable
 

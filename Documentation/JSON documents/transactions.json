@@ -13,7 +13,7 @@
       "budget_category": "Daily Life",
       "tags": ["Groceries", "Food"],
       "classification": "Manual",
-      "account": "Checking Account",
+      "PartnerIBAN": "DE19124564811030981280",
       "partner": "Supermarket ABC",
       "project": "Family Budget",
       "status": "Completed",
@@ -36,7 +36,7 @@
       "budget_category": "Entertainment",
       "tags": ["Dinner", "Celebration"],
       "classification": "Manual",
-      "account": "Credit Card Account",
+      "PartnerIBAN": "DE19124564828762181280",
       "partner": "Restaurant XYZ",
       "project": null,
       "status": "Completed",
@@ -59,7 +59,7 @@
       "budget_category": "Housing",
       "tags": ["Rent", "Housing"],
       "classification": "Manual",
-      "account": "Savings Account",
+      "PartnerIBAN": "DE124588421430981280",
       "partner": "Landlord Company",
       "project": null,
       "status": "Completed",
@@ -82,7 +82,7 @@
       "budget_category": "Entertainment",
       "tags": ["Movies", "Friends"],
       "classification": "Manual",
-      "account": "Wallet",
+      "PartnerIBAN": null,
       "partner": "Cinema Complex",
       "project": null,
       "status": "Completed",
@@ -105,7 +105,7 @@
 	  "budget_category": "Services",
 	  "tags": ["Subscription", "Services"],
 	  "classification": "Manual",
-	  "account": "Credit Card Account",
+	  "PartnerIBAN": "DE1912456215896451280",
 	  "partner": "Streaming Service XYZ",
 	  "project": null,
 	  "status": "Completed",
@@ -128,7 +128,7 @@
 	  "budget_category": "Travel",
 	  "tags": ["Gasoline", "Travel"],
 	  "classification": "Manual",
-	  "account": "Checking Account",
+	  "PartnerIBAN": "DE12123486411030981280",
 	  "partner": "Gas Station ABC",
 	  "project": null,
 	  "status": "Completed",
@@ -151,7 +151,7 @@
 	  "budget_category": "Work",
 	  "tags": ["Freelance", "Work"],
 	  "classification": "Manual",
-	  "account": "Checking Account",
+	  "PartnerIBAN": "DE19124568128023164",
 	  "partner": "Client Company XYZ",
 	  "project": "Freelance Project ABC",
 	  "status": "Completed",
@@ -174,7 +174,7 @@
 	  "budget_category": "Health",
 	  "tags": ["Gym", "Health"],
 	  "classification": "Manual",
-	  "account": "Credit Card Account",
+	  "PartnerIBAN": "DE19124451234654",
 	  "partner": "Gym XYZ",
 	  "project": null,
 	  "status": "Completed",
@@ -197,7 +197,7 @@
 	  "budget_category": "Social",
 	  "tags": ["Birthday", "Gifts"],
 	  "classification": "Manual",
-	  "account": "Checking Account",
+	  "PartnerIBAN": "DE192315484030981280",
 	  "partner": "Gift Shop ABC",
 	  "project": null,
 	  "status": "Completed",
@@ -220,7 +220,7 @@
 	  "budget_category": "Extra",
 	  "tags": ["Bonus", "Extra"],
 	  "classification": "Manual",
-	  "account": "Savings Account",
+	  "PartnerIBAN": "DE13212316841030981280",
 	  "partner": "Employer Company XYZ",
 	  "project": null,
 	  "status": "Completed",
@@ -230,11 +230,5 @@
 	  "receipt": null,
 	  "notes": "Received leap year bonus from employer"
 	}
-
-
-
-
-
-
   ]
 }
