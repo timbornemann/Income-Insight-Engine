@@ -6,6 +6,7 @@
 *.user
 *.sln.docstates
 *.docx
+*.xlsx
 
 # Build results
 
