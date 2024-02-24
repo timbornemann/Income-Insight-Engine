@@ -146,9 +146,24 @@ namespace IncomeInsightEngine.src.dataStructure.management
             return (listOfTransactions ?? transactions).Where(t => t.Amount < 0);
         }
 
+        public IEnumerable<Transaction> GetTransactionsByAmount(decimal amount , IEnumerable<Transaction> listOfTransactions = null)
+        {
+            return (listOfTransactions ?? transactions).Where(t => t.Amount == amount);
+        }
+
+        public IEnumerable<Transaction> GetTransactionsByAmount(decimal minAmount, decimal maxAmount, IEnumerable<Transaction> listOfTransactions = null)
+        {
+            return (listOfTransactions ?? transactions).Where(t => t.Amount >= minAmount && t.Amount <= maxAmount);
+        }
+
         public IEnumerable<Transaction> GetTransactionsByDate(DateTime date, IEnumerable<Transaction> listOfTransactions = null)
         {
             return (listOfTransactions ?? transactions).Where(t => t.Date.Date == date.Date);
+        }
+
+        public IEnumerable<Transaction> GetTransactionsByDate(DateTime startDate, DateTime endDate, IEnumerable<Transaction> listOfTransactions = null)
+        {
+            return (listOfTransactions ?? transactions).Where(t => t.Date.Date >= startDate.Date && t.Date.Date <= endDate.Date);
         }
 
         public IEnumerable<Transaction> GetTransactionsByDescription(string description, IEnumerable<Transaction> listOfTransactions = null)
