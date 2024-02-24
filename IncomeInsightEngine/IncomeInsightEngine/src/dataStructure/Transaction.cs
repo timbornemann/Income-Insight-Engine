@@ -52,14 +52,37 @@ namespace dataStructure
         // Method to display transaction details
         public void DisplayTransactionDetails()
         {
-            Console.WriteLine($"ID: {Id}, Date: {Date.ToShortDateString()}, Amount: {Amount}, Category: {Category}, Description: {Description}, Payment Method: {PaymentMethod}, Frequency: {Frequency}, Location: {Location}, Account: {PartnerIBAN}, Tags: {string.Join(", ", Tags)}, Partner: {Partner}, Priority: {Priority}, Status: {Status}, Project: {Project}, Tax Deductible: {TaxDeductible}, Currency: {Currency}, Reimbursable: {Reimbursable}, Receipt: {Receipt}, Budget Category: {BudgetCategory}, Notes: {Notes}, Classification: {Classification}");
+            Console.WriteLine($"{"ID:",-10} {Id,-10}" +
+                              $"{"Date:",-12} {Date.ToShortDateString(),-12}" +
+                              $"{"Amount:",-10} {Amount.ToString("C"),-10}" +
+                              $"{"Currency:",-8} {Currency,-8}" +
+                              $"{"Payment Method:",-15} {PaymentMethod,-15}" +
+                              $"{"Tax Deductible:",-15} {TaxDeductible,-15}" +
+                              $"{"Reimbursable:",-15} {Reimbursable,-15}" +
+                              $"{"Category:",-15} {Category,-15}" +
+                              $"{"Budget Category:",-15} {BudgetCategory,-15}" +
+                              $"{"Tags:",-10} {string.Join(", ", Tags),-10}" +
+                              $"{"Partner:",-15} {Partner,-15}" +
+                              $"{"Partner IBAN:",-15} {PartnerIBAN,-15}" +
+                              $"{"Project:",-15} {Project,-15}" +
+                              $"{"Status:",-10} {Status,-10}" +
+                              $"{"Priority:",-10} {Priority,-10}" +
+                              $"{"Frequency:",-10} {Frequency,-10}" +
+                              $"{"Location:",-15} {Location,-15}" +
+                              $"{"Receipt:",-10} {Receipt,-10}" +
+                              $"{"Notes:",-15} {Notes,-15}" +
+                              $"{"Classification:",-15} {Classification,-15}");
         }
 
+        // Die kurze Version für die wichtigsten Details
         public void DisplayShortTransactionDetails()
         {
-            Console.WriteLine($"ID: {Id}, Date: {Date.ToShortDateString()}, Amount: {Amount}, Partner: {Partner}, Priority: {Priority}, Status: {Status}, Currency: {Currency}");
-        }
+            Console.WriteLine($"{"ID:",-1} {Id,-6}" +
+                              $"{"Date:",-1} {Date.ToShortDateString(),-12}" +
+                              $"{"Amount:",-2} {Amount.ToString("C"),-12}" +
+                              $"{"Partner:",-2} {Partner,-50}");
 
+        }
 
         public override bool Equals(object obj)
         {
