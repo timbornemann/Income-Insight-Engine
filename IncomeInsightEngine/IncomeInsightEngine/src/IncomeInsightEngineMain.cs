@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Security.Principal;
 using System.Windows;
 using dataStructure;
@@ -16,12 +17,16 @@ namespace src
     {
         [STAThread]
         public static void Main(string[] args)
-        {
-            string partner = "ABC";
+        { 
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+            /*
             TransactionManager manager = new TransactionManager();       
-            manager.DisplayShortTransactionInformationsInComandline(manager.SortTransactionsByAmountDescending(manager.GetTransactionsByPartner(partner)));
-            manager.DisplayTotalAmountInComandline(manager.GetTransactionsByPartner(partner));
-            
+            manager.DisplayShortTransactionInformationsInComandline(manager.SortTransactionsByAmountDescending(manager.GetTransactionsByDate( new DateTime(2023, 1, 1), new DateTime(2024, 1, 1))));
+            manager.DisplayTotalIncomeInComandline(manager.GetTransactionsByDate(new DateTime(2023, 1, 1), new DateTime(2024, 1, 1)));
+            manager.DisplayTotalExpensesInComandline(manager.GetTransactionsByDate(new DateTime(2023, 1, 1), new DateTime(2024, 1, 1)));
+            */
+
             /*
             Application app = new Application(); 
             ManualTransactionEntryWindow window = new ManualTransactionEntryWindow(); 
