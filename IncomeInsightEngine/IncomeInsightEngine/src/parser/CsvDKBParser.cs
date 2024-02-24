@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace src.parser
 {
-    public class DKBParser
+    public class CsvDKBParser
     {
         public List<Transaction> ParseCsv(string filePath)
         {
