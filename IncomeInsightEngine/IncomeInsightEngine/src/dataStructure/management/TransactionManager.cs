@@ -7,9 +7,7 @@ using System.Linq;
 namespace IncomeInsightEngine.src.dataStructure.management
 {
     public class TransactionManager
-    {
-      
-
+    {   
         private List<Transaction> transactions = new List<Transaction>();
         private JsonTransaction jsonTransaction;
 
@@ -124,6 +122,36 @@ namespace IncomeInsightEngine.src.dataStructure.management
                 return true;
             }
             return false;
+        }
+
+        public decimal CalculateTotalAmount()
+        {
+            return CalculateTotalAmount(transactions);
+        }
+
+        public decimal CalculateTotalAmount(IEnumerable<Transaction> listOfTransactions)
+        {
+            return listOfTransactions.Sum(t => t.Amount);
+        }
+
+        public decimal CalculateTotalIncome()
+        {
+            return CalculateTotalIncome(transactions);
+        }
+
+        public decimal CalculateTotalIncome(IEnumerable<Transaction> listOfTransactions)
+        {
+            return listOfTransactions.Where(t => t.Amount > 0).Sum(t => t.Amount);
+        }
+
+        public decimal CalculateTotalExpenses()
+        {
+            return CalculateTotalExpenses(transactions);
+        }
+
+        public decimal CalculateTotalExpenses(IEnumerable<Transaction> listOfTransactions)
+        {
+            return listOfTransactions.Where(t => t.Amount < 0).Sum(t => t.Amount);
         }
 
         public Transaction GetTransactionById(int id)
@@ -241,34 +269,26 @@ namespace IncomeInsightEngine.src.dataStructure.management
             return (listOfTransactions ?? transactions).Where(t => t.Notes != null && t.Notes.IndexOf(notes, StringComparison.OrdinalIgnoreCase) >= 0);
         }
 
-        public decimal CalculateTotalAmount()
+        public IEnumerable<Transaction> SortTransactionsByIdAscending()
         {
-            return CalculateTotalAmount(transactions);
+            transactions = SortTransactionsByIdAscending(transactions).ToList();
+            return transactions.AsReadOnly();
         }
 
-        public decimal CalculateTotalAmount(IEnumerable<Transaction> listOfTransactions)
+        public IEnumerable<Transaction> SortTransactionsByIdAscending(IEnumerable<Transaction> listOfTransactions)
         {
-            return listOfTransactions.Sum(t => t.Amount);
+            return listOfTransactions.OrderBy(t => t.Id);
         }
 
-        public decimal CalculateTotalIncome()
+        public IEnumerable<Transaction> SortTransactionsByIdDescending()
         {
-            return CalculateTotalIncome(transactions);
+            transactions = SortTransactionsByIdDescending(transactions).ToList();
+            return transactions.AsReadOnly();
         }
 
-        public decimal CalculateTotalIncome(IEnumerable<Transaction> listOfTransactions)
+        public IEnumerable<Transaction> SortTransactionsByIdDescending(IEnumerable<Transaction> listOfTransactions)
         {
-            return listOfTransactions.Where(t => t.Amount > 0).Sum(t => t.Amount);
-        }
-
-        public decimal CalculateTotalExpenses()
-        {
-            return CalculateTotalExpenses(transactions);
-        }
-
-        public decimal CalculateTotalExpenses(IEnumerable<Transaction> listOfTransactions)
-        {
-            return listOfTransactions.Where(t => t.Amount < 0).Sum(t => t.Amount);
+            return listOfTransactions.OrderByDescending(t => t.Id);
         }
 
         public IEnumerable<Transaction> SortTransactionsByDateAscending()
