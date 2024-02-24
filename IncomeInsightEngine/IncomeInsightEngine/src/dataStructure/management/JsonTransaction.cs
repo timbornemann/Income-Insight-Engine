@@ -11,21 +11,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
     public class JsonTransaction
     {
 
-        private static bool onlyOneInstance = false;
-        private string _filePath;
-        private FileEncryptor _encryptor;
-
-
+        private string filePath;
+        private FileEncryptor encryptor;
 
         // Constructor without parameters that sets a default file path
         public JsonTransaction()
-        {
-
-            if (onlyOneInstance)
-            {
-                return;
-            }
-
+        {       
             string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string filePath = Path.Combine(appDataPath, "IncomeInsightEngine", "transactions.json");
 
@@ -35,11 +26,9 @@ namespace IncomeInsightEngine.src.dataStructure.management
             {
                 Directory.CreateDirectory(directoryPath);
             }
-            _filePath = filePath;
+            this.filePath = filePath;
 
-            onlyOneInstance = true;
-
-            _encryptor = new FileEncryptor();
+            encryptor = new FileEncryptor();
 
             CreateFile();
         }
@@ -47,10 +36,10 @@ namespace IncomeInsightEngine.src.dataStructure.management
         // Method to create JSON file if it doesn't exist
         public bool CreateFile()
         {
-            if (!File.Exists(_filePath))
+            if (!File.Exists(filePath))
             {
                 // Create a new JSON file with an empty transactions array
-                File.WriteAllText(_filePath, JsonConvert.SerializeObject(new { transactions = new List<Transaction>() }));
+                File.WriteAllText(filePath, JsonConvert.SerializeObject(new { transactions = new List<Transaction>() }));
                 CloseTransactionFile();                           
                 return true;
             }           
@@ -59,17 +48,15 @@ namespace IncomeInsightEngine.src.dataStructure.management
 
         public bool OpenTransactionFile()
         {            
-             _encryptor.DecryptFile(_filePath);          
+             encryptor.DecryptFile(filePath);          
             return false;
         }
 
         public bool CloseTransactionFile()
         {       
-            _encryptor.EncryptFile(_filePath);      
+            encryptor.EncryptFile(filePath);      
             return false;
         }
-
-
 
         // Method to add a new transaction to the JSON file
         public bool AddTransaction(Transaction transaction)
@@ -77,7 +64,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
             OpenTransactionFile();
 
             // Read the existing file
-            var jsonData = File.ReadAllText(_filePath);
+            var jsonData = File.ReadAllText(filePath);
             var jsonObj = JsonConvert.DeserializeObject<dynamic>(jsonData);
 
             // Add the new transaction
@@ -86,7 +73,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
             transactionArray.Add(newTransaction);
 
             // Write the updated json back to the file
-            File.WriteAllText(_filePath, JsonConvert.SerializeObject(jsonObj, Formatting.Indented));
+            File.WriteAllText(filePath, JsonConvert.SerializeObject(jsonObj, Formatting.Indented));
 
             CloseTransactionFile();
             return true;
@@ -97,7 +84,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         {
             OpenTransactionFile();
             var jsonData = JsonConvert.SerializeObject(new { transactions = transactions }, Formatting.Indented);
-            File.WriteAllText(_filePath, jsonData);
+            File.WriteAllText(filePath, jsonData);
             CloseTransactionFile();
             return true;
         }
@@ -106,7 +93,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         public List<Transaction> ReadData()
         {
             OpenTransactionFile();
-            var jsonData = File.ReadAllText(_filePath);
+            var jsonData = File.ReadAllText(filePath);
             var jsonObj = JsonConvert.DeserializeObject<dynamic>(jsonData);
             var transactions = JsonConvert.DeserializeObject<List<Transaction>>(jsonObj.transactions.ToString());
             CloseTransactionFile();
