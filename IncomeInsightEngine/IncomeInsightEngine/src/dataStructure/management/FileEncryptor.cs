@@ -71,7 +71,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
             }
         }
 
-        public string DecryptFile(string filePath)
+        public void DecryptFile(string filePath)
         {        
             byte[] key = UnprotectAndLoad(keyFilePath);
             byte[] IV = UnprotectAndLoad(ivFilePath);
@@ -108,7 +108,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
                 Console.WriteLine("An error occurred: " + ex.Message);
             }
             File.WriteAllText(filePath, decryptedData);
-            return decryptedData;
+           
         }
     }
 }
