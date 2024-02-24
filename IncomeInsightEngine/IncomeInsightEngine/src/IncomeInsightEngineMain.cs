@@ -17,13 +17,16 @@ namespace src
         [STAThread]
         public static void Main(string[] args)
         {
-
-            //  TransactionManager manager = new TransactionManager();                                                          
-
+            string partner = "ABC";
+            TransactionManager manager = new TransactionManager();       
+            manager.DisplayShortTransactionInformationsInComandline(manager.SortTransactionsByAmountDescending(manager.GetTransactionsByPartner(partner)));
+            manager.DisplayTotalAmountInComandline(manager.GetTransactionsByPartner(partner));
+            
+            /*
             Application app = new Application(); 
             ManualTransactionEntryWindow window = new ManualTransactionEntryWindow(); 
             app.Run(window); 
-
+            */
         }
     }
 }
