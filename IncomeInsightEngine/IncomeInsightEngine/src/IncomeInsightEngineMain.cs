@@ -20,8 +20,15 @@ namespace src
         { 
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-            /*
+            
             TransactionManager manager = new TransactionManager();
+
+          
+            
+
+
+
+            /*
             manager.DisplayShortTransactionInformationsInComandline(manager.SortTransactionsByAmountDescending(manager.GetTransactionsByDate( new DateTime(2023, 1, 1), new DateTime(2024, 1, 1))));
             manager.DisplayTotalIncomeInComandline(manager.GetTransactionsByDate(new DateTime(2023, 1, 1), new DateTime(2024, 1, 1)));
             manager.DisplayTotalExpensesInComandline(manager.GetTransactionsByDate(new DateTime(2023, 1, 1), new DateTime(2024, 1, 1)));
