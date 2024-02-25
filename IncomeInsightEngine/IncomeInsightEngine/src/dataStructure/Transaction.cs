@@ -5,6 +5,18 @@ using System.Threading.Tasks;
 
 namespace dataStructure
 {
+    /// <summary>
+    /// Represents a financial transaction with comprehensive details including basic information,
+    /// financial details, categorization, relationships, and additional administrative information.
+    /// </summary>
+    /// <remarks>
+    /// This class includes properties for tracking transaction ID, date, description, amount, currency,
+    /// payment method, tax status, reimbursability, categorization (including category, budget category,
+    /// and tags), classification, partner details (including IBAN), project, administrative details
+    /// (status, priority, frequency, location), receipt information, and notes. It provides functionality
+    /// to display detailed or short summaries of transactions, compare transaction objects, and generate
+    /// a hash code for a transaction instance.
+    /// </remarks>
     public class Transaction
     {
         public static int IDCOUNTER = 0;
@@ -43,13 +55,26 @@ namespace dataStructure
         public string Receipt { get; set; }
         public string Notes { get; set; }
 
-        // Default constructor
+        /// <summary>
+        /// Initializes a new instance of the Transaction class, automatically assigning a unique ID.
+        /// </summary>
+        /// <remarks>
+        /// The constructor increments the static ID counter (IDCOUNTER) to ensure each transaction instance receives a unique identifier.
+        /// </remarks>
         public Transaction()
         {
             this.Id = IDCOUNTER++;
         }
 
-        // Method to display transaction details
+        /// <summary>
+        /// Displays detailed information about the transaction on the console.
+        /// </summary>
+        /// <remarks>
+        /// This method prints an extensive list of transaction properties, including but not limited to ID, date, amount, currency, 
+        /// payment method, tax deductibility, reimbursability, categories, tags, partner information, project, status, priority, 
+        /// frequency, location, receipt status, notes, and classification.
+        /// Each property is printed in a formatted manner, providing a comprehensive overview of the transaction.
+        /// </remarks>
         public void DisplayTransactionDetails()
         {
             Console.WriteLine($"{"ID:",-10} {Id,-10}" +
@@ -74,7 +99,13 @@ namespace dataStructure
                               $"{"Classification:",-15} {Classification,-15}");
         }
 
-        // Die kurze Version für die wichtigsten Details
+        /// <summary>
+        /// Displays a short summary of the transaction details on the console.
+        /// </summary>
+        /// <remarks>
+        /// This method prints the transaction's ID, date, amount, and partner name in a formatted manner to the console.
+        /// The date is shown in short date format, and the amount is formatted as currency.
+        /// </remarks>
         public void DisplayShortTransactionDetails()
         {
             Console.WriteLine($"{"ID:",-1} {Id,-6}" +
