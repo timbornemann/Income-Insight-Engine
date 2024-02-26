@@ -23,7 +23,7 @@ namespace src
             
             TransactionManager manager = new TransactionManager();
 
-          
+
             
 
 
@@ -34,11 +34,11 @@ namespace src
             manager.DisplayTotalExpensesInComandline(manager.GetTransactionsByDate(new DateTime(2023, 1, 1), new DateTime(2024, 1, 1)));
             */
 
-            /*
+            
             Application app = new Application(); 
             ManualTransactionEntryWindow window = new ManualTransactionEntryWindow(); 
             app.Run(window); 
-            */
+            
         }
     }
 }
