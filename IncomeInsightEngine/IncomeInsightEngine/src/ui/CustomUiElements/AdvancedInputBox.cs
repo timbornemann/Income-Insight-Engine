@@ -50,6 +50,18 @@ namespace IncomeInsightEngine.src.ui.CustomUiElements
         private bool _isPasswordMode = false;
         private string _realText = "";
 
+        /// <summary>
+        /// Initializes a new instance of the AdvancedInputBox class with optional suggestions, text, and placeholder text.
+        /// </summary>
+        /// <param name="suggestions">Optional. A list of suggestions to be used by the autocomplete feature. If null, no suggestions are preloaded.</param>
+        /// <param name="text">Optional. The initial text to display in the input box. If null and placeholderText is provided, placeholderText is displayed instead.</param>
+        /// <param name="placeholderText">Optional. The text to display as a placeholder when the input box is empty and not focused.</param>
+        /// <remarks>
+        /// This constructor sets up the AdvancedInputBox with customized behaviors and styles based on the provided parameters. 
+        /// It configures event handlers for focus, text change, and key input events to implement features like placeholder text management, 
+        /// expression evaluation, and input character transformation. A Popup control containing a ListBox is also initialized for displaying suggestions, 
+        /// which can be populated and controlled through the provided methods and properties of this class.
+        /// </remarks>
         public AdvancedInputBox(List<string> suggestions = null, string text = null, string placeholderText = null)
         {
 
