@@ -12,7 +12,30 @@ using System.Windows.Input;
 
 namespace IncomeInsightEngine.src.ui.CustomUiElements
 {
-
+    /// <summary>
+    /// Represents an enhanced input box that supports features like placeholder text, suggestions, password mode, and custom color settings.
+    /// </summary>
+    /// <remarks>
+    /// The AdvancedInputBox class extends the standard TextBox control to include:
+    /// <list type="bullet">
+    /// <item><description>Automatic suggestions based on user input and a customizable list of suggestions.</description></item>
+    /// <item><description>Password mode that masks input characters with asterisks.</description></item>
+    /// <item><description>Dynamic evaluation of expressions, converting input like mathematical expressions into their evaluated results.</description></item>
+    /// <item><description>Customizable background and foreground colors for both the input box and the suggestions list.</description></item>
+    /// <item><description>Placeholder text functionality, displaying a placeholder when the input box is empty and not focused.</description></item>
+    /// <item><description>Utility methods for copying to and pasting from the clipboard, and preventing or transforming certain input characters.</description></item>
+    /// </list>
+    /// This class is designed to enhance the user interface of applications by providing a versatile and user-friendly input control.
+    /// </remarks>
+    /// <example>
+    /// Usage:
+    /// <code>
+    /// AdvancedInputBox advancedInputBox = new AdvancedInputBox();
+    /// advancedInputBox.SetSuggestionOn(true);
+    /// advancedInputBox.ChangeBackgroundColor(Brushes.LightGray);
+    /// advancedInputBox.ChangeForegroundColor(Brushes.Black);
+    /// </code>
+    /// </example>
     public class AdvancedInputBox : TextBox
     {
         private string _placeholderText;
@@ -423,6 +446,11 @@ namespace IncomeInsightEngine.src.ui.CustomUiElements
 
         }
 
+        /// <summary>
+        /// Handles key down events on the suggestions list, allowing users to select a suggestion with the keyboard.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">Event data for the key press.</param>
         private void SuggestionsList_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == System.Windows.Input.Key.Enter || e.Key == System.Windows.Input.Key.Space)
@@ -437,6 +465,11 @@ namespace IncomeInsightEngine.src.ui.CustomUiElements
             }
         }
 
+        /// <summary>
+        /// Handles mouse down events on the suggestions list, allowing users to select a suggestion with the mouse.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">Event data for the mouse click.</param>
         private void SuggestionsList_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             if (sender is ListBox listBox && listBox.SelectedItem is string selectedItem)
@@ -447,6 +480,11 @@ namespace IncomeInsightEngine.src.ui.CustomUiElements
             }
         }
 
+        /// <summary>
+        /// Handles the textbox's focus events to manage placeholder text visibility and color.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">Event data for the focus change.</param>
         private void PlaceholderTextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             // Wenn der Benutzer auf die TextBox klickt und der Platzhaltertext angezeigt wird
@@ -457,6 +495,11 @@ namespace IncomeInsightEngine.src.ui.CustomUiElements
             }
         }
 
+        /// <summary>
+        /// Handles the textbox's focus events to manage placeholder text visibility and color.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">Event data for the focus change.</param>
         private void PlaceholderTextBox_LostFocus(object sender, RoutedEventArgs e)
         {
             // Wenn der Benutzer die TextBox verlässt und keinen Text eingegeben hat
