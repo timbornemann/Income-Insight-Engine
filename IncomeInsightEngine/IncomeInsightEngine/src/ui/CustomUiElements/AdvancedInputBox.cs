@@ -77,6 +77,9 @@ namespace IncomeInsightEngine.src.ui.CustomUiElements
             this.PreviewKeyDown += AdvancedTextBox_PreviewKeyDown;
             this.TextChanged += EvaluateExpression_TextChanged;
             this.PreviewTextInput += PreventCommaInput_PreviewTextInput;
+            this.TextChanged += AutoCompleteTextBox_TextChanged;
+           
+
 
             DataObject.AddPastingHandler(this, OnPastePreventCommaInput);
 
@@ -90,7 +93,17 @@ namespace IncomeInsightEngine.src.ui.CustomUiElements
             suggestionsList.PreviewMouseDown += SuggestionsList_PreviewMouseDown;
             suggestionsList.PreviewKeyDown += SuggestionsList_PreviewKeyDown;
 
-            this.TextChanged += AutoCompleteTextBox_TextChanged;
+        }
+
+        public void RefreshFontSize()
+        {          
+            this.FontSize = Math.Max(0.1, this.ActualHeight * 0.5);
+
+            double textHeight = this.FontSize * 1.3; 
+            double verticalPadding = (this.ActualHeight - textHeight) / 2;
+            verticalPadding = Math.Max(0, verticalPadding);
+
+            this.Padding = new Thickness(this.Padding.Left, verticalPadding, this.Padding.Right, verticalPadding);
         }
 
         /// <summary>
