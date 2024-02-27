@@ -69,7 +69,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public bool AddTransaction(Transaction transaction)
         {
-            if (transaction == null || TransactionAlreadyExists(transaction) || GetTransactionById(transaction.Id) != null)
+            if (transaction == null || DoesTransactionAlreadyExists(transaction) || GetTransactionById(transaction.Id) != null)
             {
               return false;
             }
@@ -100,7 +100,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
             foreach (var transaction in data)
             {
 
-                if (transaction == null || TransactionAlreadyExists(transaction) || GetTransactionById(transaction.Id) != null)
+                if (transaction == null || DoesTransactionAlreadyExists(transaction) || GetTransactionById(transaction.Id) != null)
                 {
                     continue;
                 }
@@ -764,7 +764,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// using the Equals method. It returns true if any transaction in the collection is considered equal to the specified transaction, 
         /// indicating that the transaction already exists in the collection. Otherwise, it returns false.
         /// </remarks>
-        private bool TransactionAlreadyExists(Transaction transaction)
+        private bool DoesTransactionAlreadyExists(Transaction transaction)
         {
             return transactions.Any(t => transaction.Equals(t));
         }
