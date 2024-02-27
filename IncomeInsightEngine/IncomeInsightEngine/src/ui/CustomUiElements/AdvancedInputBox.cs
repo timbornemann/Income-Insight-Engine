@@ -95,6 +95,17 @@ namespace IncomeInsightEngine.src.ui.CustomUiElements
 
         }
 
+        /// <summary>
+        /// Dynamically adjusts the font size and vertical padding of the input box based on its current height.
+        /// </summary>
+        /// <remarks>
+        /// This method calculates a new font size as half of the input box's actual height, 
+        /// ensuring that the font size never goes below 0.1. 
+        /// It then adjusts the vertical padding to center the text vertically within the input box. 
+        /// The font size is scaled to maintain legibility and aesthetic appeal as the input box's size changes. 
+        /// The vertical padding is recalculated to ensure that the text remains vertically centered, 
+        /// taking into account the new font size and the inherent line height of the text.
+        /// </remarks>
         public void RefreshFontSize()
         {          
             this.FontSize = Math.Max(0.1, this.ActualHeight * 0.5);

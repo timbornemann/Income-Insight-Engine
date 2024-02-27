@@ -16,6 +16,15 @@ using System.Windows.Media.Effects;
 
 namespace IncomeInsightEngine.src.ui.externalFrames
 {
+    /// <summary>
+    /// Provides a window for manually entering transaction details into the TransactionManager.
+    /// </summary>
+    /// <remarks>
+    /// <para>The ManualTransactionEntryWindow class is a user interface component that extends the Window class, 
+    /// designed to capture and submit transaction data to a TransactionManager. 
+    /// It features a dynamic layout with input fields for transaction properties such as amount, 
+    /// date, partner, status, and description. The window supports advanced features like:</para>
+    /// </remarks>
     public class ManualTransactionEntryWindow : Window
     {
         private TransactionManager transactionManager;
@@ -35,7 +44,15 @@ namespace IncomeInsightEngine.src.ui.externalFrames
         Label statusLabel = new Label();
         Label descriptionLabel = new Label();
 
-
+        /// <summary>
+        /// Initializes a new instance of the ManualTransactionEntryWindow with specified owner, transaction manager, and optional configurations.
+        /// </summary>
+        /// <param name="owner">The parent window of this dialog, used for centering and modal behavior.</param>
+        /// <param name="transactionManager">The transaction manager for adding transactions upon submission.</param>
+        /// <remarks>
+        /// This constructor sets up the window with a predefined size and startup location, 
+        /// and initializes the UI components including a grid layout and various input controls for capturing transaction details.
+        /// </remarks>
         public ManualTransactionEntryWindow(Window owner, TransactionManager transactionManager)
         {
             this.Owner = owner;
@@ -51,7 +68,12 @@ namespace IncomeInsightEngine.src.ui.externalFrames
           
         }
 
-
+        /// <summary>
+        /// Initializes the grid layout for arranging UI components within the window.
+        /// </summary>
+        /// <remarks>
+        /// This method sets up a grid with two columns and multiple rows to organize labels, textboxes, a combobox, and buttons for user input.
+        /// </remarks>
         private void InitGrid()
         {
             for (int i = 0; i < 2; i++)
@@ -68,6 +90,12 @@ namespace IncomeInsightEngine.src.ui.externalFrames
             this.Content = grid;
         }
 
+        /// <summary>
+        /// Initializes and configures UI components including labels, textboxes, a combobox, and buttons.
+        /// </summary>
+        /// <remarks>
+        /// This method configures the visual appearance and behavior of input controls and adds them to the grid. It also sets up event handlers for buttons and other interactive elements.
+        /// </remarks>
         private void InitComponents()
         {         
             amountLabel.Content = "Amount:";
@@ -115,6 +143,11 @@ namespace IncomeInsightEngine.src.ui.externalFrames
 
         }
 
+        /// <summary>
+        /// Handles the "Finish" button click, creating and adding a new transaction to the transaction manager, then closes the window.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">Event data.</param>
         private void Finish_Click(object sender, RoutedEventArgs e)
         {
             var transaction = new Transaction
@@ -130,6 +163,11 @@ namespace IncomeInsightEngine.src.ui.externalFrames
             this.Close();
         }
 
+        /// <summary>
+        /// Handles the "Cancel" button click, closing the window without saving any changes.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">Event data.</param>
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -140,6 +178,14 @@ namespace IncomeInsightEngine.src.ui.externalFrames
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Applies a consistent design format to a TextBox control.
+        /// </summary>
+        /// <param name="textBox">The TextBox to format.</param>
+        /// <remarks>
+        /// This method sets the font, color, background, border, 
+        /// and margins for the TextBox to ensure a uniform appearance across the application.
+        /// </remarks>
         private void FormatDesignForTextBox(AdvancedInputBox textBox)
         {
             textBox.FontFamily = new FontFamily("Segoe UI");
@@ -153,6 +199,13 @@ namespace IncomeInsightEngine.src.ui.externalFrames
 
         }
 
+        /// <summary>
+        /// Applies a consistent design format to a ComboBox control.
+        /// </summary>
+        /// <param name="comboBox">The ComboBox to format.</param>
+        /// <remarks>
+        /// Similar to the TextBox formatting, this method sets the font, color, background, border, and margins for the ComboBox.
+        /// </remarks>
         private void FormatDesignForComboBox(ComboBox comboBox)
         {
             comboBox.FontFamily = new FontFamily("Segoe UI");
@@ -166,6 +219,13 @@ namespace IncomeInsightEngine.src.ui.externalFrames
 
         }
 
+        /// <summary>
+        /// Applies a consistent design format to a Label control.
+        /// </summary>
+        /// <param name="label">The Label to format.</param>
+        /// <remarks>
+        /// Sets the font, foreground color, background, and margins for the Label to match the application's design theme.
+        /// </remarks>
         private void FormatDesignForLabel(Label label)
         {
           
@@ -178,6 +238,14 @@ namespace IncomeInsightEngine.src.ui.externalFrames
      
         }
 
+        /// <summary>
+        /// Applies a consistent design format to a Button control.
+        /// </summary>
+        /// <param name="button">The Button to format.</param>
+        /// <param name="margin">The margin to apply to the Button.</param>
+        /// <remarks>
+        /// Configures the Button's font, color, background, border, padding, and margins, and optionally applies a drop shadow effect.
+        /// </remarks>
         private void FormatDesignForButton(Button button, Thickness margin)
         {
            
@@ -202,6 +270,14 @@ namespace IncomeInsightEngine.src.ui.externalFrames
             };
         }
 
+        /// <summary>
+        /// Adds a Label and a TextBox to the grid layout, positioning them according to specified row and column indices.
+        /// </summary>
+        /// <param name="label">The Label to add to the grid.</param>
+        /// <param name="textBox">The TextBox to add to the grid.</param>
+        /// <param name="row">The row index where the Label and TextBox will be placed.</param>
+        /// <param name="column">The column index for the Label. The TextBox is placed in the next row.</param>
+        /// <param name="large">If true, spans the Label and TextBox across two columns.</param>
         private void AddLabelAndTextBoxToGrid(Label label, AdvancedInputBox textBox, int row, int column, bool large = false)
         {
             if (large)
@@ -219,6 +295,14 @@ namespace IncomeInsightEngine.src.ui.externalFrames
             grid.Children.Add(textBox);
         }
 
+        /// <summary>
+        /// Adds a Label and a ComboBox to the grid layout, positioning them according to specified row and column indices.
+        /// </summary>
+        /// <param name="label">The Label to add to the grid.</param>
+        /// <param name="comboBox">The ComboBox to add to the grid.</param>
+        /// <param name="row">The row index where the Label and ComboBox will be placed.</param>
+        /// <param name="column">The column index for the Label. The ComboBox is placed in the next row.</param>
+        /// <param name="large">If true, spans the Label and ComboBox across two columns.</param>
         private void AddLabelAndComboBoxToGrid(Label label, ComboBox comboBox, int row, int column, bool large = false)
         {
             if (large)
@@ -236,6 +320,13 @@ namespace IncomeInsightEngine.src.ui.externalFrames
             grid.Children.Add(comboBox);
         }
 
+        /// <summary>
+        /// Adds a Button to the grid layout, positioning it according to specified row and column indices.
+        /// </summary>
+        /// <param name="button">The Button to add to the grid.</param>
+        /// <param name="row">The row index where the Button will be placed.</param>
+        /// <param name="column">The column index for the Button.</param>
+        /// <param name="large">If true, spans the Button across two columns.</param>
         private void AddButtonToGrid(Button button, int row, int column, bool large = false)
         {
             if (large)
@@ -249,7 +340,15 @@ namespace IncomeInsightEngine.src.ui.externalFrames
             grid.Children.Add(button);
         }
 
-       private void AddElementsToCombobox(ComboBox comboBox, List<string> items)
+        /// <summary>
+        /// Adds a list of items to a ComboBox control.
+        /// </summary>
+        /// <param name="comboBox">The ComboBox to which items will be added.</param>
+        /// <param name="items">The list of items to add to the ComboBox.</param>
+        /// <remarks>
+        /// Populates the ComboBox with items, setting the first item as the selected index by default.
+        /// </remarks>
+        private void AddElementsToCombobox(ComboBox comboBox, List<string> items)
         {
             foreach (string item in items)
             {
@@ -257,7 +356,6 @@ namespace IncomeInsightEngine.src.ui.externalFrames
             }
             comboBox.SelectedIndex = 0;
         }
-
 
     }
 }
