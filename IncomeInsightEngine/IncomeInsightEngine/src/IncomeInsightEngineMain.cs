@@ -36,7 +36,7 @@ namespace src
 
             
             Application app = new Application(); 
-            ManualTransactionEntryWindow window = new ManualTransactionEntryWindow(); 
+            ManualTransactionEntryWindow window = new ManualTransactionEntryWindow(null, manager); 
             app.Run(window); 
             
         }
