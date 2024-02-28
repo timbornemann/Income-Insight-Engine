@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Security.Principal;
+using System.Threading;
 using System.Windows;
 using dataStructure;
+using IncomeInsightEngine.Properties;
 using IncomeInsightEngine.src.dataStructure.management;
 using IncomeInsightEngine.src.ui.externalFrames;
 using src.parser;
@@ -20,11 +22,19 @@ namespace src
         { 
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
+            CultureInfo culture = new CultureInfo("EN");
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
+
+
+            Console.WriteLine(Strings.Transaction);
+
             
+            /*
             TransactionManager manager = new TransactionManager();
 
             manager.DisplayTotalExpensesInComandline(manager.GetTransactionsByPartner("rewe"));
-            
+            */
 
 
 
