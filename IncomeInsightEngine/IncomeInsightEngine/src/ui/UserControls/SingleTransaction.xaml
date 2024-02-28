@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="IncomeInsightEngine.src.ui.UserControls.SingleTransaction"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:IncomeInsightEngine.src.ui.UserControls"
+             mc:Ignorable="d" Height="100" Width="400" Background="#F5F5F5">
+
+    <Border CornerRadius="10" BorderBrush="#FFD5D5D5" BorderThickness="1" Background="#FFFFFFFF" Padding="10">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Icon oder Bild der Transaktion -->
+            <Border Background="#FFDDDDDD" Width="60" Height="60" CornerRadius="30" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Text="💲" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+
+            <!-- Beschreibung und Details der Transaktion -->
+            <StackPanel Grid.Column="1" Margin="10,0" VerticalAlignment="Center">
+                <TextBlock Text="{Binding Description}" FontWeight="Bold" FontSize="14"/>
+                <TextBlock Text="{Binding Date, StringFormat={}{0:dd.MM.yyyy}}" FontSize="12" Foreground="Gray"/>
+            </StackPanel>
+
+            <!-- Betrag und Währung -->
+            <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <TextBlock Text="{Binding Amount, StringFormat=C}" FontSize="14" FontWeight="Bold" Margin="0,0,5,0"/>
+                <TextBlock Text="{Binding Currency}" FontSize="12" Foreground="Gray"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>
