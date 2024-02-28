@@ -1,8 +1,25 @@
-﻿<Window x:Class="IncomeInsightEngine.src.ui.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="450" Width="800">
+        xmlns:properties="clr-namespace:IncomeInsightEngine.Properties"            
+    
+    xmlns:internalFrames="clr-namespace:IncomeInsightEngine.src.ui.internalFrames" x:Class="IncomeInsightEngine.src.ui.MainWindow"            
+    
+    Title="MainWindow" Height="450" Width="800">
     <Grid>
-   
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition Width="31*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <Button Content="{x:Static properties:Strings.Home}" />
+            <Button Content="{x:Static properties:Strings.Transactions}" />
+
+        </StackPanel>
+
+
+        <internalFrames:TransactionOverview x:Name="overview" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" />
+
+
     </Grid>
 </Window>
