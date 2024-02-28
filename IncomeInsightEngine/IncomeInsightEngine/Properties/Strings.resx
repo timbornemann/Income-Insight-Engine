@@ -159,6 +159,9 @@
   <data name="Frequency" xml:space="preserve">
     <value>Frequency</value>
   </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
   <data name="Id" xml:space="preserve">
     <value>ID</value>
   </data>
@@ -212,5 +215,8 @@
   </data>
   <data name="Transaction" xml:space="preserve">
     <value>Transaction</value>
+  </data>
+  <data name="Transactions" xml:space="preserve">
+    <value>Transactions</value>
   </data>
 </root>
