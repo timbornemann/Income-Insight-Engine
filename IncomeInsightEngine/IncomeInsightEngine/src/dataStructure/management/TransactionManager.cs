@@ -1,4 +1,5 @@
 ﻿using dataStructure;
+using IncomeInsightEngine.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -830,7 +831,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void DisplayTotalExpensesInComandline(IEnumerable<Transaction> listOfTransactions = null)
         {
-           Console.WriteLine("Total expenses: " + CalculateTotalExpenses(listOfTransactions));
+           Console.WriteLine(Strings.TotalExpenses + CalculateTotalExpenses(listOfTransactions));
         }
 
         /// <summary>
@@ -842,7 +843,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void DisplayTotalIncomeInComandline(IEnumerable<Transaction> listOfTransactions = null)
         {
-            Console.WriteLine("Total income: " + CalculateTotalIncome(listOfTransactions));
+            Console.WriteLine(Strings.TotalIncome + CalculateTotalIncome(listOfTransactions));
         }
 
         /// <summary>
@@ -854,7 +855,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void DisplayTotalAmountInComandline(IEnumerable<Transaction> listOfTransactions = null)
         {
-            Console.WriteLine("Total amount: " + CalculateTotalAmount(listOfTransactions));
+            Console.WriteLine(Strings.TotalAmount + CalculateTotalAmount(listOfTransactions));
         }
 
     }

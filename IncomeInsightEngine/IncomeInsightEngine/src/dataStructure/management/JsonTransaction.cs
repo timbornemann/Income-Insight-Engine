@@ -123,17 +123,14 @@ namespace IncomeInsightEngine.src.dataStructure.management
         public bool AddTransaction(Transaction transaction)
         {
             OpenTransactionFile();
-
-            // Read the existing file
+          
             var jsonData = File.ReadAllText(filePath);
             var jsonObj = JsonConvert.DeserializeObject<dynamic>(jsonData);
-
-            // Add the new transaction
+           
             var transactionArray = jsonObj.transactions as JArray;
             var newTransaction = JToken.FromObject(transaction);
             transactionArray.Add(newTransaction);
-
-            // Write the updated json back to the file
+          
             File.WriteAllText(filePath, JsonConvert.SerializeObject(jsonObj, Formatting.Indented));
 
             CloseTransactionFile();

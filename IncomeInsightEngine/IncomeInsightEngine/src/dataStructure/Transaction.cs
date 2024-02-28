@@ -1,3 +1,4 @@
+using IncomeInsightEngine.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -77,26 +78,27 @@ namespace dataStructure
         /// </remarks>
         public void DisplayTransactionDetails()
         {
-            Console.WriteLine($"{"ID:",-10} {Id,-10}" +
-                              $"{"Date:",-12} {Date.ToShortDateString(),-12}" +
-                              $"{"Amount:",-10} {Amount.ToString("C"),-10}" +
-                              $"{"Currency:",-8} {Currency,-8}" +
-                              $"{"Payment Method:",-15} {PaymentMethod,-15}" +
-                              $"{"Tax Deductible:",-15} {TaxDeductible,-15}" +
-                              $"{"Reimbursable:",-15} {Reimbursable,-15}" +
-                              $"{"Category:",-15} {Category,-15}" +
-                              $"{"Budget Category:",-15} {BudgetCategory,-15}" +
-                              $"{"Tags:",-10} {string.Join(", ", Tags),-10}" +
-                              $"{"Partner:",-15} {Partner,-15}" +
-                              $"{"Partner IBAN:",-15} {PartnerIBAN,-15}" +
-                              $"{"Project:",-15} {Project,-15}" +
-                              $"{"Status:",-10} {Status,-10}" +
-                              $"{"Priority:",-10} {Priority,-10}" +
-                              $"{"Frequency:",-10} {Frequency,-10}" +
-                              $"{"Location:",-15} {Location,-15}" +
-                              $"{"Receipt:",-10} {Receipt,-10}" +
-                              $"{"Notes:",-15} {Notes,-15}" +
-                              $"{"Classification:",-15} {Classification,-15}");
+            Console.WriteLine($"{Strings.Id,-10} {Id,-10}" +
+                              $"{Strings.Date,-12} {Date.ToShortDateString(),-12}" +
+                              $"{Strings.Amount,-10} {Amount.ToString("C"),-10}" +
+                              $"{Strings.Currency,-8} {Currency,-8}" +
+                              $"{Strings.Description,-8} {Description,-15}" +
+                              $"{Strings.PaymentMethod,-15} {PaymentMethod,-15}" +
+                              $"{Strings.TaxDeductible,-15} {TaxDeductible,-15}" +
+                              $"{Strings.Reimbursable,-15} {Reimbursable,-15}" +
+                              $"{Strings.Category,-15} {Category,-15}" +
+                              $"{Strings.BudgetCategory,-15} {BudgetCategory,-15}" +
+                              $"{Strings.Tags,-10} {string.Join(", ", Tags),-10}" +
+                              $"{Strings.Partner,-15} {Partner,-15}" +
+                              $"{Strings.PartnerIBAN,-15} {PartnerIBAN,-15}" +
+                              $"{Strings.Project,-15} {Project,-15}" +
+                              $"{Strings.Status,-10} {Status,-10}" +
+                              $"{Strings.Priority,-10} {Priority,-10}" +
+                              $"{Strings.Frequency,-10} {Frequency,-10}" +
+                              $"{Strings.Location,-15} {Location,-15}" +
+                              $"{Strings.Receipt,-10} {Receipt,-10}" +
+                              $"{Strings.Notes,-15} {Notes,-15}" +
+                              $"{Strings.Classification,-15} {Classification,-15}");
         }
 
         /// <summary>
@@ -108,24 +110,22 @@ namespace dataStructure
         /// </remarks>
         public void DisplayShortTransactionDetails()
         {
-            Console.WriteLine($"{"ID:",-1} {Id,-6}" +
-                              $"{"Date:",-1} {Date.ToShortDateString(),-12}" +
-                              $"{"Amount:",-2} {Amount.ToString("C"),-12}" +
-                              $"{"Partner:",-2} {Partner,-50}");
+            Console.WriteLine($"{Strings.Id,-1} {Id,-6}" +
+                              $"{Strings.Date,-1} {Date.ToShortDateString(),-12}" +
+                              $"{Strings.Amount,-2} {Amount.ToString("C"),-12}" +
+                              $"{Strings.Partner,-2} {Partner,-50}");
 
         }
 
         public override bool Equals(object obj)
-        {
-            // Check for null and compare run-time types.
+        {          
             if (obj == null || !this.GetType().Equals(obj.GetType()))
             {
                 return false;
             }
 
             var other = (Transaction)obj;
-
-            // Compare each property. Use SequenceEqual to compare the Tags list.
+         
             return Date == other.Date &&
                    string.Equals(Description, other.Description) &&
                    Amount == other.Amount &&
@@ -152,8 +152,7 @@ namespace dataStructure
         {
             unchecked 
             {
-                int hash = 17;
-                // For each field, compute a hash code and combine it with the current hash code.
+                int hash = 17;              
                 hash = hash * 23 + Id.GetHashCode();
                 hash = hash * 23 + Date.GetHashCode();
                 hash = hash * 23 + (Description != null ? Description.GetHashCode() : 0);

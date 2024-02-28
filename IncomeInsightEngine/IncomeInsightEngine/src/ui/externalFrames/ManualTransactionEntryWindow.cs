@@ -1,4 +1,5 @@
 ﻿using dataStructure;
+using IncomeInsightEngine.Properties;
 using IncomeInsightEngine.src.dataStructure.management;
 using IncomeInsightEngine.src.ui.CustomUiElements;
 using System;
@@ -98,11 +99,11 @@ namespace IncomeInsightEngine.src.ui.externalFrames
         /// </remarks>
         private void InitComponents()
         {         
-            amountLabel.Content = "Amount:";
-            dateLabel.Content = "Date:";
-            partnerLabel.Content = "Partner:";
-            statusLabel.Content = "Status:";
-            descriptionLabel.Content = "Description:";
+            amountLabel.Content = Strings.Amount+":";
+            dateLabel.Content = Strings.Date+":";
+            partnerLabel.Content = Strings.Partner+":";
+            statusLabel.Content = Strings.Status+":";
+            descriptionLabel.Content = Strings.Description+":";
 
             FormatDesignForLabel(amountLabel);
             FormatDesignForLabel(dateLabel); 
@@ -122,21 +123,21 @@ namespace IncomeInsightEngine.src.ui.externalFrames
 
 
             FormatDesignForComboBox(statusComboBox);
-            AddElementsToCombobox(statusComboBox,new List<string> { "Completed", "Pending" });
+            AddElementsToCombobox(statusComboBox,new List<string> { Strings.Completed, Strings.Pending });
             AddLabelAndComboBoxToGrid(statusLabel, statusComboBox, 2,1);
 
 
-            Button addMoreDetails = new Button { Content = "Add more Details" };
+            Button addMoreDetails = new Button { Content = Strings.AddMoreDetails };
             addMoreDetails.Click += AddMoreDetails_Click;
             FormatDesignForButton(addMoreDetails, new Thickness(20,20,20,10));
             AddButtonToGrid(addMoreDetails, 6,0, true);
 
-            Button cancel = new Button { Content = "Cancel" };
+            Button cancel = new Button { Content = Strings.Cancel };
             cancel.Click += Cancel_Click;
             FormatDesignForButton(cancel, new Thickness(20, 10, 20, 20));
             AddButtonToGrid(cancel, 7, 0);
 
-            Button finish = new Button { Content = "Finish" };
+            Button finish = new Button { Content = Strings.Finish };
             finish.Click += Finish_Click;
             FormatDesignForButton(finish, new Thickness(20, 10, 20, 20));
             AddButtonToGrid(finish, 7, 1);
@@ -253,7 +254,7 @@ namespace IncomeInsightEngine.src.ui.externalFrames
             button.FontSize = 12;   
             button.MinHeight = 20;       
             button.Foreground = new SolidColorBrush(Colors.White);
-            button.Background = new SolidColorBrush(Color.FromArgb(255, 0, 120, 215)); // Beispiel: Dunkelblau
+            button.Background = new SolidColorBrush(Color.FromArgb(255, 0, 120, 215));
             button.BorderBrush = new SolidColorBrush(Colors.Black);
             button.BorderThickness = new Thickness(2);
             button.Padding = new Thickness(10, 5, 10, 5); 

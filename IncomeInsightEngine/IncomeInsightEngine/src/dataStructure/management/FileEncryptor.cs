@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IncomeInsightEngine.Properties;
+using System;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
@@ -166,13 +167,13 @@ namespace IncomeInsightEngine.src.dataStructure.management
             catch (CryptographicException ex)
             {
 
-                Console.WriteLine("A cryptographic error occurred: " + ex.Message);
+                Console.WriteLine(Strings.ErrorCryptograpic + ex.Message);
 
             }
             catch (Exception ex)
             {
 
-                Console.WriteLine("An error occurred: " + ex.Message);
+                Console.WriteLine(Strings.Error + ex.Message);
             }
             File.WriteAllText(filePath, decryptedData);
            
