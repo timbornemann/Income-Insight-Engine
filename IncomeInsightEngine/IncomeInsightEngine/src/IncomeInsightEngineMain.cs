@@ -7,6 +7,7 @@ using System.Windows;
 using dataStructure;
 using IncomeInsightEngine.Properties;
 using IncomeInsightEngine.src.dataStructure.management;
+using IncomeInsightEngine.src.ui;
 using IncomeInsightEngine.src.ui.externalFrames;
 using src.parser;
 
@@ -20,7 +21,7 @@ namespace src
         [STAThread]
         public static void Main(string[] args)
         { 
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
+           // Console.OutputEncoding = System.Text.Encoding.UTF8;
           
             
             TransactionManager manager = new TransactionManager();
@@ -31,11 +32,11 @@ namespace src
             manager.DisplayTotalExpensesInComandline(manager.GetTransactionsByDate(new DateTime(2023, 1, 1), new DateTime(2024, 1, 1)));
             */
 
-            /*
+            
             Application app = new Application(); 
-            ManualTransactionEntryWindow window = new ManualTransactionEntryWindow(null, manager); 
+           MainWindow window = new MainWindow(manager); 
             app.Run(window); 
-           */ 
+           
         }
     }
 }
