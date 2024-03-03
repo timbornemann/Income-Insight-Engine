@@ -1,0 +1,3 @@
+soft Green 	- #FF7B947A
+Soft Red	- #FF8C5A5A
+Dark Gray	- #FF2B2B2B
