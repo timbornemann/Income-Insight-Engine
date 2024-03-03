@@ -14,11 +14,12 @@
         <StackPanel>
             <Button Content="{x:Static properties:Strings.Home}" />
             <Button Content="{x:Static properties:Strings.Transactions}" />
-
         </StackPanel>
-
-
-        <internalFrames:TransactionOverview x:Name="overview" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <DockPanel Grid.Column="1" LastChildFill="True">
+            <ScrollViewer Background="#FF232323">
+                <StackPanel x:Name="stackpanel"/>
+            </ScrollViewer>
+        </DockPanel>
 
 
     </Grid>

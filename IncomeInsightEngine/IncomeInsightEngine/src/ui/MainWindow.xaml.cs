@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Input;
 using IncomeInsightEngine.src.dataStructure.management;
 using IncomeInsightEngine.src.ui.UserControls;
+using dataStructure;
 
 
 namespace IncomeInsightEngine.src.ui
@@ -23,11 +24,14 @@ namespace IncomeInsightEngine.src.ui
 
             Manager = manager;
 
-            this.overview.AddElementToOverview(new SingleTransaction());
-            this.overview.AddElementToOverview(new SingleTransaction());
-            this.overview.AddElementToOverview(new SingleTransaction());
-            this.overview.AddElementToOverview(new SingleTransaction());
-            this.overview.AddElementToOverview(new SingleTransaction());
+
+            foreach (Transaction transaction in manager.GetAllTransactions())
+            {
+                this.stackpanel.Children.Add(new SingleTransaction(transaction));
+            }
+
+
+
         }
 
     }
