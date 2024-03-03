@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace IncomeInsightEngine.src.ui.UserControls
 {
     /// <summary>
-    /// Interaktionslogik für SingleTransaction.xaml
+    /// Interaktionslogik für SingleTransaction4.xaml
     /// </summary>
-    public partial class SingleTransaction : UserControl
+    public partial class SingleTransaction4 : UserControl
     {
-        public SingleTransaction()
+        public SingleTransaction4()
         {
             InitializeComponent();
         }
