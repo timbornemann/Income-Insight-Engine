@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Threading;
 using System.Windows;
@@ -20,23 +21,21 @@ namespace src
     {
         [STAThread]
         public static void Main(string[] args)
-        { 
-           // Console.OutputEncoding = System.Text.Encoding.UTF8;
-          
-            
+        {
+            AllocConsole();
+            // Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+
             TransactionManager manager = new TransactionManager();
-
-            /*
-            manager.DisplayShortTransactionInformationsInComandline(manager.SortTransactionsByAmountDescending(manager.GetTransactionsByDate( new DateTime(2023, 1, 1), new DateTime(2024, 1, 1))));
-            manager.DisplayTotalIncomeInComandline(manager.GetTransactionsByDate(new DateTime(2023, 1, 1), new DateTime(2024, 1, 1)));
-            manager.DisplayTotalExpensesInComandline(manager.GetTransactionsByDate(new DateTime(2023, 1, 1), new DateTime(2024, 1, 1)));
-            */
-
             
             Application app = new Application(); 
            MainWindow window = new MainWindow(manager); 
             app.Run(window); 
            
         }
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool AllocConsole();
     }
 }
