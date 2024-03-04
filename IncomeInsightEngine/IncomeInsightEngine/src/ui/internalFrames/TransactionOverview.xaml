@@ -6,11 +6,13 @@
              xmlns:local="clr-namespace:IncomeInsightEngine.src.ui.internalFrames"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="White">
-        <ScrollViewer>
-            <StackPanel x:Name="panel" Background="#FF1F1F1F"/>
-            
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition Width="29*"/>
+        </Grid.ColumnDefinitions>
+        <ScrollViewer Grid.Column="1">
+            <StackPanel x:Name="stackPanel" Background="White"/>
         </ScrollViewer>
-
     </Grid>
 </UserControl>

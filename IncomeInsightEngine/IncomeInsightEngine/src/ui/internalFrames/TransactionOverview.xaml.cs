@@ -27,7 +27,7 @@ namespace IncomeInsightEngine.src.ui.internalFrames
 
         public void AddElementToOverview(UserControl userControl)
         {
-           this.panel.Children.Add(userControl);
+          stackPanel.Children.Add(userControl);
         }
 
 
