@@ -7,8 +7,11 @@ using IncomeInsightEngine.Properties;
 using System.Windows;
 using System.Windows.Input;
 using IncomeInsightEngine.src.dataStructure.management;
-using IncomeInsightEngine.src.ui.UserControls;
+using IncomeInsightEngine.src.ui.UserControls.SingleTransactions;
 using dataStructure;
+using IncomeInsightEngine.src.ui.UserControls;
+
+
 
 
 namespace IncomeInsightEngine.src.ui
@@ -24,17 +27,15 @@ namespace IncomeInsightEngine.src.ui
 
             Manager = manager;
 
-
+            
             foreach (Transaction transaction in manager.GetAllTransactions())
             {
-                this.stackpanel.Children.Add(new SingleTransaction(transaction));
+                var t = new SingleTransaction(transaction);                            
+                this.overview.AddElementToOverview(t);
             }
-
-
+            
 
         }
 
     }
-
-
 }

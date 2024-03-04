@@ -5,22 +5,8 @@
     
     xmlns:internalFrames="clr-namespace:IncomeInsightEngine.src.ui.internalFrames" x:Class="IncomeInsightEngine.src.ui.MainWindow"            
     
-    Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="9*"/>
-            <ColumnDefinition Width="31*"/>
-        </Grid.ColumnDefinitions>
-        <StackPanel>
-            <Button Content="{x:Static properties:Strings.Home}" />
-            <Button Content="{x:Static properties:Strings.Transactions}" />
-        </StackPanel>
-        <DockPanel Grid.Column="1" LastChildFill="True">
-            <ScrollViewer Background="#FF232323">
-                <StackPanel x:Name="stackpanel"/>
-            </ScrollViewer>
-        </DockPanel>
-
-
-    </Grid>
+    Title="MainWindow" Height="450" Width="900">
+    <DockPanel LastChildFill="True">
+        <internalFrames:TransactionOverview x:Name="overview" />
+    </DockPanel>
 </Window>
