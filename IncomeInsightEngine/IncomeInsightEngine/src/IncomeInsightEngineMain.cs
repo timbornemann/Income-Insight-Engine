@@ -23,7 +23,7 @@ namespace src
         public static void Main(string[] args)
         {
             AllocConsole();
-            // Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
 
 
             TransactionManager manager = new TransactionManager();
