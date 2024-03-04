@@ -14,16 +14,20 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace IncomeInsightEngine.src.ui.UserControls
+namespace IncomeInsightEngine.src.ui.UserControls.SingleTransactions
 {
     /// <summary>
-    /// Interaktionslogik für SingleTransaction.xaml
+    /// Interaktionslogik für SingleTransaktion7.xaml
     /// </summary>
     public partial class SingleTransaction : UserControl
     {
         public Transaction transaction { get; }
 
-      
+        public SingleTransaction()
+        {
+            InitializeComponent();
+        }
+
 
         public SingleTransaction(Transaction transaction)
         {
@@ -39,10 +43,7 @@ namespace IncomeInsightEngine.src.ui.UserControls
 
         private void SetDescriptionText(string description)
         {
-            this.descriptionTextBox.Document.Blocks.Clear();
-            Paragraph paragraph = new Paragraph();
-            paragraph.Inlines.Add(new Run(description));
-            this.descriptionTextBox.Document.Blocks.Add(paragraph);
+            this.descriptionTextBox.Text = description;
         }
 
         private void SetAmount(decimal amount)
@@ -51,26 +52,25 @@ namespace IncomeInsightEngine.src.ui.UserControls
 
             if (amount > 0)
             {
-                this.amoutBackground.Background = (Brush) new BrushConverter().ConvertFrom("#FF7B947A");
+                this.amountBackground.Background = (Brush)new BrushConverter().ConvertFrom("#FF7B947A");
+                
             }
-            else if(amount < 0)
+            else if (amount < 0)
             {
-                this.amoutBackground.Background = (Brush)new BrushConverter().ConvertFrom("#FF8C5A5A");
+                this.amountBackground.Background = (Brush)new BrushConverter().ConvertFrom("#FF8C5A5A");
 
             }
             else
             {
-                this.amoutBackground.Background = Brushes.White;
+                this.amountBackground.Background = Brushes.White;
             }
 
         }
 
-
         private void settingsButton_Click(object sender, RoutedEventArgs e)
 
         {
-           
-            Console.WriteLine("Button Click");
+            transaction.DisplayShortTransactionDetails();
         }
 
         private void settingsButton_MouseEnter(object sender, MouseEventArgs e)
@@ -92,5 +92,41 @@ namespace IncomeInsightEngine.src.ui.UserControls
         {
             settingsBackground.Background = Brushes.DarkGray;
         }
+
+        private void UserControl_MouseEnter(object sender, MouseEventArgs e)
+        {
+            
+            this.Height += 4;
+            this.Margin = new Thickness(0,3,0,3);
+            this.amountShadow.ShadowDepth += 2;
+            this.dateShadow.ShadowDepth += 2;
+            this.descriptionShadow.ShadowDepth += 2;
+            this.partnerShadow.ShadowDepth += 2;
+            this.settingsShadow.ShadowDepth += 2;
+
+            this.amountLabel.FontSize += 2;
+            this.dateLabel.FontSize += 2;
+            this.descriptionTextBox.FontSize += 2;
+            this.partnerLabel.FontSize += 2;
+            
+        }
+
+        private void UserControl_MouseLeave(object sender, MouseEventArgs e)
+        {
+            this.Height -= 4;
+            this.Margin = new Thickness(0, 5, 0, 5);
+            this.amountShadow.ShadowDepth -= 2;
+            this.dateShadow.ShadowDepth -= 2;
+            this.descriptionShadow.ShadowDepth -= 2;
+            this.partnerShadow.ShadowDepth -= 2;
+            this.settingsShadow.ShadowDepth -= 2;
+
+            this.amountLabel.FontSize -= 2;
+            this.dateLabel.FontSize -= 2;
+            this.descriptionTextBox.FontSize -= 2;
+            this.partnerLabel.FontSize -= 2;
+
+        }
+
     }
 }

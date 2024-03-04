@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="IncomeInsightEngine.src.ui.UserControls.SingleTransactions.SingleTransaction"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:IncomeInsightEngine.src.ui.UserControls.SingleTransactions"
+            
+             
+             mc:Ignorable="d" Height="60" Width="1000" Margin="0,5,0,5" MouseEnter="UserControl_MouseEnter" MouseLeave="UserControl_MouseLeave">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="164*"/>
+            <ColumnDefinition Width="138*"/>
+            <ColumnDefinition Width="242*"/>
+            <ColumnDefinition Width="395*"/>
+            <ColumnDefinition Width="61*"/>
+        </Grid.ColumnDefinitions>
+        <Border x:Name="amountBackground" BorderThickness="1" Background="White" CornerRadius="20,0,0,20" BorderBrush="Black" >
+            <Border.Effect>
+                <DropShadowEffect x:Name="amountShadow" Color="#FF4E4E4E" BlurRadius="4" ShadowDepth="6"/>
+            </Border.Effect>
+            <Label x:Name="amountLabel" Content="100€" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20"/>
+        </Border>
+        <Border x:Name="dateBackground" BorderThickness="1" Grid.Column="1" Background="White" Margin="5,0,5,0" BorderBrush="Black">
+            <Border.Effect>
+                <DropShadowEffect x:Name="dateShadow" Color="#FF4E4E4E" BlurRadius="4" ShadowDepth="6"/>
+            </Border.Effect>
+            <Label x:Name="dateLabel" Content="30.11.2020" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20"/>
+        </Border>
+        <Border x:Name="partnerBackground" BorderThickness="1" Grid.Column="2" Background="White" Margin="0,0,5,0" BorderBrush="Black">
+            <Border.Effect>
+                <DropShadowEffect x:Name="partnerShadow" Color="#FF4E4E4E" BlurRadius="4" ShadowDepth="6"/>
+            </Border.Effect>
+            <Label x:Name="partnerLabel" Content="Company Abc gmbh" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        </Border>
+        <Border x:Name="descriptionBackground" BorderThickness="1" Grid.Column="3" Background="White" BorderBrush="Black">
+            <Border.Effect>
+                <DropShadowEffect x:Name="descriptionShadow" Color="#FF4E4E4E" BlurRadius="4" ShadowDepth="6"/>
+            </Border.Effect>
+            <TextBox x:Name="descriptionTextBox" TextWrapping="Wrap" Text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF3C3C3C" Focusable="False" IsReadOnlyCaretVisible="True"/>
+        </Border>
+        <Border x:Name="settingsBackground" BorderThickness="1" Grid.Column="4" Background="White" CornerRadius="0,20,20,0" Margin="5,0,0,0" BorderBrush="Black">
+            <Border.Effect>
+                <DropShadowEffect x:Name="settingsShadow" Color="#FF4E4E4E" BlurRadius="4" ShadowDepth="6"/>
+            </Border.Effect>
+            
+            <Button x:Name="settingsButton" Content="" Width="NaN" BorderBrush="{x:Null}" Margin="0,0,0,0" MouseEnter="settingsButton_MouseEnter" MouseLeave="settingsButton_MouseLeave" Click="settingsButton_Click" PreviewMouseDown="settingsButton_PreviewMouseDown" PreviewMouseUp="settingsButton_PreviewMouseUp">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+                <Button.Background>
+                    <ImageBrush ImageSource="/Resources/Images/Icons/settings-2.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+        </Border>
+    </Grid>
+</UserControl>
