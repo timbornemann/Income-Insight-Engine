@@ -79,6 +79,15 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ascending ähnelt.
+        /// </summary>
+        public static string Ascending {
+            get {
+                return ResourceManager.GetString("Ascending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Budget Category ähnelt.
         /// </summary>
         public static string BudgetCategory {
@@ -138,6 +147,15 @@ namespace IncomeInsightEngine.Properties {
         public static string Date {
             get {
                 return ResourceManager.GetString("Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Descending ähnelt.
+        /// </summary>
+        public static string Descending {
+            get {
+                return ResourceManager.GetString("Descending", resourceCulture);
             }
         }
         
@@ -291,6 +309,51 @@ namespace IncomeInsightEngine.Properties {
         public static string Reimbursable {
             get {
                 return ResourceManager.GetString("Reimbursable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sort by Amount ähnelt.
+        /// </summary>
+        public static string SortByAmount {
+            get {
+                return ResourceManager.GetString("SortByAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sort by Date ähnelt.
+        /// </summary>
+        public static string SortByDate {
+            get {
+                return ResourceManager.GetString("SortByDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sort by ID ähnelt.
+        /// </summary>
+        public static string SortById {
+            get {
+                return ResourceManager.GetString("SortById", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sort by Location ähnelt.
+        /// </summary>
+        public static string SortByLocation {
+            get {
+                return ResourceManager.GetString("SortByLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sort by Partner ähnelt.
+        /// </summary>
+        public static string SortByPartner {
+            get {
+                return ResourceManager.GetString("SortByPartner", resourceCulture);
             }
         }
         

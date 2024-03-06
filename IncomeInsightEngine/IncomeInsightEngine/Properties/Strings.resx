@@ -123,6 +123,9 @@
   <data name="Amount" xml:space="preserve">
     <value>Amount</value>
   </data>
+  <data name="Ascending" xml:space="preserve">
+    <value>Ascending</value>
+  </data>
   <data name="BudgetCategory" xml:space="preserve">
     <value>Budget Category</value>
   </data>
@@ -143,6 +146,9 @@
   </data>
   <data name="Date" xml:space="preserve">
     <value>Date</value>
+  </data>
+  <data name="Descending" xml:space="preserve">
+    <value>Descending</value>
   </data>
   <data name="Description" xml:space="preserve">
     <value>Description</value>
@@ -194,6 +200,21 @@
   </data>
   <data name="Reimbursable" xml:space="preserve">
     <value>Reimbursable</value>
+  </data>
+  <data name="SortByAmount" xml:space="preserve">
+    <value>Sort by Amount</value>
+  </data>
+  <data name="SortByDate" xml:space="preserve">
+    <value>Sort by Date</value>
+  </data>
+  <data name="SortById" xml:space="preserve">
+    <value>Sort by ID</value>
+  </data>
+  <data name="SortByLocation" xml:space="preserve">
+    <value>Sort by Location</value>
+  </data>
+  <data name="SortByPartner" xml:space="preserve">
+    <value>Sort by Partner</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
