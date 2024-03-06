@@ -1,4 +1,5 @@
 ﻿using dataStructure;
+using IncomeInsightEngine.Resources.Colors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,8 @@ namespace IncomeInsightEngine.src.ui.UserControls.SingleTransactions
         {
             InitializeComponent();
 
+            SetColors();
+
             this.transaction = transaction;
             this.dateLabel.Content = transaction.Date.ToShortDateString();
             this.partnerLabel.Content = transaction.Partner;
@@ -52,18 +55,38 @@ namespace IncomeInsightEngine.src.ui.UserControls.SingleTransactions
 
             if (amount > 0)
             {
-                this.amountBackground.Background = (Brush)new BrushConverter().ConvertFrom("#FF7B947A");
+                this.amountBackground.Background = UiColorsManager.GetBrush(UiColorsManager.ColorName.LaurelGreen);
                 
             }
             else if (amount < 0)
             {
-                this.amountBackground.Background = (Brush)new BrushConverter().ConvertFrom("#FF8C5A5A");
+                this.amountBackground.Background = UiColorsManager.GetBrush(UiColorsManager.ColorName.MediumCarmine);
 
             }
             else
             {
-                this.amountBackground.Background = Brushes.White;
+                this.amountBackground.Background = UiColorsManager.GetBrush(UiColorsManager.ColorName.White);
             }
+
+        }
+
+        private void SetColors()
+        {
+
+            amountBackground.Background = UiColorsManager.GetBrush(UiColorsManager.ColorName.White);
+            dateBackground.Background = UiColorsManager.GetBrush(UiColorsManager.ColorName.White);
+            partnerBackground.Background = UiColorsManager.GetBrush(UiColorsManager.ColorName.White);
+            descriptionBackground.Background = UiColorsManager.GetBrush(UiColorsManager.ColorName.White);
+            settingsBackground.Background = UiColorsManager.GetBrush(UiColorsManager.ColorName.White);
+
+            amountLabel.Foreground = UiColorsManager.GetBrush(UiColorsManager.ColorName.Black);
+            dateLabel.Foreground = UiColorsManager.GetBrush(UiColorsManager.ColorName.Black);
+            partnerLabel.Foreground = UiColorsManager.GetBrush(UiColorsManager.ColorName.Black);
+            descriptionTextBox.Foreground = UiColorsManager.GetBrush(UiColorsManager.ColorName.LightGray);
+
+
+            string imageSource = (UiColorsManager.IsLightMode) ? "pack://application:,,,/Resources/Images/Icons/settings-2-Black.png" : "pack://application:,,,/Resources/Images/Icons/settings-2-White.png";
+            settingsButton.Background = new ImageBrush(new BitmapImage(new Uri(imageSource)));
 
         }
 
@@ -75,22 +98,22 @@ namespace IncomeInsightEngine.src.ui.UserControls.SingleTransactions
 
         private void settingsButton_MouseEnter(object sender, MouseEventArgs e)
         {
-            settingsBackground.Background = Brushes.DarkGray;
+            settingsBackground.Background = UiColorsManager.GetBrush(UiColorsManager.ColorName.DarkGrey);
         }
 
         private void settingsButton_MouseLeave(object sender, MouseEventArgs e)
         {
-            settingsBackground.Background = Brushes.White;
+            settingsBackground.Background = UiColorsManager.GetBrush(UiColorsManager.ColorName.White);
         }
 
         private void settingsButton_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            settingsBackground.Background = Brushes.Gray;
+            settingsBackground.Background = UiColorsManager.GetBrush(UiColorsManager.ColorName.LightGray);
         }
 
         private void settingsButton_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
-            settingsBackground.Background = Brushes.DarkGray;
+            settingsBackground.Background = UiColorsManager.GetBrush(UiColorsManager.ColorName.DarkGrey);
         }
 
         private void UserControl_MouseEnter(object sender, MouseEventArgs e)

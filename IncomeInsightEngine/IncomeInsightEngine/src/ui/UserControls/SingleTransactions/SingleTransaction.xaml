@@ -44,7 +44,7 @@
                 <DropShadowEffect x:Name="settingsShadow" Color="#FF4E4E4E" BlurRadius="4" ShadowDepth="6"/>
             </Border.Effect>
             
-            <Button x:Name="settingsButton" Content="" Width="NaN" BorderBrush="{x:Null}" Margin="0,0,0,0" MouseEnter="settingsButton_MouseEnter" MouseLeave="settingsButton_MouseLeave" Click="settingsButton_Click" PreviewMouseDown="settingsButton_PreviewMouseDown" PreviewMouseUp="settingsButton_PreviewMouseUp">
+            <Button x:Name="settingsButton" Content="" Width="NaN" BorderBrush="{x:Null}" Margin="0,0,0,0" MouseEnter="settingsButton_MouseEnter" MouseLeave="settingsButton_MouseLeave" Click="settingsButton_Click" PreviewMouseDown="settingsButton_PreviewMouseDown" PreviewMouseUp="settingsButton_PreviewMouseUp" Foreground="{x:Null}">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Background" Value="Transparent"/>
@@ -60,7 +60,7 @@
                     </Style>
                 </Button.Style>
                 <Button.Background>
-                    <ImageBrush ImageSource="/Resources/Images/Icons/settings-2.png" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="/Resources/Images/Icons/settings-2-Black.png" Stretch="Uniform" TileMode="None"/>
                 </Button.Background>
             </Button>
         </Border>
