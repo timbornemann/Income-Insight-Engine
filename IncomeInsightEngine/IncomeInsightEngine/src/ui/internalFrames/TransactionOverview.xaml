@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IncomeInsightEngine.src.ui.internalFrames"
+             xmlns:properties="clr-namespace:IncomeInsightEngine.Properties"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -12,7 +13,38 @@
             <ColumnDefinition Width="29*"/>
         </Grid.ColumnDefinitions>
         <ScrollViewer Grid.Column="1">
-            <StackPanel x:Name="stackPanel" Background="White"/>
+            <StackPanel x:Name="overviewPanel" Background="White"/>
         </ScrollViewer>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="14*"/>
+                <RowDefinition Height="31*"/>
+            </Grid.RowDefinitions>
+            <Grid x:Name="sortingOptionsGrid" Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+                <DockPanel LastChildFill="True">
+                    <Label Content="Label"/>
+                </DockPanel>
+
+                <DockPanel LastChildFill="True" Grid.Row="1">
+                    <ComboBox x:Name="orderComboBox"/>
+                </DockPanel>
+
+                <DockPanel LastChildFill="True" Grid.Row="2">
+                    <ListBox x:Name="sortingTypes" VerticalContentAlignment="Center" ScrollViewer.CanContentScroll="True">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </DockPanel>
+            </Grid>
+
+        </Grid>
     </Grid>
 </UserControl>
