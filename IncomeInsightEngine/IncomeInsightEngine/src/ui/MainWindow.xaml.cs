@@ -10,6 +10,7 @@ using IncomeInsightEngine.src.dataStructure.management;
 using IncomeInsightEngine.src.ui.UserControls.SingleTransactions;
 using dataStructure;
 using IncomeInsightEngine.src.ui.UserControls;
+using IncomeInsightEngine.Resources.Colors;
 
 
 
@@ -26,15 +27,7 @@ namespace IncomeInsightEngine.src.ui
             InitializeComponent();
 
             Manager = manager;
-
-            
-            foreach (Transaction transaction in manager.GetAllTransactions())
-            {
-                var t = new SingleTransaction(transaction);                            
-                this.overview.AddElementToOverview(t);
-            }
-            
-
+                    
         }
 
     }
