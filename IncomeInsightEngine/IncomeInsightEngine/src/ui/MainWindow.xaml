@@ -6,7 +6,6 @@
     xmlns:internalFrames="clr-namespace:IncomeInsightEngine.src.ui.internalFrames" x:Class="IncomeInsightEngine.src.ui.MainWindow"            
     
     Title="MainWindow" Height="450" Width="900">
-    <DockPanel LastChildFill="True">
-        <internalFrames:TransactionOverview x:Name="overview" />
+    <DockPanel x:Name="ContentPage" LastChildFill="True">
     </DockPanel>
 </Window>

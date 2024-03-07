@@ -11,6 +11,7 @@ using IncomeInsightEngine.src.ui.UserControls.SingleTransactions;
 using dataStructure;
 using IncomeInsightEngine.src.ui.UserControls;
 using IncomeInsightEngine.Resources.Colors;
+using IncomeInsightEngine.src.ui.internalFrames;
 
 
 
@@ -27,7 +28,7 @@ namespace IncomeInsightEngine.src.ui
             InitializeComponent();
 
             Manager = manager;
-                    
+            ContentPage.Children.Add(new TransactionOverview(manager));  
         }
 
     }
