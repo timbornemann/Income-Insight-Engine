@@ -50,6 +50,11 @@ namespace IncomeInsightEngine.src.ui.CustomUiElements
         private bool _isPasswordMode = false;
         private string _realText = "";
 
+        public AdvancedInputBox()
+        {
+  
+        }
+
         /// <summary>
         /// Initializes a new instance of the AdvancedInputBox class with optional suggestions, text, and placeholder text.
         /// </summary>
@@ -62,7 +67,7 @@ namespace IncomeInsightEngine.src.ui.CustomUiElements
         /// expression evaluation, and input character transformation. A Popup control containing a ListBox is also initialized for displaying suggestions, 
         /// which can be populated and controlled through the provided methods and properties of this class.
         /// </remarks>
-        public AdvancedInputBox(List<string> suggestions = null, string text = null, string placeholderText = null)
+        public void InitAdvancedInputBox(List<string> suggestions = null, string text = null, string placeholderText = null)
         {
 
             this.suggestionsSource = (suggestions == null) ? new List<string>() : suggestions;
@@ -78,7 +83,7 @@ namespace IncomeInsightEngine.src.ui.CustomUiElements
             this.TextChanged += EvaluateExpression_TextChanged;
             this.PreviewTextInput += PreventCommaInput_PreviewTextInput;
             this.TextChanged += AutoCompleteTextBox_TextChanged;
-           
+
 
 
             DataObject.AddPastingHandler(this, OnPastePreventCommaInput);
@@ -216,6 +221,21 @@ namespace IncomeInsightEngine.src.ui.CustomUiElements
         public void ClearSuggestionItems()
         {
             suggestionsSource.Clear();
+        }
+
+        public string TryGetText()
+        {
+            if (_isPasswordMode)
+            {
+                return this._realText;
+            }
+
+            if (this.Text.Equals(_placeholderText))
+            {
+                return null;
+            }
+
+            return this.Text;
         }
 
         /// <summary>
