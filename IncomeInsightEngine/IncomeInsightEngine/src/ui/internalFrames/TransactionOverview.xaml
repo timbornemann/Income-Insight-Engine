@@ -5,46 +5,97 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IncomeInsightEngine.src.ui.internalFrames"
              xmlns:properties="clr-namespace:IncomeInsightEngine.Properties"
+             xmlns:customUiElements="clr-namespace:IncomeInsightEngine.src.ui.CustomUiElements"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+             d:DesignHeight="450" d:DesignWidth="800" SizeChanged="UserControl_SizeChanged"
+             TextElement.FontFamily="Segoe UI" TextElement.FontSize="14">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="PrimaryColor" Color="#007ACC"/>
+        <SolidColorBrush x:Key="SecondaryColor" Color="#333333"/>
+        <SolidColorBrush x:Key="BackgroundColor" Color="White"/>
+        <SolidColorBrush x:Key="ButtonColor" Color="#007ACC"/>
+        <SolidColorBrush x:Key="TextColor" Color="#FFFFFF"/>
+    </UserControl.Resources>
+
+    <Grid Background="{StaticResource BackgroundColor}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="11*"/>
-            <ColumnDefinition Width="29*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="7*"/>
         </Grid.ColumnDefinitions>
-        <ScrollViewer Grid.Column="1">
-            <StackPanel x:Name="overviewPanel" Background="White"/>
-        </ScrollViewer>
-        <Grid>
+
+        <!-- Sidebar für Filter und Sortieroptionen -->
+        <Grid Grid.Column="0" Margin="10">
             <Grid.RowDefinitions>
-                <RowDefinition Height="14*"/>
-                <RowDefinition Height="31*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Grid x:Name="sortingOptionsGrid" Background="White">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="3*"/>
-                </Grid.RowDefinitions>
-                <DockPanel LastChildFill="True">
-                    <Label Content="Label"/>
-                </DockPanel>
 
-                <DockPanel LastChildFill="True" Grid.Row="1">
-                    <ComboBox x:Name="orderComboBox"/>
-                </DockPanel>
+            <!-- Sortieroptionen -->
+            <Border Background="White" Margin="5" Padding="10">
+                <ScrollViewer >
+                    <StackPanel>
+                        <TextBlock x:Name="sortingLabel" Text="Sorting Options" FontWeight="Bold" Margin="0,0,0,10"/>
+                        <ComboBox x:Name="orderComboBox" Margin="0,0,0,10" SelectionChanged="orderComboBox_SelectionChanged"/>
+                        <ListBox x:Name="sortingTypes" VerticalContentAlignment="Center" ScrollViewer.CanContentScroll="True" Margin="0,0,0,10" SelectionChanged="sortingTypes_SelectionChanged">
+                        </ListBox>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
 
-                <DockPanel LastChildFill="True" Grid.Row="2">
-                    <ListBox x:Name="sortingTypes" VerticalContentAlignment="Center" ScrollViewer.CanContentScroll="True">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding}" />
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </DockPanel>
-            </Grid>
+            <!-- Filteroptionen -->
+            <Border Background="White" Margin="5" Padding="10" Grid.Row="1">
 
+                <ScrollViewer>
+                <StackPanel>
+                    <Button x:Name="filterButton" Content="Apply" Background="{StaticResource ButtonColor}" Foreground="{StaticResource TextColor}" Margin="0,10,0,10" />
+                    <TextBlock x:Name="filterLabel" Text="Filter Options" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <ComboBox Name="incomeExpaseComboBox" Margin="0,0,0,10"/>
+                    <customUiElements:AdvancedInputBox x:Name="minAmount" Margin="0,0,0,10"/>
+                    <customUiElements:AdvancedInputBox x:Name="maxAmount" Margin="0,0,0,10"/>
+                    <DatePicker x:Name="startDate" Margin="0,0,0,10"/>
+                    <DatePicker x:Name="endDate" Margin="0,10,0,10"/>
+                    <customUiElements:AdvancedInputBox x:Name="description" Margin="0,0,0,10"/>
+                    <Label Name="currencyLabel" Content="Currency" Margin="0,10,0,0"/>
+                    <ComboBox Name="currencyComboBox" Margin="0,0,0,10">
+                            <ComboBoxItem Content="USD - $" />
+                            <ComboBoxItem Content="EUR - €" />
+                            <ComboBoxItem Content="JPY - ¥" />
+                            <ComboBoxItem Content="GBP - £" />
+                            <ComboBoxItem Content="AUD - $" />
+                            <ComboBoxItem Content="CAD - $" />
+                            <ComboBoxItem Content="CHF - CHF" />
+                            <ComboBoxItem Content="CNY - ¥" />
+                            <ComboBoxItem Content="SEK - kr" />
+                            <ComboBoxItem Content="NZD - $" />
+                        </ComboBox>
+                    <Label Name="paymentMethodLabel" Content="Payment Method" Margin="0,10,0,0"/>
+                    <ComboBox Name="paymentMethodComboBox" Margin="0,0,0,10"/>
+                    <CheckBox x:Name="taxDeductible" Content="Tax Deductible" Margin="0,0,0,10"/>
+                    <CheckBox x:Name="reimbursable" Content="Reimbursable" Margin="0,0,0,10"/>
+                    <Label Name="categoryLabel" Content="Category" Margin="0,10,0,0"/>
+                    <ComboBox Name="categoryComboBox" Margin="0,0,0,10"/>
+                    <Label Name="budgetCategoryLabel" Content="Budget Category" Margin="0,10,0,0"/>
+                    <ComboBox Name="budgetCategoryComboBox" Margin="0,0,0,10"/>
+                    <customUiElements:AdvancedInputBox x:Name="partner" Margin="0,0,0,10"/>
+                    <customUiElements:AdvancedInputBox x:Name="project" Margin="0,0,0,10"/>
+                    <Label Name="statusLabel" Content="Status" Margin="0,10,0,0"/>
+                    <ComboBox Name="statusComboBox" Margin="0,0,0,10"/>
+                    <Label Name="priorityLabel" Content="Priority" Margin="0,10,0,0"/>
+                    <ComboBox Name="priorityComboBox" Margin="0,0,0,10"/>
+                    <Label Name="frequencyLabel" Content="Frequency" Margin="0,10,0,0"/>
+                    <ComboBox Name="frequencyComboBox" Margin="0,0,0,10"/>
+                    <customUiElements:AdvancedInputBox x:Name="location" Margin="0,0,0,10"/>
+                    <customUiElements:AdvancedInputBox x:Name="tag" Margin="0,0,0,10"/>
+                    <customUiElements:AdvancedInputBox x:Name="notes" Margin="0,0,0,10"/>
+                    <Button x:Name="resetFilterButton" Content="Reset" Background="{StaticResource ButtonColor}" Foreground="{StaticResource TextColor}" Margin="0,10,0,10"/>
+                </StackPanel>
+            </ScrollViewer>
+            </Border>
+            <GridSplitter HorizontalAlignment="Stretch" Height="10" Grid.Row="1" VerticalAlignment="Top" Background="White" Foreground="{x:Null}"  />
         </Grid>
+
+        <ScrollViewer Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <VirtualizingStackPanel  x:Name="overviewPanel" Background="White" Margin="10,0,10,0"/>
+        </ScrollViewer>
     </Grid>
 </UserControl>
