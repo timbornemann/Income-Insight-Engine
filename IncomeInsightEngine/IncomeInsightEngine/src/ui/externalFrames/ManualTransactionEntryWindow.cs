@@ -62,11 +62,11 @@ namespace IncomeInsightEngine.src.ui.externalFrames
             this.Height = 300;
             this.Width = 500;
 
-            this.WindowStartupLocation = (owner != null ) ? WindowStartupLocation.CenterOwner : WindowStartupLocation.CenterScreen;
+            this.WindowStartupLocation = (owner != null) ? WindowStartupLocation.CenterOwner : WindowStartupLocation.CenterScreen;
 
             InitGrid();
             InitComponents();
-          
+
         }
 
         /// <summary>
@@ -98,39 +98,39 @@ namespace IncomeInsightEngine.src.ui.externalFrames
         /// This method configures the visual appearance and behavior of input controls and adds them to the grid. It also sets up event handlers for buttons and other interactive elements.
         /// </remarks>
         private void InitComponents()
-        {         
-            amountLabel.Content = Strings.Amount+":";
-            dateLabel.Content = Strings.Date+":";
-            partnerLabel.Content = Strings.Partner+":";
-            statusLabel.Content = Strings.Status+":";
-            descriptionLabel.Content = Strings.Description+":";
+        {
+            amountLabel.Content = Strings.Amount + ":";
+            dateLabel.Content = Strings.Date + ":";
+            partnerLabel.Content = Strings.Partner + ":";
+            statusLabel.Content = Strings.Status + ":";
+            descriptionLabel.Content = Strings.Description + ":";
 
             FormatDesignForLabel(amountLabel);
-            FormatDesignForLabel(dateLabel); 
-            FormatDesignForLabel(partnerLabel); 
-            FormatDesignForLabel(statusLabel); 
+            FormatDesignForLabel(dateLabel);
+            FormatDesignForLabel(partnerLabel);
+            FormatDesignForLabel(statusLabel);
             FormatDesignForLabel(descriptionLabel);
 
             FormatDesignForTextBox(amountTextbox);
-            FormatDesignForTextBox(dateTextbox); 
-            FormatDesignForTextBox(partnerTextbox); 
+            FormatDesignForTextBox(dateTextbox);
+            FormatDesignForTextBox(partnerTextbox);
             FormatDesignForTextBox(descriptionTextbox);
-           
-            AddLabelAndTextBoxToGrid(amountLabel, amountTextbox, 0,0);
-            AddLabelAndTextBoxToGrid(dateLabel, dateTextbox, 0,1);
-            AddLabelAndTextBoxToGrid(partnerLabel, partnerTextbox, 2,0);
-            AddLabelAndTextBoxToGrid(descriptionLabel, descriptionTextbox,4,0, true);
+
+            AddLabelAndTextBoxToGrid(amountLabel, amountTextbox, 0, 0);
+            AddLabelAndTextBoxToGrid(dateLabel, dateTextbox, 0, 1);
+            AddLabelAndTextBoxToGrid(partnerLabel, partnerTextbox, 2, 0);
+            AddLabelAndTextBoxToGrid(descriptionLabel, descriptionTextbox, 4, 0, true);
 
 
             FormatDesignForComboBox(statusComboBox);
-            AddElementsToCombobox(statusComboBox,new List<string> { Strings.Completed, Strings.Pending });
-            AddLabelAndComboBoxToGrid(statusLabel, statusComboBox, 2,1);
+            AddElementsToCombobox(statusComboBox, new List<string> { Strings.Completed, Strings.Pending });
+            AddLabelAndComboBoxToGrid(statusLabel, statusComboBox, 2, 1);
 
 
             Button addMoreDetails = new Button { Content = Strings.AddMoreDetails };
             addMoreDetails.Click += AddMoreDetails_Click;
-            FormatDesignForButton(addMoreDetails, new Thickness(20,20,20,10));
-            AddButtonToGrid(addMoreDetails, 6,0, true);
+            FormatDesignForButton(addMoreDetails, new Thickness(20, 20, 20, 10));
+            AddButtonToGrid(addMoreDetails, 6, 0, true);
 
             Button cancel = new Button { Content = Strings.Cancel };
             cancel.Click += Cancel_Click;
@@ -195,7 +195,7 @@ namespace IncomeInsightEngine.src.ui.externalFrames
             textBox.Background = new SolidColorBrush(Colors.WhiteSmoke);
             textBox.BorderBrush = new SolidColorBrush(Colors.Black);
             textBox.BorderThickness = new Thickness(1);
-            textBox.Margin =  new Thickness(20, 0, 20, 0) ;
+            textBox.Margin = new Thickness(20, 0, 20, 0);
             textBox.MinHeight = 20;
 
         }
@@ -229,14 +229,14 @@ namespace IncomeInsightEngine.src.ui.externalFrames
         /// </remarks>
         private void FormatDesignForLabel(Label label)
         {
-          
+
             label.FontFamily = new FontFamily("Segoe UI");
             label.FontSize = 12;
-            label.Foreground = new SolidColorBrush(Colors.Black);       
+            label.Foreground = new SolidColorBrush(Colors.Black);
             label.Background = new SolidColorBrush(Colors.Transparent);
             label.Margin = new Thickness(15, 0, 20, 0);
             label.VerticalAlignment = VerticalAlignment.Bottom;
-     
+
         }
 
         /// <summary>
@@ -249,15 +249,15 @@ namespace IncomeInsightEngine.src.ui.externalFrames
         /// </remarks>
         private void FormatDesignForButton(Button button, Thickness margin)
         {
-           
+
             button.FontFamily = new FontFamily("Segoe UI");
-            button.FontSize = 12;   
-            button.MinHeight = 20;       
+            button.FontSize = 12;
+            button.MinHeight = 20;
             button.Foreground = new SolidColorBrush(Colors.White);
             button.Background = new SolidColorBrush(Color.FromArgb(255, 0, 120, 215));
             button.BorderBrush = new SolidColorBrush(Colors.Black);
             button.BorderThickness = new Thickness(2);
-            button.Padding = new Thickness(10, 5, 10, 5); 
+            button.Padding = new Thickness(10, 5, 10, 5);
             button.Margin = margin;
             button.HorizontalContentAlignment = HorizontalAlignment.Center;
             button.VerticalContentAlignment = VerticalAlignment.Center;
@@ -291,7 +291,7 @@ namespace IncomeInsightEngine.src.ui.externalFrames
             Grid.SetColumn(label, column);
             grid.Children.Add(label);
 
-            Grid.SetRow(textBox,  row+1);
+            Grid.SetRow(textBox, row + 1);
             Grid.SetColumn(textBox, column);
             grid.Children.Add(textBox);
         }
