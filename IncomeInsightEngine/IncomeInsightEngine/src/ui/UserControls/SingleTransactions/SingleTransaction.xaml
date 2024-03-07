@@ -13,7 +13,7 @@
             <ColumnDefinition Width="138*"/>
             <ColumnDefinition Width="242*"/>
             <ColumnDefinition Width="395*"/>
-            <ColumnDefinition Width="61*"/>
+            <ColumnDefinition Width="61*" MinWidth="48"/>
         </Grid.ColumnDefinitions>
         <Border x:Name="amountBackground" BorderThickness="1" Background="White" CornerRadius="20,0,0,20" BorderBrush="Black" >
             <Border.Effect>
@@ -43,8 +43,8 @@
             <Border.Effect>
                 <DropShadowEffect x:Name="settingsShadow" Color="#FF4E4E4E" BlurRadius="4" ShadowDepth="6"/>
             </Border.Effect>
-            
-            <Button x:Name="settingsButton" Content="" Width="NaN" BorderBrush="{x:Null}" Margin="0,0,0,0" MouseEnter="settingsButton_MouseEnter" MouseLeave="settingsButton_MouseLeave" Click="settingsButton_Click" PreviewMouseDown="settingsButton_PreviewMouseDown" PreviewMouseUp="settingsButton_PreviewMouseUp" Foreground="{x:Null}">
+
+            <Button x:Name="settingsButton" Content="" BorderBrush="{x:Null}" Margin="0,0,0,0" MouseEnter="settingsButton_MouseEnter" MouseLeave="settingsButton_MouseLeave" Click="settingsButton_Click" PreviewMouseDown="settingsButton_PreviewMouseDown" PreviewMouseUp="settingsButton_PreviewMouseUp" Foreground="{x:Null}" HorizontalContentAlignment="Center" MaxWidth="48" MaxHeight="48">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Background" Value="Transparent"/>
@@ -60,9 +60,10 @@
                     </Style>
                 </Button.Style>
                 <Button.Background>
-                    <ImageBrush ImageSource="/Resources/Images/Icons/settings-2-Black.png" Stretch="Uniform" TileMode="None"/>
+                    <ImageBrush ImageSource="/Resources/Images/Icons/settings-2-Black.png" Stretch="Uniform" TileMode="None" ViewboxUnits="RelativeToBoundingBox" ViewportUnits="RelativeToBoundingBox"/>
                 </Button.Background>
             </Button>
+
         </Border>
     </Grid>
 </UserControl>
