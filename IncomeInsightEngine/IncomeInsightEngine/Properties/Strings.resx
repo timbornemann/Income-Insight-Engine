@@ -120,17 +120,32 @@
   <data name="AddMoreDetails" xml:space="preserve">
     <value>Add more Details</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>All</value>
+  </data>
   <data name="Amount" xml:space="preserve">
     <value>Amount</value>
   </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Apply</value>
+  </data>
   <data name="Ascending" xml:space="preserve">
     <value>Ascending</value>
+  </data>
+  <data name="BankTransfer" xml:space="preserve">
+    <value>Bank Transfer</value>
+  </data>
+  <data name="Blank" xml:space="preserve">
+    <value>Blank</value>
   </data>
   <data name="BudgetCategory" xml:space="preserve">
     <value>Budget Category</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
+  </data>
+  <data name="Cash" xml:space="preserve">
+    <value>Cash</value>
   </data>
   <data name="Category" xml:space="preserve">
     <value>Category</value>
@@ -141,11 +156,20 @@
   <data name="Completed" xml:space="preserve">
     <value>Completed</value>
   </data>
+  <data name="CreditCard" xml:space="preserve">
+    <value>Credit Card</value>
+  </data>
+  <data name="Cryptocurrency" xml:space="preserve">
+    <value>Cryptocurrency</value>
+  </data>
   <data name="Currency" xml:space="preserve">
     <value>Currency</value>
   </data>
   <data name="Date" xml:space="preserve">
     <value>Date</value>
+  </data>
+  <data name="DebitCard" xml:space="preserve">
+    <value>Debit Card</value>
   </data>
   <data name="Descending" xml:space="preserve">
     <value>Descending</value>
@@ -153,11 +177,23 @@
   <data name="Description" xml:space="preserve">
     <value>Description</value>
   </data>
+  <data name="DirectDebit" xml:space="preserve">
+    <value>Direct Debit</value>
+  </data>
+  <data name="End" xml:space="preserve">
+    <value>End</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>An error occurred</value>
   </data>
   <data name="ErrorCryptograpic" xml:space="preserve">
     <value>A cryptographic error occurred</value>
+  </data>
+  <data name="Expenses" xml:space="preserve">
+    <value>Expenses</value>
+  </data>
+  <data name="FilterOptions" xml:space="preserve">
+    <value>Filter options</value>
   </data>
   <data name="Finish" xml:space="preserve">
     <value>Finish</value>
@@ -171,8 +207,20 @@
   <data name="Id" xml:space="preserve">
     <value>ID</value>
   </data>
+  <data name="Income" xml:space="preserve">
+    <value>Income</value>
+  </data>
+  <data name="Invoice" xml:space="preserve">
+    <value>Invoice</value>
+  </data>
   <data name="Location" xml:space="preserve">
     <value>Location</value>
+  </data>
+  <data name="MaxAmount" xml:space="preserve">
+    <value>Max. amount</value>
+  </data>
+  <data name="MinAmount" xml:space="preserve">
+    <value>Min. amount</value>
   </data>
   <data name="Notes" xml:space="preserve">
     <value>Notes</value>
@@ -185,6 +233,9 @@
   </data>
   <data name="PaymentMethod" xml:space="preserve">
     <value>Payment Method</value>
+  </data>
+  <data name="PayPal" xml:space="preserve">
+    <value>PayPal</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>Pending</value>
@@ -201,6 +252,9 @@
   <data name="Reimbursable" xml:space="preserve">
     <value>Reimbursable</value>
   </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
   <data name="SortByAmount" xml:space="preserve">
     <value>Sort by Amount</value>
   </data>
@@ -216,6 +270,12 @@
   <data name="SortByPartner" xml:space="preserve">
     <value>Sort by Partner</value>
   </data>
+  <data name="SortingOptions" xml:space="preserve">
+    <value>Sorting options</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
   </data>
@@ -224,6 +284,9 @@
   </data>
   <data name="TaxDeductible" xml:space="preserve">
     <value>Tax Deductible</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>Text</value>
   </data>
   <data name="TotalAmount" xml:space="preserve">
     <value>Total amount</value>
@@ -239,5 +302,8 @@
   </data>
   <data name="Transactions" xml:space="preserve">
     <value>Transactions</value>
+  </data>
+  <data name="Voucher" xml:space="preserve">
+    <value>Voucher</value>
   </data>
 </root>
