@@ -9,7 +9,6 @@ using dataStructure;
 using IncomeInsightEngine.Properties;
 using IncomeInsightEngine.src.dataStructure.management;
 using IncomeInsightEngine.src.ui;
-using IncomeInsightEngine.src.ui.externalFrames;
 using src.parser;
 
 
