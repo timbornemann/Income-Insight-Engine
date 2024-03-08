@@ -98,7 +98,7 @@ namespace IncomeInsightEngine.src.ui.UserControls.SingleTransactions
 
         private void settingsButton_MouseEnter(object sender, MouseEventArgs e)
         {
-            settingsBackground.Background = UiColorsManager.GetBrush(UiColorsManager.ColorName.DarkGrey);
+            settingsBackground.Background = UiColorsManager.GetBrush(UiColorsManager.ColorName.LightGray);
         }
 
         private void settingsButton_MouseLeave(object sender, MouseEventArgs e)
@@ -108,12 +108,12 @@ namespace IncomeInsightEngine.src.ui.UserControls.SingleTransactions
 
         private void settingsButton_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            settingsBackground.Background = UiColorsManager.GetBrush(UiColorsManager.ColorName.LightGray);
+            settingsBackground.Background = UiColorsManager.GetBrush(UiColorsManager.ColorName.DarkGrey);
         }
 
         private void settingsButton_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
-            settingsBackground.Background = UiColorsManager.GetBrush(UiColorsManager.ColorName.DarkGrey);
+            settingsBackground.Background = UiColorsManager.GetBrush(UiColorsManager.ColorName.LightGray);
         }
 
         private void UserControl_MouseEnter(object sender, MouseEventArgs e)
