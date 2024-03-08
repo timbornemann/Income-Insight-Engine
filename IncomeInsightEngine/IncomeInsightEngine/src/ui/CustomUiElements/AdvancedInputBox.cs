@@ -235,6 +235,11 @@ namespace IncomeInsightEngine.src.ui.CustomUiElements
                 return null;
             }
 
+            if (string.IsNullOrWhiteSpace(this.Text))
+            {
+                return null;
+            }
+
             return this.Text;
         }
 
@@ -245,6 +250,15 @@ namespace IncomeInsightEngine.src.ui.CustomUiElements
         public decimal TryGetNumberAsDecimal()
         {
             string input = this.Text;
+
+            if (input.Equals("Max. amount"))
+            {
+                return decimal.MaxValue;
+            }else if(input.Equals("Min. amount"))
+            {
+                return decimal.MinValue;
+            }
+
             Decimal.TryParse(input, out decimal result);
             return result;
         }
