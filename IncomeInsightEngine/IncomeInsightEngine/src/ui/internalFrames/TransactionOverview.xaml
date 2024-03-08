@@ -7,7 +7,7 @@
              xmlns:properties="clr-namespace:IncomeInsightEngine.Properties"
              xmlns:customUiElements="clr-namespace:IncomeInsightEngine.src.ui.CustomUiElements"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" SizeChanged="UserControl_SizeChanged"
+             d:DesignHeight="900" d:DesignWidth="1400" SizeChanged="UserControl_SizeChanged"
              TextElement.FontFamily="Segoe UI" TextElement.FontSize="14">
     <UserControl.Resources>
         <SolidColorBrush x:Key="PrimaryColor" Color="#007ACC"/>
@@ -34,7 +34,7 @@
             <Border Background="White" Margin="5" Padding="10">
                 <ScrollViewer >
                     <StackPanel>
-                        <TextBlock x:Name="sortingLabel" Text="Sorting Options" FontWeight="Bold" Margin="0,0,0,10"/>
+                        <TextBlock x:Name="sortingLabel" Text="Sorting Options" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"/>
                         <ComboBox x:Name="orderComboBox" Margin="0,0,0,10" SelectionChanged="orderComboBox_SelectionChanged"/>
                         <ListBox x:Name="sortingTypes" VerticalContentAlignment="Center" ScrollViewer.CanContentScroll="True" Margin="0,0,0,10" SelectionChanged="sortingTypes_SelectionChanged">
                         </ListBox>
@@ -47,14 +47,15 @@
 
                 <ScrollViewer>
                 <StackPanel>
-                    <Button x:Name="filterButton" Content="Apply" Background="{StaticResource ButtonColor}" Foreground="{StaticResource TextColor}" Margin="0,10,0,10" />
-                    <TextBlock x:Name="filterLabel" Text="Filter Options" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <TextBlock x:Name="filterLabel" Text="Filter Options" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"/>
+                    <Button x:Name="filterButton" Content="Apply" Background="{StaticResource ButtonColor}" Foreground="{StaticResource TextColor}" Margin="0,10,0,10" Click="filterButton_Click" />
                     <ComboBox Name="incomeExpaseComboBox" Margin="0,0,0,10"/>
                     <customUiElements:AdvancedInputBox x:Name="minAmount" Margin="0,0,0,10"/>
                     <customUiElements:AdvancedInputBox x:Name="maxAmount" Margin="0,0,0,10"/>
+                    <customUiElements:AdvancedInputBox x:Name="description" Margin="0,0,0,10"/>
+                    <customUiElements:AdvancedInputBox x:Name="partner" Margin="0,0,0,10"/>
                     <DatePicker x:Name="startDate" Margin="0,0,0,10"/>
                     <DatePicker x:Name="endDate" Margin="0,10,0,10"/>
-                    <customUiElements:AdvancedInputBox x:Name="description" Margin="0,0,0,10"/>
                     <Label Name="currencyLabel" Content="Currency" Margin="0,10,0,0"/>
                     <ComboBox Name="currencyComboBox" Margin="0,0,0,10">
                             <ComboBoxItem Content="USD - $" />
@@ -76,7 +77,6 @@
                     <ComboBox Name="categoryComboBox" Margin="0,0,0,10"/>
                     <Label Name="budgetCategoryLabel" Content="Budget Category" Margin="0,10,0,0"/>
                     <ComboBox Name="budgetCategoryComboBox" Margin="0,0,0,10"/>
-                    <customUiElements:AdvancedInputBox x:Name="partner" Margin="0,0,0,10"/>
                     <customUiElements:AdvancedInputBox x:Name="project" Margin="0,0,0,10"/>
                     <Label Name="statusLabel" Content="Status" Margin="0,10,0,0"/>
                     <ComboBox Name="statusComboBox" Margin="0,0,0,10"/>
@@ -87,7 +87,7 @@
                     <customUiElements:AdvancedInputBox x:Name="location" Margin="0,0,0,10"/>
                     <customUiElements:AdvancedInputBox x:Name="tag" Margin="0,0,0,10"/>
                     <customUiElements:AdvancedInputBox x:Name="notes" Margin="0,0,0,10"/>
-                    <Button x:Name="resetFilterButton" Content="Reset" Background="{StaticResource ButtonColor}" Foreground="{StaticResource TextColor}" Margin="0,10,0,10"/>
+                    <Button x:Name="resetFilterButton" Content="Reset" Background="{StaticResource ButtonColor}" Foreground="{StaticResource TextColor}" Margin="0,10,0,10" Click="resetFilterButton_Click"/>
                 </StackPanel>
             </ScrollViewer>
             </Border>

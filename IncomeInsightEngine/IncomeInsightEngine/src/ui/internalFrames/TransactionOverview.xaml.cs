@@ -25,12 +25,13 @@ namespace IncomeInsightEngine.src.ui.internalFrames
     /// </summary>
     public partial class TransactionOverview : UserControl
     {
-        public TransactionManager transactionManager { get; }
+        public TransactionManager manager { get; }
 
+        private IEnumerable<Transaction> usedTransactions = null;
 
         public TransactionOverview(TransactionManager transactionManager)
         {
-            this.transactionManager = transactionManager;
+            this.manager = transactionManager;
 
             InitializeComponent();
             InitializeTexts();
@@ -151,6 +152,9 @@ namespace IncomeInsightEngine.src.ui.internalFrames
 
 
 
+
+
+
         private void InitializeAdvancedInputBoxes()
         {
             minAmount.InitAdvancedInputBox(null, null, Strings.MinAmount);
@@ -170,13 +174,18 @@ namespace IncomeInsightEngine.src.ui.internalFrames
 
         public void AddTransactionsToView(IEnumerable<Transaction> transactions)
         {
-            overviewPanel.Children.Clear();
 
-            foreach (Transaction transaction in transactions)
+            Dispatcher.Invoke(() =>
             {
-                var transactionUiElement = new SingleTransaction(transaction);
-                overviewPanel.Children.Add(transactionUiElement);
-            }
+            double width = overviewPanel.ActualWidth;
+            overviewPanel.Children.Clear();
+                foreach (var transaction in transactions)
+                {
+                    var transactionUiElement = new SingleTransaction(transaction);
+                    transactionUiElement.Width = width;
+                    overviewPanel.Children.Add(transactionUiElement);
+                }
+            });
         }
 
         private async Task ChangeOrderAsync()
@@ -188,48 +197,46 @@ namespace IncomeInsightEngine.src.ui.internalFrames
 
             IEnumerable<Transaction> transactions = Enumerable.Empty<Transaction>();
 
+            if(usedTransactions == null)
+            {
+                usedTransactions = manager.GetAllTransactions();
+            }
+
             await Task.Run(() =>
             {
                 switch (sortingTypeSelectedIndex)
                 {
                     case 0:
                         transactions = orderComboBoxSelectedIndex == 0
-                            ? transactionManager.SortTransactionsByIdAscending()
-                            : transactionManager.SortTransactionsByIdDescending();
+                            ? manager.SortTransactionsByIdAscending(usedTransactions)
+                            : manager.SortTransactionsByIdDescending(usedTransactions);
                         break;
                     case 1:
                         transactions = orderComboBoxSelectedIndex == 0
-                            ? transactionManager.SortTransactionsByDateAscending()
-                            : transactionManager.SortTransactionsByDateDescending();
+                            ? manager.SortTransactionsByDateAscending(usedTransactions)
+                            : manager.SortTransactionsByDateDescending(usedTransactions);
                         break;
                     case 2:
                         transactions = orderComboBoxSelectedIndex == 0
-                            ? transactionManager.SortTransactionsByAmountAscending()
-                            : transactionManager.SortTransactionsByAmountDescending();
+                            ? manager.SortTransactionsByAmountAscending(usedTransactions)
+                            : manager.SortTransactionsByAmountDescending(usedTransactions);
                         break;
                     case 3:
                         transactions = orderComboBoxSelectedIndex == 0
-                            ? transactionManager.SortTransactionsByPartnerAscending()
-                            : transactionManager.SortTransactionsByPartnerDescending();
+                            ? manager.SortTransactionsByPartnerAscending(usedTransactions)
+                            : manager.SortTransactionsByPartnerDescending(usedTransactions);
                         break;
                     case 4:
                         transactions = orderComboBoxSelectedIndex == 0
-                            ? transactionManager.SortTransactionsByLocationAscending()
-                            : transactionManager.SortTransactionsByLocationDescending();
+                            ? manager.SortTransactionsByLocationAscending(usedTransactions)
+                            : manager.SortTransactionsByLocationDescending(usedTransactions);
                         break;
                     default:
                         break;
                 }
             });
 
-            Dispatcher.Invoke(() =>
-            {
-                foreach (var transaction in transactions)
-                {
-                    var transactionUiElement = new SingleTransaction(transaction);
-                    overviewPanel.Children.Add(transactionUiElement);
-                }
-            });
+            AddTransactionsToView(transactions);
         }
 
 
@@ -243,7 +250,137 @@ namespace IncomeInsightEngine.src.ui.internalFrames
             await ChangeOrderAsync();
         }
 
-        private async void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
+
+        private async Task filterTransactions()
+        {
+
+            overviewPanel.Children.Clear();
+            IEnumerable<Transaction> tempTransactions = null;
+
+            int incomeExpaseComboBoxSelectedIndex = incomeExpaseComboBox.SelectedIndex;
+
+            await Task.Run(() =>
+            {
+
+                // all or income or expense
+
+                if(incomeExpaseComboBoxSelectedIndex == 0)
+                {
+                    tempTransactions = manager.GetAllTransactions();
+                }
+                else if (incomeExpaseComboBoxSelectedIndex == 1)
+                {
+                    tempTransactions = manager.GetIncomeTransactions();
+                }
+                else if(incomeExpaseComboBoxSelectedIndex == 2)
+                {
+                    tempTransactions = manager.GetExpenseTransactions();
+                }
+
+                // amount
+                decimal tempmin = 0;
+                decimal tempmax = 0;
+                Dispatcher.Invoke(() =>
+                {
+                     tempmin = minAmount.TryGetNumberAsDecimal();
+                     tempmax = maxAmount.TryGetNumberAsDecimal();
+                });
+
+
+                if(tempmin > tempmax)
+                {
+                    tempTransactions = manager.GetTransactionsByAmount(tempmax, tempmin, tempTransactions);
+                }
+                else if(tempmax> tempmin)
+                {
+                    tempTransactions = manager.GetTransactionsByAmount(tempmin, tempmax, tempTransactions);
+                }
+                else
+                {
+                    tempTransactions = manager.GetTransactionsByAmount(tempmin, tempTransactions);
+
+                }
+
+                // date
+                DateTime? tempStartDate = null;
+                DateTime? tempEndDate = null;
+
+                Dispatcher.Invoke(() =>
+                {
+                    tempStartDate = startDate.SelectedDate;
+                    tempEndDate = endDate.SelectedDate;
+                });
+
+                DateTime start = tempStartDate ?? DateTime.MinValue;
+                DateTime end = tempEndDate ?? DateTime.MaxValue;
+
+                if (start > end)
+                {
+                    tempTransactions = manager.GetTransactionsByDate(end, start, tempTransactions);
+                }
+                else
+                { 
+                    tempTransactions = manager.GetTransactionsByDate(start, end, tempTransactions);
+                }
+
+                //description
+                string tempDescription = null;
+                Dispatcher.Invoke(() =>
+                {
+                    tempDescription = description.TryGetText();
+                });
+
+                if(tempDescription != null)
+                {
+                tempTransactions = manager.GetTransactionsByDescription(tempDescription, tempTransactions);
+                }
+
+                //Currency
+
+                //Payment Method
+
+                //taxDeductible
+
+                //reimbursable
+
+                //Category
+
+                //Budget Category
+
+                //partner
+                string temppartner = null;
+                Dispatcher.Invoke(() =>
+                {
+                    temppartner = partner.TryGetText();
+                });
+
+                if (temppartner != null)
+                {
+                    tempTransactions = manager.GetTransactionsByPartner(temppartner, tempTransactions);
+                }
+
+                //project
+
+                //Status
+
+                //Priority
+
+                //Frequency
+
+                //location
+
+                //tag
+
+                //notes
+
+            });
+
+            usedTransactions = tempTransactions;
+            AddTransactionsToView(tempTransactions);
+            await ChangeOrderAsync();
+        }
+
+            private async void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             double width = overviewPanel.ActualWidth;
 
@@ -258,5 +395,14 @@ namespace IncomeInsightEngine.src.ui.internalFrames
             });
         }
 
+        private void resetFilterButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private async void filterButton_Click(object sender, RoutedEventArgs e)
+        {
+            await filterTransactions();
+        }
     }
 }
