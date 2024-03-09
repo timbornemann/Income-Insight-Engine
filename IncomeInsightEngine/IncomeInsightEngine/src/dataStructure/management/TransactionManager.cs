@@ -671,6 +671,109 @@ namespace IncomeInsightEngine.src.dataStructure.management
             return listOfTransactions.OrderByDescending(t => t.Location);
         }
 
+        public List<IGrouping<string, Transaction>> GroupByDate(IEnumerable<Transaction> listOfTransactions = null)
+        {
+            return (listOfTransactions ?? transactions).GroupBy(t => t.Date.ToShortDateString()).ToList();
+        }
+
+        public List<IGrouping<string, Transaction>> GroupByDescription(IEnumerable<Transaction> listOfTransactions = null)
+        {
+            return (listOfTransactions ?? transactions).GroupBy(t => t.Description).ToList();
+        }
+
+        public List<IGrouping<string, Transaction>> GroupByAmount(IEnumerable<Transaction> listOfTransactions = null)
+        {
+            return (listOfTransactions ?? transactions).GroupBy(t => t.Amount.ToString()).ToList();
+        }
+
+        public List<IGrouping<string, Transaction>> GroupByAmountrange(IEnumerable<Transaction> listOfTransactions = null)
+        {
+            var groupedByAmount = (listOfTransactions ?? transactions)
+            .GroupBy(t =>
+            {
+                int lowerBound = (int)Math.Floor(t.Amount / 100) * 100;
+                int upperBound = lowerBound + 99;
+                return $"{lowerBound}-{upperBound}";
+            })
+            .ToList();
+
+            return groupedByAmount;
+        }
+
+        public List<IGrouping<string, Transaction>> GroupByCurrency(IEnumerable<Transaction> listOfTransactions = null)
+        {
+            return (listOfTransactions ?? transactions).GroupBy(t => t.Currency).ToList();
+        }
+
+        public List<IGrouping<string, Transaction>> GroupByPaymentMethod(IEnumerable<Transaction> listOfTransactions = null)
+        {
+            return (listOfTransactions ?? transactions).GroupBy(t => t.PaymentMethod).ToList();
+        }
+
+        public List<IGrouping<string, Transaction>> GroupByCategory(IEnumerable<Transaction> listOfTransactions = null)
+        {
+            return (listOfTransactions ?? transactions).GroupBy(t => t.Category).ToList();
+        }
+
+        public List<IGrouping<string, Transaction>> GroupByBudgetCategory(IEnumerable<Transaction> listOfTransactions = null)
+        {
+            return (listOfTransactions ?? transactions).GroupBy(t => t.BudgetCategory).ToList();
+        }
+
+        public List<IGrouping<string, Transaction>> GroupByTag(IEnumerable<Transaction> listOfTransactions)
+        {
+            var groupedByTag = listOfTransactions
+                .SelectMany(transaction => transaction.Tags.Select(tag => new { transaction, tag }))
+                .GroupBy(x => x.tag, x => x.transaction)
+                .ToList();
+            return groupedByTag;
+        }
+
+        public List<IGrouping<string, Transaction>> GroupByClassification(IEnumerable<Transaction> listOfTransactions = null)
+        {
+            return (listOfTransactions ?? transactions).GroupBy(t => t.Classification).ToList();
+        }
+
+        public List<IGrouping<string, Transaction>> GroupByPartnerIBAN(IEnumerable<Transaction> listOfTransactions = null)
+        {
+            return (listOfTransactions ?? transactions).GroupBy(t => t.PartnerIBAN).ToList();
+        }
+
+        public List<IGrouping<string, Transaction>> GroupByPartner(IEnumerable<Transaction> listOfTransactions = null)
+        {
+            return (listOfTransactions ?? transactions).GroupBy(t => t.Partner).ToList();
+        }
+
+        public List<IGrouping<string, Transaction>> GroupByProject(IEnumerable<Transaction> listOfTransactions = null)
+        {
+            return (listOfTransactions ?? transactions).GroupBy(t => t.Project).ToList();
+        }
+
+        public List<IGrouping<string, Transaction>> GroupByStatus(IEnumerable<Transaction> listOfTransactions = null)
+        {
+            return (listOfTransactions ?? transactions).GroupBy(t => t.Status).ToList();
+        }
+
+        public List<IGrouping<string, Transaction>> GroupByPriority(IEnumerable<Transaction> listOfTransactions = null)
+        {
+            return (listOfTransactions ?? transactions).GroupBy(t => t.Priority).ToList();
+        }
+
+        public List<IGrouping<string, Transaction>> GroupByFrequency(IEnumerable<Transaction> listOfTransactions = null)
+        {
+            return (listOfTransactions ?? transactions).GroupBy(t => t.Frequency).ToList();
+        }
+
+        public List<IGrouping<string, Transaction>> GroupByLocation(IEnumerable<Transaction> listOfTransactions = null)
+        {
+            return (listOfTransactions ?? transactions).GroupBy(t => t.Location).ToList();
+        }
+
+        public List<IGrouping<string, Transaction>> GroupByNotes(IEnumerable<Transaction> listOfTransactions = null)
+        {
+            return (listOfTransactions ?? transactions).GroupBy(t => t.Notes).ToList();
+        }
+
         /// <summary>
         /// Checks if a specified transaction already exists in the current collection of transactions.
         /// </summary>
@@ -738,5 +841,19 @@ namespace IncomeInsightEngine.src.dataStructure.management
             }
         }
 
+        public void DisplayGroupedTransactions(List<IGrouping<string, Transaction>> groupedTransactions)
+        {
+            foreach (var group in groupedTransactions)
+            {
+                Console.WriteLine($"Partner: {group.Key}");
+                foreach (Transaction transaction in group)
+                {
+                    transaction.DisplayShortTransactionDetails();
+                }
+                Console.WriteLine();
+            }
+        }
     }
+
 }
+

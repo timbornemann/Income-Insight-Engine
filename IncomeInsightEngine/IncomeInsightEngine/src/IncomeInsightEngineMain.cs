@@ -18,19 +18,24 @@ namespace src
    
     public class IncomeInsightEngineMain
     {
-        [STAThread]
+       // [STAThread]
         public static void Main(string[] args)
         {
-            AllocConsole();
+          //  AllocConsole();
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
 
             TransactionManager manager = new TransactionManager();
+
+            manager.DisplayGroupedTransactions(manager.GroupByAmountrange());
+
             
+
+            /*
             Application app = new Application(); 
            MainWindow window = new MainWindow(manager); 
             app.Run(window); 
-           
+           */
         }
 
         [DllImport("kernel32.dll", SetLastError = true)]
