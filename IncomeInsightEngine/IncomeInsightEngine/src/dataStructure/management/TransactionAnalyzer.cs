@@ -2,6 +2,7 @@
 using IncomeInsightEngine.Properties;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,6 +58,60 @@ namespace IncomeInsightEngine.src.dataStructure.management
             return listOfTransactions.Where(t => t.Amount < 0).Sum(t => t.Amount);
         }
 
+        public IEnumerable<(string key, decimal TotalExpenses)> CalculateGroupedExpenses(IEnumerable<IGrouping<string, Transaction>> groupedTransactions)
+        {
+            return groupedTransactions
+                .Select(group => (
+                    key: group.Key,
+                    TotalExpenses: CalculateTotalExpenses(group)
+                ))
+                .ToList();
+        }
+
+        public IEnumerable<(string key, decimal TotalIncome)> CalculateGroupedIncome(IEnumerable<IGrouping<string, Transaction>> groupedTransactions)
+        {
+            return groupedTransactions
+                .Select(group => (
+                    key: group.Key,
+                    TotalIncome: CalculateTotalIncome(group)
+                ))
+                .ToList();
+        }
+
+        public IEnumerable<(string key, decimal TotalAmount)> CalculateGroupedAmount(IEnumerable <IGrouping<string, Transaction>> groupedTransactions)
+        {
+            return groupedTransactions
+                .Select(group => (
+                    key: group.Key,
+                    TotalAmount: CalculateTotalAmount(group)
+                ))
+                .ToList();
+        }
+
+
+
+        public IEnumerable<(string key, decimal Amount)> SortAmountAscending(IEnumerable<(string key, decimal Amount)> groups)
+        {
+            return groups.OrderBy(g => g.Amount);
+        }
+
+        public IEnumerable<(string key, decimal Amount)> SortAmountDescending(IEnumerable<(string key, decimal Amount)> groups)
+        {
+            return groups.OrderByDescending(g => g.Amount);
+        }
+
+        public IEnumerable<(string key, decimal Amount)> SortKeyAscending(IEnumerable<(string key, decimal Amount)> groups)
+        {
+            return groups.OrderBy(g => g.key);
+        }
+
+        public IEnumerable<(string key, decimal Amount)> SortKeyDescending(IEnumerable<(string key, decimal Amount)> groups)
+        {
+            return groups.OrderByDescending(g => g.key);
+        }
+
+
+
         /// <summary>
         /// Displays the total expenses calculated from the provided or current collection of transactions in the command line.
         /// </summary>
@@ -66,7 +121,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void DisplayTotalExpensesInComandline(IEnumerable<Transaction> listOfTransactions)
         {
-            Console.WriteLine(Strings.TotalExpenses + CalculateTotalExpenses(listOfTransactions));
+            Console.WriteLine(Strings.TotalExpenses + " " + CalculateTotalExpenses(listOfTransactions));
         }
 
         /// <summary>
@@ -78,7 +133,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void DisplayTotalIncomeInComandline(IEnumerable<Transaction> listOfTransactions)
         {
-            Console.WriteLine(Strings.TotalIncome + CalculateTotalIncome(listOfTransactions));
+            Console.WriteLine(Strings.TotalIncome + " " + CalculateTotalIncome(listOfTransactions));
         }
 
         /// <summary>
@@ -90,7 +145,15 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void DisplayTotalAmountInComandline(IEnumerable<Transaction> listOfTransactions)
         {
-            Console.WriteLine(Strings.TotalAmount + CalculateTotalAmount(listOfTransactions));
+            Console.WriteLine(Strings.TotalAmount + " " + CalculateTotalAmount(listOfTransactions));
+        }
+
+        public void DisplayGroupedAmountInComandline(IEnumerable<(string key, decimal Amount)> GroupedExpenses)
+        {          
+            foreach (var (Key, Amount) in GroupedExpenses)
+            {
+                Console.WriteLine($"{Key,-50} {Strings.TotalAmount,-1} {Amount:C}");
+            }
         }
 
     }
