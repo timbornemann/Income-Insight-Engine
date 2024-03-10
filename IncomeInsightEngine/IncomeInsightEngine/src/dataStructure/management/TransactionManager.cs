@@ -113,6 +113,29 @@ namespace IncomeInsightEngine.src.dataStructure.management
         }
 
         /// <summary>
+        /// Removes a transaction from the collection based on its ID and updates the JSON file.
+        /// </summary>
+        /// <param name="id">The ID of the transaction to be removed.</param>
+        /// <returns>True if the transaction was successfully removed and the JSON file updated; otherwise, false.</returns>
+        /// <remarks>
+        /// This method searches for a transaction with the specified ID within the current collection of transactions. If a transaction with the
+        /// given ID is found, it is removed from the collection. Then, the updated collection of transactions is saved to the JSON file using
+        /// the SaveData method of the JsonTransaction class to reflect the removal. The method returns true to indicate successful removal and
+        /// update. If no transaction with the specified ID exists in the collection, the method returns false, indicating that no action was taken.
+        /// </remarks>
+        public bool RemoveTransaction(int id)
+        {
+            var transaction = GetTransactionById(id);
+            if (transaction != null)
+            {
+                transactions.Remove(transaction);
+                jsonTransaction.SaveData(transactions);
+                return true;
+            }
+            return false;
+        }
+       
+        /// <summary>
         /// Updates an existing transaction in the collection with new details provided in the updatedTransaction object.
         /// </summary>
         /// <param name="updatedTransaction">The transaction object containing the updated details.</param>
@@ -139,7 +162,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
             transaction.PaymentMethod = updatedTransaction.PaymentMethod;
             transaction.Frequency = updatedTransaction.Frequency;
             transaction.Location = updatedTransaction.Location;
-            transaction.PartnerIBAN = updatedTransaction.PartnerIBAN;
+            transaction.PartnerIban = updatedTransaction.PartnerIban;
             transaction.Tags = new List<string>(updatedTransaction.Tags); 
             transaction.Partner = updatedTransaction.Partner;
             transaction.Priority = updatedTransaction.Priority;
@@ -158,29 +181,312 @@ namespace IncomeInsightEngine.src.dataStructure.management
             return true;
         }
 
-        /// <summary>
-        /// Removes a transaction from the collection based on its ID and updates the JSON file.
-        /// </summary>
-        /// <param name="id">The ID of the transaction to be removed.</param>
-        /// <returns>True if the transaction was successfully removed and the JSON file updated; otherwise, false.</returns>
-        /// <remarks>
-        /// This method searches for a transaction with the specified ID within the current collection of transactions. If a transaction with the
-        /// given ID is found, it is removed from the collection. Then, the updated collection of transactions is saved to the JSON file using
-        /// the SaveData method of the JsonTransaction class to reflect the removal. The method returns true to indicate successful removal and
-        /// update. If no transaction with the specified ID exists in the collection, the method returns false, indicating that no action was taken.
-        /// </remarks>
-        public bool RemoveTransaction(int id)
+        public void DescriptionBatchProcessing(string original, string replacement)
         {
-            var transaction = GetTransactionById(id);
-            if (transaction != null)
+            foreach(Transaction t in transactions.Where(t=> t.Description.Equals(original)))
             {
-                transactions.Remove(transaction);
-                jsonTransaction.SaveData(transactions);
-                return true;
+                t.Description = replacement;
             }
-            return false;
+            jsonTransaction.SaveData(transactions);
         }
-       
+
+        public void DescriptionPartnerBatchProcessing(string comparator, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator)))
+            {
+                t.Description = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void CurrencyBatchProcessing(string original, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Currency.Equals(original)))
+            {
+                t.Currency = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void CurrencyDescriptionBatchProcessing(string comparator, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Description.Equals(comparator)))
+            {
+                t.Currency = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void CurrencyCategoryBatchProcessing(string comparator, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Category.Equals(comparator)))
+            {
+                t.Currency = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void CurrencyBudgetCategoryBatchProcessing(string comparator, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.BudgetCategory.Equals(comparator)))
+            {
+                t.Currency = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void CurrencyPartnerBatchProcessing(string comparator, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator)))
+            {
+                t.Currency = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void CurrencyLocationBatchProcessing(string comparator, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Location.Equals(comparator)))
+            {
+                t.Currency = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void PaymentMethodBatchProcessing(string original, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.PaymentMethod.Equals(original)))
+            {
+                t.PaymentMethod = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void CategoryBatchProcessing(string original, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Category.Equals(original)))
+            {
+                t.Category = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void CategoryDescriptionBatchProcessing(string comparator, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Description.Equals(comparator)))
+            {
+                t.Category = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void CategoryCurrencyBatchProcessing(string comparator, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Currency.Equals(comparator)))
+            {
+                t.Category = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void CategoryBudgetCategoryBatchProcessing(string comparator, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.BudgetCategory.Equals(comparator)))
+            {
+                t.Category = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void CategoryPartnerBatchProcessing(string comparator, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator)))
+            {
+                t.Category = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void BudgetCategoryBatchProcessing(string original, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.BudgetCategory.Equals(original)))
+            {
+                t.BudgetCategory = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void BudgetCategoryPartnerBatchProcessing(string comparator, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator)))
+            {
+                t.BudgetCategory = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void ClassificationBatchProcessing(string original, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Classification.Equals(original)))
+            {
+                t.Classification = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void PartnerIbanBatchProcessing(string original, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.PartnerIban.Equals(original)))
+            {
+                t.PartnerIban = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void PartnerIbanPartnerBatchProcessing(string comparator, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator)))
+            {
+                t.PartnerIban = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void PartnerBatchProcessing(string original, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(original) || (t.Partner != null && t.Partner.IndexOf(original, StringComparison.OrdinalIgnoreCase) >= 0)))
+            {
+                t.Partner = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void PartnerDescriptionProcessing(string comparator, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Description.Equals(comparator)))
+            {
+                t.Partner = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void ProjectBatchProcessing(string original, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Project.Equals(original)))
+            {
+                t.Project = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void ProjectPartnerBatchProcessing(string comparator, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator)))
+            {
+                t.Project = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void StatusBatchProcessing(string original, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Status.Equals(original)))
+            {
+                t.Status = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void StatusPartnerBatchProcessing(string comparator, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator)))
+            {
+                t.Status = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void PriorityBatchProcessing(string original, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Priority.Equals(original)))
+            {
+                t.Priority = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void PriorityPartnerBatchProcessing(string comparator, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator)))
+            {
+                t.Priority = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void FrequencyBatchProcessing(string original, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Frequency.Equals(original)))
+            {
+                t.Frequency = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void FrequencyPartnerBatchProcessing(string comparator, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator)))
+            {
+                t.Frequency = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void LocationBatchProcessing(string original, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Location.Equals(original)))
+            {
+                t.Location = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void LocationCurrencyBatchProcessing(string comparator, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Currency.Equals(comparator)))
+            {
+                t.Location = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void LocationPartnerBatchProcessing(string comparator, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator)))
+            {
+                t.Location = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void NotesBatchProcessing(string original, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Notes.Equals(original)))
+            {
+                t.Notes = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void NotesPartnerBatchProcessing(string comparator, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator)))
+            {
+                t.Notes = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
         /// <summary>
         /// Retrieves a transaction by its ID from the current collection of transactions.
         /// </summary>
@@ -736,7 +1042,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
 
         public List<IGrouping<string, Transaction>> GroupByPartnerIBAN(IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).GroupBy(t => t.PartnerIBAN).ToList();
+            return (listOfTransactions ?? transactions).GroupBy(t => t.PartnerIban).ToList();
         }
 
         public List<IGrouping<string, Transaction>> GroupByPartner(IEnumerable<Transaction> listOfTransactions = null)
@@ -788,6 +1094,34 @@ namespace IncomeInsightEngine.src.dataStructure.management
         {
             return transactions.Any(t => transaction.Equals(t));
         }
+
+
+        public void RenameAllTransactionPartnersInComandline()
+        {
+            List<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner();
+
+            Console.WriteLine(Strings.BatchProcessingOfPartnerNames);
+            Console.WriteLine();
+            foreach (var group in groupedTransactions)
+            {
+                Console.WriteLine($"{Strings.CurrentPartnerName} {group.Key}");
+                Console.WriteLine($"{Strings.Change}? {Strings.Yes} = 1 / {Strings.No} = 0");
+                string input = Console.ReadLine().Trim();
+                if (input == "1")
+                {
+                    Console.WriteLine(Strings.EnterNewName + ": ");
+                    string newName = Console.ReadLine()?.Trim();
+                    if (!string.IsNullOrEmpty(newName))
+                    {
+                        PartnerBatchProcessing(group.Key, newName);
+                    }                   
+                }
+                Console.WriteLine();
+            }
+        }
+
+
+
 
         /// <summary>
         /// Opens the transaction file for reading or writing by decrypting its contents manually.
