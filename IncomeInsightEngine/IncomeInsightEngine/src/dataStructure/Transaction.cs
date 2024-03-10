@@ -42,7 +42,7 @@ namespace dataStructure
         public string Classification { get; set; }
 
         // Relationship
-        public string PartnerIBAN { get; set; }
+        public string PartnerIban { get; set; }
         public string Partner { get; set; }
         public string Project { get; set; }
 
@@ -90,7 +90,7 @@ namespace dataStructure
                               $"{Strings.BudgetCategory,-15} {BudgetCategory,-15}" +
                               $"{Strings.Tags,-10} {string.Join(", ", Tags),-10}" +
                               $"{Strings.Partner,-15} {Partner,-15}" +
-                              $"{Strings.PartnerIBAN,-15} {PartnerIBAN,-15}" +
+                              $"{Strings.PartnerIBAN,-15} {PartnerIban,-15}" +
                               $"{Strings.Project,-15} {Project,-15}" +
                               $"{Strings.Status,-10} {Status,-10}" +
                               $"{Strings.Priority,-10} {Priority,-10}" +
@@ -113,7 +113,8 @@ namespace dataStructure
             Console.WriteLine($"{Strings.Id,-1} {Id,-6}" +
                               $"{Strings.Date,-1} {Date.ToShortDateString(),-12}" +
                               $"{Strings.Amount,-2} {Amount.ToString("C"),-12}" +
-                              $"{Strings.Partner,-2} {Partner,-50}");
+                              $"{Strings.Partner,-2} {Partner,-50}" +
+                              $"{Strings.Description,-5} {Description,-50}");
 
         }
 
@@ -137,7 +138,7 @@ namespace dataStructure
                    string.Equals(BudgetCategory, other.BudgetCategory) &&
                    (Tags != null && other.Tags != null && Tags.SequenceEqual(other.Tags)) &&
                    string.Equals(Classification, other.Classification) &&
-                   string.Equals(PartnerIBAN, other.PartnerIBAN) &&
+                   string.Equals(PartnerIban, other.PartnerIban) &&
                    string.Equals(Partner, other.Partner) &&
                    string.Equals(Project, other.Project) &&
                    string.Equals(Status, other.Status) &&
@@ -165,7 +166,7 @@ namespace dataStructure
                 hash = hash * 23 + (BudgetCategory != null ? BudgetCategory.GetHashCode() : 0);
                 hash = hash * 23 + (Tags != null ? Tags.Aggregate(0, (current, item) => current + (item != null ? item.GetHashCode() : 0)) : 0);
                 hash = hash * 23 + (Classification != null ? Classification.GetHashCode() : 0);
-                hash = hash * 23 + (PartnerIBAN != null ? PartnerIBAN.GetHashCode() : 0);
+                hash = hash * 23 + (PartnerIban != null ? PartnerIban.GetHashCode() : 0);
                 hash = hash * 23 + (Partner != null ? Partner.GetHashCode() : 0);
                 hash = hash * 23 + (Project != null ? Project.GetHashCode() : 0);
                 hash = hash * 23 + (Status != null ? Status.GetHashCode() : 0);

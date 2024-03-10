@@ -53,7 +53,7 @@ namespace src.parser
                     Date = DateTime.ParseExact(columns[0], "dd.MM.yy", CultureInfo.InvariantCulture),
                     Status = columns[2],
                     Partner = (eingang) ? columns[3] : columns[4],
-                    PartnerIBAN = columns[7],
+                    PartnerIban = columns[7],
                     Description = columns[5],
                     Amount = decimal.Parse(columns[8].Replace(",", "."), CultureInfo.InvariantCulture),
                     Notes = columns[11],
