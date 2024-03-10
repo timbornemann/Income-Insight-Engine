@@ -27,10 +27,10 @@ namespace src
 
             TransactionManager manager = new TransactionManager();
 
-            manager.DisplayGroupedTransactions(manager.GroupByAmountrange());
+            //  manager.RenameAllTransactionPartnersInComandline();
 
-            
-
+            // manager.DisplayGroupedTransactions(manager.GroupByPartner());
+                
             /*
             Application app = new Application(); 
            MainWindow window = new MainWindow(manager); 
