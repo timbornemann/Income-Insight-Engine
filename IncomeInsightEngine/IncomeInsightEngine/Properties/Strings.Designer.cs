@@ -115,6 +115,15 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Batch processing of partner names ähnelt.
+        /// </summary>
+        public static string BatchProcessingOfPartnerNames {
+            get {
+                return ResourceManager.GetString("BatchProcessingOfPartnerNames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Blank ähnelt.
         /// </summary>
         public static string Blank {
@@ -160,6 +169,15 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Change ähnelt.
+        /// </summary>
+        public static string Change {
+            get {
+                return ResourceManager.GetString("Change", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Classification ähnelt.
         /// </summary>
         public static string Classification {
@@ -201,6 +219,15 @@ namespace IncomeInsightEngine.Properties {
         public static string Currency {
             get {
                 return ResourceManager.GetString("Currency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Current partner name ähnelt.
+        /// </summary>
+        public static string CurrentPartnerName {
+            get {
+                return ResourceManager.GetString("CurrentPartnerName", resourceCulture);
             }
         }
         
@@ -255,6 +282,15 @@ namespace IncomeInsightEngine.Properties {
         public static string End {
             get {
                 return ResourceManager.GetString("End", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Enter new name ähnelt.
+        /// </summary>
+        public static string EnterNewName {
+            get {
+                return ResourceManager.GetString("EnterNewName", resourceCulture);
             }
         }
         
@@ -372,6 +408,15 @@ namespace IncomeInsightEngine.Properties {
         public static string MinAmount {
             get {
                 return ResourceManager.GetString("MinAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die No ähnelt.
+        /// </summary>
+        public static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
             }
         }
         
@@ -624,6 +669,15 @@ namespace IncomeInsightEngine.Properties {
         public static string Voucher {
             get {
                 return ResourceManager.GetString("Voucher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Yes ähnelt.
+        /// </summary>
+        public static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }
