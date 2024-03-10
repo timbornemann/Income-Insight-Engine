@@ -26,6 +26,10 @@ namespace src
 
 
             TransactionManager manager = new TransactionManager();
+            TransactionAnalyzer analyzer = new TransactionAnalyzer();
+
+
+            analyzer.DisplayGroupedAmountInComandline(analyzer.SortAmountAscending(analyzer.CalculateGroupedAmount(manager.GroupByPartner())));
 
             //  manager.RenameAllTransactionPartnersInComandline();
 
