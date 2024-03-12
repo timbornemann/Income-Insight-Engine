@@ -3,6 +3,7 @@ using IncomeInsightEngine.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 
 namespace IncomeInsightEngine.src.dataStructure.management
@@ -980,6 +981,27 @@ namespace IncomeInsightEngine.src.dataStructure.management
         public IEnumerable<IGrouping<string, Transaction>> GroupByDate(IEnumerable<Transaction> listOfTransactions = null)
         {
             return (listOfTransactions ?? transactions).GroupBy(t => t.Date.ToShortDateString()).ToList();
+        }
+
+        public IEnumerable<IGrouping<string, Transaction>> GroupByDateDay(IEnumerable<Transaction> listOfTransactions = null)
+        {
+            return (listOfTransactions ?? transactions).GroupBy(t => t.Date.Day.ToString()).ToList();
+        }
+
+        public IEnumerable<IGrouping<string, Transaction>> GroupByDateWeekDay(IEnumerable<Transaction> listOfTransactions = null)
+        {
+            return (listOfTransactions ?? transactions).GroupBy(t => t.Date.ToString("dddd", CultureInfo.CurrentCulture)).ToList();
+        }
+
+
+        public IEnumerable<IGrouping<string, Transaction>> GroupByDateMonth(IEnumerable<Transaction> listOfTransactions = null)
+        {
+            return (listOfTransactions ?? transactions).GroupBy(t => CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(t.Date.Month)).ToList();
+        }
+
+        public IEnumerable<IGrouping<string, Transaction>> GroupByDateYear(IEnumerable<Transaction> listOfTransactions = null)
+        {
+            return (listOfTransactions ?? transactions).GroupBy(t => t.Date.Year.ToString()).ToList();
         }
 
         public IEnumerable<IGrouping<string, Transaction>> GroupByDescription(IEnumerable<Transaction> listOfTransactions = null)
