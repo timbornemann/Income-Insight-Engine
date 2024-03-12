@@ -12,6 +12,8 @@ namespace IncomeInsightEngine.src.dataStructure.management
     internal class TransactionAnalyzer
     {
 
+     
+
 
         /// <summary>
         /// Calculates the total amount from a provided collection of transactions.
@@ -58,6 +60,68 @@ namespace IncomeInsightEngine.src.dataStructure.management
             return listOfTransactions.Where(t => t.Amount < 0).Sum(t => t.Amount);
         }
 
+        public decimal CalculateAverageAmount(IEnumerable<Transaction> listOfTransactions)
+        {
+            if (listOfTransactions == null || !listOfTransactions.Any())
+            {
+                return 0m; 
+            }
+
+            return listOfTransactions.Average(t => t.Amount);
+        }
+
+        public decimal CalculateAverageIncome(IEnumerable<Transaction> listOfTransactions)
+        {
+            if (listOfTransactions == null || !listOfTransactions.Any(t => t.Amount > 0))
+            {
+                return 0m; 
+            }
+
+            return listOfTransactions.Where(t => t.Amount > 0).Average(t => t.Amount);
+        }
+
+        public decimal CalculateAverageExpense(IEnumerable<Transaction> listOfTransactions)
+        {
+            if (listOfTransactions == null || !listOfTransactions.Any(t => t.Amount < 0))
+            {
+                return 0m; 
+            }
+
+            return listOfTransactions.Where(t => t.Amount < 0).Average(t => t.Amount);
+        }
+
+
+        public IEnumerable<(string key, decimal Average)> CalculateGroupedAverageAmount(IEnumerable<IGrouping<string, Transaction>> groupedTransactions)
+        {
+            return groupedTransactions
+                .Select(group => (
+                    key: group.Key,
+                    Average: CalculateAverageAmount(group)
+                ))
+                .ToList();
+        }
+
+        public IEnumerable<(string key, decimal Average)> CalculateGroupedAverageIncome(IEnumerable<IGrouping<string, Transaction>> groupedTransactions)
+        {
+            return groupedTransactions
+                 .Select(group => (
+                     key: group.Key,
+                     Average: CalculateAverageIncome(group)
+                 ))
+                 .ToList();
+        }
+
+        public IEnumerable<(string key, decimal Average)> CalculateGroupedAverageExpense(IEnumerable<IGrouping<string, Transaction>> groupedTransactions)
+        {
+            return groupedTransactions
+                .Select(group => (
+                    key: group.Key,
+                    Average: CalculateAverageExpense(group)
+                ))
+                .ToList();
+        }
+
+
         public IEnumerable<(string key, decimal TotalExpenses)> CalculateGroupedExpenses(IEnumerable<IGrouping<string, Transaction>> groupedTransactions)
         {
             return groupedTransactions
@@ -88,28 +152,25 @@ namespace IncomeInsightEngine.src.dataStructure.management
                 .ToList();
         }
 
-
-
-        public IEnumerable<(string key, decimal Amount)> SortAmountAscending(IEnumerable<(string key, decimal Amount)> groups)
+        public IEnumerable<(string key, decimal Amount)> SortByAmountAscending(IEnumerable<(string key, decimal Amount)> groups)
         {
             return groups.OrderBy(g => g.Amount);
         }
 
-        public IEnumerable<(string key, decimal Amount)> SortAmountDescending(IEnumerable<(string key, decimal Amount)> groups)
+        public IEnumerable<(string key, decimal Amount)> SortByAmountDescending(IEnumerable<(string key, decimal Amount)> groups)
         {
             return groups.OrderByDescending(g => g.Amount);
         }
 
-        public IEnumerable<(string key, decimal Amount)> SortKeyAscending(IEnumerable<(string key, decimal Amount)> groups)
+        public IEnumerable<(string key, decimal Amount)> SortByKeyAscending(IEnumerable<(string key, decimal Amount)> groups)
         {
             return groups.OrderBy(g => g.key);
         }
 
-        public IEnumerable<(string key, decimal Amount)> SortKeyDescending(IEnumerable<(string key, decimal Amount)> groups)
+        public IEnumerable<(string key, decimal Amount)> SortByKeyDescending(IEnumerable<(string key, decimal Amount)> groups)
         {
             return groups.OrderByDescending(g => g.key);
         }
-
 
 
         /// <summary>
