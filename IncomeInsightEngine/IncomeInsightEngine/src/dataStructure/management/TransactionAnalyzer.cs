@@ -13,9 +13,6 @@ namespace IncomeInsightEngine.src.dataStructure.management
     internal class TransactionAnalyzer
     {
 
-     
-
-
         /// <summary>
         /// Calculates the total amount from a provided collection of transactions.
         /// </summary>
