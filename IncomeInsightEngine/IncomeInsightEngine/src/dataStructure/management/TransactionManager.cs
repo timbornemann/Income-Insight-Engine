@@ -993,7 +993,6 @@ namespace IncomeInsightEngine.src.dataStructure.management
             return (listOfTransactions ?? transactions).GroupBy(t => t.Date.ToString("dddd", CultureInfo.CurrentCulture)).ToList();
         }
 
-
         public IEnumerable<IGrouping<string, Transaction>> GroupByDateMonth(IEnumerable<Transaction> listOfTransactions = null)
         {
             return (listOfTransactions ?? transactions).GroupBy(t => CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(t.Date.Month)).ToList();
@@ -1117,7 +1116,6 @@ namespace IncomeInsightEngine.src.dataStructure.management
             return transactions.Any(t => transaction.Equals(t));
         }
 
-
         public void RenameAllTransactionPartnersInComandline()
         {
             IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner();
@@ -1141,9 +1139,6 @@ namespace IncomeInsightEngine.src.dataStructure.management
                 Console.WriteLine();
             }
         }
-
-
-
 
         /// <summary>
         /// Opens the transaction file for reading or writing by decrypting its contents manually.
