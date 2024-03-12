@@ -302,9 +302,9 @@ namespace IncomeInsightEngine.src.dataStructure.management
             Console.WriteLine(Strings.TotalAmount + " " + CalculateTotalAmount(listOfTransactions));
         }
 
-        public void DisplayGroupedAmountInComandline(IEnumerable<(string key, decimal Amount)> GroupedExpenses)
+        public void DisplayGroupedAmountInComandline(IEnumerable<(string key, decimal Amount)> Groups)
         {          
-            foreach (var (Key, Amount) in GroupedExpenses)
+            foreach (var (Key, Amount) in Groups)
             {
                 Console.WriteLine($"{Key,-50} {Strings.TotalAmount,-1} {Amount:C}");
             }
