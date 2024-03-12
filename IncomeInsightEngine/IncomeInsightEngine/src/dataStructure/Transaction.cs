@@ -113,8 +113,9 @@ namespace dataStructure
             Console.WriteLine($"{Strings.Id,-1} {Id,-6}" +
                               $"{Strings.Date,-1} {Date.ToShortDateString(),-12}" +
                               $"{Strings.Amount,-2} {Amount.ToString("C"),-12}" +
-                              $"{Strings.Partner,-2} {Partner,-50}" +
-                              $"{Strings.Description,-5} {Description,-50}");
+                              $"{Strings.Partner,-2} {Partner,-50}" 
+                             // +$"{Strings.Description,-5} {Description,-50}"
+                              );
 
         }
 
