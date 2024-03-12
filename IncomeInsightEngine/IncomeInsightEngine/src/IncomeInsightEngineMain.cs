@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Threading;
@@ -29,12 +30,17 @@ namespace src
             TransactionAnalyzer analyzer = new TransactionAnalyzer();
 
 
-            analyzer.DisplayGroupedAmountInComandline(analyzer.SortAmountAscending(analyzer.CalculateGroupedAmount(manager.GroupByPartner())));
+     
+            analyzer.DisplayGroupedAmountInComandline(analyzer.SortByKeyAscending(analyzer.CalculateGroupedAverageIncome(manager.GroupByPartner(manager.GetIncomeTransactions()))));
 
-            //  manager.RenameAllTransactionPartnersInComandline();
+            //  analyzer.DisplayTotalAmountInComandline(manager.GetAllTransactions());
 
-            // manager.DisplayGroupedTransactions(manager.GroupByPartner());
-                
+           // manager.DisplayShortTransactionInformationsInComandline(manager.SortTransactionsByDateAscending());
+
+            // manager.RenameAllTransactionPartnersInComandline();
+
+            // manager.DisplayGroupedTransactions(manager.GroupByDateWeekDay());
+
             /*
             Application app = new Application(); 
            MainWindow window = new MainWindow(manager); 
