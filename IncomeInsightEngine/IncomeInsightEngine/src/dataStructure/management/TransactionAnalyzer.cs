@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace IncomeInsightEngine.src.dataStructure.management
@@ -90,6 +91,56 @@ namespace IncomeInsightEngine.src.dataStructure.management
             return listOfTransactions.Where(t => t.Amount < 0).Average(t => t.Amount);
         }
 
+        public decimal CalculateVariance(IEnumerable<Transaction> listOfTransactions)
+        {
+            var average = CalculateAverageAmount(listOfTransactions);
+            var variance = listOfTransactions.Sum(t => Math.Pow((double)(t.Amount - average), 2)) / listOfTransactions.Count();
+            return (decimal)variance;
+        }
+
+        public decimal CalculateStandardDeviation(IEnumerable<Transaction> listOfTransactions)
+        {
+            var variance = CalculateVariance(listOfTransactions);
+            return (decimal)Math.Sqrt((double)variance);
+        }
+
+        public decimal CalculateMedian(IEnumerable<Transaction> listOfTransactions)
+        {
+            var sortedTransactions = listOfTransactions.Select(t => t.Amount).OrderBy(amount => amount).ToList();
+            int count = sortedTransactions.Count;
+            if (count % 2 == 1)
+            {
+                return sortedTransactions[count / 2];
+            }
+            else
+            {
+                return (sortedTransactions[(count - 1) / 2] + sortedTransactions[count / 2]) / 2.0M;
+            }
+        }
+
+        public decimal CalculateMode(IEnumerable<Transaction> listOfTransactions)
+        {
+            return listOfTransactions
+                .GroupBy(t => t.Amount)
+                .OrderByDescending(g => g.Count())
+                .First()
+                .Key;
+        }
+
+        public decimal CalculateQuantile(IEnumerable<Transaction> listOfTransactions, double quantile)
+        {
+            var sortedTransactions = listOfTransactions.Select(t => t.Amount).OrderBy(amount => amount).ToList();
+            int N = sortedTransactions.Count;
+            double position = (N + 1) * quantile;
+            int index = (int)Math.Floor(position) - 1;
+            decimal fraction = (decimal)(position - Math.Floor(position));
+
+            if (index + 1 < N)
+            {
+                return sortedTransactions[index] + fraction * (sortedTransactions[index + 1] - sortedTransactions[index]);
+            }
+            return sortedTransactions[index];
+        }
 
         public IEnumerable<(string key, decimal Average)> CalculateGroupedAverageAmount(IEnumerable<IGrouping<string, Transaction>> groupedTransactions)
         {
@@ -121,7 +172,6 @@ namespace IncomeInsightEngine.src.dataStructure.management
                 .ToList();
         }
 
-
         public IEnumerable<(string key, decimal TotalExpenses)> CalculateGroupedExpenses(IEnumerable<IGrouping<string, Transaction>> groupedTransactions)
         {
             return groupedTransactions
@@ -152,6 +202,35 @@ namespace IncomeInsightEngine.src.dataStructure.management
                 .ToList();
         }
 
+        public IEnumerable<(string key, decimal Percentage)> CalculateGroupedPercentageOfTotalIncome(IEnumerable<IGrouping<string, Transaction>> groupedTransactions, bool showZeroValues = false)
+        {
+            var totalAmount = groupedTransactions.Sum(group => CalculateTotalIncome(group));
+
+            var results = groupedTransactions
+                .Select(group => (
+                    key: group.Key,
+                    percentage: CalculateTotalIncome(group) / totalAmount * 100
+                ))
+                .Where(result => showZeroValues || result.percentage != 0);
+
+            return results;
+        }
+
+        public IEnumerable<(string key, decimal percentage)> CalculateGroupedPercentageOfTotalExpanses(IEnumerable<IGrouping<string, Transaction>> groupedTransactions, bool showZeroValues = false)
+        {
+            
+            var totalAmount = groupedTransactions.Sum(group => CalculateTotalExpenses(group));
+
+            var results = groupedTransactions
+                .Select(group => (
+                    key: group.Key,
+                    percentage: CalculateTotalExpenses(group) / totalAmount * 100
+                ))
+                .Where(result => showZeroValues || result.percentage != 0); 
+
+            return results;
+        }
+
         public IEnumerable<(string key, decimal Amount)> SortByAmountAscending(IEnumerable<(string key, decimal Amount)> groups)
         {
             return groups.OrderBy(g => g.Amount);
@@ -172,6 +251,20 @@ namespace IncomeInsightEngine.src.dataStructure.management
             return groups.OrderByDescending(g => g.key);
         }
 
+        public int GetTotalTransactionCount(IEnumerable<Transaction> listOfTransactions)
+        {
+            return listOfTransactions.Count();
+        }
+
+        public IEnumerable<(string key, decimal Number)> GetGroupedTotalTransactionCount(IEnumerable<IGrouping<string, Transaction>> groupedTransactions)
+        {
+            return groupedTransactions
+                .Select(group => (
+                    key: group.Key,
+                    Number: GetTotalTransactionCount(group)+0m
+                ))
+                .ToList();
+        }
 
         /// <summary>
         /// Displays the total expenses calculated from the provided or current collection of transactions in the command line.
