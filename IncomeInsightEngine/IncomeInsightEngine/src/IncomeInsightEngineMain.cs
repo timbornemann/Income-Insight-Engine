@@ -29,9 +29,11 @@ namespace src
             TransactionManager manager = new TransactionManager();
             TransactionAnalyzer analyzer = new TransactionAnalyzer();
 
+           
 
-     
-            analyzer.DisplayGroupedAmountInComandline(analyzer.SortByKeyAscending(analyzer.CalculateGroupedAverageIncome(manager.GroupByPartner(manager.GetIncomeTransactions()))));
+         
+
+            analyzer.DisplayGroupedAmountInComandline(analyzer.SortByAmountDescending(analyzer.CalculateGroupedPercentageOfTotalExpanses(manager.GroupByDate())));
 
             //  analyzer.DisplayTotalAmountInComandline(manager.GetAllTransactions());
 
