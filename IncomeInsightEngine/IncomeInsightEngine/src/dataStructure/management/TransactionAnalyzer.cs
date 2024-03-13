@@ -303,7 +303,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         {          
             foreach (var (Key, Amount) in Groups)
             {
-                Console.WriteLine($"{Key,-50} {Strings.TotalAmount,-1} {Amount:C}");
+                Console.WriteLine($"{Key,-50} {Strings.Amount,-1} {System.Math.Round(Amount,2)}");
             }
         }
 
