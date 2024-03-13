@@ -326,6 +326,33 @@ namespace IncomeInsightEngine.src.dataStructure.management
             jsonTransaction.SaveData(transactions);
         }
 
+        public void TagPartnerAddBatchProcessing(string comparator, string tag)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator)))
+            {
+                t.Tags.Add(tag);
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void TagPartnerRemoveBatchProcessing(string comparator, string tag)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator)))
+            {
+                t.Tags.Remove(tag);
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void TagPartnerChangeBatchProcessing(string comparator, string originalTag, string replacementTag)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator)))
+            {
+                t.Tags[t.Tags.IndexOf(originalTag)] = replacementTag;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
         public void ClassificationBatchProcessing(string original, string replacement)
         {
             foreach (Transaction t in transactions.Where(t => t.Classification.Equals(original)))
@@ -1047,9 +1074,9 @@ namespace IncomeInsightEngine.src.dataStructure.management
             return (listOfTransactions ?? transactions).GroupBy(t => t.BudgetCategory).ToList();
         }
 
-        public IEnumerable<IGrouping<string, Transaction>> GroupByTag(IEnumerable<Transaction> listOfTransactions)
+        public IEnumerable<IGrouping<string, Transaction>> GroupByTag(IEnumerable<Transaction> listOfTransactions = null)
         {
-            var groupedByTag = listOfTransactions
+            var groupedByTag = (listOfTransactions ?? transactions)
                 .SelectMany(transaction => transaction.Tags.Select(tag => new { transaction, tag }))
                 .GroupBy(x => x.tag, x => x.transaction)
                 .ToList();
@@ -1196,7 +1223,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         {
             foreach (var group in groupedTransactions)
             {
-                Console.WriteLine($"{Strings.Partner}: {group.Key}");
+                Console.WriteLine(group.Key);
                 foreach (Transaction transaction in group)
                 {
                     transaction.DisplayShortTransactionDetails();
