@@ -29,15 +29,16 @@ namespace src
             TransactionManager manager = new TransactionManager();
             TransactionAnalyzer analyzer = new TransactionAnalyzer();
 
-           
 
-         
 
-            analyzer.DisplayGroupedAmountInComandline(analyzer.SortByAmountDescending(analyzer.CalculateGroupedPercentageOfTotalExpanses(manager.GroupByDate())));
+            //  manager.DisplayGroupedTransactions(manager.GroupByPartner());
+
+
+            // analyzer.DisplayGroupedAmountInComandline(analyzer.SortByAmountDescending(analyzer.CalculateGroupedPercentageOfTotalExpanses(manager.GroupByPartner())));
 
             //  analyzer.DisplayTotalAmountInComandline(manager.GetAllTransactions());
 
-           // manager.DisplayShortTransactionInformationsInComandline(manager.SortTransactionsByDateAscending());
+            // manager.DisplayShortTransactionInformationsInComandline(manager.SortTransactionsByDateAscending());
 
             // manager.RenameAllTransactionPartnersInComandline();
 
