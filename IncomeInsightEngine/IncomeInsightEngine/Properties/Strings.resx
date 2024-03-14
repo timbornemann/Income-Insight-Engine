@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
   <data name="AddMoreDetails" xml:space="preserve">
     <value>Add more Details</value>
   </data>
@@ -135,11 +138,17 @@
   <data name="BankTransfer" xml:space="preserve">
     <value>Bank Transfer</value>
   </data>
+  <data name="BatchProcessing" xml:space="preserve">
+    <value>Batch processing</value>
+  </data>
   <data name="BatchProcessingOfPartnerNames" xml:space="preserve">
     <value>Batch processing of partner names</value>
   </data>
   <data name="Blank" xml:space="preserve">
     <value>Blank</value>
+  </data>
+  <data name="BudgetCategories" xml:space="preserve">
+    <value>Budget Categories</value>
   </data>
   <data name="BudgetCategory" xml:space="preserve">
     <value>Budget Category</value>
@@ -150,6 +159,9 @@
   <data name="Cash" xml:space="preserve">
     <value>Cash</value>
   </data>
+  <data name="Categories" xml:space="preserve">
+    <value>Categories</value>
+  </data>
   <data name="Category" xml:space="preserve">
     <value>Category</value>
   </data>
@@ -158,6 +170,9 @@
   </data>
   <data name="Classification" xml:space="preserve">
     <value>Classification</value>
+  </data>
+  <data name="Classifications" xml:space="preserve">
+    <value>Classifications</value>
   </data>
   <data name="Completed" xml:space="preserve">
     <value>Completed</value>
@@ -168,8 +183,14 @@
   <data name="Cryptocurrency" xml:space="preserve">
     <value>Cryptocurrency</value>
   </data>
+  <data name="Currencies" xml:space="preserve">
+    <value>Currencies</value>
+  </data>
   <data name="Currency" xml:space="preserve">
     <value>Currency</value>
+  </data>
+  <data name="Currently" xml:space="preserve">
+    <value>Currently</value>
   </data>
   <data name="CurrentPartnerName" xml:space="preserve">
     <value>Current partner name</value>
@@ -192,6 +213,9 @@
   <data name="End" xml:space="preserve">
     <value>End</value>
   </data>
+  <data name="EnterNew" xml:space="preserve">
+    <value>Enter new</value>
+  </data>
   <data name="EnterNewName" xml:space="preserve">
     <value>Enter new name</value>
   </data>
@@ -209,6 +233,9 @@
   </data>
   <data name="Finish" xml:space="preserve">
     <value>Finish</value>
+  </data>
+  <data name="Frequencies" xml:space="preserve">
+    <value>Frequencies</value>
   </data>
   <data name="Frequency" xml:space="preserve">
     <value>Frequency</value>
@@ -228,6 +255,9 @@
   <data name="Location" xml:space="preserve">
     <value>Location</value>
   </data>
+  <data name="Locations" xml:space="preserve">
+    <value>Locations</value>
+  </data>
   <data name="MaxAmount" xml:space="preserve">
     <value>Max. amount</value>
   </data>
@@ -246,8 +276,14 @@
   <data name="PartnerIBAN" xml:space="preserve">
     <value>Partner IBAN</value>
   </data>
+  <data name="Partners" xml:space="preserve">
+    <value>Partners</value>
+  </data>
   <data name="PaymentMethod" xml:space="preserve">
     <value>Payment Method</value>
+  </data>
+  <data name="PaymentMethods" xml:space="preserve">
+    <value>Payment Methods</value>
   </data>
   <data name="PayPal" xml:space="preserve">
     <value>PayPal</value>
@@ -255,11 +291,17 @@
   <data name="Pending" xml:space="preserve">
     <value>Pending</value>
   </data>
+  <data name="Priorities" xml:space="preserve">
+    <value>Priorities</value>
+  </data>
   <data name="Priority" xml:space="preserve">
     <value>Priority</value>
   </data>
   <data name="Project" xml:space="preserve">
     <value>Project</value>
+  </data>
+  <data name="Projects" xml:space="preserve">
+    <value>Projects</value>
   </data>
   <data name="Receipt" xml:space="preserve">
     <value>Receipt</value>
@@ -293,6 +335,9 @@
   </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
+  </data>
+  <data name="Statuses" xml:space="preserve">
+    <value>Statuses</value>
   </data>
   <data name="Tags" xml:space="preserve">
     <value>Tags</value>
