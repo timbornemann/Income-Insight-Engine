@@ -78,27 +78,35 @@ namespace dataStructure
         /// </remarks>
         public void DisplayTransactionDetails()
         {
-            Console.WriteLine($"{Strings.Id,-10} {Id,-10}" +
-                              $"{Strings.Date,-12} {Date.ToShortDateString(),-12}" +
-                              $"{Strings.Amount,-10} {Amount.ToString("C"),-10}" +
-                              $"{Strings.Currency,-8} {Currency,-8}" +
-                              $"{Strings.Description,-8} {Description,-15}" +
+            Console.WriteLine($"{Strings.Id,-15} {Id,-15}" +
+                              $"{Strings.Date,-15} {Date.ToShortDateString(),-15}" +
+                              $"{Strings.Amount,-15} {Amount.ToString("C"),-15}" +
+                              $"{Strings.Currency,-15} {Currency,-15}" );
+
+            Console.WriteLine($"{Strings.Frequency,-15} {Frequency,-15}" +
                               $"{Strings.PaymentMethod,-15} {PaymentMethod,-15}" +
                               $"{Strings.TaxDeductible,-15} {TaxDeductible,-15}" +
-                              $"{Strings.Reimbursable,-15} {Reimbursable,-15}" +
-                              $"{Strings.Category,-15} {Category,-15}" +
+                              $"{Strings.Reimbursable,-15} {Reimbursable,-15}");
+
+            Console.WriteLine($"{Strings.Category,-15} {Category,-15}" +
                               $"{Strings.BudgetCategory,-15} {BudgetCategory,-15}" +
-                              $"{Strings.Tags,-10} {string.Join(", ", Tags),-10}" +
-                              $"{Strings.Partner,-15} {Partner,-15}" +
-                              $"{Strings.PartnerIBAN,-15} {PartnerIban,-15}" +
-                              $"{Strings.Project,-15} {Project,-15}" +
-                              $"{Strings.Status,-10} {Status,-10}" +
-                              $"{Strings.Priority,-10} {Priority,-10}" +
-                              $"{Strings.Frequency,-10} {Frequency,-10}" +
-                              $"{Strings.Location,-15} {Location,-15}" +
-                              $"{Strings.Receipt,-10} {Receipt,-10}" +
-                              $"{Strings.Notes,-15} {Notes,-15}" +
-                              $"{Strings.Classification,-15} {Classification,-15}");
+                              $"{Strings.Tags,-15} {string.Join(", ", Tags),-15}" +
+                              $"{Strings.Partner,-15} {Partner,-15}");
+            
+            Console.WriteLine($"{Strings.Project,-15} {Project,-15}" +
+                              $"{Strings.Status,-15} {Status,-15}" +
+                              $"{Strings.Priority,-15} {Priority,-15}"+
+                              $"{Strings.PartnerIBAN,-15} {PartnerIban,-15}");
+
+            Console.WriteLine($"{Strings.Location,-15} {Location,-15}" +
+                              $"{Strings.Receipt,-15} {Receipt,-15}" +                           
+                              $"{Strings.Classification,-15} {Classification,-15}" +
+                              $"{Strings.Notes,-15} {Notes,-15}");
+
+            Console.WriteLine($"{Strings.Description,-15} {Description,-15}");
+            Console.WriteLine();
+            Console.WriteLine();
+
         }
 
         /// <summary>
