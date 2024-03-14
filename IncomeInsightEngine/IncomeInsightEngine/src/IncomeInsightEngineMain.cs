@@ -7,6 +7,7 @@ using System.Security.Principal;
 using System.Threading;
 using System.Windows;
 using dataStructure;
+using IncomeInsightEngine;
 using IncomeInsightEngine.Properties;
 using IncomeInsightEngine.src.dataStructure.management;
 using IncomeInsightEngine.src.ui;
@@ -25,10 +26,11 @@ namespace src
           //  AllocConsole();
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-
+            ConsoleLogic console = new ConsoleLogic();
+/*
             TransactionManager manager = new TransactionManager();
             TransactionAnalyzer analyzer = new TransactionAnalyzer();
-
+*/
 
 
             // manager.transaktionInformation.DisplayAllListsInComandline();
@@ -39,7 +41,7 @@ namespace src
      
 
 
-             manager.transaktionInformation.DisplayAllListsInComandline();
+           //  manager.transaktionInformation.DisplayAllListsInComandline();
             // manager.DisplayOnlyGroupnamesComandline(manager.GroupByPartner(manager.SortTransactionsByPartnerAscending()));
 
 
