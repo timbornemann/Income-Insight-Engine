@@ -27,6 +27,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
     {   
         private List<Transaction> transactions = new List<Transaction>();
         private JsonTransaction jsonTransaction;
+        public TransactionInformation transaktionInformation { get; }
 
         /// <summary>
         /// Initializes a new instance of the TransactionManager class, setting up the JsonTransaction instance and loading existing transactions.
@@ -42,6 +43,8 @@ namespace IncomeInsightEngine.src.dataStructure.management
             jsonTransaction = new JsonTransaction();
           
             LoadTransactions();
+
+            transaktionInformation = new TransactionInformation(transactions);
         }
 
         /// <summary>
@@ -184,7 +187,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
 
         public void DescriptionBatchProcessing(string original, string replacement)
         {
-            foreach(Transaction t in transactions.Where(t=> t.Description.Equals(original)))
+            foreach(Transaction t in transactions.Where(t=> original == null ? t.Description == null : t.Description.Equals(original)))
             {
                 t.Description = replacement;
             }
@@ -202,7 +205,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
 
         public void CurrencyBatchProcessing(string original, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Currency.Equals(original)))
+            foreach (Transaction t in transactions.Where(t => original == null ? t.Currency == null : t.Currency.Equals(original)))
             {
                 t.Currency = replacement;
             }
@@ -256,7 +259,25 @@ namespace IncomeInsightEngine.src.dataStructure.management
 
         public void PaymentMethodBatchProcessing(string original, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.PaymentMethod.Equals(original)))
+            foreach (Transaction t in transactions.Where(t => original == null ? t.PaymentMethod == null : t.PaymentMethod.Equals(original)))
+            {
+                t.PaymentMethod = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void PaymentMethodPartnerBatchProcessing(string comparator, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator) || (t.Partner != null && t.Partner.IndexOf(comparator, StringComparison.OrdinalIgnoreCase) >= 0)))
+            {
+                t.PaymentMethod = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void PaymentMethodDescriptionBatchProcessing(string comparator, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t => t.Description.Equals(comparator) || (t.Description != null && t.Description.IndexOf(comparator, StringComparison.OrdinalIgnoreCase) >= 0)))
             {
                 t.PaymentMethod = replacement;
             }
@@ -265,7 +286,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
 
         public void CategoryBatchProcessing(string original, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Category.Equals(original)))
+            foreach (Transaction t in transactions.Where(t => original == null ? t.Category == null : t.Category.Equals(original)))
             {
                 t.Category = replacement;
             }
@@ -301,7 +322,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
 
         public void CategoryPartnerBatchProcessing(string comparator, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator)))
+            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator) || (t.Partner != null && t.Partner.IndexOf(comparator, StringComparison.OrdinalIgnoreCase) >= 0)))
             {
                 t.Category = replacement;
             }
@@ -310,7 +331,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
 
         public void BudgetCategoryBatchProcessing(string original, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.BudgetCategory.Equals(original)))
+            foreach (Transaction t in transactions.Where(t => original == null ? t.BudgetCategory == null : t.BudgetCategory.Equals(original)))
             {
                 t.BudgetCategory = replacement;
             }
@@ -355,7 +376,16 @@ namespace IncomeInsightEngine.src.dataStructure.management
 
         public void ClassificationBatchProcessing(string original, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Classification.Equals(original)))
+            foreach (Transaction t in transactions.Where(t => original == null ? t.Classification == null : t.Classification.Equals(original)))
+            {
+                t.Classification = replacement;
+            }
+            jsonTransaction.SaveData(transactions);
+        }
+
+        public void ClassificationPartnerBatchProcessing(string comparator, string replacement)
+        {
+            foreach (Transaction t in transactions.Where(t =>  t.Partner.Equals(comparator)))
             {
                 t.Classification = replacement;
             }
@@ -364,7 +394,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
 
         public void PartnerIbanBatchProcessing(string original, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.PartnerIban.Equals(original)))
+            foreach (Transaction t in transactions.Where(t => original == null ? t.PartnerIban == null : t.PartnerIban.Equals(original)))
             {
                 t.PartnerIban = replacement;
             }
@@ -382,7 +412,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
 
         public void PartnerBatchProcessing(string original, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(original) || (t.Partner != null && t.Partner.IndexOf(original, StringComparison.OrdinalIgnoreCase) >= 0)))
+            foreach (Transaction t in transactions.Where(t => original == null ? t.Partner == null : t.Partner.Equals(original) || (t.Partner != null && t.Partner.IndexOf(original, StringComparison.OrdinalIgnoreCase) >= 0)))
             {
                 t.Partner = replacement;
             }
@@ -400,7 +430,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
 
         public void ProjectBatchProcessing(string original, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Project.Equals(original)))
+            foreach (Transaction t in transactions.Where(t => original == null ? t.Project == null : t.Project.Equals(original)))
             {
                 t.Project = replacement;
             }
@@ -418,7 +448,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
 
         public void StatusBatchProcessing(string original, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Status.Equals(original)))
+            foreach (Transaction t in transactions.Where(t => original == null ? t.Status == null : t.Status.Equals(original)))
             {
                 t.Status = replacement;
             }
@@ -436,7 +466,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
 
         public void PriorityBatchProcessing(string original, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Priority.Equals(original)))
+            foreach (Transaction t in transactions.Where(t => original == null ? t.Priority == null : t.Priority.Equals(original)))
             {
                 t.Priority = replacement;
             }
@@ -454,7 +484,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
 
         public void FrequencyBatchProcessing(string original, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Frequency.Equals(original)))
+            foreach (Transaction t in transactions.Where(t => original == null ? t.Frequency == null : t.Frequency.Equals(original)))
             {
                 t.Frequency = replacement;
             }
@@ -472,7 +502,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
 
         public void LocationBatchProcessing(string original, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Location.Equals(original)))
+            foreach (Transaction t in transactions.Where(t => original == null ? t.Location == null : t.Location.Equals(original)))
             {
                 t.Location = replacement;
             }
@@ -499,7 +529,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
 
         public void NotesBatchProcessing(string original, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Notes.Equals(original)))
+            foreach (Transaction t in transactions.Where(t => original == null ? t.Notes == null : t.Notes.Equals(original)))
             {
                 t.Notes = replacement;
             }
@@ -556,7 +586,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public IEnumerable<Transaction> GetIncomeTransactions(IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => t.Amount > 0);
+            return (listOfTransactions ?? transactions).Where(t =>  t.Amount > 0);
         }
 
         /// <summary>
@@ -622,7 +652,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public IEnumerable<Transaction> GetTransactionsByDate(DateTime date, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => t.Date.Date == date.Date);
+            return (listOfTransactions ?? transactions).Where(t => date == null ? t.Date == null : t.Date.Date == date.Date);
         }
 
         /// <summary>
@@ -650,7 +680,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <returns>An IEnumerable of Transaction objects that match the specified description criteria.</returns>
         public IEnumerable<Transaction> GetTransactionsByDescription(string description, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => t.Description != null && t.Description.IndexOf(description, StringComparison.OrdinalIgnoreCase) >= 0);
+            return (listOfTransactions ?? transactions).Where(t => description == null ? t.Description == null : t.Description.IndexOf(description, StringComparison.OrdinalIgnoreCase) >= 0);
         }
 
         /// <summary>
@@ -661,7 +691,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <returns>An IEnumerable of Transaction objects that match the specified currency criteria.</returns>
         public IEnumerable<Transaction> GetTransactionsByCurrency(string currency, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => t.Currency.Equals(currency, StringComparison.OrdinalIgnoreCase));
+            return (listOfTransactions ?? transactions).Where(t => currency == null ? t.Currency == null : t.Currency.Equals(currency, StringComparison.OrdinalIgnoreCase));
         }
 
         /// <summary>
@@ -672,7 +702,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <returns>An IEnumerable of Transaction objects that match the specified payment method criteria.</returns>
         public IEnumerable<Transaction> GetTransactionsByPaymentMethod(string paymentMethod, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => t.PaymentMethod.Equals(paymentMethod, StringComparison.OrdinalIgnoreCase));
+            return (listOfTransactions ?? transactions).Where(t => paymentMethod == null ? t.PaymentMethod == null : t.PaymentMethod.Equals(paymentMethod, StringComparison.OrdinalIgnoreCase));
         }
 
         /// <summary>
@@ -680,9 +710,9 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </summary>
         /// <param name="listOfTransactions">Optional. The collection of transactions to search. If null, searches the entire collection.</param>
         /// <returns>An IEnumerable of Transaction objects that are tax deductible.</returns>
-        public IEnumerable<Transaction> GetTaxDeductibleTransactions(IEnumerable<Transaction> listOfTransactions = null)
+        public IEnumerable<Transaction> GetTaxDeductibleTransactions( bool taxDeductible, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => t.TaxDeductible);
+            return (listOfTransactions ?? transactions).Where(t => taxDeductible ?  t.TaxDeductible: !t.TaxDeductible);
         }
 
         /// <summary>
@@ -690,9 +720,9 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </summary>
         /// <param name="listOfTransactions">Optional. The collection of transactions to search. If null, searches the entire collection.</param>
         /// <returns>An IEnumerable of Transaction objects that are reimbursable.</returns>
-        public IEnumerable<Transaction> GetReimbursableTransactions(IEnumerable<Transaction> listOfTransactions = null)
+        public IEnumerable<Transaction> GetReimbursableTransactions(bool reimburable, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => t.Reimbursable);
+            return (listOfTransactions ?? transactions).Where(t => reimburable ? t.Reimbursable : !t.Reimbursable);
         }
 
         /// <summary>
@@ -703,7 +733,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <returns>An IEnumerable of Transaction objects that match the specified category criteria.</returns>
         public IEnumerable<Transaction> GetTransactionsByCategory(string category, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => t.Category.Equals(category, StringComparison.OrdinalIgnoreCase));
+            return (listOfTransactions ?? transactions).Where(t => category == null ? t.Category == null : t.Category.Equals(category, StringComparison.OrdinalIgnoreCase));
         }
 
         /// <summary>
@@ -714,7 +744,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <returns>An IEnumerable of Transaction objects that match the specified budget category criteria.</returns>
         public IEnumerable<Transaction> GetTransactionsByBudgetCategory(string budgetCategory, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => t.BudgetCategory.Equals(budgetCategory, StringComparison.OrdinalIgnoreCase));
+            return (listOfTransactions ?? transactions).Where(t => budgetCategory == null ? t.BudgetCategory == null : t.BudgetCategory.Equals(budgetCategory, StringComparison.OrdinalIgnoreCase));
+        }
+
+        public IEnumerable<Transaction> GetTransactionsByClassification(string classification, IEnumerable<Transaction> listOfTransactions = null)
+        {
+            return (listOfTransactions ?? transactions).Where(t => classification == null ? t.Classification == null : t.Classification.Equals(classification, StringComparison.OrdinalIgnoreCase));
         }
 
         /// <summary>
@@ -725,7 +760,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <returns>An IEnumerable of Transaction objects that match the specified partner criteria.</returns>
         public IEnumerable<Transaction> GetTransactionsByPartner(string partner, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => t.Partner != null && t.Partner.IndexOf(partner, StringComparison.OrdinalIgnoreCase) >= 0);
+            return (listOfTransactions ?? transactions).Where(t => partner == null ? t.Partner == null : t.Partner.IndexOf(partner, StringComparison.OrdinalIgnoreCase) >= 0);
         }
 
         /// <summary>
@@ -736,7 +771,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <returns>An IEnumerable of Transaction objects that match the specified project criteria.</returns>
         public IEnumerable<Transaction> GetTransactionsByProject(string project, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => t.Project.Equals(project, StringComparison.OrdinalIgnoreCase));
+            return (listOfTransactions ?? transactions).Where(t => project == null ? t.Project == null : t.Project.Equals(project, StringComparison.OrdinalIgnoreCase));
         }
 
         /// <summary>
@@ -747,7 +782,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <returns>An IEnumerable of Transaction objects that match the specified status criteria.</returns>
         public IEnumerable<Transaction> GetTransactionsByStatus(string status, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => t.Status.Equals(status, StringComparison.OrdinalIgnoreCase));
+            return (listOfTransactions ?? transactions).Where(t => status == null ? t.Status == null : t.Status.Equals(status, StringComparison.OrdinalIgnoreCase));
         }
 
         /// <summary>
@@ -758,7 +793,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <returns>An IEnumerable of Transaction objects that match the specified priority criteria.</returns>
         public IEnumerable<Transaction> GetTransactionsByPriority(string priority, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => t.Priority.Equals(priority, StringComparison.OrdinalIgnoreCase));
+            return (listOfTransactions ?? transactions).Where(t => priority == null ? t.Priority == null : t.Priority.Equals(priority, StringComparison.OrdinalIgnoreCase));
         }
 
         /// <summary>
@@ -769,7 +804,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <returns>An IEnumerable of Transaction objects that match the specified frequency criteria.</returns>
         public IEnumerable<Transaction> GetTransactionsByFrequency(string frequency, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => t.Frequency.Equals(frequency, StringComparison.OrdinalIgnoreCase));
+            return (listOfTransactions ?? transactions).Where(t => frequency == null ? t.Frequency == null : t.Frequency.Equals(frequency, StringComparison.OrdinalIgnoreCase));
         }
 
         /// <summary>
@@ -780,7 +815,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <returns>An IEnumerable of Transaction objects that match the specified location criteria.</returns>
         public IEnumerable<Transaction> GetTransactionsByLocation(string location, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => t.Location != null && t.Location.IndexOf(location, StringComparison.OrdinalIgnoreCase) >= 0);
+            return (listOfTransactions ?? transactions).Where(t => location == null ? t.Location == null : t.Location.IndexOf(location, StringComparison.OrdinalIgnoreCase) >= 0);
         }
 
         /// <summary>
@@ -1151,17 +1186,310 @@ namespace IncomeInsightEngine.src.dataStructure.management
             Console.WriteLine();
             foreach (var group in groupedTransactions)
             {
-                Console.WriteLine($"{Strings.CurrentPartnerName} {group.Key}");
+                Console.WriteLine($"{Strings.Currently} {group.Key}");
                 Console.WriteLine($"{Strings.Change}? {Strings.Yes} = 1 / {Strings.No} = 0");
                 string input = Console.ReadLine().Trim();
                 if (input == "1")
                 {
-                    Console.WriteLine(Strings.EnterNewName + ": ");
+                    Console.WriteLine(Strings.EnterNew + ": ");
                     string newName = Console.ReadLine()?.Trim();
                     if (!string.IsNullOrEmpty(newName))
                     {
                         PartnerBatchProcessing(group.Key, newName);
                     }                   
+                }
+                Console.WriteLine();
+            }
+        }
+
+        public void RenameAllNullDescriptionInComandline()
+        {
+            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(GetTransactionsByDescription(null));
+
+            Console.WriteLine(Strings.BatchProcessing);
+            Console.WriteLine();
+            foreach (var group in groupedTransactions)
+            {
+                Console.WriteLine($"{Strings.Partner} {group.Key}");
+                Console.WriteLine($"{Strings.Change}? {Strings.Yes} = 1 / {Strings.No} = 0");
+                string input = Console.ReadLine().Trim();
+                if (input == "1")
+                {
+                    Console.WriteLine(Strings.EnterNew + ": ");
+                    string newName = Console.ReadLine()?.Trim();
+                    if (!string.IsNullOrEmpty(newName))
+                    {
+                        DescriptionPartnerBatchProcessing(group.Key, newName);
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
+
+        public void RenameAllNullCurrencyInComandline()
+        {
+            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(GetTransactionsByCurrency(null));
+
+            Console.WriteLine(Strings.BatchProcessing);
+            Console.WriteLine();
+            foreach (var group in groupedTransactions)
+            {
+                Console.WriteLine($"{Strings.Partner} {group.Key}");
+                Console.WriteLine($"{Strings.Change}? {Strings.Yes} = 1 / {Strings.No} = 0");
+                string input = Console.ReadLine().Trim();
+                if (input == "1")
+                {
+                    Console.WriteLine(Strings.EnterNew + ": ");
+                    string newName = Console.ReadLine()?.Trim();
+                    if (!string.IsNullOrEmpty(newName))
+                    {
+                        CurrencyPartnerBatchProcessing(group.Key, newName);
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
+
+        public void RenameAllNullPaymentMethodInComandline()
+        {
+            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(GetTransactionsByPaymentMethod(null));
+
+            Console.WriteLine(Strings.BatchProcessing);
+            Console.WriteLine();
+            foreach (var group in groupedTransactions)
+            {
+                Console.WriteLine($"{Strings.Partner} {group.Key}");
+                Console.WriteLine($"{Strings.Change}? {Strings.Yes} = 1 / {Strings.No} = 0");
+                string input = Console.ReadLine().Trim();
+                if (input == "1")
+                {
+                    Console.WriteLine(Strings.EnterNew + ": ");
+                    string newName = Console.ReadLine()?.Trim();
+                    if (!string.IsNullOrEmpty(newName))
+                    {
+                        PaymentMethodPartnerBatchProcessing(group.Key, newName);
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
+
+        public void RenameAllNullCategoryInComandline()
+        {
+            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(GetTransactionsByCategory(null));
+
+            Console.WriteLine(Strings.BatchProcessing);
+            Console.WriteLine();
+            foreach (var group in groupedTransactions)
+            {
+                Console.WriteLine($"{Strings.Partner} {group.Key}");
+                Console.WriteLine($"{Strings.Change}? {Strings.Yes} = 1 / {Strings.No} = 0");
+                string input = Console.ReadLine().Trim();
+                if (input == "1")
+                {
+                    Console.WriteLine(Strings.EnterNew + ": ");
+                    string newName = Console.ReadLine()?.Trim();
+                    if (!string.IsNullOrEmpty(newName))
+                    {
+                        CategoryPartnerBatchProcessing(group.Key, newName);
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
+
+        public void RenameAllNullBudgetCategoryInComandline()
+        {
+            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(GetTransactionsByBudgetCategory(null));
+
+            Console.WriteLine(Strings.BatchProcessing);
+            Console.WriteLine();
+            foreach (var group in groupedTransactions)
+            {
+                Console.WriteLine($"{Strings.Partner} {group.Key}");
+                Console.WriteLine($"{Strings.Change}? {Strings.Yes} = 1 / {Strings.No} = 0");
+                string input = Console.ReadLine().Trim();
+                if (input == "1")
+                {
+                    Console.WriteLine(Strings.EnterNew + ": ");
+                    string newName = Console.ReadLine()?.Trim();
+                    if (!string.IsNullOrEmpty(newName))
+                    {
+                        BudgetCategoryPartnerBatchProcessing(group.Key, newName);
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
+
+        public void AddTagsInComandline()
+        {
+            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(GetTransactionsByBudgetCategory(null));
+
+            Console.WriteLine(Strings.BatchProcessing);
+            Console.WriteLine();
+            foreach (var group in groupedTransactions)
+            {
+                Console.WriteLine($"{Strings.Partner} {group.Key}");
+                string input;
+                do
+                {
+                    Console.WriteLine($"{Strings.Add}? {Strings.Yes} = 1 / {Strings.No} = 0");
+                    input = Console.ReadLine().Trim();
+                    if (input == "1")
+                    {
+                        Console.WriteLine(Strings.EnterNew + ": ");
+                        string newName = Console.ReadLine()?.Trim();
+                        if (!string.IsNullOrEmpty(newName))
+                        {
+                            TagPartnerAddBatchProcessing(group.Key, newName);
+                        }
+                    }
+                } while(input == "1");
+
+                Console.WriteLine();
+            }
+        }
+
+        public void RenameAllNullClassificationInComandline()
+        {
+            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(GetTransactionsByClassification(null));
+
+            Console.WriteLine(Strings.BatchProcessing);
+            Console.WriteLine();
+            foreach (var group in groupedTransactions)
+            {
+                Console.WriteLine($"{Strings.Partner} {group.Key}");
+                Console.WriteLine($"{Strings.Change}? {Strings.Yes} = 1 / {Strings.No} = 0");
+                string input = Console.ReadLine().Trim();
+                if (input == "1")
+                {
+                    Console.WriteLine(Strings.EnterNew + ": ");
+                    string newName = Console.ReadLine()?.Trim();
+                    if (!string.IsNullOrEmpty(newName))
+                    {
+                        ClassificationPartnerBatchProcessing(group.Key, newName);
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
+
+        public void RenameAllNullProjectInComandline()
+        {
+            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(GetTransactionsByProject(null));
+
+            Console.WriteLine(Strings.BatchProcessing);
+            Console.WriteLine();
+            foreach (var group in groupedTransactions)
+            {
+                Console.WriteLine($"{Strings.Partner} {group.Key}");
+                Console.WriteLine($"{Strings.Change}? {Strings.Yes} = 1 / {Strings.No} = 0");
+                string input = Console.ReadLine().Trim();
+                if (input == "1")
+                {
+                    Console.WriteLine(Strings.EnterNew + ": ");
+                    string newName = Console.ReadLine()?.Trim();
+                    if (!string.IsNullOrEmpty(newName))
+                    {
+                        ProjectPartnerBatchProcessing(group.Key, newName);
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
+
+        public void RenameAllNullStatusInComandline()
+        {
+            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(GetTransactionsByStatus(null));
+
+            Console.WriteLine(Strings.BatchProcessing);
+            Console.WriteLine();
+            foreach (var group in groupedTransactions)
+            {
+                Console.WriteLine($"{Strings.Partner} {group.Key}");
+                Console.WriteLine($"{Strings.Change}? {Strings.Yes} = 1 / {Strings.No} = 0");
+                string input = Console.ReadLine().Trim();
+                if (input == "1")
+                {
+                    Console.WriteLine(Strings.EnterNew + ": ");
+                    string newName = Console.ReadLine()?.Trim();
+                    if (!string.IsNullOrEmpty(newName))
+                    {
+                        StatusPartnerBatchProcessing(group.Key, newName);
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
+
+        public void RenameAllNullPriorityInComandline()
+        {
+            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(GetTransactionsByPriority(null));
+
+            Console.WriteLine(Strings.BatchProcessing);
+            Console.WriteLine();
+            foreach (var group in groupedTransactions)
+            {
+                Console.WriteLine($"{Strings.Partner} {group.Key}");
+                Console.WriteLine($"{Strings.Change}? {Strings.Yes} = 1 / {Strings.No} = 0");
+                string input = Console.ReadLine().Trim();
+                if (input == "1")
+                {
+                    Console.WriteLine(Strings.EnterNew + ": ");
+                    string newName = Console.ReadLine()?.Trim();
+                    if (!string.IsNullOrEmpty(newName))
+                    {
+                        PriorityPartnerBatchProcessing(group.Key, newName);
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
+
+        public void RenameAllNullFrequencyInComandline()
+        {
+            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(GetTransactionsByFrequency(null));
+
+            Console.WriteLine(Strings.BatchProcessing);
+            Console.WriteLine();
+            foreach (var group in groupedTransactions)
+            {
+                Console.WriteLine($"{Strings.Partner} {group.Key}");
+                Console.WriteLine($"{Strings.Change}? {Strings.Yes} = 1 / {Strings.No} = 0");
+                string input = Console.ReadLine().Trim();
+                if (input == "1")
+                {
+                    Console.WriteLine(Strings.EnterNew + ": ");
+                    string newName = Console.ReadLine()?.Trim();
+                    if (!string.IsNullOrEmpty(newName))
+                    {
+                        FrequencyPartnerBatchProcessing(group.Key, newName);
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
+
+        public void RenameAllNullLocationInComandline()
+        {
+            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(GetTransactionsByLocation(null));
+
+            Console.WriteLine(Strings.BatchProcessing);
+            Console.WriteLine();
+            foreach (var group in groupedTransactions)
+            {
+                Console.WriteLine($"{Strings.Partner} {group.Key}");
+                Console.WriteLine($"{Strings.Change}? {Strings.Yes} = 1 / {Strings.No} = 0");
+                string input = Console.ReadLine().Trim();
+                if (input == "1")
+                {
+                    Console.WriteLine(Strings.EnterNew + ": ");
+                    string newName = Console.ReadLine()?.Trim();
+                    if (!string.IsNullOrEmpty(newName))
+                    {
+                        LocationPartnerBatchProcessing(group.Key, newName);
+                    }
                 }
                 Console.WriteLine();
             }
@@ -1186,7 +1514,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void CloseTransactionFileManually()
         {
-            jsonTransaction.CloseTransactionFile();
+          //  jsonTransaction.CloseTransactionFile();
         }
 
         /// <summary>
@@ -1219,7 +1547,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
             }
         }
 
-        public void DisplayGroupedTransactions(IEnumerable<IGrouping<string, Transaction>> groupedTransactions)
+        public void DisplayGroupedTransactionsComandline(IEnumerable<IGrouping<string, Transaction>> groupedTransactions)
         {
             foreach (var group in groupedTransactions)
             {
@@ -1229,6 +1557,14 @@ namespace IncomeInsightEngine.src.dataStructure.management
                     transaction.DisplayShortTransactionDetails();
                 }
                 Console.WriteLine();
+            }
+        }
+
+        public void DisplayOnlyGroupnamesComandline(IEnumerable<IGrouping<string, Transaction>> groupedTransactions)
+        {
+            foreach (var group in groupedTransactions)
+            {
+                Console.WriteLine(group.Key);
             }
         }
     }
