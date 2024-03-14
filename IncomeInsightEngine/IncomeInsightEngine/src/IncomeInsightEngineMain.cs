@@ -31,18 +31,19 @@ namespace src
 
 
 
-            //  manager.DisplayGroupedTransactions(manager.GroupByPartner());
+            // manager.transaktionInformation.DisplayAllListsInComandline();
 
 
-            // analyzer.DisplayGroupedAmountInComandline(analyzer.SortByAmountDescending(analyzer.CalculateGroupedPercentageOfTotalExpanses(manager.GroupByPartner())));
 
-            //  analyzer.DisplayTotalAmountInComandline(manager.GetAllTransactions());
+            //manager.PaymentMethodDescriptionBatchProcessing("Giro", "Girocard");
+     
 
-            // manager.DisplayShortTransactionInformationsInComandline(manager.SortTransactionsByDateAscending());
 
-            // manager.RenameAllTransactionPartnersInComandline();
+             manager.transaktionInformation.DisplayAllListsInComandline();
+            // manager.DisplayOnlyGroupnamesComandline(manager.GroupByPartner(manager.SortTransactionsByPartnerAscending()));
 
-            // manager.DisplayGroupedTransactions(manager.GroupByDateWeekDay());
+
+
 
             /*
             Application app = new Application(); 
