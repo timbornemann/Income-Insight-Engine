@@ -79,6 +79,15 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Add transactions ähnelt.
+        /// </summary>
+        public static string AddTransactions {
+            get {
+                return ResourceManager.GetString("AddTransactions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die All ähnelt.
         /// </summary>
         public static string All {
@@ -93,6 +102,15 @@ namespace IncomeInsightEngine.Properties {
         public static string Amount {
             get {
                 return ResourceManager.GetString("Amount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Analyze transactions ähnelt.
+        /// </summary>
+        public static string AnalyzeTransactions {
+            get {
+                return ResourceManager.GetString("AnalyzeTransactions", resourceCulture);
             }
         }
         
@@ -214,6 +232,15 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Choose Mode ähnelt.
+        /// </summary>
+        public static string ChooseMode {
+            get {
+                return ResourceManager.GetString("ChooseMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Classification ähnelt.
         /// </summary>
         public static string Classification {
@@ -237,6 +264,24 @@ namespace IncomeInsightEngine.Properties {
         public static string Completed {
             get {
                 return ResourceManager.GetString("Completed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Complete view ähnelt.
+        /// </summary>
+        public static string CompleteView {
+            get {
+                return ResourceManager.GetString("CompleteView", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Console mode ähnelt.
+        /// </summary>
+        public static string ConsoleMode {
+            get {
+                return ResourceManager.GetString("ConsoleMode", resourceCulture);
             }
         }
         
@@ -349,6 +394,15 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die EndDate ähnelt.
+        /// </summary>
+        public static string EndDate {
+            get {
+                return ResourceManager.GetString("EndDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Enter new ähnelt.
         /// </summary>
         public static string EnterNew {
@@ -381,6 +435,15 @@ namespace IncomeInsightEngine.Properties {
         public static string ErrorCryptograpic {
             get {
                 return ResourceManager.GetString("ErrorCryptograpic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Exit ähnelt.
+        /// </summary>
+        public static string Exit {
+            get {
+                return ResourceManager.GetString("Exit", resourceCulture);
             }
         }
         
@@ -426,6 +489,411 @@ namespace IncomeInsightEngine.Properties {
         public static string Frequency {
             get {
                 return ResourceManager.GetString("Frequency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Get All Transactions ähnelt.
+        /// </summary>
+        public static string GetAllTransactions {
+            get {
+                return ResourceManager.GetString("GetAllTransactions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Get Expense Transactions ähnelt.
+        /// </summary>
+        public static string GetExpenseTransactions {
+            get {
+                return ResourceManager.GetString("GetExpenseTransactions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Get Income Transactions ähnelt.
+        /// </summary>
+        public static string GetIncomeTransactions {
+            get {
+                return ResourceManager.GetString("GetIncomeTransactions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Get Reimbursable Transactions ähnelt.
+        /// </summary>
+        public static string GetReimbursableTransactions {
+            get {
+                return ResourceManager.GetString("GetReimbursableTransactions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Get Tax Deductible Transactions ähnelt.
+        /// </summary>
+        public static string GetTaxDeductibleTransactions {
+            get {
+                return ResourceManager.GetString("GetTaxDeductibleTransactions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Get Transactions By Amount Range ähnelt.
+        /// </summary>
+        public static string GetTransactionsByAmountRange {
+            get {
+                return ResourceManager.GetString("GetTransactionsByAmountRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Get Transactions By Budget Category ähnelt.
+        /// </summary>
+        public static string GetTransactionsByBudgetCategory {
+            get {
+                return ResourceManager.GetString("GetTransactionsByBudgetCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Get Transactions By Category ähnelt.
+        /// </summary>
+        public static string GetTransactionsByCategory {
+            get {
+                return ResourceManager.GetString("GetTransactionsByCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Get Transactions By Classification ähnelt.
+        /// </summary>
+        public static string GetTransactionsByClassification {
+            get {
+                return ResourceManager.GetString("GetTransactionsByClassification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Get Transactions By Currency ähnelt.
+        /// </summary>
+        public static string GetTransactionsByCurrency {
+            get {
+                return ResourceManager.GetString("GetTransactionsByCurrency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Get Transactions By Date ähnelt.
+        /// </summary>
+        public static string GetTransactionsByDate {
+            get {
+                return ResourceManager.GetString("GetTransactionsByDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Get Transactions By Description ähnelt.
+        /// </summary>
+        public static string GetTransactionsByDescription {
+            get {
+                return ResourceManager.GetString("GetTransactionsByDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Get Transactions By Exact Amount ähnelt.
+        /// </summary>
+        public static string GetTransactionsByExactAmount {
+            get {
+                return ResourceManager.GetString("GetTransactionsByExactAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Get Transactions By Frequency ähnelt.
+        /// </summary>
+        public static string GetTransactionsByFrequency {
+            get {
+                return ResourceManager.GetString("GetTransactionsByFrequency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Get Transactions By Location ähnelt.
+        /// </summary>
+        public static string GetTransactionsByLocation {
+            get {
+                return ResourceManager.GetString("GetTransactionsByLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Get Transactions By Partner ähnelt.
+        /// </summary>
+        public static string GetTransactionsByPartner {
+            get {
+                return ResourceManager.GetString("GetTransactionsByPartner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Get Transactions By Payment Method ähnelt.
+        /// </summary>
+        public static string GetTransactionsByPaymentMethod {
+            get {
+                return ResourceManager.GetString("GetTransactionsByPaymentMethod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Get Transactions By Priority ähnelt.
+        /// </summary>
+        public static string GetTransactionsByPriority {
+            get {
+                return ResourceManager.GetString("GetTransactionsByPriority", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Get Transactions By Project ähnelt.
+        /// </summary>
+        public static string GetTransactionsByProject {
+            get {
+                return ResourceManager.GetString("GetTransactionsByProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Get Transactions By Status ähnelt.
+        /// </summary>
+        public static string GetTransactionsByStatus {
+            get {
+                return ResourceManager.GetString("GetTransactionsByStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Get Transactions By Tag ähnelt.
+        /// </summary>
+        public static string GetTransactionsByTag {
+            get {
+                return ResourceManager.GetString("GetTransactionsByTag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Group ähnelt.
+        /// </summary>
+        public static string Group {
+            get {
+                return ResourceManager.GetString("Group", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Group By ähnelt.
+        /// </summary>
+        public static string GroupBy {
+            get {
+                return ResourceManager.GetString("GroupBy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Group By Amount ähnelt.
+        /// </summary>
+        public static string GroupByAmount {
+            get {
+                return ResourceManager.GetString("GroupByAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Group By Amountrange ähnelt.
+        /// </summary>
+        public static string GroupByAmountrange {
+            get {
+                return ResourceManager.GetString("GroupByAmountrange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Group By Budget Category ähnelt.
+        /// </summary>
+        public static string GroupByBudgetCategory {
+            get {
+                return ResourceManager.GetString("GroupByBudgetCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Group By Category ähnelt.
+        /// </summary>
+        public static string GroupByCategory {
+            get {
+                return ResourceManager.GetString("GroupByCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Group By Classification ähnelt.
+        /// </summary>
+        public static string GroupByClassification {
+            get {
+                return ResourceManager.GetString("GroupByClassification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Group By Currency ähnelt.
+        /// </summary>
+        public static string GroupByCurrency {
+            get {
+                return ResourceManager.GetString("GroupByCurrency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Group By Date ähnelt.
+        /// </summary>
+        public static string GroupByDate {
+            get {
+                return ResourceManager.GetString("GroupByDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Group By Day ähnelt.
+        /// </summary>
+        public static string GroupByDateDay {
+            get {
+                return ResourceManager.GetString("GroupByDateDay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Group By Month ähnelt.
+        /// </summary>
+        public static string GroupByDateMonth {
+            get {
+                return ResourceManager.GetString("GroupByDateMonth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Group By Weekday ähnelt.
+        /// </summary>
+        public static string GroupByDateWeekDay {
+            get {
+                return ResourceManager.GetString("GroupByDateWeekDay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Group By Year ähnelt.
+        /// </summary>
+        public static string GroupByDateYear {
+            get {
+                return ResourceManager.GetString("GroupByDateYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Group By Description ähnelt.
+        /// </summary>
+        public static string GroupByDescription {
+            get {
+                return ResourceManager.GetString("GroupByDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Group By Frequency ähnelt.
+        /// </summary>
+        public static string GroupByFrequency {
+            get {
+                return ResourceManager.GetString("GroupByFrequency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Group By Location ähnelt.
+        /// </summary>
+        public static string GroupByLocation {
+            get {
+                return ResourceManager.GetString("GroupByLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Group By Notes ähnelt.
+        /// </summary>
+        public static string GroupByNotes {
+            get {
+                return ResourceManager.GetString("GroupByNotes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Group By Partner ähnelt.
+        /// </summary>
+        public static string GroupByPartner {
+            get {
+                return ResourceManager.GetString("GroupByPartner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Group By Partner IBAN ähnelt.
+        /// </summary>
+        public static string GroupByPartnerIBAN {
+            get {
+                return ResourceManager.GetString("GroupByPartnerIBAN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Group By Payment Method ähnelt.
+        /// </summary>
+        public static string GroupByPaymentMethod {
+            get {
+                return ResourceManager.GetString("GroupByPaymentMethod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Group By Priority ähnelt.
+        /// </summary>
+        public static string GroupByPriority {
+            get {
+                return ResourceManager.GetString("GroupByPriority", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Group By Project ähnelt.
+        /// </summary>
+        public static string GroupByProject {
+            get {
+                return ResourceManager.GetString("GroupByProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Group By Status ähnelt.
+        /// </summary>
+        public static string GroupByStatus {
+            get {
+                return ResourceManager.GetString("GroupByStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Group By Tag ähnelt.
+        /// </summary>
+        public static string GroupByTag {
+            get {
+                return ResourceManager.GetString("GroupByTag", resourceCulture);
             }
         }
         
@@ -628,6 +1096,15 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Refine selection ähnelt.
+        /// </summary>
+        public static string RefineSelection {
+            get {
+                return ResourceManager.GetString("RefineSelection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Reimbursable ähnelt.
         /// </summary>
         public static string Reimbursable {
@@ -642,6 +1119,42 @@ namespace IncomeInsightEngine.Properties {
         public static string Reset {
             get {
                 return ResourceManager.GetString("Reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Selection ähnelt.
+        /// </summary>
+        public static string Selection {
+            get {
+                return ResourceManager.GetString("Selection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Short view ähnelt.
+        /// </summary>
+        public static string ShortView {
+            get {
+                return ResourceManager.GetString("ShortView", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Show ähnelt.
+        /// </summary>
+        public static string Show {
+            get {
+                return ResourceManager.GetString("Show", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sort ähnelt.
+        /// </summary>
+        public static string Sort {
+            get {
+                return ResourceManager.GetString("Sort", resourceCulture);
             }
         }
         
@@ -700,11 +1213,110 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sort By Amount Ascending ähnelt.
+        /// </summary>
+        public static string SortTransactionsByAmountAscending {
+            get {
+                return ResourceManager.GetString("SortTransactionsByAmountAscending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sort By Amount Descending ähnelt.
+        /// </summary>
+        public static string SortTransactionsByAmountDescending {
+            get {
+                return ResourceManager.GetString("SortTransactionsByAmountDescending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sort By Date Ascending ähnelt.
+        /// </summary>
+        public static string SortTransactionsByDateAscending {
+            get {
+                return ResourceManager.GetString("SortTransactionsByDateAscending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sort By Date Descending ähnelt.
+        /// </summary>
+        public static string SortTransactionsByDateDescending {
+            get {
+                return ResourceManager.GetString("SortTransactionsByDateDescending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sort By Id Ascending ähnelt.
+        /// </summary>
+        public static string SortTransactionsByIdAscending {
+            get {
+                return ResourceManager.GetString("SortTransactionsByIdAscending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sort By Id Descending ähnelt.
+        /// </summary>
+        public static string SortTransactionsByIdDescending {
+            get {
+                return ResourceManager.GetString("SortTransactionsByIdDescending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sort By Location Ascending ähnelt.
+        /// </summary>
+        public static string SortTransactionsByLocationAscending {
+            get {
+                return ResourceManager.GetString("SortTransactionsByLocationAscending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sort By Location Descending ähnelt.
+        /// </summary>
+        public static string SortTransactionsByLocationDescending {
+            get {
+                return ResourceManager.GetString("SortTransactionsByLocationDescending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sort By Partner Ascending ähnelt.
+        /// </summary>
+        public static string SortTransactionsByPartnerAscending {
+            get {
+                return ResourceManager.GetString("SortTransactionsByPartnerAscending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sort By Partner Descending ähnelt.
+        /// </summary>
+        public static string SortTransactionsByPartnerDescending {
+            get {
+                return ResourceManager.GetString("SortTransactionsByPartnerDescending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Start ähnelt.
         /// </summary>
         public static string Start {
             get {
                 return ResourceManager.GetString("Start", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Start Date ähnelt.
+        /// </summary>
+        public static string StartDate {
+            get {
+                return ResourceManager.GetString("StartDate", resourceCulture);
             }
         }
         
@@ -723,6 +1335,15 @@ namespace IncomeInsightEngine.Properties {
         public static string Statuses {
             get {
                 return ResourceManager.GetString("Statuses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Tag ähnelt.
+        /// </summary>
+        public static string Tag {
+            get {
+                return ResourceManager.GetString("Tag", resourceCulture);
             }
         }
         
@@ -795,6 +1416,33 @@ namespace IncomeInsightEngine.Properties {
         public static string Transactions {
             get {
                 return ResourceManager.GetString("Transactions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die View list ähnelt.
+        /// </summary>
+        public static string ViewList {
+            get {
+                return ResourceManager.GetString("ViewList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die View Only Groupnames ähnelt.
+        /// </summary>
+        public static string ViewOnlyGroupnames {
+            get {
+                return ResourceManager.GetString("ViewOnlyGroupnames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die View transactions ähnelt.
+        /// </summary>
+        public static string ViewTransactions {
+            get {
+                return ResourceManager.GetString("ViewTransactions", resourceCulture);
             }
         }
         

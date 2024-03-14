@@ -123,11 +123,17 @@
   <data name="AddMoreDetails" xml:space="preserve">
     <value>Add more Details</value>
   </data>
+  <data name="AddTransactions" xml:space="preserve">
+    <value>Add transactions</value>
+  </data>
   <data name="All" xml:space="preserve">
     <value>All</value>
   </data>
   <data name="Amount" xml:space="preserve">
     <value>Amount</value>
+  </data>
+  <data name="AnalyzeTransactions" xml:space="preserve">
+    <value>Analyze transactions</value>
   </data>
   <data name="Apply" xml:space="preserve">
     <value>Apply</value>
@@ -168,6 +174,9 @@
   <data name="Change" xml:space="preserve">
     <value>Change</value>
   </data>
+  <data name="ChooseMode" xml:space="preserve">
+    <value>Choose Mode</value>
+  </data>
   <data name="Classification" xml:space="preserve">
     <value>Classification</value>
   </data>
@@ -176,6 +185,12 @@
   </data>
   <data name="Completed" xml:space="preserve">
     <value>Completed</value>
+  </data>
+  <data name="CompleteView" xml:space="preserve">
+    <value>Complete view</value>
+  </data>
+  <data name="ConsoleMode" xml:space="preserve">
+    <value>Console mode</value>
   </data>
   <data name="CreditCard" xml:space="preserve">
     <value>Credit Card</value>
@@ -213,6 +228,9 @@
   <data name="End" xml:space="preserve">
     <value>End</value>
   </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>EndDate</value>
+  </data>
   <data name="EnterNew" xml:space="preserve">
     <value>Enter new</value>
   </data>
@@ -224,6 +242,9 @@
   </data>
   <data name="ErrorCryptograpic" xml:space="preserve">
     <value>A cryptographic error occurred</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Exit</value>
   </data>
   <data name="Expenses" xml:space="preserve">
     <value>Expenses</value>
@@ -239,6 +260,141 @@
   </data>
   <data name="Frequency" xml:space="preserve">
     <value>Frequency</value>
+  </data>
+  <data name="GetAllTransactions" xml:space="preserve">
+    <value>Get All Transactions</value>
+  </data>
+  <data name="GetExpenseTransactions" xml:space="preserve">
+    <value>Get Expense Transactions</value>
+  </data>
+  <data name="GetIncomeTransactions" xml:space="preserve">
+    <value>Get Income Transactions</value>
+  </data>
+  <data name="GetReimbursableTransactions" xml:space="preserve">
+    <value>Get Reimbursable Transactions</value>
+  </data>
+  <data name="GetTaxDeductibleTransactions" xml:space="preserve">
+    <value>Get Tax Deductible Transactions</value>
+  </data>
+  <data name="GetTransactionsByAmountRange" xml:space="preserve">
+    <value>Get Transactions By Amount Range</value>
+  </data>
+  <data name="GetTransactionsByBudgetCategory" xml:space="preserve">
+    <value>Get Transactions By Budget Category</value>
+  </data>
+  <data name="GetTransactionsByCategory" xml:space="preserve">
+    <value>Get Transactions By Category</value>
+  </data>
+  <data name="GetTransactionsByClassification" xml:space="preserve">
+    <value>Get Transactions By Classification</value>
+  </data>
+  <data name="GetTransactionsByCurrency" xml:space="preserve">
+    <value>Get Transactions By Currency</value>
+  </data>
+  <data name="GetTransactionsByDate" xml:space="preserve">
+    <value>Get Transactions By Date</value>
+  </data>
+  <data name="GetTransactionsByDescription" xml:space="preserve">
+    <value>Get Transactions By Description</value>
+  </data>
+  <data name="GetTransactionsByExactAmount" xml:space="preserve">
+    <value>Get Transactions By Exact Amount</value>
+  </data>
+  <data name="GetTransactionsByFrequency" xml:space="preserve">
+    <value>Get Transactions By Frequency</value>
+  </data>
+  <data name="GetTransactionsByLocation" xml:space="preserve">
+    <value>Get Transactions By Location</value>
+  </data>
+  <data name="GetTransactionsByPartner" xml:space="preserve">
+    <value>Get Transactions By Partner</value>
+  </data>
+  <data name="GetTransactionsByPaymentMethod" xml:space="preserve">
+    <value>Get Transactions By Payment Method</value>
+  </data>
+  <data name="GetTransactionsByPriority" xml:space="preserve">
+    <value>Get Transactions By Priority</value>
+  </data>
+  <data name="GetTransactionsByProject" xml:space="preserve">
+    <value>Get Transactions By Project</value>
+  </data>
+  <data name="GetTransactionsByStatus" xml:space="preserve">
+    <value>Get Transactions By Status</value>
+  </data>
+  <data name="GetTransactionsByTag" xml:space="preserve">
+    <value>Get Transactions By Tag</value>
+  </data>
+  <data name="Group" xml:space="preserve">
+    <value>Group</value>
+  </data>
+  <data name="GroupBy" xml:space="preserve">
+    <value>Group By</value>
+  </data>
+  <data name="GroupByAmount" xml:space="preserve">
+    <value>Group By Amount</value>
+  </data>
+  <data name="GroupByAmountrange" xml:space="preserve">
+    <value>Group By Amountrange</value>
+  </data>
+  <data name="GroupByBudgetCategory" xml:space="preserve">
+    <value>Group By Budget Category</value>
+  </data>
+  <data name="GroupByCategory" xml:space="preserve">
+    <value>Group By Category</value>
+  </data>
+  <data name="GroupByClassification" xml:space="preserve">
+    <value>Group By Classification</value>
+  </data>
+  <data name="GroupByCurrency" xml:space="preserve">
+    <value>Group By Currency</value>
+  </data>
+  <data name="GroupByDate" xml:space="preserve">
+    <value>Group By Date</value>
+  </data>
+  <data name="GroupByDateDay" xml:space="preserve">
+    <value>Group By Day</value>
+  </data>
+  <data name="GroupByDateMonth" xml:space="preserve">
+    <value>Group By Month</value>
+  </data>
+  <data name="GroupByDateWeekDay" xml:space="preserve">
+    <value>Group By Weekday</value>
+  </data>
+  <data name="GroupByDateYear" xml:space="preserve">
+    <value>Group By Year</value>
+  </data>
+  <data name="GroupByDescription" xml:space="preserve">
+    <value>Group By Description</value>
+  </data>
+  <data name="GroupByFrequency" xml:space="preserve">
+    <value>Group By Frequency</value>
+  </data>
+  <data name="GroupByLocation" xml:space="preserve">
+    <value>Group By Location</value>
+  </data>
+  <data name="GroupByNotes" xml:space="preserve">
+    <value>Group By Notes</value>
+  </data>
+  <data name="GroupByPartner" xml:space="preserve">
+    <value>Group By Partner</value>
+  </data>
+  <data name="GroupByPartnerIBAN" xml:space="preserve">
+    <value>Group By Partner IBAN</value>
+  </data>
+  <data name="GroupByPaymentMethod" xml:space="preserve">
+    <value>Group By Payment Method</value>
+  </data>
+  <data name="GroupByPriority" xml:space="preserve">
+    <value>Group By Priority</value>
+  </data>
+  <data name="GroupByProject" xml:space="preserve">
+    <value>Group By Project</value>
+  </data>
+  <data name="GroupByStatus" xml:space="preserve">
+    <value>Group By Status</value>
+  </data>
+  <data name="GroupByTag" xml:space="preserve">
+    <value>Group By Tag</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
@@ -306,11 +462,26 @@
   <data name="Receipt" xml:space="preserve">
     <value>Receipt</value>
   </data>
+  <data name="RefineSelection" xml:space="preserve">
+    <value>Refine selection</value>
+  </data>
   <data name="Reimbursable" xml:space="preserve">
     <value>Reimbursable</value>
   </data>
   <data name="Reset" xml:space="preserve">
     <value>Reset</value>
+  </data>
+  <data name="Selection" xml:space="preserve">
+    <value>Selection</value>
+  </data>
+  <data name="ShortView" xml:space="preserve">
+    <value>Short view</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="Sort" xml:space="preserve">
+    <value>Sort</value>
   </data>
   <data name="SortByAmount" xml:space="preserve">
     <value>Sort by Amount</value>
@@ -330,14 +501,50 @@
   <data name="SortingOptions" xml:space="preserve">
     <value>Sorting options</value>
   </data>
+  <data name="SortTransactionsByAmountAscending" xml:space="preserve">
+    <value>Sort By Amount Ascending</value>
+  </data>
+  <data name="SortTransactionsByAmountDescending" xml:space="preserve">
+    <value>Sort By Amount Descending</value>
+  </data>
+  <data name="SortTransactionsByDateAscending" xml:space="preserve">
+    <value>Sort By Date Ascending</value>
+  </data>
+  <data name="SortTransactionsByDateDescending" xml:space="preserve">
+    <value>Sort By Date Descending</value>
+  </data>
+  <data name="SortTransactionsByIdAscending" xml:space="preserve">
+    <value>Sort By Id Ascending</value>
+  </data>
+  <data name="SortTransactionsByIdDescending" xml:space="preserve">
+    <value>Sort By Id Descending</value>
+  </data>
+  <data name="SortTransactionsByLocationAscending" xml:space="preserve">
+    <value>Sort By Location Ascending</value>
+  </data>
+  <data name="SortTransactionsByLocationDescending" xml:space="preserve">
+    <value>Sort By Location Descending</value>
+  </data>
+  <data name="SortTransactionsByPartnerAscending" xml:space="preserve">
+    <value>Sort By Partner Ascending</value>
+  </data>
+  <data name="SortTransactionsByPartnerDescending" xml:space="preserve">
+    <value>Sort By Partner Descending</value>
+  </data>
   <data name="Start" xml:space="preserve">
     <value>Start</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Start Date</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
   </data>
   <data name="Statuses" xml:space="preserve">
     <value>Statuses</value>
+  </data>
+  <data name="Tag" xml:space="preserve">
+    <value>Tag</value>
   </data>
   <data name="Tags" xml:space="preserve">
     <value>Tags</value>
@@ -362,6 +569,15 @@
   </data>
   <data name="Transactions" xml:space="preserve">
     <value>Transactions</value>
+  </data>
+  <data name="ViewList" xml:space="preserve">
+    <value>View list</value>
+  </data>
+  <data name="ViewOnlyGroupnames" xml:space="preserve">
+    <value>View Only Groupnames</value>
+  </data>
+  <data name="ViewTransactions" xml:space="preserve">
+    <value>View transactions</value>
   </data>
   <data name="Voucher" xml:space="preserve">
     <value>Voucher</value>
