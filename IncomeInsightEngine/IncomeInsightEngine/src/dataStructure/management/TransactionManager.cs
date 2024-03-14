@@ -804,7 +804,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <returns>An IEnumerable of Transaction objects that match the specified frequency criteria.</returns>
         public IEnumerable<Transaction> GetTransactionsByFrequency(string frequency, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => frequency == null ? t.Frequency == null : t.Frequency.Equals(frequency, StringComparison.OrdinalIgnoreCase));
+            return (listOfTransactions ?? transactions).Where(t => frequency == null ? t.Frequency == null : t.Frequency?.Equals(frequency, StringComparison.OrdinalIgnoreCase) == true);
         }
 
         /// <summary>
