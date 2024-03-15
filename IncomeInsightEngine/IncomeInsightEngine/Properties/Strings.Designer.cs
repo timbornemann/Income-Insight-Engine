@@ -70,6 +70,15 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Add a single transaction ähnelt.
+        /// </summary>
+        public static string Addasingletransaction {
+            get {
+                return ResourceManager.GetString("Addasingletransaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Add more Details ähnelt.
         /// </summary>
         public static string AddMoreDetails {
@@ -102,6 +111,15 @@ namespace IncomeInsightEngine.Properties {
         public static string Amount {
             get {
                 return ResourceManager.GetString("Amount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Analyze Groups ähnelt.
+        /// </summary>
+        public static string AnalyzeGroups {
+            get {
+                return ResourceManager.GetString("AnalyzeGroups", resourceCulture);
             }
         }
         
@@ -183,6 +201,177 @@ namespace IncomeInsightEngine.Properties {
         public static string BudgetCategory {
             get {
                 return ResourceManager.GetString("BudgetCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Calculate Average Amount ähnelt.
+        /// </summary>
+        public static string CalculateAverageAmount {
+            get {
+                return ResourceManager.GetString("CalculateAverageAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Calculate Average Expense ähnelt.
+        /// </summary>
+        public static string CalculateAverageExpense {
+            get {
+                return ResourceManager.GetString("CalculateAverageExpense", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Calculate Average Income ähnelt.
+        /// </summary>
+        public static string CalculateAverageIncome {
+            get {
+                return ResourceManager.GetString("CalculateAverageIncome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Calculate Grouped Amount ähnelt.
+        /// </summary>
+        public static string CalculateGroupedAmount {
+            get {
+                return ResourceManager.GetString("CalculateGroupedAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Calculate Grouped Average Amount ähnelt.
+        /// </summary>
+        public static string CalculateGroupedAverageAmount {
+            get {
+                return ResourceManager.GetString("CalculateGroupedAverageAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Calculate Grouped Average Expense ähnelt.
+        /// </summary>
+        public static string CalculateGroupedAverageExpense {
+            get {
+                return ResourceManager.GetString("CalculateGroupedAverageExpense", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Calculate Grouped Average Income ähnelt.
+        /// </summary>
+        public static string CalculateGroupedAverageIncome {
+            get {
+                return ResourceManager.GetString("CalculateGroupedAverageIncome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Calculate Grouped Expenses ähnelt.
+        /// </summary>
+        public static string CalculateGroupedExpenses {
+            get {
+                return ResourceManager.GetString("CalculateGroupedExpenses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Calculate Grouped Income ähnelt.
+        /// </summary>
+        public static string CalculateGroupedIncome {
+            get {
+                return ResourceManager.GetString("CalculateGroupedIncome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Calculate Grouped Percentage Of Total Expanses ähnelt.
+        /// </summary>
+        public static string CalculateGroupedPercentageOfTotalExpanses {
+            get {
+                return ResourceManager.GetString("CalculateGroupedPercentageOfTotalExpanses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Calculate Grouped Percentage Of Total Income ähnelt.
+        /// </summary>
+        public static string CalculateGroupedPercentageOfTotalIncome {
+            get {
+                return ResourceManager.GetString("CalculateGroupedPercentageOfTotalIncome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Calculate Median ähnelt.
+        /// </summary>
+        public static string CalculateMedian {
+            get {
+                return ResourceManager.GetString("CalculateMedian", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Calculate Mode ähnelt.
+        /// </summary>
+        public static string CalculateMode {
+            get {
+                return ResourceManager.GetString("CalculateMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Calculate Quantile ähnelt.
+        /// </summary>
+        public static string CalculateQuantile {
+            get {
+                return ResourceManager.GetString("CalculateQuantile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Calculate Standard Deviation ähnelt.
+        /// </summary>
+        public static string CalculateStandardDeviation {
+            get {
+                return ResourceManager.GetString("CalculateStandardDeviation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Calculate Total Amount ähnelt.
+        /// </summary>
+        public static string CalculateTotalAmount {
+            get {
+                return ResourceManager.GetString("CalculateTotalAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Calculate Total Expenses ähnelt.
+        /// </summary>
+        public static string CalculateTotalExpenses {
+            get {
+                return ResourceManager.GetString("CalculateTotalExpenses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Calculate Total Income ähnelt.
+        /// </summary>
+        public static string CalculateTotalIncome {
+            get {
+                return ResourceManager.GetString("CalculateTotalIncome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Calculate Variance ähnelt.
+        /// </summary>
+        public static string CalculateVariance {
+            get {
+                return ResourceManager.GetString("CalculateVariance", resourceCulture);
             }
         }
         
@@ -358,6 +547,15 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Delete Transaction ähnelt.
+        /// </summary>
+        public static string DeleteTransaction {
+            get {
+                return ResourceManager.GetString("DeleteTransaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Descending ähnelt.
         /// </summary>
         public static string Descending {
@@ -381,6 +579,15 @@ namespace IncomeInsightEngine.Properties {
         public static string DirectDebit {
             get {
                 return ResourceManager.GetString("DirectDebit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Edit Transactions ähnelt.
+        /// </summary>
+        public static string EditTransactions {
+            get {
+                return ResourceManager.GetString("EditTransactions", resourceCulture);
             }
         }
         
@@ -417,6 +624,24 @@ namespace IncomeInsightEngine.Properties {
         public static string EnterNewName {
             get {
                 return ResourceManager.GetString("EnterNewName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Enter path ähnelt.
+        /// </summary>
+        public static string EnterPath {
+            get {
+                return ResourceManager.GetString("EnterPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Please enter the quantile value (between 0 and 1): ähnelt.
+        /// </summary>
+        public static string EnterQuantile {
+            get {
+                return ResourceManager.GetString("EnterQuantile", resourceCulture);
             }
         }
         
@@ -916,11 +1141,29 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Import csv file from DKB ähnelt.
+        /// </summary>
+        public static string importcsvfilefromDKB {
+            get {
+                return ResourceManager.GetString("importcsvfilefromDKB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Income ähnelt.
         /// </summary>
         public static string Income {
             get {
                 return ResourceManager.GetString("Income", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Invalid quantile value. Please enter a value between 0 and 1. ähnelt.
+        /// </summary>
+        public static string InvalidQuantile {
+            get {
+                return ResourceManager.GetString("InvalidQuantile", resourceCulture);
             }
         }
         
@@ -984,6 +1227,15 @@ namespace IncomeInsightEngine.Properties {
         public static string Notes {
             get {
                 return ResourceManager.GetString("Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die no transactions available ähnelt.
+        /// </summary>
+        public static string notransactionsavailable {
+            get {
+                return ResourceManager.GetString("notransactionsavailable", resourceCulture);
             }
         }
         
@@ -1123,11 +1375,29 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Result ähnelt.
+        /// </summary>
+        public static string Result {
+            get {
+                return ResourceManager.GetString("Result", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Selection ähnelt.
         /// </summary>
         public static string Selection {
             get {
                 return ResourceManager.GetString("Selection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Separated by commas &apos;,&apos; ähnelt.
+        /// </summary>
+        public static string SeparatedByCommas {
+            get {
+                return ResourceManager.GetString("SeparatedByCommas", resourceCulture);
             }
         }
         
@@ -1168,6 +1438,24 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sort By Amount Ascending ähnelt.
+        /// </summary>
+        public static string SortByAmountAscending {
+            get {
+                return ResourceManager.GetString("SortByAmountAscending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sort By Amount Descending ähnelt.
+        /// </summary>
+        public static string SortByAmountDescending {
+            get {
+                return ResourceManager.GetString("SortByAmountDescending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Sort by Date ähnelt.
         /// </summary>
         public static string SortByDate {
@@ -1182,6 +1470,24 @@ namespace IncomeInsightEngine.Properties {
         public static string SortById {
             get {
                 return ResourceManager.GetString("SortById", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sort By Key Ascending ähnelt.
+        /// </summary>
+        public static string SortByKeyAscending {
+            get {
+                return ResourceManager.GetString("SortByKeyAscending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sort By Key Descending ähnelt.
+        /// </summary>
+        public static string SortByKeyDescending {
+            get {
+                return ResourceManager.GetString("SortByKeyDescending", resourceCulture);
             }
         }
         
@@ -1416,6 +1722,15 @@ namespace IncomeInsightEngine.Properties {
         public static string Transactions {
             get {
                 return ResourceManager.GetString("Transactions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die View ähnelt.
+        /// </summary>
+        public static string View {
+            get {
+                return ResourceManager.GetString("View", resourceCulture);
             }
         }
         

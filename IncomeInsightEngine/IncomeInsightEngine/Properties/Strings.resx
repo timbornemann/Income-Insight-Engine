@@ -120,6 +120,9 @@
   <data name="Add" xml:space="preserve">
     <value>Add</value>
   </data>
+  <data name="Addasingletransaction" xml:space="preserve">
+    <value>Add a single transaction</value>
+  </data>
   <data name="AddMoreDetails" xml:space="preserve">
     <value>Add more Details</value>
   </data>
@@ -131,6 +134,9 @@
   </data>
   <data name="Amount" xml:space="preserve">
     <value>Amount</value>
+  </data>
+  <data name="AnalyzeGroups" xml:space="preserve">
+    <value>Analyze Groups</value>
   </data>
   <data name="AnalyzeTransactions" xml:space="preserve">
     <value>Analyze transactions</value>
@@ -158,6 +164,63 @@
   </data>
   <data name="BudgetCategory" xml:space="preserve">
     <value>Budget Category</value>
+  </data>
+  <data name="CalculateAverageAmount" xml:space="preserve">
+    <value>Calculate Average Amount</value>
+  </data>
+  <data name="CalculateAverageExpense" xml:space="preserve">
+    <value>Calculate Average Expense</value>
+  </data>
+  <data name="CalculateAverageIncome" xml:space="preserve">
+    <value>Calculate Average Income</value>
+  </data>
+  <data name="CalculateGroupedAmount" xml:space="preserve">
+    <value>Calculate Grouped Amount</value>
+  </data>
+  <data name="CalculateGroupedAverageAmount" xml:space="preserve">
+    <value>Calculate Grouped Average Amount</value>
+  </data>
+  <data name="CalculateGroupedAverageExpense" xml:space="preserve">
+    <value>Calculate Grouped Average Expense</value>
+  </data>
+  <data name="CalculateGroupedAverageIncome" xml:space="preserve">
+    <value>Calculate Grouped Average Income</value>
+  </data>
+  <data name="CalculateGroupedExpenses" xml:space="preserve">
+    <value>Calculate Grouped Expenses</value>
+  </data>
+  <data name="CalculateGroupedIncome" xml:space="preserve">
+    <value>Calculate Grouped Income</value>
+  </data>
+  <data name="CalculateGroupedPercentageOfTotalExpanses" xml:space="preserve">
+    <value>Calculate Grouped Percentage Of Total Expanses</value>
+  </data>
+  <data name="CalculateGroupedPercentageOfTotalIncome" xml:space="preserve">
+    <value>Calculate Grouped Percentage Of Total Income</value>
+  </data>
+  <data name="CalculateMedian" xml:space="preserve">
+    <value>Calculate Median</value>
+  </data>
+  <data name="CalculateMode" xml:space="preserve">
+    <value>Calculate Mode</value>
+  </data>
+  <data name="CalculateQuantile" xml:space="preserve">
+    <value>Calculate Quantile</value>
+  </data>
+  <data name="CalculateStandardDeviation" xml:space="preserve">
+    <value>Calculate Standard Deviation</value>
+  </data>
+  <data name="CalculateTotalAmount" xml:space="preserve">
+    <value>Calculate Total Amount</value>
+  </data>
+  <data name="CalculateTotalExpenses" xml:space="preserve">
+    <value>Calculate Total Expenses</value>
+  </data>
+  <data name="CalculateTotalIncome" xml:space="preserve">
+    <value>Calculate Total Income</value>
+  </data>
+  <data name="CalculateVariance" xml:space="preserve">
+    <value>Calculate Variance</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
@@ -216,6 +279,9 @@
   <data name="DebitCard" xml:space="preserve">
     <value>Debit Card</value>
   </data>
+  <data name="DeleteTransaction" xml:space="preserve">
+    <value>Delete Transaction</value>
+  </data>
   <data name="Descending" xml:space="preserve">
     <value>Descending</value>
   </data>
@@ -224,6 +290,9 @@
   </data>
   <data name="DirectDebit" xml:space="preserve">
     <value>Direct Debit</value>
+  </data>
+  <data name="EditTransactions" xml:space="preserve">
+    <value>Edit Transactions</value>
   </data>
   <data name="End" xml:space="preserve">
     <value>End</value>
@@ -236,6 +305,12 @@
   </data>
   <data name="EnterNewName" xml:space="preserve">
     <value>Enter new name</value>
+  </data>
+  <data name="EnterPath" xml:space="preserve">
+    <value>Enter path</value>
+  </data>
+  <data name="EnterQuantile" xml:space="preserve">
+    <value>Please enter the quantile value (between 0 and 1):</value>
   </data>
   <data name="Error" xml:space="preserve">
     <value>An error occurred</value>
@@ -402,8 +477,14 @@
   <data name="Id" xml:space="preserve">
     <value>ID</value>
   </data>
+  <data name="importcsvfilefromDKB" xml:space="preserve">
+    <value>Import csv file from DKB</value>
+  </data>
   <data name="Income" xml:space="preserve">
     <value>Income</value>
+  </data>
+  <data name="InvalidQuantile" xml:space="preserve">
+    <value>Invalid quantile value. Please enter a value between 0 and 1.</value>
   </data>
   <data name="Invoice" xml:space="preserve">
     <value>Invoice</value>
@@ -425,6 +506,9 @@
   </data>
   <data name="Notes" xml:space="preserve">
     <value>Notes</value>
+  </data>
+  <data name="notransactionsavailable" xml:space="preserve">
+    <value>no transactions available</value>
   </data>
   <data name="Partner" xml:space="preserve">
     <value>Partner</value>
@@ -471,8 +555,14 @@
   <data name="Reset" xml:space="preserve">
     <value>Reset</value>
   </data>
+  <data name="Result" xml:space="preserve">
+    <value>Result</value>
+  </data>
   <data name="Selection" xml:space="preserve">
     <value>Selection</value>
+  </data>
+  <data name="SeparatedByCommas" xml:space="preserve">
+    <value>Separated by commas ','</value>
   </data>
   <data name="ShortView" xml:space="preserve">
     <value>Short view</value>
@@ -486,11 +576,23 @@
   <data name="SortByAmount" xml:space="preserve">
     <value>Sort by Amount</value>
   </data>
+  <data name="SortByAmountAscending" xml:space="preserve">
+    <value>Sort By Amount Ascending</value>
+  </data>
+  <data name="SortByAmountDescending" xml:space="preserve">
+    <value>Sort By Amount Descending</value>
+  </data>
   <data name="SortByDate" xml:space="preserve">
     <value>Sort by Date</value>
   </data>
   <data name="SortById" xml:space="preserve">
     <value>Sort by ID</value>
+  </data>
+  <data name="SortByKeyAscending" xml:space="preserve">
+    <value>Sort By Key Ascending</value>
+  </data>
+  <data name="SortByKeyDescending" xml:space="preserve">
+    <value>Sort By Key Descending</value>
   </data>
   <data name="SortByLocation" xml:space="preserve">
     <value>Sort by Location</value>
@@ -569,6 +671,9 @@
   </data>
   <data name="Transactions" xml:space="preserve">
     <value>Transactions</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>View</value>
   </data>
   <data name="ViewList" xml:space="preserve">
     <value>View list</value>
