@@ -9,6 +9,7 @@ using System.Runtime.InteropServices.ComTypes;
 using System.Runtime.Remoting.Messaging;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Xceed.Wpf.AvalonDock.Layout;
 
@@ -36,67 +37,34 @@ namespace IncomeInsightEngine
             Console.WriteLine(Strings.ConsoleMode);
 
          
-            ChooseMode(manager.GetAllTransactions(), manager.GroupByPartner());
+            ChooseMode(manager.GetAllTransactions());
                        
-        }
+        } 
 
-
-        private void ChooseMode(IEnumerable<Transaction> transactions, IEnumerable<IGrouping<string, Transaction>> groupedTransactions)
+        private IEnumerable<Transaction> ChooseMode(IEnumerable<Transaction> transactions)
         {
-            
-            
-
-            bool exit = false;
-            string message = $"| {Strings.ViewList} = 0 | {Strings.Group} = 1 | {Strings.Sort} = 2 | {Strings.Reset} = 3 | {Strings.Exit} = -1 |";
-            string dots = new string('-', message.Length);
-            while (!exit)
-            {
-                Console.WriteLine($"|>... {depthOfSelection}|");
-                Console.WriteLine(Strings.ChooseMode + " "+ dots.Substring(Strings.ChooseMode.Length+1));
-                Console.WriteLine(message);
-                Console.WriteLine(dots);
-
-                string input = Console.ReadLine().Trim();
-                switch (input)
-                {
-                    case "0":
-                       transactions = ViewList(transactions);
-                        break;
-                    case "1":
-                        groupedTransactions = Group(transactions);
-                        break;
-                    case "2":
-                      transactions =  Sort(transactions);
-                        break;
-                    case "3":
-                        transactions = manager.GetAllTransactions();
-                        depthOfSelection = "";
-                        break;
-                    case "-1":
-                        exit = true;
-                        break;
-                }
-            }
-
-
-        }
-
-        private IEnumerable<Transaction> ViewList(IEnumerable<Transaction> transactions)
-        {
-            string message = $"| {Strings.Show} = 0 | {Strings.RefineSelection} = 1 | {Strings.Sort} = 2 | {Strings.Group} = 3 | {Strings.AnalyzeTransactions} = 4 | {Strings.Reset} = 5 | {Strings.Exit} = -1 |";
+            string message = $"| {Strings.Show} {Strings.Transactions} = 0 | {Strings.RefineSelection} = 1 | {Strings.Sort} = 2 | {Strings.Group} = 3 | {Strings.AnalyzeTransactions} = 4 | {Strings.Reset} = 5 | {Strings.EditTransactions} = 6 | {Strings.Exit} = -1 |";
             string dots = new string('-', message.Length);
             bool exit = false;
            
+
+
+
             while (!exit)
             {
-
+              
                 Console.WriteLine($"|>... {depthOfSelection}|");
-                Console.WriteLine(Strings.ViewList + " " + dots.Substring(Strings.ViewList.Length + 1));
+                Console.WriteLine(Strings.ChooseMode + " " + dots.Substring(Strings.ChooseMode.Length + 1));
                 Console.WriteLine(message);
                 Console.WriteLine(dots);
 
                 string input = Console.ReadLine().Trim();
-                switch (input)
+                if (transactions == null)
+                {
+                    Console.WriteLine(Strings.notransactionsavailable);
+                    input = "6";
+                }
+                    switch (input)
                 {
                     case "0":
                         ShowListInConsole(transactions);
@@ -113,13 +81,17 @@ namespace IncomeInsightEngine
                         break;
 
                     case "4":
-
+                        AnalyzeTransactions(transactions);
                         break;
 
                     case "5":
                         transactions = manager.GetAllTransactions();
                         depthOfSelection = "";
                         break;
+                    case "6":
+                        EditTransactions();
+                        break;
+
                     case "-1":
                         exit = true;                      
                         break;
@@ -128,6 +100,122 @@ namespace IncomeInsightEngine
             return transactions;
 
        }
+
+        private void EditTransactions()
+        {
+            string message = $"| {Strings.Addasingletransaction} = 0 | {Strings.importcsvfilefromDKB} = 1 | {Strings.DeleteTransaction} = 2 |{Strings.Exit} = -1";
+            string dots = new string('-', message.Length);
+
+            bool exit = false;
+
+            while (!exit)
+            {
+                Console.WriteLine(Strings.EditTransactions + " " + dots.Substring(Strings.EditTransactions.Length + 1));
+                Console.WriteLine(message);
+                Console.WriteLine(dots);
+
+                string input = Console.ReadLine().Trim();
+                switch (input)
+                {
+                    case "0":
+                        Addasingletransaction();
+                        break;
+                    case "1":
+                        importcsvfilefromDKB();
+                        break;
+                        case "2":
+                        Console.Write($"{Strings.DeleteTransaction} {Strings.Id} = ");
+                        int.TryParse(Console.ReadLine().Trim(), out int id);
+                        manager.RemoveTransaction(id);
+                        break;
+                    case "-1":
+                        exit = true;
+                        break;
+
+                }
+            }
+        }
+
+        private void importcsvfilefromDKB()
+        {
+            Console.Write(Strings.EnterPath + ": ");
+            string input = Console.ReadLine().Trim();
+            manager.AddTransactions(parser.ParseCsv(input));
+
+        }
+
+        private void Addasingletransaction()
+        {
+            Transaction transaction = new Transaction();
+            Console.WriteLine(Strings.Id + " = " + transaction.Id);
+
+            Console.Write(Strings.Date + " = ");
+            DateTime.TryParse(Console.ReadLine().Trim(), out DateTime someDate);
+            transaction.Date = someDate;
+
+            Console.Write(Strings.Description + " = ");
+            transaction.Description = Console.ReadLine().Trim();
+
+            Console.Write($"{Strings.Amount} = ");
+            decimal.TryParse(Console.ReadLine().Trim(), out decimal someAmount);
+            transaction.Amount = someAmount;
+
+            Console.Write(Strings.Currency + " = ");
+            transaction.Currency = Console.ReadLine().Trim();
+
+            Console.Write(Strings.PaymentMethod + " = ");
+            transaction.PaymentMethod = Console.ReadLine().Trim();
+
+            Console.Write($"{Strings.TaxDeductible} = ");
+            bool taxDeductible = bool.TryParse(Console.ReadLine().Trim(), out bool deductibleValue) ? deductibleValue : false;
+            transaction.TaxDeductible = deductibleValue;
+
+            Console.Write($"{Strings.Reimbursable} = ");
+            bool reimbursable = bool.TryParse(Console.ReadLine().Trim(), out bool reimbursableValue) ? reimbursableValue : false;
+            transaction.Reimbursable = reimbursableValue;
+
+            Console.Write(Strings.Category + " = ");
+            transaction.Category = Console.ReadLine().Trim();
+
+            Console.Write(Strings.BudgetCategory + " = ");
+            transaction.BudgetCategory = Console.ReadLine().Trim();
+
+            Console.Write(Strings.Tags + Strings.SeparatedByCommas+ " = ");
+            transaction.Tags = Console.ReadLine().Trim().Split(',').ToList();
+
+            Console.Write(Strings.Classification + " = ");
+            transaction.Classification = Console.ReadLine().Trim();
+
+            Console.Write(Strings.PartnerIBAN + " = ");
+            transaction.PartnerIban = Console.ReadLine().Trim();
+
+            Console.Write(Strings.Partner + " = ");
+            transaction.Partner = Console.ReadLine().Trim();
+
+            Console.Write(Strings.Project + " = ");
+            transaction.Project = Console.ReadLine().Trim();
+
+            Console.Write(Strings.Status + " = ");
+            transaction.Status = Console.ReadLine().Trim();
+
+            Console.Write(Strings.Priority + " = ");
+            transaction.Priority = Console.ReadLine().Trim();
+            
+            Console.Write(Strings.Frequency + " = ");
+            transaction.Frequency = Console.ReadLine().Trim();
+
+            Console.Write(Strings.Location + " = ");
+            transaction.Location = Console.ReadLine().Trim();
+
+            Console.Write(Strings.Receipt + " " + Strings.Location + " = ");
+            transaction.Receipt = Console.ReadLine().Trim();
+
+            Console.Write(Strings.Notes + " = ");
+            transaction.Notes = Console.ReadLine().Trim();
+
+           manager.AddTransaction(transaction);
+
+        }
 
         private void ShowListInConsole(IEnumerable<Transaction> transactions)
         {
@@ -396,10 +484,11 @@ namespace IncomeInsightEngine
 
         private IEnumerable<IGrouping<string, Transaction>> Group(IEnumerable<Transaction> transactions)
         {
-            string message = $"| {Strings.Show} = 0 | {Strings.Group} = 1 | {Strings.Sort} = 2 | {Strings.AnalyzeTransactions} = 3 | {Strings.Reset} = 4 | {Strings.Exit} = -1 |";
+            string message = $"| {Strings.Show} = 0 | {Strings.Group} = 1 | {Strings.AnalyzeGroups} = 2 | {Strings.Reset} = 3 | {Strings.Exit} = -1 |";
             string dots = new string('-', message.Length);
             bool exit = false;
-            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = null;
+            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = manager.GroupByPartner(transactions);
+
 
             while (!exit)
             {
@@ -418,14 +507,12 @@ namespace IncomeInsightEngine
                     case "1":
                         groupedTransactions = GroupTransactions(transactions);                       
                         break;
+
                     case "2":
-
+                        AnalyzeGroups(groupedTransactions);
                         break;
+
                     case "3":
-
-                        break;
-
-                    case "4":
                         groupedTransactions = manager.GroupByPartner();
                         transactions = manager.GetAllTransactions();
                         depthOfSelection = "";
@@ -438,6 +525,136 @@ namespace IncomeInsightEngine
             }
             return groupedTransactions;
 
+        }
+
+        private void AnalyzeGroups(IEnumerable<IGrouping<string, Transaction>> groupedTransactions)
+        {
+            Console.WriteLine($"{Strings.CalculateGroupedAverageAmount} = 0");
+            Console.WriteLine($"{Strings.CalculateGroupedAverageIncome} = 1");
+            Console.WriteLine($"{Strings.CalculateGroupedAverageExpense} = 2");
+            Console.WriteLine($"{Strings.CalculateGroupedExpenses} = 3");
+            Console.WriteLine($"{Strings.CalculateGroupedIncome} = 4");
+            Console.WriteLine($"{Strings.CalculateGroupedAmount} = 5");
+            Console.WriteLine($"{Strings.CalculateGroupedPercentageOfTotalIncome} = 6");
+            Console.WriteLine($"{Strings.CalculateGroupedPercentageOfTotalExpanses} = 7");
+            Console.Write(Strings.Selection + " = ");
+            string input = Console.ReadLine().Trim();
+            IEnumerable<(string key, decimal Result)> results = null;
+            switch (input)
+            {
+                case "0":
+                    results = analyzer.CalculateGroupedAverageAmount(groupedTransactions);
+                    depthOfSelection += Strings.CalculateGroupedAverageAmount;
+                    break;
+                case "1":
+                    results = analyzer.CalculateGroupedAverageIncome(groupedTransactions);
+                    depthOfSelection += Strings.CalculateGroupedAverageIncome;
+                    break;
+                case "2":
+                    results = analyzer.CalculateGroupedAverageExpense(groupedTransactions);
+                    depthOfSelection += Strings.CalculateGroupedAverageExpense;
+                    break;
+                case "3":
+                    results = analyzer.CalculateGroupedExpenses(groupedTransactions);
+                    depthOfSelection += Strings.CalculateGroupedExpenses;
+                    break;
+                case "4":
+                    results = analyzer.CalculateGroupedIncome(groupedTransactions);
+                    depthOfSelection += Strings.CalculateGroupedIncome;
+                    break;
+                case "5":
+                    results = analyzer.CalculateGroupedAmount(groupedTransactions);
+                    depthOfSelection += Strings.CalculateGroupedAmount;
+                    break;
+                case "6":
+                    results = analyzer.CalculateGroupedPercentageOfTotalIncome(groupedTransactions);
+                    depthOfSelection += Strings.CalculateGroupedPercentageOfTotalIncome;
+                    break;
+                case "7":
+                    results = analyzer.CalculateGroupedPercentageOfTotalExpanses(groupedTransactions);
+                    depthOfSelection += Strings.CalculateGroupedPercentageOfTotalExpanses;
+                    break;
+                default:
+                    Console.WriteLine("Invalid selection.");
+                    break;
+            }
+
+            depthOfSelection += ">";
+
+            ShowGroupedAnalysis(results);
+
+
+        }
+
+        private void ShowGroupedAnalysis(IEnumerable<(string key, decimal Result)> results)
+        {
+            string message = $"| {Strings.View} = 0 | {Strings.Sort} = 1 | {Strings.Exit} = -1";
+            string dots = new string('-', message.Length);
+
+ 
+            bool exit = false;
+
+            while(!exit){
+                Console.WriteLine($"|>... {depthOfSelection}|");
+                Console.WriteLine(Strings.AnalyzeGroups + " " + Strings.Result + " " + dots.Substring(Strings.AnalyzeGroups.Length + Strings.Result.Length + 2));
+                Console.WriteLine(message);
+                Console.WriteLine(dots);
+                string input = Console.ReadLine().Trim();
+                switch (input)
+                {
+                    case "0":
+                        analyzer.DisplayGroupedAmountInComandline(results);
+                        break;
+                    case "1":
+                        results = SortGroupedResult(results);
+                        break;
+                    case "-1":
+                        exit = true;
+                        depthOfSelection = "";
+                        break;
+                }
+
+            }
+        }
+
+        private IEnumerable<(string key, decimal Result)> SortGroupedResult(IEnumerable<(string key, decimal Result)> results)
+        {
+            Console.WriteLine($"{Strings.SortByAmountAscending} = 0");
+            Console.WriteLine($"{Strings.SortByAmountDescending} = 1");
+            Console.WriteLine($"{Strings.SortByKeyAscending} = 2");
+            Console.WriteLine($"{Strings.SortByKeyDescending} = 3");
+            Console.Write(Strings.Selection + " = ");
+            string input = Console.ReadLine().Trim();
+           
+            switch (input)
+            {
+                case "0":
+                    results = analyzer.SortByAmountAscending(results);
+                    depthOfSelection += Strings.SortByAmountAscending;
+                    break;
+                case "1":
+                    results = analyzer.SortByAmountDescending(results);
+                    depthOfSelection += Strings.SortByAmountDescending;
+
+                    break;
+                case "2":
+                    results = analyzer.SortByKeyAscending(results);
+                    depthOfSelection += Strings.SortByKeyAscending;
+
+                    break;
+                case "3":
+                    results = analyzer.SortByKeyDescending(results);
+                    depthOfSelection += Strings.SortByKeyDescending;
+
+                    break;
+                default:
+                    Console.WriteLine("Invalid selection.");
+                    break;
+            }
+
+            depthOfSelection += "> ";
+
+            return results;
         }
 
         private void ShowGroupInConsole(IEnumerable<IGrouping<string, Transaction>> groupedTransactions)
@@ -587,25 +804,102 @@ namespace IncomeInsightEngine
                     Console.WriteLine("Invalid selection.");
                     break;
             }
+
+            depthOfSelection += "> ";
             return groupedTransactions;
         }
 
-    
 
-
-        private void AnalyzeTransactions()
+        private void AnalyzeTransactions(IEnumerable<Transaction> transactions)
         {
+            Console.WriteLine($"{Strings.CalculateTotalAmount} = 0");
+            Console.WriteLine($"{Strings.CalculateTotalIncome} = 1");
+            Console.WriteLine($"{Strings.CalculateTotalExpenses} = 2");
+            Console.WriteLine($"{Strings.CalculateAverageAmount} = 3");
+            Console.WriteLine($"{Strings.CalculateAverageIncome} = 4");
+            Console.WriteLine($"{Strings.CalculateAverageExpense} = 5");
+            Console.WriteLine($"{Strings.CalculateVariance} = 6");
+            Console.WriteLine($"{Strings.CalculateStandardDeviation} = 7");
+            Console.WriteLine($"{Strings.CalculateMedian} = 8");
+            Console.WriteLine($"{Strings.CalculateMode} = 9");
+            Console.WriteLine($"{Strings.CalculateQuantile} = 10");
+
+            Console.Write(Strings.Selection + " = ");
+            string input = Console.ReadLine().Trim();
+
+
+            string message = string.Empty;
+
+            switch (input)
+            {
+                case "0":
+                    decimal totalAmount = analyzer.CalculateTotalAmount(transactions);
+                    message = $"{Strings.CalculateTotalAmount} = {totalAmount}";
+                    break;
+                case "1":
+                    decimal totalIncome = analyzer.CalculateTotalIncome(transactions);
+                    message = $"{Strings.CalculateTotalIncome} = {totalIncome}";
+                    break;
+                case "2":
+                    decimal totalExpenses = analyzer.CalculateTotalExpenses(transactions);
+                    message = $"{Strings.CalculateTotalExpenses} = {totalExpenses}";
+                    break;
+                case "3":
+                    decimal averageAmount = analyzer.CalculateAverageAmount(transactions);
+                    message = $"{Strings.CalculateAverageAmount} = {averageAmount}";
+                    break;
+                case "4":
+                    decimal averageIncome = analyzer.CalculateAverageIncome(transactions);
+                    message = $"{Strings.CalculateAverageIncome} = {averageIncome}";
+                    break;
+                case "5":
+                    decimal averageExpense = analyzer.CalculateAverageExpense(transactions);
+                    message = $"{Strings.CalculateAverageExpense} = {averageExpense}";
+                    break;
+                case "6":
+                    decimal variance = analyzer.CalculateVariance(transactions);
+                    message = $"{Strings.CalculateVariance} = {variance}";
+                    break;
+                case "7":
+                    decimal standardDeviation = analyzer.CalculateStandardDeviation(transactions);
+                    message = $"{Strings.CalculateStandardDeviation} = {standardDeviation}";
+                    break;
+                case "8":
+                    decimal median = analyzer.CalculateMedian(transactions);
+                    message = $"{Strings.CalculateMedian} = {median}";
+                    break;
+                case "9":
+                    decimal mode = analyzer.CalculateMode(transactions);
+                    message = $"{Strings.CalculateMode} = {mode}";
+                    break;
+                case "10":                  
+                    Console.Write(Strings.EnterQuantile + ": ");
+                    double quantile;
+                    if (!double.TryParse(Console.ReadLine(), out quantile) || quantile < 0 || quantile > 1)
+                    {
+                        Console.WriteLine(Strings.InvalidQuantile);
+                        break;
+                    }
+
+                    decimal calculatedQuantile = analyzer.CalculateQuantile(transactions, quantile);
+                    message = $"{Strings.CalculateQuantile} = {calculatedQuantile}";
+
+                    break;
+                default:
+                    message = "Invalid selection.";
+                    break;
+            }
+
+            string dots = new string('-', message.Length+4);
+            Console.WriteLine(dots);
+            Console.WriteLine($"| {message} |");
+            Console.WriteLine(dots);
+
+
+
 
         }
 
-        private void AddTransactions()
-        {
-
-        }
-        private void Exit()
-        {
-            System.Environment.Exit(1);
-        }
 
     }
 }
