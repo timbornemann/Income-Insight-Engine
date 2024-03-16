@@ -12,7 +12,7 @@ namespace IncomeInsightEngine.src.parser
     internal class DKBCsvDataCreator
     {
         private Random random = new Random();
-        private DateTime startDate = new DateTime(2024, 1, 1); // Startdatum festlegen
+        private DateTime startDate = new DateTime(2024, 1, 1);
         public void CreateData(int months)
         {
             StringBuilder data = new StringBuilder();
@@ -23,10 +23,7 @@ namespace IncomeInsightEngine.src.parser
             data.AppendLine("\"\"");
             data.AppendLine("\"Buchungsdatum\";\"Wertstellung\";\"Status\";\"Zahlungspflichtige*r\";\"Zahlungsempfänger*in\";\"Verwendungszweck\";\"Umsatztyp\";\"IBAN\";\"Betrag (€)\";\"Gläubiger-ID\";\"Mandatsreferenz\";\"Kundenreferenz\"");
 
-
-
             int transactionAmount = random.Next(5,20);
-
 
             for (int q = 0; q < months; q++)
             {
@@ -87,7 +84,6 @@ namespace IncomeInsightEngine.src.parser
             return $"\"{date}\";\"{date}\";\"Abgeschlossen\";\"Max Mustermann\";\"{transaction.Description}\";\"{transaction.Type}\";\"\";\"{transaction.IBAN}\";\"{betrag}\";\"\";\"\";\"\"";
         }
 
-
         public void SaveDataToCsv(string csvData, string fileName)
         {
             string downloadsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
@@ -96,7 +92,4 @@ namespace IncomeInsightEngine.src.parser
             Console.WriteLine($"Path: {csvFilePath}");
         }
     }
-
-
-
 }
