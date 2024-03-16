@@ -10,6 +10,7 @@ using dataStructure;
 using IncomeInsightEngine;
 using IncomeInsightEngine.Properties;
 using IncomeInsightEngine.src.dataStructure.management;
+using IncomeInsightEngine.src.parser;
 using IncomeInsightEngine.src.ui;
 using src.parser;
 
@@ -26,7 +27,10 @@ namespace src
           //  AllocConsole();
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-            ConsoleLogic console = new ConsoleLogic();
+            DKBCsvDataCreator dKBCsvDataCreator = new DKBCsvDataCreator();
+           dKBCsvDataCreator.CreateData(12*1000);
+
+       //   ConsoleLogic console = new ConsoleLogic();
 /*
             TransactionManager manager = new TransactionManager();
             TransactionAnalyzer analyzer = new TransactionAnalyzer();
