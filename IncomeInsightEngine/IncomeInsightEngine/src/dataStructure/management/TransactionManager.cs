@@ -95,7 +95,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// current transaction and continues with the next one. Only transactions that pass these checks are added to both the 
         /// local collection and saved to the JSON file using JsonTransaction.AddTransaction method.
         /// </remarks>
-        public bool AddTransactions(IEnumerable<Transaction> data)
+        public bool AddTransactionsSave(IEnumerable<Transaction> data)
         {
             if(data == null)
             {
@@ -110,9 +110,21 @@ namespace IncomeInsightEngine.src.dataStructure.management
                     continue;
                 }
 
-                transactions.Add(transaction);
-                jsonTransaction.AddTransaction(transaction);        
+                transactions.Add(transaction);     
             }
+            jsonTransaction.SaveData(transactions);
+            return true;
+        }
+
+        public bool AddTransactionsFast(IEnumerable<Transaction> data)
+        {
+            if (data == null)
+            {
+                return false;
+            }
+
+            transactions.AddRange(data);            
+            jsonTransaction.SaveData(transactions);
             return true;
         }
 
