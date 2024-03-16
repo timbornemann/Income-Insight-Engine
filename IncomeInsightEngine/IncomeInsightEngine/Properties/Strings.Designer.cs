@@ -97,6 +97,24 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Add Transactions Fast ähnelt.
+        /// </summary>
+        public static string AddTransactionsFast {
+            get {
+                return ResourceManager.GetString("AddTransactionsFast", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Add Transactions Save ähnelt.
+        /// </summary>
+        public static string AddTransactionsSave {
+            get {
+                return ResourceManager.GetString("AddTransactionsSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die All ähnelt.
         /// </summary>
         public static string All {
@@ -1335,6 +1353,15 @@ namespace IncomeInsightEngine.Properties {
         public static string Projects {
             get {
                 return ResourceManager.GetString("Projects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ready with csv decoding ähnelt.
+        /// </summary>
+        public static string readywithcsvdecoding {
+            get {
+                return ResourceManager.GetString("readywithcsvdecoding", resourceCulture);
             }
         }
         

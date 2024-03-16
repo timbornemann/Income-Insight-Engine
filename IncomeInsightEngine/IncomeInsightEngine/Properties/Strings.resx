@@ -129,6 +129,12 @@
   <data name="AddTransactions" xml:space="preserve">
     <value>Add transactions</value>
   </data>
+  <data name="AddTransactionsFast" xml:space="preserve">
+    <value>Add Transactions Fast</value>
+  </data>
+  <data name="AddTransactionsSave" xml:space="preserve">
+    <value>Add Transactions Save</value>
+  </data>
   <data name="All" xml:space="preserve">
     <value>All</value>
   </data>
@@ -542,6 +548,9 @@
   </data>
   <data name="Projects" xml:space="preserve">
     <value>Projects</value>
+  </data>
+  <data name="readywithcsvdecoding" xml:space="preserve">
+    <value>Ready with csv decoding</value>
   </data>
   <data name="Receipt" xml:space="preserve">
     <value>Receipt</value>
