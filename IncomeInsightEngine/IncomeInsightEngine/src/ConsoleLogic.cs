@@ -140,8 +140,25 @@ namespace IncomeInsightEngine
         {
             Console.Write(Strings.EnterPath + ": ");
             string input = Console.ReadLine().Trim();
-            manager.AddTransactions(parser.ParseCsv(input));
 
+            string message = $"| {Strings.AddTransactionsFast} = 0 | {Strings.AddTransactionsSave} = 1 |";
+            string dots = new string('-', message.Length);
+
+            Console.WriteLine(Strings.AddTransactions + " " + dots.Substring(Strings.AddTransactions.Length + 1));
+            Console.WriteLine(message);
+            Console.WriteLine(dots);
+
+            string input2 = Console.ReadLine().Trim();
+            switch (input2)
+            {
+                case "0":
+                    manager.AddTransactionsFast(parser.ParseCsv(input));
+                    break;
+                case "1":
+                   
+                    manager.AddTransactionsSave(parser.ParseCsv(input));
+                    break;
+            }
         }
 
         private void Addasingletransaction()
