@@ -27,10 +27,12 @@ namespace src
           //  AllocConsole();
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
+            /*
             DKBCsvDataCreator dKBCsvDataCreator = new DKBCsvDataCreator();
            dKBCsvDataCreator.CreateData(12*1000);
+            */
 
-       //   ConsoleLogic console = new ConsoleLogic();
+          ConsoleLogic console = new ConsoleLogic();
 /*
             TransactionManager manager = new TransactionManager();
             TransactionAnalyzer analyzer = new TransactionAnalyzer();
