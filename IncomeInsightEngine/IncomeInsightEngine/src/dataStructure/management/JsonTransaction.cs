@@ -5,6 +5,8 @@ using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using dataStructure;
 using System.Threading;
+using System.Diagnostics;
+using IncomeInsightEngine.Properties;
 
 namespace IncomeInsightEngine.src.dataStructure.management
 {
@@ -180,5 +182,28 @@ namespace IncomeInsightEngine.src.dataStructure.management
             return transactions;
         }
 
+        public void OpenFileWithDefaultProgram()
+        {
+            try
+            {
+                if (File.Exists(filePath))
+                {
+                    var startInfo = new ProcessStartInfo(filePath)
+                    {
+                        UseShellExecute = true
+                    };
+
+                    Process.Start(startInfo);
+                }
+                else
+                {
+                    Console.WriteLine(Strings.Thefiledoesnotexist);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(Strings.Error + ex.Message);
+            }
+        }
     }
 }
