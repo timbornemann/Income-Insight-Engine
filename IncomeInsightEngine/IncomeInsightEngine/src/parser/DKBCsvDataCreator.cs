@@ -12,21 +12,21 @@ namespace IncomeInsightEngine.src.parser
     internal class DKBCsvDataCreator
     {
         private Random random = new Random();
-        private DateTime startDate = new DateTime(2024, 1, 1);
-        public void CreateData(int months)
+        private DateTime startDate = DateTime.Now;
+        public string CreateData(int months)
         {
             StringBuilder data = new StringBuilder();
 
             data.AppendLine("\"Girokonto\";\"DE1234567890123456789\"");
             data.AppendLine("\"\"");
-            data.AppendLine($"\"Kontostand vom 14.03.2024:\";\"{random.Next(1, 20)}.{random.Next(100, 999)},{random.Next(10, 99)} €\"");
+            data.AppendLine($"\"Kontostand vom 00.00.0000:\";\"{random.Next(1, 20)}.{random.Next(100, 999)},{random.Next(10, 99)} €\"");
             data.AppendLine("\"\"");
             data.AppendLine("\"Buchungsdatum\";\"Wertstellung\";\"Status\";\"Zahlungspflichtige*r\";\"Zahlungsempfänger*in\";\"Verwendungszweck\";\"Umsatztyp\";\"IBAN\";\"Betrag (€)\";\"Gläubiger-ID\";\"Mandatsreferenz\";\"Kundenreferenz\"");
 
-            int transactionAmount = random.Next(5,20);
 
             for (int q = 0; q < months; q++)
             {
+            int transactionAmount = random.Next(15,25);
 
                 data.AppendLine(GenerateTransaction(("Gehalt", "Gehaltseingang", 2000, 5000, "DE1234567890123456789")));
 
@@ -40,7 +40,7 @@ namespace IncomeInsightEngine.src.parser
             }
 
             Console.WriteLine(data.ToString());
-            SaveDataToCsv(data.ToString(), $"SampleData{months}Months.csv");          
+            return SaveDataToCsv(data.ToString(), $"SampleData{months}Months.csv");             
         }
 
         private (string Type, string Description, int MinAmount, int MaxAmount, string IBAN) ChooseTransactionType()
@@ -80,16 +80,16 @@ namespace IncomeInsightEngine.src.parser
             string date = startDate.ToString("dd.MM.yy");
             string betrag = $"{(transaction.Type == "Gehalt" ? "+" : "-")}{amount},{random.Next(0, 99):00}";
 
-            startDate = startDate.AddDays(random.Next(1, 4));
+            startDate = startDate.AddDays(random.Next(0, 2));
             return $"\"{date}\";\"{date}\";\"Abgeschlossen\";\"Max Mustermann\";\"{transaction.Description}\";\"{transaction.Type}\";\"\";\"{transaction.IBAN}\";\"{betrag}\";\"\";\"\";\"\"";
         }
 
-        public void SaveDataToCsv(string csvData, string fileName)
+        public string SaveDataToCsv(string csvData, string fileName)
         {
             string downloadsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             string csvFilePath = Path.Combine(downloadsPath, fileName);
-            File.WriteAllText(csvFilePath, csvData);
-            Console.WriteLine($"Path: {csvFilePath}");
+            File.WriteAllText(csvFilePath, csvData);            
+            return csvFilePath;
         }
     }
 }
