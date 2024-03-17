@@ -81,6 +81,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
 
             transactions.Add(transaction);
             jsonTransaction.AddTransaction(transaction);
+            transaktionInformation.LoadData(transactions);
             return true;
         }
 
@@ -113,6 +114,8 @@ namespace IncomeInsightEngine.src.dataStructure.management
                 transactions.Add(transaction);     
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
+
             return true;
         }
 
@@ -125,6 +128,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
 
             transactions.AddRange(data);            
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
             return true;
         }
 
@@ -703,7 +707,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <returns>An IEnumerable of Transaction objects that match the specified currency criteria.</returns>
         public IEnumerable<Transaction> GetTransactionsByCurrency(string currency, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => currency == null ? t.Currency == null : t.Currency.Equals(currency, StringComparison.OrdinalIgnoreCase));
+            return (listOfTransactions ?? transactions).Where(t => currency == null ? t.Currency == null : t.Currency?.Equals(currency, StringComparison.OrdinalIgnoreCase) == true);
         }
 
         /// <summary>
@@ -714,7 +718,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <returns>An IEnumerable of Transaction objects that match the specified payment method criteria.</returns>
         public IEnumerable<Transaction> GetTransactionsByPaymentMethod(string paymentMethod, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => paymentMethod == null ? t.PaymentMethod == null : t.PaymentMethod.Equals(paymentMethod, StringComparison.OrdinalIgnoreCase));
+            return (listOfTransactions ?? transactions).Where(t => paymentMethod == null ? t.PaymentMethod == null : t.PaymentMethod?.Equals(paymentMethod, StringComparison.OrdinalIgnoreCase) == true);
         }
 
         /// <summary>
@@ -745,7 +749,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <returns>An IEnumerable of Transaction objects that match the specified category criteria.</returns>
         public IEnumerable<Transaction> GetTransactionsByCategory(string category, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => category == null ? t.Category == null : t.Category.Equals(category, StringComparison.OrdinalIgnoreCase));
+            return (listOfTransactions ?? transactions).Where(t => category == null ? t.Category == null : t.Category?.Equals(category, StringComparison.OrdinalIgnoreCase) == true);
         }
 
         /// <summary>
@@ -756,12 +760,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <returns>An IEnumerable of Transaction objects that match the specified budget category criteria.</returns>
         public IEnumerable<Transaction> GetTransactionsByBudgetCategory(string budgetCategory, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => budgetCategory == null ? t.BudgetCategory == null : t.BudgetCategory.Equals(budgetCategory, StringComparison.OrdinalIgnoreCase));
+            return (listOfTransactions ?? transactions).Where(t => budgetCategory == null ? t.BudgetCategory == null : t.BudgetCategory?.Equals(budgetCategory, StringComparison.OrdinalIgnoreCase) == true);
         }
 
         public IEnumerable<Transaction> GetTransactionsByClassification(string classification, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => classification == null ? t.Classification == null : t.Classification.Equals(classification, StringComparison.OrdinalIgnoreCase));
+            return (listOfTransactions ?? transactions).Where(t => classification == null ? t.Classification == null : t.Classification?.Equals(classification, StringComparison.OrdinalIgnoreCase) == true);
         }
 
         /// <summary>
@@ -783,7 +787,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <returns>An IEnumerable of Transaction objects that match the specified project criteria.</returns>
         public IEnumerable<Transaction> GetTransactionsByProject(string project, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => project == null ? t.Project == null : t.Project.Equals(project, StringComparison.OrdinalIgnoreCase));
+            return (listOfTransactions ?? transactions).Where(t => project == null ? t.Project == null : t.Project?.Equals(project, StringComparison.OrdinalIgnoreCase) == true);
         }
 
         /// <summary>
@@ -794,7 +798,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <returns>An IEnumerable of Transaction objects that match the specified status criteria.</returns>
         public IEnumerable<Transaction> GetTransactionsByStatus(string status, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => status == null ? t.Status == null : t.Status.Equals(status, StringComparison.OrdinalIgnoreCase));
+            return (listOfTransactions ?? transactions).Where(t => status == null ? t.Status == null : t.Status?.Equals(status, StringComparison.OrdinalIgnoreCase) == true);
         }
 
         /// <summary>
@@ -805,7 +809,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <returns>An IEnumerable of Transaction objects that match the specified priority criteria.</returns>
         public IEnumerable<Transaction> GetTransactionsByPriority(string priority, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => priority == null ? t.Priority == null : t.Priority.Equals(priority, StringComparison.OrdinalIgnoreCase));
+            return (listOfTransactions ?? transactions).Where(t => priority == null ? t.Priority == null : t.Priority?.Equals(priority, StringComparison.OrdinalIgnoreCase) == true);
         }
 
         /// <summary>
@@ -1516,6 +1520,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         public void OpenTransactionFileManually()
         {
             jsonTransaction.OpenTransactionFile();
+            jsonTransaction.OpenFileWithDefaultProgram();
         }
 
         /// <summary>
