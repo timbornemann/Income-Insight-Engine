@@ -651,6 +651,9 @@
   <data name="Showgeneraltransactioninformation" xml:space="preserve">
     <value>Show general transaction information</value>
   </data>
+  <data name="ShowTransactions" xml:space="preserve">
+    <value>Show Transactions</value>
+  </data>
   <data name="Sort" xml:space="preserve">
     <value>Sort</value>
   </data>

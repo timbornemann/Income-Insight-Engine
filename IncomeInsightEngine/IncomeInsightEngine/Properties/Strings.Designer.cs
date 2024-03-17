@@ -1663,6 +1663,15 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Show Transactions ähnelt.
+        /// </summary>
+        public static string ShowTransactions {
+            get {
+                return ResourceManager.GetString("ShowTransactions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Sort ähnelt.
         /// </summary>
         public static string Sort {

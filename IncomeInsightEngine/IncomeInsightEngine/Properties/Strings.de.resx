@@ -651,6 +651,9 @@
   <data name="Showgeneraltransactioninformation" xml:space="preserve">
     <value>Allgemeine Transaktionsinformationen anzeigen</value>
   </data>
+  <data name="ShowTransactions" xml:space="preserve">
+    <value>Transaktionen anzeigen</value>
+  </data>
   <data name="Sort" xml:space="preserve">
     <value>Sortieren</value>
   </data>
