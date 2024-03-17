@@ -88,6 +88,15 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Add Tags ähnelt.
+        /// </summary>
+        public static string AddTags {
+            get {
+                return ResourceManager.GetString("AddTags", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Add transactions ähnelt.
         /// </summary>
         public static string AddTransactions {
@@ -192,6 +201,15 @@ namespace IncomeInsightEngine.Properties {
         public static string BatchProcessingOfPartnerNames {
             get {
                 return ResourceManager.GetString("BatchProcessingOfPartnerNames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Batch processing of transaction details via partners ähnelt.
+        /// </summary>
+        public static string Batchprocessingoftransactiondetailsviapartners {
+            get {
+                return ResourceManager.GetString("Batchprocessingoftransactiondetailsviapartners", resourceCulture);
             }
         }
         
@@ -439,6 +457,15 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Change Language ähnelt.
+        /// </summary>
+        public static string ChangeLanguage {
+            get {
+                return ResourceManager.GetString("ChangeLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Choose Mode ähnelt.
         /// </summary>
         public static string ChooseMode {
@@ -628,6 +655,15 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die English ähnelt.
+        /// </summary>
+        public static string English {
+            get {
+                return ResourceManager.GetString("English", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Enter new ähnelt.
         /// </summary>
         public static string EnterNew {
@@ -736,6 +772,24 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Generate random sample data ähnelt.
+        /// </summary>
+        public static string Generaterandomsampledata {
+            get {
+                return ResourceManager.GetString("Generaterandomsampledata", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die German ähnelt.
+        /// </summary>
+        public static string German {
+            get {
+                return ResourceManager.GetString("German", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Get All Transactions ähnelt.
         /// </summary>
         public static string GetAllTransactions {
@@ -750,6 +804,15 @@ namespace IncomeInsightEngine.Properties {
         public static string GetExpenseTransactions {
             get {
                 return ResourceManager.GetString("GetExpenseTransactions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Get Grouped Total Transaction Count ähnelt.
+        /// </summary>
+        public static string GetGroupedTotalTransactionCount {
+            get {
+                return ResourceManager.GetString("GetGroupedTotalTransactionCount", resourceCulture);
             }
         }
         
@@ -777,6 +840,15 @@ namespace IncomeInsightEngine.Properties {
         public static string GetTaxDeductibleTransactions {
             get {
                 return ResourceManager.GetString("GetTaxDeductibleTransactions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Get Total Transaction Count ähnelt.
+        /// </summary>
+        public static string GetTotalTransactionCount {
+            get {
+                return ResourceManager.GetString("GetTotalTransactionCount", resourceCulture);
             }
         }
         
@@ -1258,6 +1330,24 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Number of sample data months ähnelt.
+        /// </summary>
+        public static string Numberofsampledatamonths {
+            get {
+                return ResourceManager.GetString("Numberofsampledatamonths", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Open Transaction File Manually ähnelt.
+        /// </summary>
+        public static string OpenTransactionFileManually {
+            get {
+                return ResourceManager.GetString("OpenTransactionFileManually", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Partner ähnelt.
         /// </summary>
         public static string Partner {
@@ -1393,6 +1483,114 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Rename All Null Budget Categories ähnelt.
+        /// </summary>
+        public static string RenameAllNullBudgetCategories {
+            get {
+                return ResourceManager.GetString("RenameAllNullBudgetCategories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Rename All Null Categories ähnelt.
+        /// </summary>
+        public static string RenameAllNullCategories {
+            get {
+                return ResourceManager.GetString("RenameAllNullCategories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Rename All Null Classifications ähnelt.
+        /// </summary>
+        public static string RenameAllNullClassifications {
+            get {
+                return ResourceManager.GetString("RenameAllNullClassifications", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Rename All Null Currencies ähnelt.
+        /// </summary>
+        public static string RenameAllNullCurrencies {
+            get {
+                return ResourceManager.GetString("RenameAllNullCurrencies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Rename All Null Descriptions ähnelt.
+        /// </summary>
+        public static string RenameAllNullDescriptions {
+            get {
+                return ResourceManager.GetString("RenameAllNullDescriptions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Rename All Null Frequencies ähnelt.
+        /// </summary>
+        public static string RenameAllNullFrequencies {
+            get {
+                return ResourceManager.GetString("RenameAllNullFrequencies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Rename All Null Locations ähnelt.
+        /// </summary>
+        public static string RenameAllNullLocations {
+            get {
+                return ResourceManager.GetString("RenameAllNullLocations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Rename All Null Payment Methods ähnelt.
+        /// </summary>
+        public static string RenameAllNullPaymentMethods {
+            get {
+                return ResourceManager.GetString("RenameAllNullPaymentMethods", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Rename All Null Priorities ähnelt.
+        /// </summary>
+        public static string RenameAllNullPriorities {
+            get {
+                return ResourceManager.GetString("RenameAllNullPriorities", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Rename All Null Projects ähnelt.
+        /// </summary>
+        public static string RenameAllNullProjects {
+            get {
+                return ResourceManager.GetString("RenameAllNullProjects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Rename All Null Statuses ähnelt.
+        /// </summary>
+        public static string RenameAllNullStatuses {
+            get {
+                return ResourceManager.GetString("RenameAllNullStatuses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Rename All Transaction Partners ähnelt.
+        /// </summary>
+        public static string RenameAllTransactionPartners {
+            get {
+                return ResourceManager.GetString("RenameAllTransactionPartners", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Reset ähnelt.
         /// </summary>
         public static string Reset {
@@ -1429,6 +1627,15 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Settings ähnelt.
+        /// </summary>
+        public static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Short view ähnelt.
         /// </summary>
         public static string ShortView {
@@ -1443,6 +1650,15 @@ namespace IncomeInsightEngine.Properties {
         public static string Show {
             get {
                 return ResourceManager.GetString("Show", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Show general transaction information ähnelt.
+        /// </summary>
+        public static string Showgeneraltransactioninformation {
+            get {
+                return ResourceManager.GetString("Showgeneraltransactioninformation", resourceCulture);
             }
         }
         
@@ -1704,6 +1920,15 @@ namespace IncomeInsightEngine.Properties {
         public static string Text {
             get {
                 return ResourceManager.GetString("Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The file does not exist. ähnelt.
+        /// </summary>
+        public static string Thefiledoesnotexist {
+            get {
+                return ResourceManager.GetString("Thefiledoesnotexist", resourceCulture);
             }
         }
         

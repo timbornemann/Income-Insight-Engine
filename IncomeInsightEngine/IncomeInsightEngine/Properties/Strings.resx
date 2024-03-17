@@ -126,6 +126,9 @@
   <data name="AddMoreDetails" xml:space="preserve">
     <value>Add more Details</value>
   </data>
+  <data name="AddTags" xml:space="preserve">
+    <value>Add Tags</value>
+  </data>
   <data name="AddTransactions" xml:space="preserve">
     <value>Add transactions</value>
   </data>
@@ -161,6 +164,9 @@
   </data>
   <data name="BatchProcessingOfPartnerNames" xml:space="preserve">
     <value>Batch processing of partner names</value>
+  </data>
+  <data name="Batchprocessingoftransactiondetailsviapartners" xml:space="preserve">
+    <value>Batch processing of transaction details via partners</value>
   </data>
   <data name="Blank" xml:space="preserve">
     <value>Blank</value>
@@ -243,6 +249,9 @@
   <data name="Change" xml:space="preserve">
     <value>Change</value>
   </data>
+  <data name="ChangeLanguage" xml:space="preserve">
+    <value>Change Language</value>
+  </data>
   <data name="ChooseMode" xml:space="preserve">
     <value>Choose Mode</value>
   </data>
@@ -306,6 +315,9 @@
   <data name="EndDate" xml:space="preserve">
     <value>EndDate</value>
   </data>
+  <data name="English" xml:space="preserve">
+    <value>English</value>
+  </data>
   <data name="EnterNew" xml:space="preserve">
     <value>Enter new</value>
   </data>
@@ -342,11 +354,20 @@
   <data name="Frequency" xml:space="preserve">
     <value>Frequency</value>
   </data>
+  <data name="Generaterandomsampledata" xml:space="preserve">
+    <value>Generate random sample data</value>
+  </data>
+  <data name="German" xml:space="preserve">
+    <value>German</value>
+  </data>
   <data name="GetAllTransactions" xml:space="preserve">
     <value>Get All Transactions</value>
   </data>
   <data name="GetExpenseTransactions" xml:space="preserve">
     <value>Get Expense Transactions</value>
+  </data>
+  <data name="GetGroupedTotalTransactionCount" xml:space="preserve">
+    <value>Get Grouped Total Transaction Count</value>
   </data>
   <data name="GetIncomeTransactions" xml:space="preserve">
     <value>Get Income Transactions</value>
@@ -356,6 +377,9 @@
   </data>
   <data name="GetTaxDeductibleTransactions" xml:space="preserve">
     <value>Get Tax Deductible Transactions</value>
+  </data>
+  <data name="GetTotalTransactionCount" xml:space="preserve">
+    <value>Get Total Transaction Count</value>
   </data>
   <data name="GetTransactionsByAmountRange" xml:space="preserve">
     <value>Get Transactions By Amount Range</value>
@@ -516,6 +540,12 @@
   <data name="notransactionsavailable" xml:space="preserve">
     <value>no transactions available</value>
   </data>
+  <data name="Numberofsampledatamonths" xml:space="preserve">
+    <value>Number of sample data months</value>
+  </data>
+  <data name="OpenTransactionFileManually" xml:space="preserve">
+    <value>Open Transaction File Manually</value>
+  </data>
   <data name="Partner" xml:space="preserve">
     <value>Partner</value>
   </data>
@@ -561,6 +591,42 @@
   <data name="Reimbursable" xml:space="preserve">
     <value>Reimbursable</value>
   </data>
+  <data name="RenameAllNullBudgetCategories" xml:space="preserve">
+    <value>Rename All Null Budget Categories</value>
+  </data>
+  <data name="RenameAllNullCategories" xml:space="preserve">
+    <value>Rename All Null Categories</value>
+  </data>
+  <data name="RenameAllNullClassifications" xml:space="preserve">
+    <value>Rename All Null Classifications</value>
+  </data>
+  <data name="RenameAllNullCurrencies" xml:space="preserve">
+    <value>Rename All Null Currencies</value>
+  </data>
+  <data name="RenameAllNullDescriptions" xml:space="preserve">
+    <value>Rename All Null Descriptions</value>
+  </data>
+  <data name="RenameAllNullFrequencies" xml:space="preserve">
+    <value>Rename All Null Frequencies</value>
+  </data>
+  <data name="RenameAllNullLocations" xml:space="preserve">
+    <value>Rename All Null Locations</value>
+  </data>
+  <data name="RenameAllNullPaymentMethods" xml:space="preserve">
+    <value>Rename All Null Payment Methods</value>
+  </data>
+  <data name="RenameAllNullPriorities" xml:space="preserve">
+    <value>Rename All Null Priorities</value>
+  </data>
+  <data name="RenameAllNullProjects" xml:space="preserve">
+    <value>Rename All Null Projects</value>
+  </data>
+  <data name="RenameAllNullStatuses" xml:space="preserve">
+    <value>Rename All Null Statuses</value>
+  </data>
+  <data name="RenameAllTransactionPartners" xml:space="preserve">
+    <value>Rename All Transaction Partners</value>
+  </data>
   <data name="Reset" xml:space="preserve">
     <value>Reset</value>
   </data>
@@ -573,11 +639,17 @@
   <data name="SeparatedByCommas" xml:space="preserve">
     <value>Separated by commas ','</value>
   </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
   <data name="ShortView" xml:space="preserve">
     <value>Short view</value>
   </data>
   <data name="Show" xml:space="preserve">
     <value>Show</value>
+  </data>
+  <data name="Showgeneraltransactioninformation" xml:space="preserve">
+    <value>Show general transaction information</value>
   </data>
   <data name="Sort" xml:space="preserve">
     <value>Sort</value>
@@ -665,6 +737,9 @@
   </data>
   <data name="Text" xml:space="preserve">
     <value>Text</value>
+  </data>
+  <data name="Thefiledoesnotexist" xml:space="preserve">
+    <value>The file does not exist.</value>
   </data>
   <data name="TotalAmount" xml:space="preserve">
     <value>Total amount</value>
