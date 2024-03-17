@@ -11,7 +11,6 @@ using IncomeInsightEngine;
 using IncomeInsightEngine.Properties;
 using IncomeInsightEngine.src.dataStructure.management;
 using IncomeInsightEngine.src.parser;
-using IncomeInsightEngine.src.ui;
 using src.parser;
 
 

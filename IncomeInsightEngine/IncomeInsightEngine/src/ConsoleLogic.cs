@@ -15,7 +15,7 @@ using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Xceed.Wpf.AvalonDock.Layout;
+
 
 namespace IncomeInsightEngine
 {
