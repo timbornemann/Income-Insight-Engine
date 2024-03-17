@@ -20,7 +20,7 @@ The **Income Insight Engine** is currently under development. Many of the planne
 
 ### ⚙️ Installation
 
-1. Download the [IncomeInsightEngineSetup.zip](https://github.com/timbornemann/Income-Insight-Engine/files/14618917/IncomeInsightEngine.Setup.zip).
+1. Download the [Income Insight Engine](https://github.com/timbornemann/Income-Insight-Engine/files/14629163/IncomeInsightEngineSetupV1.1.zip).
 2. Unzip the file and execute the installer within.
 3. Follow the on-screen instructions to install the Income Insight Engine on your system.
 
