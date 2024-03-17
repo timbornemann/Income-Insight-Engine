@@ -52,12 +52,18 @@ namespace IncomeInsightEngine
   
             while (!exit)
             {
-                string message = $"| {Strings.Show} {Strings.Transactions} = 0 | {Strings.RefineSelection} = 1 | {Strings.Sort} = 2 | {Strings.Group} = 3 | {Strings.AnalyzeTransactions} = 4 | {Strings.Reset} = 5 | {Strings.EditTransactions} = 6 | {Strings.Settings} = 7 | {Strings.Exit} = -1 |";
-                string dots = new string('-', message.Length);
+                string message1 = $"| {Strings.ShowTransactions} = 0 | {Strings.RefineSelection} = 1 | {Strings.Sort} = 2 | {Strings.Group} = 3 | {Strings.AnalyzeTransactions} = 4 |";
+                string message2 = $"| {Strings.Reset} = 5 | {Strings.EditTransactions} = 6 | {Strings.Settings} = 7 | {Strings.Exit} = -1";
+
+
+
+                int m1adapter = message1.Length - message2.Length-1;
+                string dots = new string('-', message1.Length);
 
                 Console.WriteLine($"|>... {depthOfSelection}|");
                 Console.WriteLine(Strings.ChooseMode + " " + dots.Substring(Strings.ChooseMode.Length + 1));
-                Console.WriteLine(message);
+                Console.WriteLine(message1);
+                Console.WriteLine(message2 + new string(' ', m1adapter) + "|");
                 Console.WriteLine(dots);
 
                 string input = Console.ReadLine().Trim();
@@ -153,15 +159,19 @@ namespace IncomeInsightEngine
 
         private void EditTransactions()
         {
-            string message = $"| {Strings.Addasingletransaction} = 0 | {Strings.importcsvfilefromDKB} = 1 | {Strings.DeleteTransaction} = 2 | {Strings.Batchprocessingoftransactiondetailsviapartners} = 3 | {Strings.Showgeneraltransactioninformation} = 4 | {Strings.Generaterandomsampledata} = 5 | {Strings.Exit} = -1";
-            string dots = new string('-', message.Length);
+            string message1 = $"| {Strings.Addasingletransaction} = 0 | {Strings.importcsvfilefromDKB} = 1 | {Strings.DeleteTransaction} = 2 | {Strings.Batchprocessingoftransactiondetailsviapartners} = 3 |";
+            string message2 = $"| {Strings.Showgeneraltransactioninformation} = 4 | {Strings.Generaterandomsampledata} = 5 | {Strings.Exit} = -1";
+
+            int m1adapter = message1.Length - message2.Length - 1;
+            string dots = new string('-', message1.Length);
 
             bool exit = false;
 
             while (!exit)
             {
                 Console.WriteLine(Strings.EditTransactions + " " + dots.Substring(Strings.EditTransactions.Length + 1));
-                Console.WriteLine(message);
+                Console.WriteLine(message1);
+                Console.WriteLine(message2 + new string(' ', m1adapter) + "|");
                 Console.WriteLine(dots);
 
                 string input = Console.ReadLine().Trim();
@@ -424,17 +434,17 @@ namespace IncomeInsightEngine
             {
                 case "0":
                     transactions = manager.GetIncomeTransactions(transactions);
-                    depthOfSelection += "GetIncomeTransactions";
+                    depthOfSelection += Strings.GetIncomeTransactions;
                     break;
                 case "1":
                     transactions = manager.GetExpenseTransactions(transactions);
-                    depthOfSelection += "GetExpenseTransactions";
+                    depthOfSelection += Strings.GetExpenseTransactions;
                     break;
                 case "2":
                     Console.Write($"{Strings.Amount}: ");
                     decimal.TryParse(Console.ReadLine().Trim(), out decimal someAmount);
                     transactions = manager.GetTransactionsByAmount(someAmount, transactions);
-                    depthOfSelection += $"GetTransactionsByAmount({someAmount})";
+                    depthOfSelection += $"{Strings.GetTransactionsByExactAmount} ({someAmount})";
                     break;
                 case "3":
                     Console.Write($"{Strings.MinAmount}: ");
@@ -442,13 +452,13 @@ namespace IncomeInsightEngine
                     Console.Write($"{Strings.MaxAmount}: ");
                     decimal.TryParse(Console.ReadLine().Trim(), out decimal maxAmount);
                     transactions = manager.GetTransactionsByAmount(minAmount, maxAmount, transactions);
-                    depthOfSelection += $"GetTransactionsByAmountRange({minAmount}, {maxAmount})";
+                    depthOfSelection += $"{Strings.GetTransactionsByAmountRange}({minAmount}, {maxAmount})";
                     break;
                 case "4":
                     Console.Write($"{Strings.Date}: ");
                     DateTime.TryParse(Console.ReadLine().Trim(), out DateTime someDate);
                     transactions = manager.GetTransactionsByDate(someDate, transactions);
-                    depthOfSelection += $"GetTransactionsByDate({someDate})";
+                    depthOfSelection += $"{Strings.GetTransactionsByDate}({someDate})";
                     break;
                 case "5":
                     Console.Write($"{Strings.StartDate}: ");
@@ -456,7 +466,7 @@ namespace IncomeInsightEngine
                     Console.Write($"{Strings.EndDate}: ");
                     DateTime.TryParse(Console.ReadLine().Trim(), out DateTime endDate);
                     transactions = manager.GetTransactionsByDate(startDate, endDate, transactions);
-                    depthOfSelection += $"GetTransactionsByDateRange({startDate}, {endDate})";
+                    depthOfSelection += $"{Strings.GetTransactionsByDate}({startDate}, {endDate})";
                     break;
                 case "6":
                     Console.Write($"{Strings.Description}: ");
@@ -468,85 +478,85 @@ namespace IncomeInsightEngine
                     Console.Write($"{Strings.Currency}: ");
                     string currency = Console.ReadLine().Trim();
                     transactions = manager.GetTransactionsByCurrency(currency, transactions);
-                    depthOfSelection += $"GetTransactionsByCurrency({currency})";
+                    depthOfSelection += $"{Strings.GetTransactionsByCurrency}({currency})";
                     break;
                 case "8":
                     Console.Write($"{Strings.PaymentMethod}: ");
                     string paymentMethod = Console.ReadLine().Trim();
                     transactions = manager.GetTransactionsByPaymentMethod(paymentMethod, transactions);
-                    depthOfSelection += $"GetTransactionsByPaymentMethod({paymentMethod})";
+                    depthOfSelection += $"{Strings.GetTransactionsByPaymentMethod}({paymentMethod})";
                     break;
                 case "9":
                     Console.Write($"{Strings.TaxDeductible}: ");
                     bool taxDeductible = bool.TryParse(Console.ReadLine().Trim(), out bool deductibleValue) ? deductibleValue : false;
                     transactions = manager.GetTaxDeductibleTransactions(taxDeductible, transactions);
-                    depthOfSelection += $"GetTaxDeductibleTransactions({taxDeductible})";
+                    depthOfSelection += $"{Strings.GetTaxDeductibleTransactions}({taxDeductible})";
                     break;
                 case "10":
                     Console.Write($"{Strings.Reimbursable}: ");
                     bool reimbursable = bool.TryParse(Console.ReadLine().Trim(), out bool reimbursableValue) ? reimbursableValue : false;
                     transactions = manager.GetReimbursableTransactions(reimbursable, transactions);
-                    depthOfSelection += $"GetReimbursableTransactions({reimbursable})";
+                    depthOfSelection += $"{Strings.GetReimbursableTransactions}({reimbursable})";
                     break;
                 case "11":
                     Console.Write($"{Strings.Category}: ");
                     string category = Console.ReadLine().Trim();
                     transactions = manager.GetTransactionsByCategory(category, transactions);
-                    depthOfSelection += $"GetTransactionsByCategory({category})";
+                    depthOfSelection += $"{Strings.GetTransactionsByCategory}({category})";
                     break;
                 case "12":
                     Console.Write($"{Strings.BudgetCategory}: ");
                     string budgetCategory = Console.ReadLine().Trim();
                     transactions = manager.GetTransactionsByBudgetCategory(budgetCategory, transactions);
-                    depthOfSelection += $"GetTransactionsByBudgetCategory({budgetCategory})";
+                    depthOfSelection += $"{Strings.GetTransactionsByBudgetCategory}({budgetCategory})";
                     break;
                 case "13":
                     Console.Write($"{Strings.Classification}: ");
                     string classification = Console.ReadLine().Trim();
                     transactions = manager.GetTransactionsByClassification(classification, transactions);
-                    depthOfSelection += $"GetTransactionsByClassification({classification})";
+                    depthOfSelection += $"{Strings.GetTransactionsByClassification}({classification})";
                     break;
                 case "14":
                     Console.Write($"{Strings.Partner}: ");
                     string partner = Console.ReadLine().Trim();
                     transactions = manager.GetTransactionsByPartner(partner, transactions);
-                    depthOfSelection += $"GetTransactionsByPartner({partner})";
+                    depthOfSelection += $"{Strings.GetTransactionsByPartner}({partner})";
                     break;
                 case "15":
                     Console.Write($"{Strings.Project}: ");
                     string project = Console.ReadLine().Trim();
                     transactions = manager.GetTransactionsByProject(project, transactions);
-                    depthOfSelection += $"GetTransactionsByProject({project})";
+                    depthOfSelection += $"{Strings.GetTransactionsByProject}({project})";
                     break;
                 case "16":
                     Console.Write($"{Strings.Status}: ");
                     string status = Console.ReadLine().Trim();
                     transactions = manager.GetTransactionsByStatus(status, transactions);
-                    depthOfSelection += $"GetTransactionsByStatus({status})";
+                    depthOfSelection += $"{Strings.GetTransactionsByStatus}({status})";
                     break;
                 case "17":
                     Console.Write($"{Strings.Priority}: ");
                     string priority = Console.ReadLine().Trim();
                     transactions = manager.GetTransactionsByPriority(priority, transactions);
-                    depthOfSelection += $"GetTransactionsByPriority({priority})";
+                    depthOfSelection += $"{Strings.GetTransactionsByPriority}({priority})";
                     break;
                 case "18":
                     Console.Write($"{Strings.Frequency}: ");
                     string frequency = Console.ReadLine().Trim();
                     transactions = manager.GetTransactionsByFrequency(frequency, transactions);
-                    depthOfSelection += $"GetTransactionsByFrequency({frequency})";
+                    depthOfSelection += $"{Strings.GetTransactionsByFrequency}({frequency})";
                     break;
                 case "19":
                     Console.Write($"{Strings.Location}: ");
                     string location = Console.ReadLine().Trim();
                     transactions = manager.GetTransactionsByLocation(location, transactions);
-                    depthOfSelection += $"GetTransactionsByLocation({location})";
+                    depthOfSelection += $"{Strings.GetTransactionsByLocation}({location})";
                     break;
                 case "20":
                     Console.Write($"{Strings.Tag}: ");
                     string tag = Console.ReadLine().Trim();
                     transactions = manager.GetTransactionsByTag(tag, transactions);
-                    depthOfSelection += $"GetTransactionsByTag({tag})";
+                    depthOfSelection += $"{Strings.GetTransactionsByTag}({tag})";
                     break;
                 default:
                     Console.WriteLine("Invalid input.");
