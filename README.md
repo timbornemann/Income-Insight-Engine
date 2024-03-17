@@ -12,11 +12,17 @@ The **Income Insight Engine** is currently under development. Many of the planne
 ### 🌟 Features
 
 - **Transaction Management**: Add and delete financial transactions with ease.
+- **Batch Processing of Transaction Details**: Rename and manage transaction details in bulk for consistent data.
 - **DKB Bank Integration**: Automatically process CSV files from DKB Bank for an effortless import of your transaction data.
+- **CSV Import Options**: Import transactions quickly or safely; with safe import verifying to avoid duplicate entries.
 - **Transaction Review**: Display your transaction history directly in the console.
 - **Advanced Filters**: Refine and sort your financial view with transaction filtering options.
 - **Grouping and Sorting**: Organize your transactions with various grouping and sorting functionalities.
 - **Calculations**: Perform various calculations with your transaction data to gain insights into your financial health.
+- **Comprehensive Transaction Insights**: Access detailed summaries of transactional information like partners, currencies, payment methods, categories, tags, and more.
+- **Sample Data Generation**: Create mock financial data for a range of months to populate and test features.
+- **Language Settings**: Select your preferred language for the user interface, with options for both English and German.
+- **JSON Data Visibility**: Uncover and examine all transaction data encoded in the system's JSON file for in-depth analysis.
 
 ### ⚙️ Installation
 
