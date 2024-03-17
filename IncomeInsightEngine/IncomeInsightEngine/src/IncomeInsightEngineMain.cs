@@ -20,47 +20,11 @@ namespace src
    
     public class IncomeInsightEngineMain
     {
-       // [STAThread]
         public static void Main(string[] args)
         {
-          //  AllocConsole();
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-            /*
-            DKBCsvDataCreator dKBCsvDataCreator = new DKBCsvDataCreator();
-           dKBCsvDataCreator.CreateData(12*1000);
-            */
-
+          Console.OutputEncoding = System.Text.Encoding.UTF8;
           ConsoleLogic console = new ConsoleLogic();
-/*
-            TransactionManager manager = new TransactionManager();
-            TransactionAnalyzer analyzer = new TransactionAnalyzer();
-*/
-
-
-            // manager.transaktionInformation.DisplayAllListsInComandline();
-
-
-
-            //manager.PaymentMethodDescriptionBatchProcessing("Giro", "Girocard");
-     
-
-
-           //  manager.transaktionInformation.DisplayAllListsInComandline();
-            // manager.DisplayOnlyGroupnamesComandline(manager.GroupByPartner(manager.SortTransactionsByPartnerAscending()));
-
-
-
-
-            /*
-            Application app = new Application(); 
-           MainWindow window = new MainWindow(manager); 
-            app.Run(window); 
-           */
         }
-
-        [DllImport("kernel32.dll", SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        private static extern bool AllocConsole();
     }
 }
