@@ -206,7 +206,7 @@ namespace IncomeInsightEngine
                         Addasingletransaction();
                         break;
                     case "1":
-                        importcsvfilefromDKB();
+                        ImportcsvfilefromDKB();
                         break;
                         case "2":
                         Console.Write($"{Strings.DeleteTransaction} {Strings.Id} = ");
@@ -322,7 +322,7 @@ namespace IncomeInsightEngine
         /// <remarks>
         /// This method prompts the user for a file path to import transaction data, supporting both fast and safe import methods.
         /// </remarks>
-        private void importcsvfilefromDKB()
+        private void ImportcsvfilefromDKB()
         {
 
             Console.Write(Strings.EnterPath + ": ");
