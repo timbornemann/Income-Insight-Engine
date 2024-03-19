@@ -5,16 +5,9 @@ using IncomeInsightEngine.src.dataStructure.management;
 using IncomeInsightEngine.src.parser;
 using src.parser;
 using System;
-using System.CodeDom.Compiler;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
-using System.Runtime.Remoting.Messaging;
-using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+
 
 
 namespace IncomeInsightEngine
@@ -36,6 +29,12 @@ namespace IncomeInsightEngine
             Start();
         }
 
+        /// <summary>
+        /// Initiates the console application, displaying the initial mode selection to the user.
+        /// </summary>
+        /// <remarks>
+        /// This method displays the available modes to the user and handles the chosen mode through the ChooseMode method, utilizing all transactions managed by the application.
+        /// </remarks>
         private void Start()
         {
             Console.WriteLine(Strings.ConsoleMode);
@@ -43,8 +42,16 @@ namespace IncomeInsightEngine
          
             ChooseMode(manager.GetAllTransactions());
                        
-        } 
+        }
 
+        /// <summary>
+        /// Provides a looped menu for the user to select various modes for transaction management, including viewing, refining, sorting, grouping, analyzing, and editing transactions.
+        /// </summary>
+        /// <param name="transactions">The collection of transactions to operate on.</param>
+        /// <returns>The potentially modified collection of transactions after performing operations like refining, sorting, or resetting.</returns>
+        /// <remarks>
+        /// Supports operations to refine, sort, group, and analyze transactions, along with the ability to reset to the original list or edit transactions directly.
+        /// </remarks>
         private IEnumerable<Transaction> ChooseMode(IEnumerable<Transaction> transactions)
         {
            
@@ -112,6 +119,12 @@ namespace IncomeInsightEngine
 
        }
 
+        /// <summary>
+        /// Displays the settings menu, allowing the user to change the application settings, such as language or manually opening a transaction file.
+        /// </summary>
+        /// <remarks>
+        /// This method provides an interface for user settings adjustments, including language changes and manual file management for transactions.
+        /// </remarks>
         private void Settings()
         {
            
@@ -136,6 +149,12 @@ namespace IncomeInsightEngine
             }
         }
 
+        /// <summary>
+        /// Allows the user to change the application's language setting.
+        /// </summary>
+        /// <remarks>
+        /// Provides a selection for the user to switch between supported languages, affecting the language of the application's user interface.
+        /// </remarks>
         private void ChangeLanguage()
         {
             string message = $"| {Strings.German} = 0 | {Strings.English} = 1 |";
@@ -157,6 +176,12 @@ namespace IncomeInsightEngine
             }
         }
 
+        /// <summary>
+        /// Provides a menu for editing transactions, including adding, importing, deleting, and batch processing transactions.
+        /// </summary>
+        /// <remarks>
+        /// This method allows the user to perform various transaction editing operations such as adding new transactions, importing transactions from a file, deleting transactions, and batch processing details via partners.
+        /// </remarks>
         private void EditTransactions()
         {
             string message1 = $"| {Strings.Addasingletransaction} = 0 | {Strings.importcsvfilefromDKB} = 1 | {Strings.DeleteTransaction} = 2 | {Strings.Batchprocessingoftransactiondetailsviapartners} = 3 |";
@@ -205,6 +230,12 @@ namespace IncomeInsightEngine
             }
         }
 
+        /// <summary>
+        /// Generates sample data for a specified number of months and adds it to the application's transaction list.
+        /// </summary>
+        /// <remarks>
+        /// Prompts the user for the number of months for which to generate sample data, then creates and adds this data to the current list of transactions.
+        /// </remarks>
         private void GenerateSampleData()
         {
             Console.Write(Strings.Numberofsampledatamonths + " ");
@@ -213,6 +244,12 @@ namespace IncomeInsightEngine
             manager.AddTransactionsFast(parser.ParseCsv(dKBCsvDataCreator.CreateData(number)));
         }
 
+        /// <summary>
+        /// Displays options for batch editing transaction details based on certain criteria such as partners, categories, or tags.
+        /// </summary>
+        /// <remarks>
+        /// Offers a variety of batch processing options to modify transaction details collectively, improving data management efficiency.
+        /// </remarks>
         private void BatchEditTransactionDetails()
         {
             Console.WriteLine($"{Strings.RenameAllTransactionPartners} = 0");
@@ -279,6 +316,12 @@ namespace IncomeInsightEngine
 
         }
 
+        /// <summary>
+        /// Allows importing of transaction data from a specified CSV file path.
+        /// </summary>
+        /// <remarks>
+        /// This method prompts the user for a file path to import transaction data, supporting both fast and safe import methods.
+        /// </remarks>
         private void importcsvfilefromDKB()
         {
 
@@ -305,6 +348,12 @@ namespace IncomeInsightEngine
             }
         }
 
+        /// <summary>
+        /// Interactively adds a single transaction to the application's transaction list.
+        /// </summary>
+        /// <remarks>
+        /// Guides the user through entering details for a new transaction, which is then added to the current list of transactions.
+        /// </remarks>
         private void Addasingletransaction()
         {
             Transaction transaction = new Transaction();
@@ -378,6 +427,13 @@ namespace IncomeInsightEngine
 
         }
 
+        /// <summary>
+        /// Displays the list of transactions in the console, allowing the user to choose between a short view and a complete view.
+        /// </summary>
+        /// <param name="transactions">The enumerable collection of transactions to display.</param>
+        /// <remarks>
+        /// The user is prompted to select either a short or complete view of the transactions. Depending on the choice, different details of each transaction are displayed.
+        /// </remarks>
         private void ShowListInConsole(IEnumerable<Transaction> transactions)
         {
             string message = $"| {Strings.ShortView} = 0 | {Strings.CompleteView} = 1 |";
@@ -400,6 +456,14 @@ namespace IncomeInsightEngine
 
         }
 
+        /// <summary>
+        /// Provides options for refining the selection of transactions based on various criteria like income, expense, amount range, and more.
+        /// </summary>
+        /// <param name="transactions">The current collection of transactions to be refined.</param>
+        /// <returns>The refined collection of transactions after applying the selected criteria.</returns>
+        /// <remarks>
+        /// This method allows the user to narrow down the transactions based on specific attributes, enhancing the focus on transactions of interest.
+        /// </remarks>
         private IEnumerable<Transaction> RefineSelection(IEnumerable<Transaction> transactions)
         {
 
@@ -570,6 +634,14 @@ namespace IncomeInsightEngine
 
         }
 
+        /// <summary>
+        /// Offers sorting options for the list of transactions, including by ID, date, amount, and other attributes in both ascending and descending order.
+        /// </summary>
+        /// <param name="transactions">The collection of transactions to sort.</param>
+        /// <returns>The sorted collection of transactions according to the user's choice.</returns>
+        /// <remarks>
+        /// Sorting can be done on various fields, allowing the user to organize the transaction data more effectively for analysis or display.
+        /// </remarks>
         private IEnumerable<Transaction> Sort(IEnumerable<Transaction> transactions)
         {
             Console.WriteLine(Strings.Sort + ": ");
@@ -642,6 +714,14 @@ namespace IncomeInsightEngine
             return transactions;
         }
 
+        /// <summary>
+        /// Allows the user to group transactions by different attributes such as date, amount range, currency, and more.
+        /// </summary>
+        /// <param name="transactions">The collection of transactions to be grouped.</param>
+        /// <returns>A collection of groups, each containing transactions that share a common attribute.</returns>
+        /// <remarks>
+        /// This method provides a versatile way to categorize and examine transactions based on shared characteristics.
+        /// </remarks>
         private IEnumerable<IGrouping<string, Transaction>> Group(IEnumerable<Transaction> transactions)
         {
             string message = $"| {Strings.Show} = 0 | {Strings.Group} = 1 | {Strings.AnalyzeGroups} = 2 | {Strings.Reset} = 3 | {Strings.Exit} = -1 |";
@@ -690,6 +770,13 @@ namespace IncomeInsightEngine
 
         }
 
+        /// <summary>
+        /// Analyzes grouped transactions, calculating aggregates such as average amount, total income, total expenses, and more.
+        /// </summary>
+        /// <param name="groupedTransactions">The collection of grouped transactions to analyze.</param>
+        /// <remarks>
+        /// This method offers insights into the grouped transactions, enabling the user to perform quantitative analysis on different transaction categories.
+        /// </remarks>
         private void AnalyzeGroups(IEnumerable<IGrouping<string, Transaction>> groupedTransactions)
         {
             Console.WriteLine($"{Strings.CalculateGroupedAverageAmount} = 0");
@@ -755,6 +842,13 @@ namespace IncomeInsightEngine
 
         }
 
+        /// <summary>
+        /// Displays the results of grouped transaction analyses, such as averages and totals, in the console.
+        /// </summary>
+        /// <param name="results">The collection of analysis results to display, each associated with a group key.</param>
+        /// <remarks>
+        /// The analysis results are presented in a structured format, allowing the user to easily review the calculated metrics for each group of transactions.
+        /// </remarks>
         private void ShowGroupedAnalysis(IEnumerable<(string key, decimal Result)> results)
         {
             string message = $"| {Strings.View} = 0 | {Strings.Sort} = 1 | {Strings.Exit} = -1";
@@ -787,6 +881,14 @@ namespace IncomeInsightEngine
             }
         }
 
+        /// <summary>
+        /// Provides options to sort the results of a grouped transaction analysis by key or by result in ascending or descending order.
+        /// </summary>
+        /// <param name="results">The analysis results to sort, each consisting of a group key and a numeric result.</param>
+        /// <returns>The sorted collection of analysis results.</returns>
+        /// <remarks>
+        /// Sorting the results can help in identifying the highest or lowest values quickly, aiding in data interpretation and decision-making.
+        /// </remarks>
         private IEnumerable<(string key, decimal Result)> SortGroupedResult(IEnumerable<(string key, decimal Result)> results)
         {
             Console.WriteLine($"{Strings.SortByAmountAscending} = 0");
@@ -827,6 +929,13 @@ namespace IncomeInsightEngine
             return results;
         }
 
+        /// <summary>
+        /// Offers options for displaying grouped transactions, either by listing all transactions within each group or by showing only the group names.
+        /// </summary>
+        /// <param name="groupedTransactions">The collection of grouped transactions to display.</param>
+        /// <remarks>
+        /// This function enhances data visibility by allowing the user to review transaction groups in detail or to get an overview of the groups.
+        /// </remarks>
         private void ShowGroupInConsole(IEnumerable<IGrouping<string, Transaction>> groupedTransactions)
         {
             string message = $"| {Strings.ViewTransactions} = 0 | {Strings.ViewOnlyGroupnames} = 1 |";
@@ -848,6 +957,14 @@ namespace IncomeInsightEngine
             }
         }
 
+        /// <summary>
+        /// Prompts the user to select a grouping criterion from a set of transaction attributes, then groups the transactions accordingly.
+        /// </summary>
+        /// <param name="transactions">The collection of transactions to group.</param>
+        /// <returns>A collection of groups formed by grouping transactions based on the selected attribute.</returns>
+        /// <remarks>
+        /// The user can choose to group transactions by various attributes like date, description, amount, etc., facilitating targeted analysis.
+        /// </remarks>
         private IEnumerable<IGrouping<string, Transaction>> GroupTransactions(IEnumerable<Transaction> transactions)
         {
             Console.WriteLine(Strings.GroupBy + ": ");
@@ -979,7 +1096,13 @@ namespace IncomeInsightEngine
             return groupedTransactions;
         }
 
-
+        /// <summary>
+        /// Provides statistical analyses options for transactions, including total, average, variance, and more.
+        /// </summary>
+        /// <param name="transactions">The collection of transactions to analyze.</param>
+        /// <remarks>
+        /// This function allows the user to compute various statistical metrics for the transactions, offering insights into the financial data.
+        /// </remarks>
         private void AnalyzeTransactions(IEnumerable<Transaction> transactions)
         {
             Console.WriteLine($"{Strings.CalculateTotalAmount} = 0");
@@ -1069,12 +1192,7 @@ namespace IncomeInsightEngine
             Console.WriteLine(dots);
             Console.WriteLine($"| {message} |");
             Console.WriteLine(dots);
-
-
-
-
         }
-
 
     }
 }

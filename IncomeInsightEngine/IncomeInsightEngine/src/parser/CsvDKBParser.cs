@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace src.parser
 {
@@ -13,7 +12,6 @@ namespace src.parser
     /// </summary>
     public class CsvDKBParser
     {
-
         /// <summary>
         /// Parses a CSV file containing transaction data, starting from the 6th line, and returns a list of <see cref="Transaction"/> objects.
         /// </summary>

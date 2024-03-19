@@ -2,8 +2,6 @@
 using System;
 using System.IO;
 using System.Security.Cryptography;
-using System.Text;
-
 
 namespace IncomeInsightEngine.src.dataStructure.management
 {
@@ -159,8 +157,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
                     using (CryptoStream cryptoStream = new CryptoStream(fileStream, decryptor, CryptoStreamMode.Read))
                     using (StreamReader decryptReader = new StreamReader(cryptoStream))
                     {
-                        decryptedData = decryptReader.ReadToEnd();
-                                          
+                        decryptedData = decryptReader.ReadToEnd();                                     
                     }
                 }
             }

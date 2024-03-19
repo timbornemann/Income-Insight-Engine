@@ -3,8 +3,6 @@ using IncomeInsightEngine.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IncomeInsightEngine.src.dataStructure
 {
@@ -103,7 +101,13 @@ namespace IncomeInsightEngine.src.dataStructure
         public bool DeleteLocation(string item) => DeleteItem(Location, item);
         public bool EditLocation(string currentItem, string newItem) => EditItem(Location, currentItem, newItem);
 
-
+        /// <summary>
+        /// Loads various attributes from a collection of transactions into distinct data sets for analysis and processing.
+        /// </summary>
+        /// <param name="listOfTransactions">The collection of transactions to be processed.</param>
+        /// <remarks>
+        /// This method delegates to specific loaders for each attribute type (e.g., Currency, PaymentMethod, Category), ensuring that all relevant data from the transactions are loaded into separate, distinct collections for further use.
+        /// </remarks>
         public void LoadData(IEnumerable<Transaction> listOfTransactions)
         {
             LoadCurrency(listOfTransactions);
@@ -120,6 +124,13 @@ namespace IncomeInsightEngine.src.dataStructure
             LoadLocation(listOfTransactions);
         }
 
+        /// <summary>
+        /// Extracts and loads unique currency data from a collection of transactions.
+        /// </summary>
+        /// <param name="listOfTransactions">The collection of transactions from which to load currency data.</param>
+        /// <remarks>
+        /// Currencies are selected from the transactions, filtered for uniqueness, and added to the Currency collection, excluding duplicates.
+        /// </remarks>
         private void LoadCurrency(IEnumerable<Transaction> listOfTransactions)
         {
             var currenciesToAdd = listOfTransactions.Select(t => t.Currency)
@@ -132,6 +143,13 @@ namespace IncomeInsightEngine.src.dataStructure
             }
         }
 
+        /// <summary>
+        /// Loads unique payment methods from a collection of transactions into the PaymentMethod collection.
+        /// </summary>
+        /// <param name="listOfTransactions">The collection of transactions to extract payment methods from.</param>
+        /// <remarks>
+        /// Identifies distinct payment methods within the transactions, ensuring no duplicates are added to the PaymentMethod collection.
+        /// </remarks>
         private void LoadPaymentMethod(IEnumerable<Transaction> listOfTransactions)
         {
             var paymentMethodsToAdd = listOfTransactions.Select(t => t.PaymentMethod)
@@ -144,6 +162,13 @@ namespace IncomeInsightEngine.src.dataStructure
             }
         }
 
+        /// <summary>
+        /// Extracts and loads unique categories from a given collection of transactions.
+        /// </summary>
+        /// <param name="listOfTransactions">The collection of transactions to analyze for category data.</param>
+        /// <remarks>
+        /// Categories are extracted from transactions, filtered for uniqueness, and added to the Category collection, avoiding repetition.
+        /// </remarks>
         private void LoadCategory(IEnumerable<Transaction> listOfTransactions)
         {
             var categoriesToAdd = listOfTransactions.Select(t => t.Category)
@@ -156,6 +181,13 @@ namespace IncomeInsightEngine.src.dataStructure
             }
         }
 
+        /// <summary>
+        /// Loads unique budget categories from a specified collection of transactions.
+        /// </summary>
+        /// <param name="listOfTransactions">The collection of transactions from which to extract budget category data.</param>
+        /// <remarks>
+        /// Distinct budget categories are identified and added to the BudgetCategory collection, with duplicate entries excluded.
+        /// </remarks>
         private void LoadBudgetCategory(IEnumerable<Transaction> listOfTransactions)
         {
             var budgetCategoriesToAdd = listOfTransactions.Select(t => t.BudgetCategory)
@@ -168,6 +200,13 @@ namespace IncomeInsightEngine.src.dataStructure
             }
         }
 
+        /// <summary>
+        /// Extracts and aggregates unique tags from a collection of transactions.
+        /// </summary>
+        /// <param name="listOfTransactions">The transactions to parse for tag data.</param>
+        /// <remarks>
+        /// All tags across the transactions are collected, deduplicated, and added to the Tags collection, ensuring a comprehensive list of unique tags.
+        /// </remarks>
         private void LoadTags(IEnumerable<Transaction> listOfTransactions)
         {
             var tagsToAdd = listOfTransactions.SelectMany(t => t.Tags) 
@@ -180,6 +219,13 @@ namespace IncomeInsightEngine.src.dataStructure
             }
         }
 
+        /// <summary>
+        /// Loads distinct classifications from a collection of transactions.
+        /// </summary>
+        /// <param name="listOfTransactions">The transactions from which to extract classification data.</param>
+        /// <remarks>
+        /// Identifies unique classifications from the provided transactions, adding them to the Classification collection while avoiding duplicates.
+        /// </remarks>
         private void LoadClassification(IEnumerable<Transaction> listOfTransactions)
         {
             var classificationsToAdd = listOfTransactions.Select(t => t.Classification)
@@ -192,6 +238,13 @@ namespace IncomeInsightEngine.src.dataStructure
             }
         }
 
+        /// <summary>
+        /// Loads unique partner names from a specified collection of transactions.
+        /// </summary>
+        /// <param name="listOfTransactions">The collection of transactions to analyze for partner data.</param>
+        /// <remarks>
+        /// Extracts distinct partner names from transactions and adds them to the Partner collection, ensuring no duplicates are included.
+        /// </remarks>
         private void LoadPartner(IEnumerable<Transaction> listOfTransactions)
         {
             var partnersToAdd = listOfTransactions.Select(t => t.Partner)
@@ -204,6 +257,13 @@ namespace IncomeInsightEngine.src.dataStructure
             }
         }
 
+        /// <summary>
+        /// Loads unique project names from a collection of transactions.
+        /// </summary>
+        /// <param name="listOfTransactions">The collection of transactions from which to extract project data.</param>
+        /// <remarks>
+        /// Identifies distinct project names within the transactions and adds them to the Project collection, excluding any duplicates.
+        /// </remarks>
         private void LoadProject(IEnumerable<Transaction> listOfTransactions)
         {
             var projectsToAdd = listOfTransactions.Select(t => t.Project)
@@ -216,6 +276,13 @@ namespace IncomeInsightEngine.src.dataStructure
             }
         }
 
+        /// <summary>
+        /// Loads unique status labels from a specified collection of transactions.
+        /// </summary>
+        /// <param name="listOfTransactions">The collection of transactions to analyze for status data.</param>
+        /// <remarks>
+        /// Distinct status labels are extracted and added to the Status collection, ensuring no duplicates are added.
+        /// </remarks>
         private void LoadStatus(IEnumerable<Transaction> listOfTransactions)
         {
             var statusToAdd = listOfTransactions.Select(t => t.Status)
@@ -228,6 +295,13 @@ namespace IncomeInsightEngine.src.dataStructure
             }
         }
 
+        /// <summary>
+        /// Extracts and loads unique priority levels from a collection of transactions.
+        /// </summary>
+        /// <param name="listOfTransactions">The collection of transactions from which to load priority data.</param>
+        /// <remarks>
+        /// Priorities are selected from the transactions, filtered for uniqueness, and added to the Priority collection, excluding duplicates.
+        /// </remarks>
         private void LoadPriority(IEnumerable<Transaction> listOfTransactions)
         {
             var prioritiesToAdd = listOfTransactions.Select(t => t.Priority)
@@ -240,6 +314,13 @@ namespace IncomeInsightEngine.src.dataStructure
             }
         }
 
+        /// <summary>
+        /// Loads distinct frequency types from a collection of transactions.
+        /// </summary>
+        /// <param name="listOfTransactions">The collection of transactions to analyze for frequency data.</param>
+        /// <remarks>
+        /// Frequencies are identified, deduplicated, and added to the Frequency collection, avoiding repetition of the same frequency types.
+        /// </remarks>
         private void LoadFrequency(IEnumerable<Transaction> listOfTransactions)
         {
             var frequenciesToAdd = listOfTransactions.Select(t => t.Frequency)
@@ -252,6 +333,13 @@ namespace IncomeInsightEngine.src.dataStructure
             }
         }
 
+        /// <summary>
+        /// Extracts and loads unique location information from a given collection of transactions.
+        /// </summary>
+        /// <param name="listOfTransactions">The collection of transactions to analyze for location data.</param>
+        /// <remarks>
+        /// Locations are extracted from transactions, filtered for uniqueness, and added to the Location collection, avoiding duplicates.
+        /// </remarks>
         private void LoadLocation(IEnumerable<Transaction> listOfTransactions)
         {
             var locationsToAdd = listOfTransactions.Select(t => t.Location)
@@ -264,6 +352,12 @@ namespace IncomeInsightEngine.src.dataStructure
             }
         }
 
+        /// <summary>
+        /// Displays all loaded lists (Currencies, Payment Methods, Categories, etc.) in the command line.
+        /// </summary>
+        /// <remarks>
+        /// Iterates through each list associated with transactions, such as Currency, PaymentMethod, Category, and more, displaying their contents. Each list is preceded by its name for clarity.
+        /// </remarks>
         public void DisplayAllListsInComandline()
         {
             Console.WriteLine(Strings.Currencies);

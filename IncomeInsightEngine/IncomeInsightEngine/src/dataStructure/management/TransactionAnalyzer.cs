@@ -2,11 +2,8 @@
 using IncomeInsightEngine.Properties;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+
 
 namespace IncomeInsightEngine.src.dataStructure.management
 {
@@ -58,6 +55,11 @@ namespace IncomeInsightEngine.src.dataStructure.management
             return listOfTransactions.Where(t => t.Amount < 0).Sum(t => t.Amount);
         }
 
+        /// <summary>
+        /// Calculates the average amount of a collection of transactions.
+        /// </summary>
+        /// <param name="listOfTransactions">The collection of transactions to calculate the average amount for.</param>
+        /// <returns>The average amount as a decimal. Returns 0m if the collection is null or empty.</returns>
         public decimal CalculateAverageAmount(IEnumerable<Transaction> listOfTransactions)
         {
             if (listOfTransactions == null || !listOfTransactions.Any())
@@ -68,6 +70,11 @@ namespace IncomeInsightEngine.src.dataStructure.management
             return listOfTransactions.Average(t => t.Amount);
         }
 
+        /// <summary>
+        /// Calculates the average income from a collection of transactions.
+        /// </summary>
+        /// <param name="listOfTransactions">The collection of transactions to calculate the average income for. Only transactions with a positive amount are considered.</param>
+        /// <returns>The average income as a decimal. Returns 0m if the collection is null, empty, or contains no transactions with a positive amount.</returns>
         public decimal CalculateAverageIncome(IEnumerable<Transaction> listOfTransactions)
         {
             if (listOfTransactions == null || !listOfTransactions.Any(t => t.Amount > 0))
@@ -78,6 +85,11 @@ namespace IncomeInsightEngine.src.dataStructure.management
             return listOfTransactions.Where(t => t.Amount > 0).Average(t => t.Amount);
         }
 
+        /// <summary>
+        /// Calculates the average expense from a collection of transactions.
+        /// </summary>
+        /// <param name="listOfTransactions">The collection of transactions to calculate the average expense for. Only transactions with a negative amount are considered.</param>
+        /// <returns>The average expense as a decimal. Returns 0m if the collection is null, empty, or contains no transactions with a negative amount.</returns>
         public decimal CalculateAverageExpense(IEnumerable<Transaction> listOfTransactions)
         {
             if (listOfTransactions == null || !listOfTransactions.Any(t => t.Amount < 0))
@@ -88,6 +100,11 @@ namespace IncomeInsightEngine.src.dataStructure.management
             return listOfTransactions.Where(t => t.Amount < 0).Average(t => t.Amount);
         }
 
+        /// <summary>
+        /// Calculates the variance of the amounts in a collection of transactions.
+        /// </summary>
+        /// <param name="listOfTransactions">The collection of transactions to calculate the variance for.</param>
+        /// <returns>The variance as a decimal. The collection must not be null or empty.</returns>
         public decimal CalculateVariance(IEnumerable<Transaction> listOfTransactions)
         {
             var average = CalculateAverageAmount(listOfTransactions);
@@ -95,12 +112,22 @@ namespace IncomeInsightEngine.src.dataStructure.management
             return (decimal)variance;
         }
 
+        /// <summary>
+        /// Calculates the standard deviation of the amounts in a collection of transactions.
+        /// </summary>
+        /// <param name="listOfTransactions">The collection of transactions to calculate the standard deviation for.</param>
+        /// <returns>The standard deviation as a decimal. The collection must not be null or empty.</returns>
         public decimal CalculateStandardDeviation(IEnumerable<Transaction> listOfTransactions)
         {
             var variance = CalculateVariance(listOfTransactions);
             return (decimal)Math.Sqrt((double)variance);
         }
 
+        /// <summary>
+        /// Calculates the median amount of a collection of transactions.
+        /// </summary>
+        /// <param name="listOfTransactions">The collection of transactions to calculate the median amount for.</param>
+        /// <returns>The median amount as a decimal. If the collection's count is even, it returns the average of the two middle numbers.</returns>
         public decimal CalculateMedian(IEnumerable<Transaction> listOfTransactions)
         {
             var sortedTransactions = listOfTransactions.Select(t => t.Amount).OrderBy(amount => amount).ToList();
@@ -115,6 +142,11 @@ namespace IncomeInsightEngine.src.dataStructure.management
             }
         }
 
+        /// <summary>
+        /// Calculates the mode of the amounts in a collection of transactions.
+        /// </summary>
+        /// <param name="listOfTransactions">The collection of transactions to calculate the mode for.</param>
+        /// <returns>The mode as a decimal. In case of multiple modes, returns the one that appears first.</returns>
         public decimal CalculateMode(IEnumerable<Transaction> listOfTransactions)
         {
             return listOfTransactions
@@ -124,6 +156,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
                 .Key;
         }
 
+        /// <summary>
+        /// Calculates a specific quantile of the amounts in a collection of transactions.
+        /// </summary>
+        /// <param name="listOfTransactions">The collection of transactions to calculate the quantile for.</param>
+        /// <param name="quantile">The quantile to calculate, where 0 < quantile < 1.</param>
+        /// <returns>The calculated quantile as a decimal. Handles both discrete and continuous cases for quantile calculation.</returns>
         public decimal CalculateQuantile(IEnumerable<Transaction> listOfTransactions, double quantile)
         {
             var sortedTransactions = listOfTransactions.Select(t => t.Amount).OrderBy(amount => amount).ToList();
@@ -139,6 +177,11 @@ namespace IncomeInsightEngine.src.dataStructure.management
             return sortedTransactions[index];
         }
 
+        /// <summary>
+        /// Calculates the average amount for each group of transactions.
+        /// </summary>
+        /// <param name="groupedTransactions">The collection of transaction groups, each identified by a string key.</param>
+        /// <returns>A collection of tuples, each containing a group key and the average amount of transactions in that group.</returns>
         public IEnumerable<(string key, decimal Average)> CalculateGroupedAverageAmount(IEnumerable<IGrouping<string, Transaction>> groupedTransactions)
         {
             return groupedTransactions
@@ -149,6 +192,11 @@ namespace IncomeInsightEngine.src.dataStructure.management
                 .ToList();
         }
 
+        /// <summary>
+        /// Calculates the average income for each group of transactions.
+        /// </summary>
+        /// <param name="groupedTransactions">The collection of transaction groups, each identified by a string key, to calculate the average income for.</param>
+        /// <returns>A collection of tuples, each containing a group key and the average income of transactions in that group.</returns>
         public IEnumerable<(string key, decimal Average)> CalculateGroupedAverageIncome(IEnumerable<IGrouping<string, Transaction>> groupedTransactions)
         {
             return groupedTransactions
@@ -159,6 +207,11 @@ namespace IncomeInsightEngine.src.dataStructure.management
                  .ToList();
         }
 
+        /// <summary>
+        /// Calculates the average expense for each group of transactions.
+        /// </summary>
+        /// <param name="groupedTransactions">The collection of transaction groups, each identified by a string key, to calculate the average expense for.</param>
+        /// <returns>A collection of tuples, each containing a group key and the average expense of transactions in that group.</returns>
         public IEnumerable<(string key, decimal Average)> CalculateGroupedAverageExpense(IEnumerable<IGrouping<string, Transaction>> groupedTransactions)
         {
             return groupedTransactions
@@ -169,6 +222,11 @@ namespace IncomeInsightEngine.src.dataStructure.management
                 .ToList();
         }
 
+        /// <summary>
+        /// Calculates the total expenses for each group of transactions.
+        /// </summary>
+        /// <param name="groupedTransactions">The collection of transaction groups, each identified by a string key, to calculate the total expenses for.</param>
+        /// <returns>A collection of tuples, each containing a group key and the total expenses of transactions in that group.</returns>
         public IEnumerable<(string key, decimal TotalExpenses)> CalculateGroupedExpenses(IEnumerable<IGrouping<string, Transaction>> groupedTransactions)
         {
             return groupedTransactions
@@ -179,6 +237,11 @@ namespace IncomeInsightEngine.src.dataStructure.management
                 .ToList();
         }
 
+        /// <summary>
+        /// Calculates the total income for each group of transactions.
+        /// </summary>
+        /// <param name="groupedTransactions">The collection of transaction groups, each identified by a string key, to calculate the total income for.</param>
+        /// <returns>A collection of tuples, each containing a group key and the total income of transactions in that group.</returns>
         public IEnumerable<(string key, decimal TotalIncome)> CalculateGroupedIncome(IEnumerable<IGrouping<string, Transaction>> groupedTransactions)
         {
             return groupedTransactions
@@ -189,6 +252,11 @@ namespace IncomeInsightEngine.src.dataStructure.management
                 .ToList();
         }
 
+        /// <summary>
+        /// Calculates the total amount for each group of transactions.
+        /// </summary>
+        /// <param name="groupedTransactions">The collection of transaction groups, each identified by a string key, to calculate the total amount for.</param>
+        /// <returns>A collection of tuples, each containing a group key and the total amount of transactions in that group.</returns>
         public IEnumerable<(string key, decimal TotalAmount)> CalculateGroupedAmount(IEnumerable <IGrouping<string, Transaction>> groupedTransactions)
         {
             return groupedTransactions
@@ -199,6 +267,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
                 .ToList();
         }
 
+        /// <summary>
+        /// Calculates the percentage of total income for each group of transactions relative to the total income of all groups.
+        /// </summary>
+        /// <param name="groupedTransactions">The collection of transaction groups to calculate the percentage for.</param>
+        /// <param name="showZeroValues">Whether to include groups with a percentage of zero in the result.</param>
+        /// <returns>A collection of tuples, each containing a group key and the percentage of total income that group represents.</returns>
         public IEnumerable<(string key, decimal Percentage)> CalculateGroupedPercentageOfTotalIncome(IEnumerable<IGrouping<string, Transaction>> groupedTransactions, bool showZeroValues = false)
         {
             var totalAmount = groupedTransactions.Sum(group => CalculateTotalIncome(group));
@@ -213,6 +287,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
             return results;
         }
 
+        /// <summary>
+        /// Calculates the percentage of total expenses for each group of transactions relative to the total expenses of all groups.
+        /// </summary>
+        /// <param name="groupedTransactions">The collection of transaction groups to calculate the percentage for.</param>
+        /// <param name="showZeroValues">Whether to include groups with a percentage of zero in the result.</param>
+        /// <returns>A collection of tuples, each containing a group key and the percentage of total expenses that group represents.</returns>
         public IEnumerable<(string key, decimal percentage)> CalculateGroupedPercentageOfTotalExpanses(IEnumerable<IGrouping<string, Transaction>> groupedTransactions, bool showZeroValues = false)
         {
             
@@ -228,31 +308,21 @@ namespace IncomeInsightEngine.src.dataStructure.management
             return results;
         }
 
-        public IEnumerable<(string key, decimal Amount)> SortByAmountAscending(IEnumerable<(string key, decimal Amount)> groups)
-        {
-            return groups.OrderBy(g => g.Amount);
-        }
-
-        public IEnumerable<(string key, decimal Amount)> SortByAmountDescending(IEnumerable<(string key, decimal Amount)> groups)
-        {
-            return groups.OrderByDescending(g => g.Amount);
-        }
-
-        public IEnumerable<(string key, decimal Amount)> SortByKeyAscending(IEnumerable<(string key, decimal Amount)> groups)
-        {
-            return groups.OrderBy(g => g.key);
-        }
-
-        public IEnumerable<(string key, decimal Amount)> SortByKeyDescending(IEnumerable<(string key, decimal Amount)> groups)
-        {
-            return groups.OrderByDescending(g => g.key);
-        }
-
+        /// <summary>
+        /// Gets the total count of transactions in a collection.
+        /// </summary>
+        /// <param name="listOfTransactions">The collection of transactions to count.</param>
+        /// <returns>The total number of transactions in the collection.</returns>
         public int GetTotalTransactionCount(IEnumerable<Transaction> listOfTransactions)
         {
             return listOfTransactions.Count();
         }
 
+        /// <summary>
+        /// Calculates the total transaction count for each group of transactions.
+        /// </summary>
+        /// <param name="groupedTransactions">The collection of transaction groups, each identified by a string key.</param>
+        /// <returns>A collection of tuples, each containing a group key and the total number of transactions in that group.</returns>
         public IEnumerable<(string key, decimal Number)> GetGroupedTotalTransactionCount(IEnumerable<IGrouping<string, Transaction>> groupedTransactions)
         {
             return groupedTransactions
@@ -261,6 +331,46 @@ namespace IncomeInsightEngine.src.dataStructure.management
                     Number: GetTotalTransactionCount(group)+0m
                 ))
                 .ToList();
+        }
+
+        /// <summary>
+        /// Sorts a collection of groups by their amount in ascending order.
+        /// </summary>
+        /// <param name="groups">The collection of groups, each represented by a tuple containing a key and an amount.</param>
+        /// <returns>A sorted collection of groups by amount in ascending order.</returns>
+        public IEnumerable<(string key, decimal Amount)> SortByAmountAscending(IEnumerable<(string key, decimal Amount)> groups)
+        {
+            return groups.OrderBy(g => g.Amount);
+        }
+
+        /// <summary>
+        /// Sorts a collection of groups by their amount in descending order.
+        /// </summary>
+        /// <param name="groups">The collection of groups, each represented by a tuple containing a key and an amount.</param>
+        /// <returns>A sorted collection of groups by amount in descending order.</returns>
+        public IEnumerable<(string key, decimal Amount)> SortByAmountDescending(IEnumerable<(string key, decimal Amount)> groups)
+        {
+            return groups.OrderByDescending(g => g.Amount);
+        }
+
+        /// <summary>
+        /// Sorts a collection of groups by their key in ascending order.
+        /// </summary>
+        /// <param name="groups">The collection of groups, each represented by a tuple containing a key and an amount.</param>
+        /// <returns>A sorted collection of groups by key in ascending order.</returns>
+        public IEnumerable<(string key, decimal Amount)> SortByKeyAscending(IEnumerable<(string key, decimal Amount)> groups)
+        {
+            return groups.OrderBy(g => g.key);
+        }
+
+        /// <summary>
+        /// Sorts a collection of groups by their key in descending order.
+        /// </summary>
+        /// <param name="groups">The collection of groups, each represented by a tuple containing a key and an amount.</param>
+        /// <returns>A sorted collection of groups by key in descending order.</returns>
+        public IEnumerable<(string key, decimal Amount)> SortByKeyDescending(IEnumerable<(string key, decimal Amount)> groups)
+        {
+            return groups.OrderByDescending(g => g.key);
         }
 
         /// <summary>
@@ -299,6 +409,14 @@ namespace IncomeInsightEngine.src.dataStructure.management
             Console.WriteLine(Strings.TotalAmount + " " + CalculateTotalAmount(listOfTransactions));
         }
 
+        /// <summary>
+        /// Displays the amount associated with each group in the console.
+        /// </summary>
+        /// <param name="Groups">The collection of groups, each represented by a tuple containing a key and an amount.</param>
+        /// <remarks>
+        /// For each group, this method prints the key and its corresponding rounded amount to the console, 
+        /// formatting the output with the group key aligned to the left and the amount to the right.
+        /// </remarks>
         public void DisplayGroupedAmountInComandline(IEnumerable<(string key, decimal Amount)> Groups)
         {          
             foreach (var (Key, Amount) in Groups)

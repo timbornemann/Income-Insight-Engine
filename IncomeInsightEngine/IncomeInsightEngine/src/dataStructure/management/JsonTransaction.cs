@@ -4,7 +4,6 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using dataStructure;
-using System.Threading;
 using System.Diagnostics;
 using IncomeInsightEngine.Properties;
 
@@ -25,7 +24,6 @@ namespace IncomeInsightEngine.src.dataStructure.management
     /// </remarks>
     public class JsonTransaction
     {
-
         private string filePath;
         private FileEncryptor encryptor;
 
@@ -182,6 +180,15 @@ namespace IncomeInsightEngine.src.dataStructure.management
             return transactions;
         }
 
+        /// <summary>
+        /// Opens a file with the default program associated with its file type.
+        /// </summary>
+        /// <remarks>
+        /// This method attempts to open the specified file using the system's default application for the file's type. 
+        /// If the file does not exist, a message indicating the file does not exist is displayed. 
+        /// Any exceptions that occur during the process are caught and displayed in the console.
+        /// </remarks>
+        /// <exception cref="System.Exception">Thrown when an error occurs in launching the default program.</exception>
         public void OpenFileWithDefaultProgram()
         {
             try

@@ -1,11 +1,8 @@
-﻿using Microsoft.Win32;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net;
 using System.Text;
-using System.Threading.Tasks;
+
 
 namespace IncomeInsightEngine.src.parser
 {
@@ -13,6 +10,15 @@ namespace IncomeInsightEngine.src.parser
     {
         private Random random = new Random();
         private DateTime startDate = DateTime.Now;
+
+        /// <summary>
+        /// Generates transaction data for a specified number of months and saves it to a CSV file.
+        /// </summary>
+        /// <param name="months">The number of months for which to generate transaction data.</param>
+        /// <returns>The file path of the saved CSV file containing the generated data.</returns>
+        /// <remarks>
+        /// This method creates a series of transactions including fixed transactions like salary and rent, and a variable number of other transactions for each month. The transactions are saved in a CSV format.
+        /// </remarks>
         public string CreateData(int months)
         {
             StringBuilder data = new StringBuilder();
@@ -43,6 +49,13 @@ namespace IncomeInsightEngine.src.parser
             return SaveDataToCsv(data.ToString(), $"SampleData{months}Months.csv");             
         }
 
+        /// <summary>
+        /// Randomly selects a transaction type from a weighted list of possible transactions.
+        /// </summary>
+        /// <returns>A tuple containing the transaction type, description, minimum and maximum amount range, and the IBAN.</returns>
+        /// <remarks>
+        /// Transaction types are weighted to mimic the frequency of various types of transactions in real-life scenarios. This method ensures a diverse set of transactions is generated.
+        /// </remarks>
         private (string Type, string Description, int MinAmount, int MaxAmount, string IBAN) ChooseTransactionType()
         {
             var transactionTypes = new List<(string Type, string Description, int MinAmount, int MaxAmount, string IBAN, int Weight)>
@@ -115,6 +128,14 @@ namespace IncomeInsightEngine.src.parser
             return default;
         }
 
+        /// <summary>
+        /// Formats a single transaction into a string suitable for CSV output based on provided details.
+        /// </summary>
+        /// <param name="transaction">A tuple containing the transaction's type, description, amount range, and IBAN.</param>
+        /// <returns>A string representing the transaction in CSV format.</returns>
+        /// <remarks>
+        /// Generates a random amount within the specified range for the transaction. It also advances the transaction date randomly within a small range to distribute transactions over time.
+        /// </remarks>
         private string GenerateTransaction((string Type, string Description, int MinAmount, int MaxAmount, string IBAN) transaction)
         {
             int amount = random.Next(transaction.MinAmount, transaction.MaxAmount + 1);
@@ -125,6 +146,15 @@ namespace IncomeInsightEngine.src.parser
             return $"\"{date}\";\"{date}\";\"Abgeschlossen\";\"Max Mustermann\";\"{transaction.Description}\";\"{transaction.Type}\";\"\";\"{transaction.IBAN}\";\"{betrag}\";\"\";\"\";\"\"";
         }
 
+        /// <summary>
+        /// Saves the generated transaction data to a CSV file in the user's Documents folder.
+        /// </summary>
+        /// <param name="csvData">The CSV-formatted transaction data to save.</param>
+        /// <param name="fileName">The name of the file to save the data to.</param>
+        /// <returns>The full path to the saved CSV file.</returns>
+        /// <remarks>
+        /// This method writes the provided CSV data to a file, creating a persistent record of the generated transactions that can be accessed after the program has run.
+        /// </remarks>
         public string SaveDataToCsv(string csvData, string fileName)
         {
             string downloadsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
