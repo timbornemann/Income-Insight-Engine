@@ -1859,17 +1859,17 @@ namespace IncomeInsightEngine.src.dataStructure.management
                 string input;
                 do
                 {
-                    Console.WriteLine($"{Strings.Add}? {Strings.Yes} = 1 / {Strings.No} = 0");
+                    Console.WriteLine($"{Strings.AddTag}? {Strings.Yes} = 1 / {Strings.No} = 0");
                     input = Console.ReadLine().Trim();
                     if (input == "1")
                     {
-                        Console.WriteLine(Strings.EnterNew + ": ");
+                        Console.Write(Strings.Tag + ": ");
                         string newName = Console.ReadLine()?.Trim();
                         if (!string.IsNullOrEmpty(newName))
                         {
                             TagPartnerAddBatchProcessing(group.Key, newName);
                         }
-                    }
+                    }                   
                 } while(input == "1");
 
                 Console.WriteLine();
