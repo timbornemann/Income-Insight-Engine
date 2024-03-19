@@ -88,6 +88,15 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Add Tag ähnelt.
+        /// </summary>
+        public static string AddTag {
+            get {
+                return ResourceManager.GetString("AddTag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Add Tags ähnelt.
         /// </summary>
         public static string AddTags {
@@ -1623,6 +1632,15 @@ namespace IncomeInsightEngine.Properties {
         public static string SeparatedByCommas {
             get {
                 return ResourceManager.GetString("SeparatedByCommas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Separate with commas ähnelt.
+        /// </summary>
+        public static string Separatewithcommas {
+            get {
+                return ResourceManager.GetString("Separatewithcommas", resourceCulture);
             }
         }
         

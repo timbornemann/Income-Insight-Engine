@@ -126,6 +126,9 @@
   <data name="AddMoreDetails" xml:space="preserve">
     <value>Füge weitere Details hinzu</value>
   </data>
+  <data name="AddTag" xml:space="preserve">
+    <value>Tag hinzufügen</value>
+  </data>
   <data name="AddTags" xml:space="preserve">
     <value>Tags hinzufügen</value>
   </data>
@@ -638,6 +641,9 @@
   </data>
   <data name="SeparatedByCommas" xml:space="preserve">
     <value>Getrennt durch Kommas ','</value>
+  </data>
+  <data name="Separatewithcommas" xml:space="preserve">
+    <value>Mit Kommas trennen</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Einstellungen</value>
