@@ -184,7 +184,7 @@ namespace IncomeInsightEngine
         /// </remarks>
         private void EditTransactions()
         {
-            string message1 = $"| {Strings.Addasingletransaction} = 0 | {Strings.importcsvfilefromDKB} = 1 | {Strings.DeleteTransaction} = 2 | {Strings.Batchprocessingoftransactiondetailsviapartners} = 3 |";
+            string message1 = $"| {Strings.Addasingletransaction} = 0 | {Strings.importcsvfilefromDKB} = 1 | {Strings.DeleteTransaction} = 2 | {Strings.Batchprocessingoftransactiondetails} = 3 |";
             string message2 = $"| {Strings.Showgeneraltransactioninformation} = 4 | {Strings.Generaterandomsampledata} = 5 | {Strings.Exit} = -1";
 
             int m1adapter = message1.Length - message2.Length - 1;
@@ -264,8 +264,8 @@ namespace IncomeInsightEngine
             Console.WriteLine($"{Strings.RenameAllNullStatuses} = 9");
             Console.WriteLine($"{Strings.RenameAllNullPriorities} = 10");
             Console.WriteLine($"{Strings.RenameAllNullFrequencies} = 11");
-            Console.WriteLine($"{Strings.RenameAllNullLocations} = 12");         
-
+            Console.WriteLine($"{Strings.RenameAllNullLocations} = 12");
+            Console.WriteLine($"{Strings.AdvancedOptions} = 13");
             string input = Console.ReadLine().Trim();
 
             switch (input)
@@ -309,10 +309,395 @@ namespace IncomeInsightEngine
                 case "12":
                     manager.RenameAllNullLocationInComandline();
                     break;
+                case "13":
+                    AdvancedOptions();
+                    break;
                 default:
                     Console.WriteLine("Invalid selection.");
                     break;
             }
+
+        }
+
+        /// <summary>
+        /// Displays the advanced options menu for batch processing and other advanced operations.
+        /// </summary>
+        /// <remarks>
+        /// Provides a looped interface for the user to select and perform advanced operations on transactions, such as batch processing for editing multiple transaction details at once.
+        /// </remarks>
+        private void AdvancedOptions()
+        {
+
+            string message = $"| {Strings.AdvancedBatchProcessing} = 0 | {Strings.Exit} = -1 |";
+            string dots = new string('-', message.Length);
+            bool exit = false;
+
+            while (!exit)
+            {
+                Console.WriteLine(Strings.AdvancedOptions + " " + dots.Substring(Strings.AdvancedOptions.Length + 1));
+                Console.WriteLine(message);
+                Console.WriteLine(dots);
+
+                string input = Console.ReadLine().Trim();
+                switch (input)
+                {
+                    case "0":
+                        AdvancedBatchProcessing();
+                        break;
+
+                    case "-1":
+                        exit = true;
+                        break;
+    
+                }
+            }
+        }
+
+        /// <summary>
+        /// Provides options for advanced batch processing tasks, such as editing transaction details based on specific criteria.
+        /// </summary>
+        /// <remarks>
+        /// Offers a variety of batch editing options allowing for modifications across multiple transactions. This includes changing descriptions, currencies, payment methods, and more based on certain conditions.
+        /// </remarks>
+        private void AdvancedBatchProcessing()
+        {
+            Console.WriteLine($"{Strings.DescriptionBatchProcessing} = 0");
+            Console.WriteLine($"{Strings.DescriptionPartnerBatchProcessing} = 1");
+            Console.WriteLine($"{Strings.CurrencyBatchProcessing} = 2");
+            Console.WriteLine($"{Strings.CurrencyDescriptionBatchProcessing} = 3");
+            Console.WriteLine($"{Strings.CurrencyCategoryBatchProcessing} = 4");
+            Console.WriteLine($"{Strings.CurrencyBudgetCategoryBatchProcessing} = 5");
+            Console.WriteLine($"{Strings.CurrencyPartnerBatchProcessing} = 6");
+            Console.WriteLine($"{Strings.CurrencyLocationBatchProcessing} = 7");
+            Console.WriteLine($"{Strings.PaymentMethodBatchProcessing} = 8");
+            Console.WriteLine($"{Strings.PaymentMethodPartnerBatchProcessing} = 9");
+            Console.WriteLine($"{Strings.PaymentMethodDescriptionBatchProcessing} = 10");
+            Console.WriteLine($"{Strings.CategoryBatchProcessing} = 11");
+            Console.WriteLine($"{Strings.CategoryDescriptionBatchProcessing} = 12");
+            Console.WriteLine($"{Strings.CategoryCurrencyBatchProcessing} = 13");
+            Console.WriteLine($"{Strings.CategoryBudgetCategoryBatchProcessing} = 14");
+            Console.WriteLine($"{Strings.CategoryPartnerBatchProcessing} = 15");
+            Console.WriteLine($"{Strings.BudgetCategoryBatchProcessing} = 16");
+            Console.WriteLine($"{Strings.BudgetCategoryPartnerBatchProcessing} = 17");
+            Console.WriteLine($"{Strings.TagPartnerAddBatchProcessing} = 18");
+            Console.WriteLine($"{Strings.TagPartnerRemoveBatchProcessing} = 19");
+            Console.WriteLine($"{Strings.TagPartnerChangeBatchProcessing} = 20");
+            Console.WriteLine($"{Strings.ClassificationBatchProcessing} = 21");
+            Console.WriteLine($"{Strings.ClassificationPartnerBatchProcessing} = 22");
+            Console.WriteLine($"{Strings.PartnerIbanBatchProcessing} = 23");
+            Console.WriteLine($"{Strings.PartnerIbanPartnerBatchProcessing} = 24");
+            Console.WriteLine($"{Strings.PartnerBatchProcessing} = 25");
+            Console.WriteLine($"{Strings.PartnerDescriptionBatchProcessing} = 26");
+            Console.WriteLine($"{Strings.ProjectBatchProcessing} = 27");
+            Console.WriteLine($"{Strings.ProjectPartnerBatchProcessing} = 28");
+            Console.WriteLine($"{Strings.StatusBatchProcessing} = 29");
+            Console.WriteLine($"{Strings.StatusPartnerBatchProcessing} = 30");
+            Console.WriteLine($"{Strings.PriorityBatchProcessing} = 31");
+            Console.WriteLine($"{Strings.PriorityPartnerBatchProcessing} = 32");
+            Console.WriteLine($"{Strings.FrequencyBatchProcessing} = 33");
+            Console.WriteLine($"{Strings.FrequencyPartnerBatchProcessing} = 34");
+            Console.WriteLine($"{Strings.LocationBatchProcessing} = 35");
+            Console.WriteLine($"{Strings.LocationCurrencyBatchProcessing} = 36");
+            Console.WriteLine($"{Strings.LocationPartnerBatchProcessing} = 37");
+            Console.WriteLine($"{Strings.NotesBatchProcessing} = 38");
+            Console.WriteLine($"{Strings.NotesPartnerBatchProcessing} = 39");
+
+            Console.WriteLine();
+            Console.Write(Strings.Selection + " = ");
+            string input = Console.ReadLine().Trim();
+
+            string original = string.Empty;
+            string replacement = string.Empty;
+            string comparator = string.Empty;
+
+            switch (input)
+            {
+                case "0":
+                    Console.Write($"{Strings.Original}: ");
+                    original = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.DescriptionBatchProcessing(original, replacement);
+                    break;
+                case "1":
+                    Console.Write($"{Strings.Original}: ");
+                    comparator = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.DescriptionPartnerBatchProcessing(comparator, replacement);
+                    break;
+                case "2":
+                    Console.Write($"{Strings.Original}: ");
+                    original = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.CurrencyBatchProcessing(original, replacement);
+                    break;
+                case "3":
+                    Console.Write($"{Strings.Original}: ");
+                    comparator = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.CurrencyDescriptionBatchProcessing(comparator, replacement);
+                    break;
+                case "4":
+                    Console.Write($"{Strings.Original}: ");
+                    comparator = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.CurrencyCategoryBatchProcessing(comparator, replacement);
+                    break;
+                case "5":
+                    Console.Write($"{Strings.Original}: ");
+                    comparator = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.CurrencyBudgetCategoryBatchProcessing(comparator, replacement);
+                    break;
+                case "6":
+                    Console.Write($"{Strings.Original}: ");
+                    comparator = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.CurrencyPartnerBatchProcessing(comparator, replacement);
+                    break;
+                case "7":
+                    Console.Write($"{Strings.Original}: ");
+                    comparator = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.CurrencyLocationBatchProcessing(comparator, replacement);
+                    break;
+                case "8":
+                    Console.Write($"{Strings.Original}: ");
+                    original = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.PaymentMethodBatchProcessing(original, replacement);
+                    break;
+                case "9":
+                    Console.Write($"{Strings.Original}: ");
+                    comparator = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.PaymentMethodPartnerBatchProcessing(comparator, replacement);
+                    break;
+                case "10":
+                    Console.Write($"{Strings.Original}: ");
+                    comparator = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.PaymentMethodDescriptionBatchProcessing(comparator, replacement);
+                    break;
+                case "11":
+                    Console.Write($"{Strings.Original}: ");
+                    original = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.CategoryBatchProcessing(original, replacement);
+                    break;
+                case "12":
+                    Console.Write($"{Strings.Original}: ");
+                    comparator = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.CategoryDescriptionBatchProcessing(comparator, replacement);
+                    break;
+                case "13":
+                    Console.Write($"{Strings.Original}: ");
+                    comparator = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.CategoryCurrencyBatchProcessing(comparator, replacement);
+                    break;
+                case "14":
+                    Console.Write($"{Strings.Original}: ");
+                    comparator = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.CategoryBudgetCategoryBatchProcessing(comparator, replacement);
+                    break;
+                case "15":
+                    Console.Write($"{Strings.Original}: ");
+                    comparator = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.CategoryPartnerBatchProcessing(comparator, replacement);
+                    break;
+                case "16":
+                    Console.Write($"{Strings.Original}: ");
+                    original = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.BudgetCategoryBatchProcessing(original, replacement);
+                    break;
+                case "17":
+                    Console.Write($"{Strings.Original}: ");
+                    comparator = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.BudgetCategoryPartnerBatchProcessing(comparator, replacement);
+                    break;
+                case "18":
+                    Console.Write($"{Strings.Original}: ");
+                    comparator = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.TagPartnerAddBatchProcessing(comparator, replacement);
+                    break;
+                case "19":
+                    Console.Write($"{Strings.Original}: ");
+                    comparator = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.TagPartnerRemoveBatchProcessing(comparator, replacement);
+                    break;
+                case "20":
+                    Console.Write($"{Strings.Original}: ");
+                    original = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.CompareWith}: ");
+                    comparator = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();                   
+                    manager.TagPartnerChangeBatchProcessing(original, comparator, replacement);
+                    break;
+                case "21":
+                    Console.Write($"{Strings.Original}: ");
+                    original = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.ClassificationBatchProcessing(original, replacement);
+                    break;
+                case "22":
+                    Console.Write($"{Strings.Original}: ");
+                    comparator = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.ClassificationPartnerBatchProcessing(comparator, replacement);
+                    break;
+                case "23":
+                    Console.Write($"{Strings.Original}: ");
+                    original = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.PartnerIbanBatchProcessing(original, replacement);
+                    break;
+                case "24":
+                    Console.Write($"{Strings.Original}: ");
+                    comparator = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.PartnerIbanPartnerBatchProcessing(comparator, replacement);
+                    break;
+                case "25":
+                    Console.Write($"{Strings.Original}: ");
+                    original = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.PartnerBatchProcessing(original, replacement);
+                    break;
+                case "26":
+                    Console.Write($"{Strings.Original}: ");
+                    comparator = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.PartnerDescriptionProcessing(comparator, replacement);
+                    break;
+                case "27":
+                    Console.Write($"{Strings.Original}: ");
+                    original = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.ProjectBatchProcessing(original, replacement);
+                    break;
+                case "28":
+                    Console.Write($"{Strings.Original}: ");
+                    comparator = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.ProjectPartnerBatchProcessing(comparator, replacement);
+                    break;
+                case "29":
+                    Console.Write($"{Strings.Original}: ");
+                    original = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.StatusBatchProcessing(original, replacement);
+                    break;
+                case "30":
+                    Console.Write($"{Strings.Original}: ");
+                    comparator = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.StatusPartnerBatchProcessing(comparator, replacement);
+                    break;
+                case "31":
+                    Console.Write($"{Strings.Original}: ");
+                    original = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.PriorityBatchProcessing(original, replacement);
+                    break;
+                case "32":
+                    Console.Write($"{Strings.Original}: ");
+                    comparator = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.PriorityPartnerBatchProcessing(comparator, replacement);
+                    break;
+                case "33":
+                    Console.Write($"{Strings.Original}: ");
+                    original = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.FrequencyBatchProcessing(original, replacement);
+                    break;
+                case "34":
+                    Console.Write($"{Strings.Original}: ");
+                    comparator = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.FrequencyPartnerBatchProcessing(comparator, replacement);
+                    break;
+                case "35":
+                    Console.Write($"{Strings.Original}: ");
+                    original = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.LocationBatchProcessing(original, replacement);
+                    break;
+                case "36":
+                    Console.Write($"{Strings.Original}: ");
+                    comparator = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.LocationCurrencyBatchProcessing(comparator, replacement);
+                    break;
+                case "37":
+                    Console.Write($"{Strings.Original}: ");
+                    comparator = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.LocationPartnerBatchProcessing(comparator, replacement);
+                    break;
+                case "38":
+                    Console.Write($"{Strings.Original}: ");
+                    original = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.NotesBatchProcessing(original, replacement);
+                    break;
+                case "39":
+                    Console.Write($"{Strings.Original}: ");
+                    comparator = Console.ReadLine().Trim();
+                    Console.Write($"{Strings.ReplaceWith}: ");
+                    replacement = Console.ReadLine().Trim();
+                    manager.NotesPartnerBatchProcessing(comparator, replacement);
+                    break;
+                default:
+                    break;
+            }
+
 
         }
 
