@@ -110,6 +110,19 @@ namespace IncomeInsightEngine.src.dataStructure
         /// </remarks>
         public void LoadData(IEnumerable<Transaction> listOfTransactions)
         {
+            Currency.Clear();
+            PaymentMethod.Clear();
+            Category.Clear();
+            BudgetCategory.Clear();
+            Tags.Clear();
+            Classification.Clear();
+            Partner.Clear();
+            Project.Clear();
+            Status.Clear();
+            Priority.Clear();
+            Frequency.Clear();
+            Location.Clear();
+
             LoadCurrency(listOfTransactions);
             LoadPaymentMethod(listOfTransactions);
             LoadCategory(listOfTransactions);
