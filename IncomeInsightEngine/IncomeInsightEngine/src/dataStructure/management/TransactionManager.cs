@@ -1194,6 +1194,15 @@ namespace IncomeInsightEngine.src.dataStructure.management
             return (listOfTransactions ?? transactions).Where(t => t.Notes != null && t.Notes?.IndexOf(notes, StringComparison.OrdinalIgnoreCase) >= 0);
         }
 
+        /// <summary>
+        /// Retrieves transactions that match a specified text across multiple fields.
+        /// </summary>
+        /// <param name="text">The text to search for within the transaction properties.</param>
+        /// <param name="listOfTransactions">Optional. The collection of transactions to search through. If not provided, the default transaction set is used.</param>
+        /// <returns>An enumerable collection of transactions where the specified text is found in any of the considered fields.</returns>
+        /// <remarks>
+        /// This method performs a case-insensitive search across several fields including amount, category, date, description, and more, to find matches for the provided text.
+        /// </remarks>
         public IEnumerable<Transaction> GetTransactionsByFullTextSearch(string text, IEnumerable<Transaction> listOfTransactions = null)
         {
             return (listOfTransactions ?? transactions).Where(t => 
