@@ -219,11 +219,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void DescriptionBatchProcessing(string original, string replacement)
         {
-            foreach(Transaction t in transactions.Where(t=> original == null ? t.Description == null : t.Description.Equals(original)))
+            foreach(Transaction t in transactions.Where(t=> original == null ? t.Description == null : t.Description?.Equals(original) == true))
             {
                 t.Description = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -237,11 +238,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void DescriptionPartnerBatchProcessing(string comparator, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator)))
+            foreach (Transaction t in transactions.Where(t => t.Partner?.Equals(comparator) == true))
             {
                 t.Description = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -255,11 +257,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void CurrencyBatchProcessing(string original, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => original == null ? t.Currency == null : t.Currency.Equals(original)))
+            foreach (Transaction t in transactions.Where(t => original == null ? t.Currency == null : t.Currency?.Equals(original) == true))
             {
                 t.Currency = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -273,11 +276,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void CurrencyDescriptionBatchProcessing(string comparator, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Description.Equals(comparator)))
+            foreach (Transaction t in transactions.Where(t => t.Description?.Equals(comparator) == true))
             {
                 t.Currency = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -290,11 +294,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void CurrencyCategoryBatchProcessing(string comparator, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Category.Equals(comparator)))
+            foreach (Transaction t in transactions.Where(t => t.Category?.Equals(comparator) == true))
             {
                 t.Currency = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -307,11 +312,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void CurrencyBudgetCategoryBatchProcessing(string comparator, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.BudgetCategory.Equals(comparator)))
+            foreach (Transaction t in transactions.Where(t => t.BudgetCategory?.Equals(comparator) == true))
             {
                 t.Currency = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -324,11 +330,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void CurrencyPartnerBatchProcessing(string comparator, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator)))
+            foreach (Transaction t in transactions.Where(t => t.Partner?.Equals(comparator) == true))
             {
                 t.Currency = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -341,11 +348,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void CurrencyLocationBatchProcessing(string comparator, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Location.Equals(comparator)))
+            foreach (Transaction t in transactions.Where(t => t.Location?.Equals(comparator) == true))
             {
                 t.Currency = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -358,11 +366,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void PaymentMethodBatchProcessing(string original, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => original == null ? t.PaymentMethod == null : t.PaymentMethod.Equals(original)))
+            foreach (Transaction t in transactions.Where(t => original == null ? t.PaymentMethod == null : t.PaymentMethod?.Equals(original) == true))
             {
                 t.PaymentMethod = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -375,11 +384,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void PaymentMethodPartnerBatchProcessing(string comparator, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator) || (t.Partner != null && t.Partner.IndexOf(comparator, StringComparison.OrdinalIgnoreCase) >= 0)))
+            foreach (Transaction t in transactions.Where(t => t.Partner?.Equals(comparator) == true || (t.Partner != null && t.Partner.IndexOf(comparator, StringComparison.OrdinalIgnoreCase) >= 0)))
             {
                 t.PaymentMethod = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -392,11 +402,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void PaymentMethodDescriptionBatchProcessing(string comparator, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Description.Equals(comparator) || (t.Description != null && t.Description.IndexOf(comparator, StringComparison.OrdinalIgnoreCase) >= 0)))
+            foreach (Transaction t in transactions.Where(t => t.Description?.Equals(comparator) == true || (t.Description != null && t.Description.IndexOf(comparator, StringComparison.OrdinalIgnoreCase) >= 0)))
             {
                 t.PaymentMethod = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -409,11 +420,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void CategoryBatchProcessing(string original, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => original == null ? t.Category == null : t.Category.Equals(original)))
+            foreach (Transaction t in transactions.Where(t => original == null ? t.Category == null : t.Category?.Equals(original) == true))
             {
                 t.Category = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -426,11 +438,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void CategoryDescriptionBatchProcessing(string comparator, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Description.Equals(comparator)))
+            foreach (Transaction t in transactions.Where(t => t.Description?.Equals(comparator) == true))
             {
                 t.Category = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -443,11 +456,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void CategoryCurrencyBatchProcessing(string comparator, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Currency.Equals(comparator)))
+            foreach (Transaction t in transactions.Where(t => t.Currency?.Equals(comparator) == true))
             {
                 t.Category = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -460,11 +474,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void CategoryBudgetCategoryBatchProcessing(string comparator, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.BudgetCategory.Equals(comparator)))
+            foreach (Transaction t in transactions.Where(t => t.BudgetCategory?.Equals(comparator) == true))
             {
                 t.Category = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -477,11 +492,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void CategoryPartnerBatchProcessing(string comparator, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator) || (t.Partner != null && t.Partner.IndexOf(comparator, StringComparison.OrdinalIgnoreCase) >= 0)))
+            foreach (Transaction t in transactions.Where(t => t.Partner?.Equals(comparator) == true || (t.Partner != null && t.Partner.IndexOf(comparator, StringComparison.OrdinalIgnoreCase) >= 0)))
             {
                 t.Category = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -494,11 +510,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void BudgetCategoryBatchProcessing(string original, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => original == null ? t.BudgetCategory == null : t.BudgetCategory.Equals(original)))
+            foreach (Transaction t in transactions.Where(t => original == null ? t.BudgetCategory == null : t.BudgetCategory?.Equals(original) == true))
             {
                 t.BudgetCategory = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -508,11 +525,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <param name="replacement">The new budget category to apply to these transactions.</param
         public void BudgetCategoryPartnerBatchProcessing(string comparator, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator)))
+            foreach (Transaction t in transactions.Where(t => t.Partner?.Equals(comparator) == true))
             {
                 t.BudgetCategory = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -525,11 +543,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void TagPartnerAddBatchProcessing(string comparator, string tag)
         {
-            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator)))
+            foreach (Transaction t in transactions.Where(t => t.Partner?.Equals(comparator) == true))
             {
                 t.Tags.Add(tag);
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -542,11 +561,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void TagPartnerRemoveBatchProcessing(string comparator, string tag)
         {
-            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator)))
+            foreach (Transaction t in transactions.Where(t => t.Partner?.Equals(comparator) == true))
             {
                 t.Tags.Remove(tag);
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -560,11 +580,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void TagPartnerChangeBatchProcessing(string comparator, string originalTag, string replacementTag)
         {
-            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator)))
+            foreach (Transaction t in transactions.Where(t => t.Partner?.Equals(comparator) == true))
             {
                 t.Tags[t.Tags.IndexOf(originalTag)] = replacementTag;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -577,11 +598,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void ClassificationBatchProcessing(string original, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => original == null ? t.Classification == null : t.Classification.Equals(original)))
+            foreach (Transaction t in transactions.Where(t => original == null ? t.Classification == null : t.Classification?.Equals(original) == true))
             {
                 t.Classification = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -594,11 +616,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void ClassificationPartnerBatchProcessing(string comparator, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t =>  t.Partner.Equals(comparator)))
+            foreach (Transaction t in transactions.Where(t =>  t.Partner?.Equals(comparator) == true))
             {
                 t.Classification = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -611,11 +634,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void PartnerIbanBatchProcessing(string original, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => original == null ? t.PartnerIban == null : t.PartnerIban.Equals(original)))
+            foreach (Transaction t in transactions.Where(t => original == null ? t.PartnerIban == null : t.PartnerIban?.Equals(original) == true))
             {
                 t.PartnerIban = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -628,11 +652,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void PartnerIbanPartnerBatchProcessing(string comparator, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator)))
+            foreach (Transaction t in transactions.Where(t => t.Partner?.Equals(comparator) == true))
             {
                 t.PartnerIban = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -645,11 +670,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void PartnerBatchProcessing(string original, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => original == null ? t.Partner == null : t.Partner.Equals(original) || (t.Partner != null && t.Partner.IndexOf(original, StringComparison.OrdinalIgnoreCase) >= 0)))
+            foreach (Transaction t in transactions.Where(t => original == null ? t.Partner == null : t.Partner?.Equals(original) == true || (t.Partner != null && t.Partner.IndexOf(original, StringComparison.OrdinalIgnoreCase) >= 0)))
             {
                 t.Partner = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -662,11 +688,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void PartnerDescriptionProcessing(string comparator, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Description.Equals(comparator)))
+            foreach (Transaction t in transactions.Where(t => t.Description?.Equals(comparator) == true))
             {
                 t.Partner = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -679,11 +706,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void ProjectBatchProcessing(string original, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => original == null ? t.Project == null : t.Project.Equals(original)))
+            foreach (Transaction t in transactions.Where(t => original == null ? t.Project == null : t.Project?.Equals(original) == true))
             {
                 t.Project = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -696,11 +724,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void ProjectPartnerBatchProcessing(string comparator, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator)))
+            foreach (Transaction t in transactions.Where(t => t.Partner?.Equals(comparator) == true))
             {
                 t.Project = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -713,11 +742,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void StatusBatchProcessing(string original, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => original == null ? t.Status == null : t.Status.Equals(original)))
+            foreach (Transaction t in transactions.Where(t => original == null ? t.Status == null : t.Status?.Equals(original) == true))
             {
                 t.Status = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -730,11 +760,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void StatusPartnerBatchProcessing(string comparator, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator)))
+            foreach (Transaction t in transactions.Where(t => t.Partner?.Equals(comparator) == true))
             {
                 t.Status = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -747,11 +778,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void PriorityBatchProcessing(string original, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => original == null ? t.Priority == null : t.Priority.Equals(original)))
+            foreach (Transaction t in transactions.Where(t => original == null ? t.Priority == null : t.Priority?.Equals(original) == true))
             {
                 t.Priority = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -764,11 +796,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void PriorityPartnerBatchProcessing(string comparator, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator)))
+            foreach (Transaction t in transactions.Where(t => t.Partner?.Equals(comparator) == true))
             {
                 t.Priority = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -781,11 +814,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void FrequencyBatchProcessing(string original, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => original == null ? t.Frequency == null : t.Frequency.Equals(original)))
+            foreach (Transaction t in transactions.Where(t => original == null ? t.Frequency == null : t.Frequency?.Equals(original) == true))
             {
                 t.Frequency = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -798,11 +832,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void FrequencyPartnerBatchProcessing(string comparator, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator)))
+            foreach (Transaction t in transactions.Where(t => t.Partner?.Equals(comparator) == true))
             {
                 t.Frequency = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -815,11 +850,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void LocationBatchProcessing(string original, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => original == null ? t.Location == null : t.Location.Equals(original)))
+            foreach (Transaction t in transactions.Where(t => original == null ? t.Location == null : t.Location?.Equals(original) == true))
             {
                 t.Location = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -832,11 +868,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void LocationCurrencyBatchProcessing(string comparator, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Currency.Equals(comparator)))
+            foreach (Transaction t in transactions.Where(t => t.Currency?.Equals(comparator) == true))
             {
                 t.Location = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -849,11 +886,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void LocationPartnerBatchProcessing(string comparator, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator)))
+            foreach (Transaction t in transactions.Where(t => t.Partner?.Equals(comparator) == true))
             {
                 t.Location = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -866,11 +904,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void NotesBatchProcessing(string original, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => original == null ? t.Notes == null : t.Notes.Equals(original)))
+            foreach (Transaction t in transactions.Where(t => original == null ? t.Notes == null : t.Notes?.Equals(original) == true))
             {
                 t.Notes = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -883,11 +922,12 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void NotesPartnerBatchProcessing(string comparator, string replacement)
         {
-            foreach (Transaction t in transactions.Where(t => t.Partner.Equals(comparator)))
+            foreach (Transaction t in transactions.Where(t => t.Partner?.Equals(comparator) == true))
             {
                 t.Notes = replacement;
             }
             jsonTransaction.SaveData(transactions);
+            transaktionInformation.LoadData(transactions);
         }
 
         /// <summary>
@@ -1692,7 +1732,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void RenameAllTransactionPartnersInComandline()
         {
-            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(SortTransactionsByPartnerDescending());
+            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(SortTransactionsByPartnerAscending());
 
             Console.WriteLine(Strings.BatchProcessingOfPartnerNames);
             Console.WriteLine();
@@ -1724,7 +1764,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void RenameAllNullDescriptionInComandline()
         {
-            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(SortTransactionsByPartnerDescending(GetTransactionsByDescription(null)));
+            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(SortTransactionsByPartnerAscending(GetTransactionsByDescription(null)));
 
             Console.WriteLine(Strings.BatchProcessing);
             Console.WriteLine();
@@ -1756,7 +1796,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void RenameAllNullCurrencyInComandline()
         {
-            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(SortTransactionsByPartnerDescending(GetTransactionsByCurrency(null)));
+            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(SortTransactionsByPartnerAscending(GetTransactionsByCurrency(null)));
 
             Console.WriteLine(Strings.BatchProcessing);
             Console.WriteLine();
@@ -1788,7 +1828,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void RenameAllNullPaymentMethodInComandline()
         {
-            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(SortTransactionsByPartnerDescending(GetTransactionsByPaymentMethod(null)));
+            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(SortTransactionsByPartnerAscending(GetTransactionsByPaymentMethod(null)));
 
             Console.WriteLine(Strings.BatchProcessing);
             Console.WriteLine();
@@ -1820,7 +1860,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void RenameAllNullCategoryInComandline()
         {
-            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(SortTransactionsByPartnerDescending(GetTransactionsByCategory(null)));
+            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(SortTransactionsByPartnerAscending(GetTransactionsByCategory(null)));
 
             Console.WriteLine(Strings.BatchProcessing);
             Console.WriteLine();
@@ -1852,7 +1892,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void RenameAllNullBudgetCategoryInComandline()
         {
-            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(SortTransactionsByPartnerDescending(GetTransactionsByBudgetCategory(null)));
+            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(SortTransactionsByPartnerAscending(GetTransactionsByBudgetCategory(null)));
 
             Console.WriteLine(Strings.BatchProcessing);
             Console.WriteLine();
@@ -1884,7 +1924,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void AddTagsInComandline()
         {
-            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(SortTransactionsByPartnerDescending(GetTransactionsByBudgetCategory(null)));
+            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(SortTransactionsByPartnerAscending(GetTransactionsByBudgetCategory(null)));
 
             Console.WriteLine(Strings.BatchProcessing);
             Console.WriteLine();
@@ -1921,7 +1961,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void RenameAllNullClassificationInComandline()
         {
-            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(SortTransactionsByPartnerDescending(GetTransactionsByClassification(null)));
+            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(SortTransactionsByPartnerAscending(GetTransactionsByClassification(null)));
 
             Console.WriteLine(Strings.BatchProcessing);
             Console.WriteLine();
@@ -1953,7 +1993,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void RenameAllNullProjectInComandline()
         {
-            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(SortTransactionsByPartnerDescending(GetTransactionsByProject(null)));
+            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(SortTransactionsByPartnerAscending(GetTransactionsByProject(null)));
 
             Console.WriteLine(Strings.BatchProcessing);
             Console.WriteLine();
@@ -1985,7 +2025,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void RenameAllNullStatusInComandline()
         {
-            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(SortTransactionsByPartnerDescending(GetTransactionsByStatus(null)));
+            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(SortTransactionsByPartnerAscending(GetTransactionsByStatus(null)));
 
             Console.WriteLine(Strings.BatchProcessing);
             Console.WriteLine();
@@ -2017,7 +2057,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void RenameAllNullPriorityInComandline()
         {
-            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(SortTransactionsByPartnerDescending(GetTransactionsByPriority(null)));
+            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(SortTransactionsByPartnerAscending(GetTransactionsByPriority(null)));
 
             Console.WriteLine(Strings.BatchProcessing);
             Console.WriteLine();
@@ -2049,7 +2089,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void RenameAllNullFrequencyInComandline()
         {
-            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(SortTransactionsByPartnerDescending(GetTransactionsByFrequency(null)));
+            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(SortTransactionsByPartnerAscending(GetTransactionsByFrequency(null)));
 
             Console.WriteLine(Strings.BatchProcessing);
             Console.WriteLine();
@@ -2081,7 +2121,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public void RenameAllNullLocationInComandline()
         {
-            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(SortTransactionsByPartnerDescending(GetTransactionsByLocation(null)));
+            IEnumerable<IGrouping<string, Transaction>> groupedTransactions = GroupByPartner(SortTransactionsByPartnerAscending(GetTransactionsByLocation(null)));
 
             Console.WriteLine(Strings.BatchProcessing);
             Console.WriteLine();
