@@ -736,7 +736,7 @@
     <value>Alle Null-Beschreibungen umbenennen</value>
   </data>
   <data name="RenameAllNullFrequencies" xml:space="preserve">
-    <value>Alle Null-Frequenzen umbenennen</value>
+    <value>Alle Null-Häufigkeiten umbenennen</value>
   </data>
   <data name="RenameAllNullLocations" xml:space="preserve">
     <value>Alle Null-Standorte umbenennen</value>
