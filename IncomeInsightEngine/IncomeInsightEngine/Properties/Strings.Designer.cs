@@ -133,6 +133,24 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Advanced Batch Processing ähnelt.
+        /// </summary>
+        public static string AdvancedBatchProcessing {
+            get {
+                return ResourceManager.GetString("AdvancedBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Advanced Options ähnelt.
+        /// </summary>
+        public static string AdvancedOptions {
+            get {
+                return ResourceManager.GetString("AdvancedOptions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die All ähnelt.
         /// </summary>
         public static string All {
@@ -214,11 +232,11 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Batch processing of transaction details via partners ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Batch processing of transaction details ähnelt.
         /// </summary>
-        public static string Batchprocessingoftransactiondetailsviapartners {
+        public static string Batchprocessingoftransactiondetails {
             get {
-                return ResourceManager.GetString("Batchprocessingoftransactiondetailsviapartners", resourceCulture);
+                return ResourceManager.GetString("Batchprocessingoftransactiondetails", resourceCulture);
             }
         }
         
@@ -246,6 +264,24 @@ namespace IncomeInsightEngine.Properties {
         public static string BudgetCategory {
             get {
                 return ResourceManager.GetString("BudgetCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Budget Category Batch Processing ähnelt.
+        /// </summary>
+        public static string BudgetCategoryBatchProcessing {
+            get {
+                return ResourceManager.GetString("BudgetCategoryBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Budget Category Partner Batch Processing ähnelt.
+        /// </summary>
+        public static string BudgetCategoryPartnerBatchProcessing {
+            get {
+                return ResourceManager.GetString("BudgetCategoryPartnerBatchProcessing", resourceCulture);
             }
         }
         
@@ -457,6 +493,51 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Category Batch Processing ähnelt.
+        /// </summary>
+        public static string CategoryBatchProcessing {
+            get {
+                return ResourceManager.GetString("CategoryBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Category Budget Category Batch Processing ähnelt.
+        /// </summary>
+        public static string CategoryBudgetCategoryBatchProcessing {
+            get {
+                return ResourceManager.GetString("CategoryBudgetCategoryBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Category Currency Batch Processing ähnelt.
+        /// </summary>
+        public static string CategoryCurrencyBatchProcessing {
+            get {
+                return ResourceManager.GetString("CategoryCurrencyBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Category Description Batch Processing ähnelt.
+        /// </summary>
+        public static string CategoryDescriptionBatchProcessing {
+            get {
+                return ResourceManager.GetString("CategoryDescriptionBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Category Partner Batch Processing ähnelt.
+        /// </summary>
+        public static string CategoryPartnerBatchProcessing {
+            get {
+                return ResourceManager.GetString("CategoryPartnerBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Change ähnelt.
         /// </summary>
         public static string Change {
@@ -493,11 +574,38 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Classification Batch Processing ähnelt.
+        /// </summary>
+        public static string ClassificationBatchProcessing {
+            get {
+                return ResourceManager.GetString("ClassificationBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Classification Partner Batch Processing ähnelt.
+        /// </summary>
+        public static string ClassificationPartnerBatchProcessing {
+            get {
+                return ResourceManager.GetString("ClassificationPartnerBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Classifications ähnelt.
         /// </summary>
         public static string Classifications {
             get {
                 return ResourceManager.GetString("Classifications", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Compare with ähnelt.
+        /// </summary>
+        public static string CompareWith {
+            get {
+                return ResourceManager.GetString("CompareWith", resourceCulture);
             }
         }
         
@@ -565,6 +673,60 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Currency Batch Processing ähnelt.
+        /// </summary>
+        public static string CurrencyBatchProcessing {
+            get {
+                return ResourceManager.GetString("CurrencyBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Currency Budget Category Batch Processing ähnelt.
+        /// </summary>
+        public static string CurrencyBudgetCategoryBatchProcessing {
+            get {
+                return ResourceManager.GetString("CurrencyBudgetCategoryBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Currency Category Batch Processing ähnelt.
+        /// </summary>
+        public static string CurrencyCategoryBatchProcessing {
+            get {
+                return ResourceManager.GetString("CurrencyCategoryBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Currency Description Batch Processing ähnelt.
+        /// </summary>
+        public static string CurrencyDescriptionBatchProcessing {
+            get {
+                return ResourceManager.GetString("CurrencyDescriptionBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Currency Location Batch Processing ähnelt.
+        /// </summary>
+        public static string CurrencyLocationBatchProcessing {
+            get {
+                return ResourceManager.GetString("CurrencyLocationBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Currency Partner Batch Processing ähnelt.
+        /// </summary>
+        public static string CurrencyPartnerBatchProcessing {
+            get {
+                return ResourceManager.GetString("CurrencyPartnerBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Currently ähnelt.
         /// </summary>
         public static string Currently {
@@ -624,6 +786,24 @@ namespace IncomeInsightEngine.Properties {
         public static string Description {
             get {
                 return ResourceManager.GetString("Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Description Batch Processing ähnelt.
+        /// </summary>
+        public static string DescriptionBatchProcessing {
+            get {
+                return ResourceManager.GetString("DescriptionBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Description Partner Batch Processing ähnelt.
+        /// </summary>
+        public static string DescriptionPartnerBatchProcessing {
+            get {
+                return ResourceManager.GetString("DescriptionPartnerBatchProcessing", resourceCulture);
             }
         }
         
@@ -777,6 +957,24 @@ namespace IncomeInsightEngine.Properties {
         public static string Frequency {
             get {
                 return ResourceManager.GetString("Frequency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Frequency Batch Processing ähnelt.
+        /// </summary>
+        public static string FrequencyBatchProcessing {
+            get {
+                return ResourceManager.GetString("FrequencyBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Frequency Partner Batch Processing ähnelt.
+        /// </summary>
+        public static string FrequencyPartnerBatchProcessing {
+            get {
+                return ResourceManager.GetString("FrequencyPartnerBatchProcessing", resourceCulture);
             }
         }
         
@@ -1294,6 +1492,33 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Location Batch Processing ähnelt.
+        /// </summary>
+        public static string LocationBatchProcessing {
+            get {
+                return ResourceManager.GetString("LocationBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Location Currency Batch Processing ähnelt.
+        /// </summary>
+        public static string LocationCurrencyBatchProcessing {
+            get {
+                return ResourceManager.GetString("LocationCurrencyBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Location Partner Batch Processing ähnelt.
+        /// </summary>
+        public static string LocationPartnerBatchProcessing {
+            get {
+                return ResourceManager.GetString("LocationPartnerBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Locations ähnelt.
         /// </summary>
         public static string Locations {
@@ -1339,6 +1564,24 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Notes Batch Processing ähnelt.
+        /// </summary>
+        public static string NotesBatchProcessing {
+            get {
+                return ResourceManager.GetString("NotesBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Notes Partner Batch Processing ähnelt.
+        /// </summary>
+        public static string NotesPartnerBatchProcessing {
+            get {
+                return ResourceManager.GetString("NotesPartnerBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die no transactions available ähnelt.
         /// </summary>
         public static string notransactionsavailable {
@@ -1366,6 +1609,15 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Original ähnelt.
+        /// </summary>
+        public static string Original {
+            get {
+                return ResourceManager.GetString("Original", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Partner ähnelt.
         /// </summary>
         public static string Partner {
@@ -1375,11 +1627,47 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Partner Batch Processing ähnelt.
+        /// </summary>
+        public static string PartnerBatchProcessing {
+            get {
+                return ResourceManager.GetString("PartnerBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Partner Description Batch Processing ähnelt.
+        /// </summary>
+        public static string PartnerDescriptionBatchProcessing {
+            get {
+                return ResourceManager.GetString("PartnerDescriptionBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Partner IBAN ähnelt.
         /// </summary>
         public static string PartnerIBAN {
             get {
                 return ResourceManager.GetString("PartnerIBAN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Partner Iban Batch Processing ähnelt.
+        /// </summary>
+        public static string PartnerIbanBatchProcessing {
+            get {
+                return ResourceManager.GetString("PartnerIbanBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Partner Iban Partner Batch Processing ähnelt.
+        /// </summary>
+        public static string PartnerIbanPartnerBatchProcessing {
+            get {
+                return ResourceManager.GetString("PartnerIbanPartnerBatchProcessing", resourceCulture);
             }
         }
         
@@ -1398,6 +1686,33 @@ namespace IncomeInsightEngine.Properties {
         public static string PaymentMethod {
             get {
                 return ResourceManager.GetString("PaymentMethod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Payment Method Batch Processing ähnelt.
+        /// </summary>
+        public static string PaymentMethodBatchProcessing {
+            get {
+                return ResourceManager.GetString("PaymentMethodBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Payment Method Description Batch Processing ähnelt.
+        /// </summary>
+        public static string PaymentMethodDescriptionBatchProcessing {
+            get {
+                return ResourceManager.GetString("PaymentMethodDescriptionBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Payment Method Partner Batch Processing ähnelt.
+        /// </summary>
+        public static string PaymentMethodPartnerBatchProcessing {
+            get {
+                return ResourceManager.GetString("PaymentMethodPartnerBatchProcessing", resourceCulture);
             }
         }
         
@@ -1447,11 +1762,47 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Priority Batch Processing ähnelt.
+        /// </summary>
+        public static string PriorityBatchProcessing {
+            get {
+                return ResourceManager.GetString("PriorityBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Priority Partner Batch Processing ähnelt.
+        /// </summary>
+        public static string PriorityPartnerBatchProcessing {
+            get {
+                return ResourceManager.GetString("PriorityPartnerBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Project ähnelt.
         /// </summary>
         public static string Project {
             get {
                 return ResourceManager.GetString("Project", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Project Batch Processing ähnelt.
+        /// </summary>
+        public static string ProjectBatchProcessing {
+            get {
+                return ResourceManager.GetString("ProjectBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Project Partner Batch Processing ähnelt.
+        /// </summary>
+        public static string ProjectPartnerBatchProcessing {
+            get {
+                return ResourceManager.GetString("ProjectPartnerBatchProcessing", resourceCulture);
             }
         }
         
@@ -1605,6 +1956,15 @@ namespace IncomeInsightEngine.Properties {
         public static string RenameAllTransactionPartners {
             get {
                 return ResourceManager.GetString("RenameAllTransactionPartners", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Replace with ähnelt.
+        /// </summary>
+        public static string ReplaceWith {
+            get {
+                return ResourceManager.GetString("ReplaceWith", resourceCulture);
             }
         }
         
@@ -1915,6 +2275,15 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Status Batch Processing ähnelt.
+        /// </summary>
+        public static string StatusBatchProcessing {
+            get {
+                return ResourceManager.GetString("StatusBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Statuses ähnelt.
         /// </summary>
         public static string Statuses {
@@ -1924,11 +2293,47 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Status Partner Batch Processing ähnelt.
+        /// </summary>
+        public static string StatusPartnerBatchProcessing {
+            get {
+                return ResourceManager.GetString("StatusPartnerBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Tag ähnelt.
         /// </summary>
         public static string Tag {
             get {
                 return ResourceManager.GetString("Tag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Tag Partner Add Batch Processing ähnelt.
+        /// </summary>
+        public static string TagPartnerAddBatchProcessing {
+            get {
+                return ResourceManager.GetString("TagPartnerAddBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Tag Partner Change Batch Processing ähnelt.
+        /// </summary>
+        public static string TagPartnerChangeBatchProcessing {
+            get {
+                return ResourceManager.GetString("TagPartnerChangeBatchProcessing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Tag Partner Remove Batch Processing ähnelt.
+        /// </summary>
+        public static string TagPartnerRemoveBatchProcessing {
+            get {
+                return ResourceManager.GetString("TagPartnerRemoveBatchProcessing", resourceCulture);
             }
         }
         

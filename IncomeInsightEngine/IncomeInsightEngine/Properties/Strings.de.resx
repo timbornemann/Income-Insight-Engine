@@ -141,6 +141,12 @@
   <data name="AddTransactionsSave" xml:space="preserve">
     <value>Transaktionen sicher hinzufügen</value>
   </data>
+  <data name="AdvancedBatchProcessing" xml:space="preserve">
+    <value>Erweiterte Stapelverarbeitung</value>
+  </data>
+  <data name="AdvancedOptions" xml:space="preserve">
+    <value>Erweiterte Optionen</value>
+  </data>
   <data name="All" xml:space="preserve">
     <value>Alle</value>
   </data>
@@ -168,8 +174,8 @@
   <data name="BatchProcessingOfPartnerNames" xml:space="preserve">
     <value>Stapelverarbeitung von Partner-Namen</value>
   </data>
-  <data name="Batchprocessingoftransactiondetailsviapartners" xml:space="preserve">
-    <value>Stapelverarbeitung von Transaktionsdetails über Partner</value>
+  <data name="Batchprocessingoftransactiondetails" xml:space="preserve">
+    <value>Stapelverarbeitung von Transaktionsdetails</value>
   </data>
   <data name="Blank" xml:space="preserve">
     <value>Leer</value>
@@ -179,6 +185,12 @@
   </data>
   <data name="BudgetCategory" xml:space="preserve">
     <value>Budgetkategorie</value>
+  </data>
+  <data name="BudgetCategoryBatchProcessing" xml:space="preserve">
+    <value>Budgetkategorie Stapelverarbeitung</value>
+  </data>
+  <data name="BudgetCategoryPartnerBatchProcessing" xml:space="preserve">
+    <value>Budgetkategorie Partner Stapelverarbeitung</value>
   </data>
   <data name="CalculateAverageAmount" xml:space="preserve">
     <value>Durchschnittlichen Betrag berechnen</value>
@@ -249,6 +261,21 @@
   <data name="Category" xml:space="preserve">
     <value>Kategorie</value>
   </data>
+  <data name="CategoryBatchProcessing" xml:space="preserve">
+    <value>Kategorie Stapelverarbeitung</value>
+  </data>
+  <data name="CategoryBudgetCategoryBatchProcessing" xml:space="preserve">
+    <value>Kategorie Budgetkategorie Stapelverarbeitung</value>
+  </data>
+  <data name="CategoryCurrencyBatchProcessing" xml:space="preserve">
+    <value>Kategorie Währung Stapelverarbeitung</value>
+  </data>
+  <data name="CategoryDescriptionBatchProcessing" xml:space="preserve">
+    <value>Kategorie Beschreibung Stapelverarbeitung</value>
+  </data>
+  <data name="CategoryPartnerBatchProcessing" xml:space="preserve">
+    <value>Kategorie Partner Stapelverarbeitung</value>
+  </data>
   <data name="Change" xml:space="preserve">
     <value>Ändern</value>
   </data>
@@ -261,8 +288,17 @@
   <data name="Classification" xml:space="preserve">
     <value>Klassifizierung</value>
   </data>
+  <data name="ClassificationBatchProcessing" xml:space="preserve">
+    <value>Klassifizierung Stapelverarbeitung</value>
+  </data>
+  <data name="ClassificationPartnerBatchProcessing" xml:space="preserve">
+    <value>Klassifizierung Partner Stapelverarbeitung</value>
+  </data>
   <data name="Classifications" xml:space="preserve">
     <value>Klassifizierungen</value>
+  </data>
+  <data name="CompareWith" xml:space="preserve">
+    <value>Vergleichen mit</value>
   </data>
   <data name="Completed" xml:space="preserve">
     <value>Abgeschlossen</value>
@@ -285,6 +321,24 @@
   <data name="Currency" xml:space="preserve">
     <value>Währung</value>
   </data>
+  <data name="CurrencyBatchProcessing" xml:space="preserve">
+    <value>Währungs-Stapelverarbeitung</value>
+  </data>
+  <data name="CurrencyBudgetCategoryBatchProcessing" xml:space="preserve">
+    <value>Währung Budgetkategorie Stapelverarbeitung</value>
+  </data>
+  <data name="CurrencyCategoryBatchProcessing" xml:space="preserve">
+    <value>Währung Kategorie Stapelverarbeitung</value>
+  </data>
+  <data name="CurrencyDescriptionBatchProcessing" xml:space="preserve">
+    <value>Währung Beschreibung Stapelverarbeitung</value>
+  </data>
+  <data name="CurrencyLocationBatchProcessing" xml:space="preserve">
+    <value>Währung Standort Stapelverarbeitung</value>
+  </data>
+  <data name="CurrencyPartnerBatchProcessing" xml:space="preserve">
+    <value>Währung Partner-Stapelverarbeitung</value>
+  </data>
   <data name="Currently" xml:space="preserve">
     <value>Aktuell</value>
   </data>
@@ -305,6 +359,12 @@
   </data>
   <data name="Description" xml:space="preserve">
     <value>Beschreibung</value>
+  </data>
+  <data name="DescriptionBatchProcessing" xml:space="preserve">
+    <value>Beschreibung Stapelverarbeitung</value>
+  </data>
+  <data name="DescriptionPartnerBatchProcessing" xml:space="preserve">
+    <value>Beschreibung Partner Stapelverarbeitung</value>
   </data>
   <data name="DirectDebit" xml:space="preserve">
     <value>Lastschrift</value>
@@ -356,6 +416,12 @@
   </data>
   <data name="Frequency" xml:space="preserve">
     <value>Häufigkeit</value>
+  </data>
+  <data name="FrequencyBatchProcessing" xml:space="preserve">
+    <value>Häufigkeit Stapelverarbeitung</value>
+  </data>
+  <data name="FrequencyPartnerBatchProcessing" xml:space="preserve">
+    <value>Häufigkeit Partner Stapelverarbeitung</value>
   </data>
   <data name="FullTextSearch" xml:space="preserve">
     <value>Volltextsuche</value>
@@ -528,6 +594,15 @@
   <data name="Location" xml:space="preserve">
     <value>Standort</value>
   </data>
+  <data name="LocationBatchProcessing" xml:space="preserve">
+    <value>Standort Stapelverarbeitung</value>
+  </data>
+  <data name="LocationCurrencyBatchProcessing" xml:space="preserve">
+    <value>Standort Währung Stapelverarbeitung</value>
+  </data>
+  <data name="LocationPartnerBatchProcessing" xml:space="preserve">
+    <value>Location Partner Batch Processing</value>
+  </data>
   <data name="Locations" xml:space="preserve">
     <value>Standorte</value>
   </data>
@@ -543,6 +618,12 @@
   <data name="Notes" xml:space="preserve">
     <value>Notizen</value>
   </data>
+  <data name="NotesBatchProcessing" xml:space="preserve">
+    <value>Notizen Stapelverarbeitung</value>
+  </data>
+  <data name="NotesPartnerBatchProcessing" xml:space="preserve">
+    <value>Notizen Partner Stapelverarbeitung</value>
+  </data>
   <data name="notransactionsavailable" xml:space="preserve">
     <value>Keine Transaktionen verfügbar</value>
   </data>
@@ -552,17 +633,41 @@
   <data name="OpenTransactionFileManually" xml:space="preserve">
     <value>Transaktionsdatei manuell öffnen</value>
   </data>
+  <data name="Original" xml:space="preserve">
+    <value>Original</value>
+  </data>
   <data name="Partner" xml:space="preserve">
     <value>Partner</value>
   </data>
+  <data name="PartnerBatchProcessing" xml:space="preserve">
+    <value>Partner Stapelverarbeitung</value>
+  </data>
+  <data name="PartnerDescriptionBatchProcessing" xml:space="preserve">
+    <value>Partner Beschreibung Stapelverarbeitung</value>
+  </data>
   <data name="PartnerIBAN" xml:space="preserve">
     <value>Partner-IBAN</value>
+  </data>
+  <data name="PartnerIbanBatchProcessing" xml:space="preserve">
+    <value>Partner Iban Stapelverarbeitung</value>
+  </data>
+  <data name="PartnerIbanPartnerBatchProcessing" xml:space="preserve">
+    <value>Partner Iban Partner Stapelverarbeitung</value>
   </data>
   <data name="Partners" xml:space="preserve">
     <value>Partner</value>
   </data>
   <data name="PaymentMethod" xml:space="preserve">
     <value>Zahlungsmethode</value>
+  </data>
+  <data name="PaymentMethodBatchProcessing" xml:space="preserve">
+    <value>Zahlungsmethode Stapelverarbeitung</value>
+  </data>
+  <data name="PaymentMethodDescriptionBatchProcessing" xml:space="preserve">
+    <value>Zahlungsmethode Beschreibung Stapelverarbeitung</value>
+  </data>
+  <data name="PaymentMethodPartnerBatchProcessing" xml:space="preserve">
+    <value>Zahlungsmethode Partner Stapelverarbeitung</value>
   </data>
   <data name="PaymentMethods" xml:space="preserve">
     <value>Zahlungsmethoden</value>
@@ -579,8 +684,20 @@
   <data name="Priority" xml:space="preserve">
     <value>Priorität</value>
   </data>
+  <data name="PriorityBatchProcessing" xml:space="preserve">
+    <value>Priorität Stapelverarbeitung</value>
+  </data>
+  <data name="PriorityPartnerBatchProcessing" xml:space="preserve">
+    <value>Priorität Partner Stapelverarbeitung</value>
+  </data>
   <data name="Project" xml:space="preserve">
     <value>Projekt</value>
+  </data>
+  <data name="ProjectBatchProcessing" xml:space="preserve">
+    <value>Projekt Stapelverarbeitung</value>
+  </data>
+  <data name="ProjectPartnerBatchProcessing" xml:space="preserve">
+    <value>Projekt Partner Stapelverarbeitung</value>
   </data>
   <data name="Projects" xml:space="preserve">
     <value>Projekte</value>
@@ -632,6 +749,9 @@
   </data>
   <data name="RenameAllTransactionPartners" xml:space="preserve">
     <value>Alle Transaktionspartner umbenennen</value>
+  </data>
+  <data name="ReplaceWith" xml:space="preserve">
+    <value>Ersetzen mit</value>
   </data>
   <data name="Reset" xml:space="preserve">
     <value>Zurücksetzen</value>
@@ -735,14 +855,29 @@
   <data name="Status" xml:space="preserve">
     <value>Status</value>
   </data>
+  <data name="StatusBatchProcessing" xml:space="preserve">
+    <value>Status Stapelverarbeitung</value>
+  </data>
   <data name="Statuses" xml:space="preserve">
     <value>Status</value>
+  </data>
+  <data name="StatusPartnerBatchProcessing" xml:space="preserve">
+    <value>Status Partner Stapelverarbeitung</value>
   </data>
   <data name="String1" xml:space="preserve">
     <value />
   </data>
   <data name="Tag" xml:space="preserve">
     <value>Tag</value>
+  </data>
+  <data name="TagPartnerAddBatchProcessing" xml:space="preserve">
+    <value>Tag Partner Stapelverarbeitung hinzufügen</value>
+  </data>
+  <data name="TagPartnerChangeBatchProcessing" xml:space="preserve">
+    <value>Tag Partner Stapelverarbeitung ändern</value>
+  </data>
+  <data name="TagPartnerRemoveBatchProcessing" xml:space="preserve">
+    <value>Tag Partner Stapelverarbeitung entfernen</value>
   </data>
   <data name="Tags" xml:space="preserve">
     <value>Tags</value>

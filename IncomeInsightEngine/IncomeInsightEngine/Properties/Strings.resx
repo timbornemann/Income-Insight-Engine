@@ -141,6 +141,12 @@
   <data name="AddTransactionsSave" xml:space="preserve">
     <value>Add Transactions Save</value>
   </data>
+  <data name="AdvancedBatchProcessing" xml:space="preserve">
+    <value>Advanced Batch Processing</value>
+  </data>
+  <data name="AdvancedOptions" xml:space="preserve">
+    <value>Advanced Options</value>
+  </data>
   <data name="All" xml:space="preserve">
     <value>All</value>
   </data>
@@ -168,8 +174,8 @@
   <data name="BatchProcessingOfPartnerNames" xml:space="preserve">
     <value>Batch processing of partner names</value>
   </data>
-  <data name="Batchprocessingoftransactiondetailsviapartners" xml:space="preserve">
-    <value>Batch processing of transaction details via partners</value>
+  <data name="Batchprocessingoftransactiondetails" xml:space="preserve">
+    <value>Batch processing of transaction details</value>
   </data>
   <data name="Blank" xml:space="preserve">
     <value>Blank</value>
@@ -179,6 +185,12 @@
   </data>
   <data name="BudgetCategory" xml:space="preserve">
     <value>Budget Category</value>
+  </data>
+  <data name="BudgetCategoryBatchProcessing" xml:space="preserve">
+    <value>Budget Category Batch Processing</value>
+  </data>
+  <data name="BudgetCategoryPartnerBatchProcessing" xml:space="preserve">
+    <value>Budget Category Partner Batch Processing</value>
   </data>
   <data name="CalculateAverageAmount" xml:space="preserve">
     <value>Calculate Average Amount</value>
@@ -249,6 +261,21 @@
   <data name="Category" xml:space="preserve">
     <value>Category</value>
   </data>
+  <data name="CategoryBatchProcessing" xml:space="preserve">
+    <value>Category Batch Processing</value>
+  </data>
+  <data name="CategoryBudgetCategoryBatchProcessing" xml:space="preserve">
+    <value>Category Budget Category Batch Processing</value>
+  </data>
+  <data name="CategoryCurrencyBatchProcessing" xml:space="preserve">
+    <value>Category Currency Batch Processing</value>
+  </data>
+  <data name="CategoryDescriptionBatchProcessing" xml:space="preserve">
+    <value>Category Description Batch Processing</value>
+  </data>
+  <data name="CategoryPartnerBatchProcessing" xml:space="preserve">
+    <value>Category Partner Batch Processing</value>
+  </data>
   <data name="Change" xml:space="preserve">
     <value>Change</value>
   </data>
@@ -261,8 +288,17 @@
   <data name="Classification" xml:space="preserve">
     <value>Classification</value>
   </data>
+  <data name="ClassificationBatchProcessing" xml:space="preserve">
+    <value>Classification Batch Processing</value>
+  </data>
+  <data name="ClassificationPartnerBatchProcessing" xml:space="preserve">
+    <value>Classification Partner Batch Processing</value>
+  </data>
   <data name="Classifications" xml:space="preserve">
     <value>Classifications</value>
+  </data>
+  <data name="CompareWith" xml:space="preserve">
+    <value>Compare with</value>
   </data>
   <data name="Completed" xml:space="preserve">
     <value>Completed</value>
@@ -285,6 +321,24 @@
   <data name="Currency" xml:space="preserve">
     <value>Currency</value>
   </data>
+  <data name="CurrencyBatchProcessing" xml:space="preserve">
+    <value>Currency Batch Processing</value>
+  </data>
+  <data name="CurrencyBudgetCategoryBatchProcessing" xml:space="preserve">
+    <value>Currency Budget Category Batch Processing</value>
+  </data>
+  <data name="CurrencyCategoryBatchProcessing" xml:space="preserve">
+    <value>Currency Category Batch Processing</value>
+  </data>
+  <data name="CurrencyDescriptionBatchProcessing" xml:space="preserve">
+    <value>Currency Description Batch Processing</value>
+  </data>
+  <data name="CurrencyLocationBatchProcessing" xml:space="preserve">
+    <value>Currency Location Batch Processing</value>
+  </data>
+  <data name="CurrencyPartnerBatchProcessing" xml:space="preserve">
+    <value>Currency Partner Batch Processing</value>
+  </data>
   <data name="Currently" xml:space="preserve">
     <value>Currently</value>
   </data>
@@ -305,6 +359,12 @@
   </data>
   <data name="Description" xml:space="preserve">
     <value>Description</value>
+  </data>
+  <data name="DescriptionBatchProcessing" xml:space="preserve">
+    <value>Description Batch Processing</value>
+  </data>
+  <data name="DescriptionPartnerBatchProcessing" xml:space="preserve">
+    <value>Description Partner Batch Processing</value>
   </data>
   <data name="DirectDebit" xml:space="preserve">
     <value>Direct Debit</value>
@@ -356,6 +416,12 @@
   </data>
   <data name="Frequency" xml:space="preserve">
     <value>Frequency</value>
+  </data>
+  <data name="FrequencyBatchProcessing" xml:space="preserve">
+    <value>Frequency Batch Processing</value>
+  </data>
+  <data name="FrequencyPartnerBatchProcessing" xml:space="preserve">
+    <value>Frequency Partner Batch Processing</value>
   </data>
   <data name="FullTextSearch" xml:space="preserve">
     <value>Full Text Search</value>
@@ -528,6 +594,15 @@
   <data name="Location" xml:space="preserve">
     <value>Location</value>
   </data>
+  <data name="LocationBatchProcessing" xml:space="preserve">
+    <value>Location Batch Processing</value>
+  </data>
+  <data name="LocationCurrencyBatchProcessing" xml:space="preserve">
+    <value>Location Currency Batch Processing</value>
+  </data>
+  <data name="LocationPartnerBatchProcessing" xml:space="preserve">
+    <value>Location Partner Batch Processing</value>
+  </data>
   <data name="Locations" xml:space="preserve">
     <value>Locations</value>
   </data>
@@ -543,6 +618,12 @@
   <data name="Notes" xml:space="preserve">
     <value>Notes</value>
   </data>
+  <data name="NotesBatchProcessing" xml:space="preserve">
+    <value>Notes Batch Processing</value>
+  </data>
+  <data name="NotesPartnerBatchProcessing" xml:space="preserve">
+    <value>Notes Partner Batch Processing</value>
+  </data>
   <data name="notransactionsavailable" xml:space="preserve">
     <value>no transactions available</value>
   </data>
@@ -552,17 +633,41 @@
   <data name="OpenTransactionFileManually" xml:space="preserve">
     <value>Open Transaction File Manually</value>
   </data>
+  <data name="Original" xml:space="preserve">
+    <value>Original</value>
+  </data>
   <data name="Partner" xml:space="preserve">
     <value>Partner</value>
   </data>
+  <data name="PartnerBatchProcessing" xml:space="preserve">
+    <value>Partner Batch Processing</value>
+  </data>
+  <data name="PartnerDescriptionBatchProcessing" xml:space="preserve">
+    <value>Partner Description Batch Processing</value>
+  </data>
   <data name="PartnerIBAN" xml:space="preserve">
     <value>Partner IBAN</value>
+  </data>
+  <data name="PartnerIbanBatchProcessing" xml:space="preserve">
+    <value>Partner Iban Batch Processing</value>
+  </data>
+  <data name="PartnerIbanPartnerBatchProcessing" xml:space="preserve">
+    <value>Partner Iban Partner Batch Processing</value>
   </data>
   <data name="Partners" xml:space="preserve">
     <value>Partners</value>
   </data>
   <data name="PaymentMethod" xml:space="preserve">
     <value>Payment Method</value>
+  </data>
+  <data name="PaymentMethodBatchProcessing" xml:space="preserve">
+    <value>Payment Method Batch Processing</value>
+  </data>
+  <data name="PaymentMethodDescriptionBatchProcessing" xml:space="preserve">
+    <value>Payment Method Description Batch Processing</value>
+  </data>
+  <data name="PaymentMethodPartnerBatchProcessing" xml:space="preserve">
+    <value>Payment Method Partner Batch Processing</value>
   </data>
   <data name="PaymentMethods" xml:space="preserve">
     <value>Payment Methods</value>
@@ -579,8 +684,20 @@
   <data name="Priority" xml:space="preserve">
     <value>Priority</value>
   </data>
+  <data name="PriorityBatchProcessing" xml:space="preserve">
+    <value>Priority Batch Processing</value>
+  </data>
+  <data name="PriorityPartnerBatchProcessing" xml:space="preserve">
+    <value>Priority Partner Batch Processing</value>
+  </data>
   <data name="Project" xml:space="preserve">
     <value>Project</value>
+  </data>
+  <data name="ProjectBatchProcessing" xml:space="preserve">
+    <value>Project Batch Processing</value>
+  </data>
+  <data name="ProjectPartnerBatchProcessing" xml:space="preserve">
+    <value>Project Partner Batch Processing</value>
   </data>
   <data name="Projects" xml:space="preserve">
     <value>Projects</value>
@@ -632,6 +749,9 @@
   </data>
   <data name="RenameAllTransactionPartners" xml:space="preserve">
     <value>Rename All Transaction Partners</value>
+  </data>
+  <data name="ReplaceWith" xml:space="preserve">
+    <value>Replace with</value>
   </data>
   <data name="Reset" xml:space="preserve">
     <value>Reset</value>
@@ -735,11 +855,26 @@
   <data name="Status" xml:space="preserve">
     <value>Status</value>
   </data>
+  <data name="StatusBatchProcessing" xml:space="preserve">
+    <value>Status Batch Processing</value>
+  </data>
   <data name="Statuses" xml:space="preserve">
     <value>Statuses</value>
   </data>
+  <data name="StatusPartnerBatchProcessing" xml:space="preserve">
+    <value>Status Partner Batch Processing</value>
+  </data>
   <data name="Tag" xml:space="preserve">
     <value>Tag</value>
+  </data>
+  <data name="TagPartnerAddBatchProcessing" xml:space="preserve">
+    <value>Tag Partner Add Batch Processing</value>
+  </data>
+  <data name="TagPartnerChangeBatchProcessing" xml:space="preserve">
+    <value>Tag Partner Change Batch Processing</value>
+  </data>
+  <data name="TagPartnerRemoveBatchProcessing" xml:space="preserve">
+    <value>Tag Partner Remove Batch Processing</value>
   </data>
   <data name="Tags" xml:space="preserve">
     <value>Tags</value>
