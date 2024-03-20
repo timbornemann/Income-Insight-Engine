@@ -490,6 +490,7 @@ namespace IncomeInsightEngine
             Console.WriteLine($"{Strings.GetTransactionsByFrequency} = 18");
             Console.WriteLine($"{Strings.GetTransactionsByLocation} = 19");
             Console.WriteLine($"{Strings.GetTransactionsByTag} = 20");
+            Console.WriteLine($"{Strings.FullTextSearch} = 21");
             Console.WriteLine();
             Console.Write(Strings.Selection + " = ");
             string input = Console.ReadLine().Trim();
@@ -621,6 +622,12 @@ namespace IncomeInsightEngine
                     string tag = Console.ReadLine().Trim();
                     transactions = manager.GetTransactionsByTag(tag, transactions);
                     depthOfSelection += $"{Strings.GetTransactionsByTag}({tag})";
+                    break;
+                case "21":
+                    Console.Write($"{Strings.Text}: ");
+                    string text = Console.ReadLine().Trim();
+                    transactions = manager.GetTransactionsByFullTextSearch(text, transactions);
+                    depthOfSelection += $"{Strings.FullTextSearch}({text})";
                     break;
                 default:
                     Console.WriteLine("Invalid input.");

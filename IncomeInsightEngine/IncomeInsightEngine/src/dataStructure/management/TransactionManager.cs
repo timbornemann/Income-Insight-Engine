@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace IncomeInsightEngine.src.dataStructure.management
 {
@@ -1024,7 +1025,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <returns>An IEnumerable of Transaction objects that match the specified description criteria.</returns>
         public IEnumerable<Transaction> GetTransactionsByDescription(string description, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => description == null ? t.Description == null : t.Description.IndexOf(description, StringComparison.OrdinalIgnoreCase) >= 0);
+            return (listOfTransactions ?? transactions).Where(t => description == null ? t.Description == null : t.Description?.IndexOf(description, StringComparison.OrdinalIgnoreCase) >= 0);
         }
 
         /// <summary>
@@ -1035,7 +1036,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <returns>An IEnumerable of Transaction objects that match the specified currency criteria.</returns>
         public IEnumerable<Transaction> GetTransactionsByCurrency(string currency, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => currency == null ? t.Currency == null : t.Currency?.Equals(currency, StringComparison.OrdinalIgnoreCase) == true);
+            return (listOfTransactions ?? transactions).Where(t => currency == null ? t.Currency == null : t.Currency?.IndexOf(currency, StringComparison.OrdinalIgnoreCase) >= 0);
         }
 
         /// <summary>
@@ -1046,7 +1047,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <returns>An IEnumerable of Transaction objects that match the specified payment method criteria.</returns>
         public IEnumerable<Transaction> GetTransactionsByPaymentMethod(string paymentMethod, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => paymentMethod == null ? t.PaymentMethod == null : t.PaymentMethod?.Equals(paymentMethod, StringComparison.OrdinalIgnoreCase) == true);
+            return (listOfTransactions ?? transactions).Where(t => paymentMethod == null ? t.PaymentMethod == null : t.PaymentMethod?.IndexOf(paymentMethod, StringComparison.OrdinalIgnoreCase) >= 0);
         }
 
         /// <summary>
@@ -1077,7 +1078,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <returns>An IEnumerable of Transaction objects that match the specified category criteria.</returns>
         public IEnumerable<Transaction> GetTransactionsByCategory(string category, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => category == null ? t.Category == null : t.Category?.Equals(category, StringComparison.OrdinalIgnoreCase) == true);
+            return (listOfTransactions ?? transactions).Where(t => category == null ? t.Category == null : t.Category?.IndexOf(category, StringComparison.OrdinalIgnoreCase) >= 0);
         }
 
         /// <summary>
@@ -1088,7 +1089,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <returns>An IEnumerable of Transaction objects that match the specified budget category criteria.</returns>
         public IEnumerable<Transaction> GetTransactionsByBudgetCategory(string budgetCategory, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => budgetCategory == null ? t.BudgetCategory == null : t.BudgetCategory?.Equals(budgetCategory, StringComparison.OrdinalIgnoreCase) == true);
+            return (listOfTransactions ?? transactions).Where(t => budgetCategory == null ? t.BudgetCategory == null : t.BudgetCategory?.IndexOf(budgetCategory, StringComparison.OrdinalIgnoreCase) >= 0);
         }
 
         /// <summary>
@@ -1102,7 +1103,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// </remarks>
         public IEnumerable<Transaction> GetTransactionsByClassification(string classification, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => classification == null ? t.Classification == null : t.Classification?.Equals(classification, StringComparison.OrdinalIgnoreCase) == true);
+            return (listOfTransactions ?? transactions).Where(t => classification == null ? t.Classification == null : t.Classification?.IndexOf(classification, StringComparison.OrdinalIgnoreCase) >= 0);
         }
 
         /// <summary>
@@ -1124,7 +1125,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <returns>An IEnumerable of Transaction objects that match the specified project criteria.</returns>
         public IEnumerable<Transaction> GetTransactionsByProject(string project, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => project == null ? t.Project == null : t.Project?.Equals(project, StringComparison.OrdinalIgnoreCase) == true);
+            return (listOfTransactions ?? transactions).Where(t => project == null ? t.Project == null : t.Project?.IndexOf(project, StringComparison.OrdinalIgnoreCase) >= 0);
         }
 
         /// <summary>
@@ -1135,7 +1136,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <returns>An IEnumerable of Transaction objects that match the specified status criteria.</returns>
         public IEnumerable<Transaction> GetTransactionsByStatus(string status, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => status == null ? t.Status == null : t.Status?.Equals(status, StringComparison.OrdinalIgnoreCase) == true);
+            return (listOfTransactions ?? transactions).Where(t => status == null ? t.Status == null : t.Status?.IndexOf(status, StringComparison.OrdinalIgnoreCase) >= 0);
         }
 
         /// <summary>
@@ -1146,7 +1147,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <returns>An IEnumerable of Transaction objects that match the specified priority criteria.</returns>
         public IEnumerable<Transaction> GetTransactionsByPriority(string priority, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => priority == null ? t.Priority == null : t.Priority?.Equals(priority, StringComparison.OrdinalIgnoreCase) == true);
+            return (listOfTransactions ?? transactions).Where(t => priority == null ? t.Priority == null : t.Priority?.IndexOf(priority, StringComparison.OrdinalIgnoreCase) >= 0);
         }
 
         /// <summary>
@@ -1157,7 +1158,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <returns>An IEnumerable of Transaction objects that match the specified frequency criteria.</returns>
         public IEnumerable<Transaction> GetTransactionsByFrequency(string frequency, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => frequency == null ? t.Frequency == null : t.Frequency?.Equals(frequency, StringComparison.OrdinalIgnoreCase) == true);
+            return (listOfTransactions ?? transactions).Where(t => frequency == null ? t.Frequency == null : t.Frequency?.IndexOf(frequency, StringComparison.OrdinalIgnoreCase) >= 0);
         }
 
         /// <summary>
@@ -1168,7 +1169,7 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <returns>An IEnumerable of Transaction objects that match the specified location criteria.</returns>
         public IEnumerable<Transaction> GetTransactionsByLocation(string location, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => location == null ? t.Location == null : t.Location.IndexOf(location, StringComparison.OrdinalIgnoreCase) >= 0);
+            return (listOfTransactions ?? transactions).Where(t => location == null ? t.Location == null : t.Location?.IndexOf(location, StringComparison.OrdinalIgnoreCase) >= 0);
         }
 
         /// <summary>
@@ -1190,7 +1191,32 @@ namespace IncomeInsightEngine.src.dataStructure.management
         /// <returns>An IEnumerable of Transaction objects that match the specified notes criteria.</returns>
         public IEnumerable<Transaction> GetTransactionsByNotes(string notes, IEnumerable<Transaction> listOfTransactions = null)
         {
-            return (listOfTransactions ?? transactions).Where(t => t.Notes != null && t.Notes.IndexOf(notes, StringComparison.OrdinalIgnoreCase) >= 0);
+            return (listOfTransactions ?? transactions).Where(t => t.Notes != null && t.Notes?.IndexOf(notes, StringComparison.OrdinalIgnoreCase) >= 0);
+        }
+
+        public IEnumerable<Transaction> GetTransactionsByFullTextSearch(string text, IEnumerable<Transaction> listOfTransactions = null)
+        {
+            return (listOfTransactions ?? transactions).Where(t => 
+            t.Amount.ToString()?.IndexOf(text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+            t.BudgetCategory?.IndexOf(text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+            t.Category?.IndexOf(text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+            t.Date.ToShortDateString()?.IndexOf(text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+            t.Description?.IndexOf(text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+            t.Frequency?.IndexOf(text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+            t.Id.ToString()?.IndexOf(text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+            t.Location?.IndexOf(text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+            t.Notes?.IndexOf(text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+            t.Partner?.IndexOf(text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+            t.PartnerIban?.IndexOf(text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+            t.PaymentMethod?.IndexOf(text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+            t.Priority?.IndexOf(text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+            t.Project?.IndexOf(text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+            t.Receipt?.IndexOf(text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+            t.Reimbursable.ToString()?.IndexOf(text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+            t.Status?.IndexOf(text, StringComparison.OrdinalIgnoreCase) >= 0 ||
+            (t.Tags != null && t.Tags.Any(tag => tag.IndexOf(text, StringComparison.OrdinalIgnoreCase) >= 0)) ||
+            t.TaxDeductible.ToString()?.IndexOf(text, StringComparison.OrdinalIgnoreCase) >= 0 
+            );
         }
 
         /// <summary>
