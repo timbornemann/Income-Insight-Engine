@@ -781,6 +781,15 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Full Text Search ähnelt.
+        /// </summary>
+        public static string FullTextSearch {
+            get {
+                return ResourceManager.GetString("FullTextSearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Generate random sample data ähnelt.
         /// </summary>
         public static string Generaterandomsampledata {

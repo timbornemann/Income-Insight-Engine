@@ -357,6 +357,9 @@
   <data name="Frequency" xml:space="preserve">
     <value>Frequency</value>
   </data>
+  <data name="FullTextSearch" xml:space="preserve">
+    <value>Full Text Search</value>
+  </data>
   <data name="Generaterandomsampledata" xml:space="preserve">
     <value>Generate random sample data</value>
   </data>
