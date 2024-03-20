@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 using IncomeInsightEngine;
 
 namespace src
@@ -7,8 +8,9 @@ namespace src
     {
         public static void Main(string[] args)
         {
-          Console.OutputEncoding = System.Text.Encoding.UTF8;
-          ConsoleLogic console = new ConsoleLogic();
+            Console.OutputEncoding = Encoding.UTF8;
+            Console.InputEncoding = Encoding.UTF8;
+            ConsoleLogic console = new ConsoleLogic();
         }
     }
 }
