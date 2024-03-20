@@ -483,6 +483,9 @@
   <data name="GetTransactionsByLocation" xml:space="preserve">
     <value>Get Transactions By Location</value>
   </data>
+  <data name="GetTransactionsByNotes" xml:space="preserve">
+    <value>Get Transactions By Notes</value>
+  </data>
   <data name="GetTransactionsByPartner" xml:space="preserve">
     <value>Get Transactions By Partner</value>
   </data>
@@ -614,6 +617,9 @@
   </data>
   <data name="No" xml:space="preserve">
     <value>No</value>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>Note</value>
   </data>
   <data name="Notes" xml:space="preserve">
     <value>Notes</value>

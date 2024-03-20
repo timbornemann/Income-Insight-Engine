@@ -1159,6 +1159,15 @@ namespace IncomeInsightEngine.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Get Transactions By Notes ähnelt.
+        /// </summary>
+        public static string GetTransactionsByNotes {
+            get {
+                return ResourceManager.GetString("GetTransactionsByNotes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Get Transactions By Partner ähnelt.
         /// </summary>
         public static string GetTransactionsByPartner {
@@ -1551,6 +1560,15 @@ namespace IncomeInsightEngine.Properties {
         public static string No {
             get {
                 return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Note ähnelt.
+        /// </summary>
+        public static string Note {
+            get {
+                return ResourceManager.GetString("Note", resourceCulture);
             }
         }
         
