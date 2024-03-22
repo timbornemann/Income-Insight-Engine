@@ -4,11 +4,6 @@ The Income Insight Engine is an open-source tool designed to assist with persona
 
 With the Income Insight Engine, users can easily log transactions, categorize their spending, and analyze patterns in their financial behavior. Whether you're interested in detailed breakdowns of your spending habits or just need a simple way to keep track of finances, this tool provides the necessary features to meet a range of financial management needs.
 
-
-## 🚧 Project status: In development 🚧
-
-The **Income Insight Engine** is currently under development. Many of the planned functions and features are full of potential, but are currently still in the development or planning phase.
-
 ### 🌟 Features
 
 - **Transaction Management**: Add and delete financial transactions with ease.
@@ -26,9 +21,10 @@ The **Income Insight Engine** is currently under development. Many of the planne
 
 ### ⚙️ Installation
 
-1. Download the [Income Insight Engine](https://github.com/timbornemann/Income-Insight-Engine/files/14629163/IncomeInsightEngineSetupV1.1.zip).
-2. Unzip the file and execute the installer within.
-3. Follow the on-screen instructions to install the Income Insight Engine on your system.
+1. Download the `Income Insight Engine` installer directly from the release page or from the release folder in the code section.
+    - The file is likely to be classified as suspicious and will only be downloaded after confirmation
+3. Unzip the file and execute the installer within.
+4. Follow the on-screen instructions to install the Income Insight Engine on your system.
 
 ## General Program Operation
 
